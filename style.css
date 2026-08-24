@@ -1353,6 +1353,7 @@ footer p {
         grid-column: auto;
     }
 }
+
 /* =====================================================
    SERVIÇOS — NZINGA 0.2
    ===================================================== */
@@ -1798,5 +1799,577 @@ footer p {
 
     .services-cta h2 {
         letter-spacing: -2px;
+    }
+}
+/* =====================================================
+   PÁGINA INDIVIDUAL — SERVIÇO
+   ===================================================== */
+
+.service-detail-hero {
+    min-height: 78vh;
+
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+
+    align-items: center;
+    gap: 60px;
+
+    padding: 90px 8%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #111111 0%,
+            #211016 52%,
+            #e52521 100%
+        );
+
+    color: var(--white);
+
+    overflow: hidden;
+}
+
+.service-detail-content {
+    max-width: 760px;
+}
+
+.service-detail-content h1 {
+    font-size: clamp(4rem, 8vw, 7.5rem);
+
+    line-height: 0.88;
+
+    letter-spacing: -6px;
+
+    margin-bottom: 28px;
+}
+
+.service-detail-content > p {
+    max-width: 600px;
+
+    color: #dddddd;
+
+    font-size: 1.1rem;
+
+    margin-bottom: 32px;
+}
+
+
+/* VISUAL TEMPORÁRIO */
+
+.service-visual-placeholder {
+    min-height: 430px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 35px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 201, 40, 0.95),
+            rgba(229, 37, 33, 0.95)
+        );
+
+    transform: rotate(3deg);
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.3);
+}
+
+.logo-demo {
+    width: 220px;
+    height: 220px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 14px solid var(--black);
+
+    background: var(--white);
+
+    color: var(--red);
+
+    font-size: 8rem;
+    font-weight: 950;
+
+    transform: rotate(-3deg);
+
+    box-shadow:
+        15px 15px 0 var(--black);
+}
+
+
+/* =====================================================
+   SOBRE O SERVIÇO
+   ===================================================== */
+
+.service-about {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 100px;
+
+    align-items: start;
+
+    background: var(--cream);
+}
+
+.service-about-title h2 {
+    max-width: 600px;
+
+    font-size: clamp(3rem, 6vw, 5.5rem);
+
+    line-height: 0.92;
+
+    letter-spacing: -4px;
+}
+
+.service-about-text {
+    padding-top: 45px;
+}
+
+.service-about-text p {
+    max-width: 600px;
+
+    color: #555;
+
+    font-size: 1.08rem;
+
+    margin-bottom: 25px;
+}
+
+
+/* =====================================================
+   INCLUÍDO
+   ===================================================== */
+
+.included-section {
+    background: var(--white);
+}
+
+.included-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 16px;
+}
+
+.included-card {
+    min-height: 250px;
+
+    padding: 28px;
+
+    border-radius: var(--radius);
+
+    background: var(--light);
+
+    border: 1px solid #e8e8e8;
+
+    transition:
+        transform var(--transition),
+        box-shadow var(--transition);
+}
+
+.included-card:hover {
+    transform: translateY(-6px);
+
+    box-shadow: var(--shadow);
+}
+
+.included-card > span {
+    display: block;
+
+    margin-bottom: 70px;
+
+    color: var(--red);
+
+    font-weight: 950;
+}
+
+.included-card h3 {
+    font-size: 1.2rem;
+
+    margin-bottom: 8px;
+}
+
+.included-card p {
+    color: var(--gray);
+
+    font-size: 0.88rem;
+}
+
+
+/* =====================================================
+   PREÇOS
+   ===================================================== */
+
+.pricing-section {
+    background: #f4f4f4;
+}
+
+.pricing-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+.price-card {
+    position: relative;
+
+    padding: 35px;
+
+    min-height: 520px;
+
+    display: flex;
+    flex-direction: column;
+
+    border-radius: 25px;
+
+    background: var(--white);
+
+    border: 1px solid #e3e3e3;
+
+    box-shadow: var(--shadow);
+}
+
+.price-level {
+    color: var(--gray);
+
+    font-size: 0.72rem;
+    font-weight: 950;
+
+    letter-spacing: 2px;
+}
+
+.price-card h3 {
+    font-size: 2rem;
+
+    margin-top: 15px;
+}
+
+.price {
+    display: flex;
+    align-items: baseline;
+
+    gap: 6px;
+
+    margin: 25px 0 15px;
+}
+
+.price strong {
+    font-size: 3.5rem;
+
+    line-height: 1;
+
+    letter-spacing: -3px;
+}
+
+.price span {
+    color: var(--gray);
+
+    font-weight: 800;
+}
+
+.price-card > p {
+    min-height: 65px;
+
+    color: var(--gray);
+
+    font-size: 0.9rem;
+}
+
+.price-card ul {
+    list-style: none;
+
+    margin: 25px 0 30px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+.price-card li {
+    font-size: 0.88rem;
+
+    padding-left: 20px;
+
+    position: relative;
+}
+
+.price-card li::before {
+    content: "✓";
+
+    position: absolute;
+
+    left: 0;
+
+    color: var(--green);
+
+    font-weight: 950;
+}
+
+.price-card .button {
+    margin-top: auto;
+
+    width: 100%;
+}
+
+.featured {
+    border: 3px solid var(--red);
+
+    transform: translateY(-10px);
+}
+
+.featured:hover {
+    transform: translateY(-15px);
+}
+
+.popular {
+    position: absolute;
+
+    top: 20px;
+    right: 20px;
+
+    padding: 7px 10px;
+
+    border-radius: 999px;
+
+    background: var(--red);
+
+    color: var(--white);
+
+    font-size: 0.65rem;
+    font-weight: 950;
+}
+
+.special-price {
+    background:
+        linear-gradient(
+            145deg,
+            #111111,
+            #2a122c
+        );
+
+    color: var(--white);
+
+    border-color: var(--purple);
+}
+
+.special-price .price-level {
+    color: var(--yellow);
+}
+
+.special-price > p {
+    color: #bcbcbc;
+}
+
+.special-price li::before {
+    color: var(--yellow);
+}
+
+.price-house {
+    margin: 28px 0 20px;
+
+    font-size: 1.55rem;
+
+    font-weight: 950;
+
+    color: var(--yellow);
+
+    line-height: 1.1;
+}
+
+
+/* =====================================================
+   PROCESSO
+   ===================================================== */
+
+.process-section {
+    background: var(--black);
+
+    color: var(--white);
+}
+
+.process-section .section-label {
+    color: var(--yellow);
+}
+
+.process-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 16px;
+}
+
+.process-card {
+    min-height: 240px;
+
+    padding: 28px;
+
+    border: 1px solid #292929;
+
+    border-radius: var(--radius);
+
+    background: #161616;
+}
+
+.process-card > span {
+    display: block;
+
+    margin-bottom: 65px;
+
+    color: var(--red);
+
+    font-weight: 950;
+}
+
+.process-card h3 {
+    margin-bottom: 8px;
+
+    font-size: 1.2rem;
+}
+
+.process-card p {
+    color: #999;
+
+    font-size: 0.88rem;
+}
+
+
+/* =====================================================
+   CTA FINAL
+   ===================================================== */
+
+.service-final-cta {
+    padding: 130px 8%;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--yellow),
+            var(--orange),
+            var(--red)
+        );
+}
+
+.service-final-cta h2 {
+    max-width: 850px;
+
+    margin: 0 auto 20px;
+
+    font-size: clamp(3.5rem, 8vw, 7rem);
+
+    line-height: 0.88;
+
+    letter-spacing: -5px;
+}
+
+.service-final-cta p {
+    margin-bottom: 30px;
+
+    color: #4d2600;
+}
+
+
+/* =====================================================
+   MOBILE
+   ===================================================== */
+
+@media (max-width: 850px) {
+
+    .service-detail-hero {
+        grid-template-columns: 1fr;
+
+        padding: 75px 6%;
+    }
+
+    .service-visual-placeholder {
+        min-height: 300px;
+
+        transform: none;
+    }
+
+    .logo-demo {
+        width: 160px;
+        height: 160px;
+
+        font-size: 5rem;
+
+        border-width: 10px;
+
+        box-shadow: 10px 10px 0 var(--black);
+    }
+
+    .service-about {
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+
+    .service-about-text {
+        padding-top: 0;
+    }
+
+    .included-grid,
+    .pricing-grid,
+    .process-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .featured {
+        transform: none;
+    }
+
+    .featured:hover {
+        transform: translateY(-5px);
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .service-detail-content h1 {
+        font-size: 4rem;
+
+        letter-spacing: -3px;
+    }
+
+    .service-about-title h2 {
+        font-size: 3.2rem;
+
+        letter-spacing: -2px;
+    }
+
+    .included-grid,
+    .pricing-grid,
+    .process-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .price-card {
+        min-height: auto;
+    }
+
+    .price-card > p {
+        min-height: auto;
+    }
+
+    .service-final-cta {
+        padding: 90px 6%;
+    }
+
+    .service-final-cta h2 {
+        letter-spacing: -3px;
     }
 }
