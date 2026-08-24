@@ -1353,3 +1353,450 @@ footer p {
         grid-column: auto;
     }
 }
+/* =====================================================
+   SERVIÇOS — NZINGA 0.2
+   ===================================================== */
+
+.services-page-hero {
+    position: relative;
+    overflow: hidden;
+
+    min-height: 65vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 100px 8%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #111111 0%,
+            #241014 45%,
+            #e52521 100%
+        );
+
+    color: var(--white);
+}
+
+.services-page-hero h1 {
+    position: relative;
+    z-index: 2;
+
+    max-width: 950px;
+
+    font-size: clamp(4rem, 9vw, 8rem);
+
+    line-height: 0.88;
+
+    letter-spacing: -6px;
+
+    margin-bottom: 30px;
+}
+
+.services-page-hero p {
+    position: relative;
+    z-index: 2;
+
+    max-width: 650px;
+
+    color: #eeeeee;
+
+    font-size: 1.15rem;
+}
+
+.services-page-hero .section-label {
+    position: relative;
+    z-index: 2;
+
+    color: var(--yellow);
+}
+
+.services-page-pattern {
+    position: absolute;
+
+    right: 7%;
+    bottom: 10%;
+
+    color: var(--yellow);
+
+    font-size: 3rem;
+
+    letter-spacing: 25px;
+
+    transform: rotate(-12deg);
+
+    opacity: 0.8;
+}
+
+
+/* =====================================================
+   CATEGORIAS
+   ===================================================== */
+
+.service-category-section {
+    padding: 110px 8%;
+
+    background: var(--white);
+}
+
+.category-intro {
+    display: grid;
+
+    grid-template-columns: 100px 1fr;
+
+    gap: 30px;
+
+    align-items: start;
+
+    max-width: 950px;
+
+    margin-bottom: 55px;
+}
+
+.category-number {
+    font-size: 4rem;
+
+    font-weight: 950;
+
+    line-height: 1;
+
+    color: var(--red);
+
+    letter-spacing: -3px;
+}
+
+.category-intro h2 {
+    max-width: 850px;
+
+    font-size: clamp(2.5rem, 6vw, 5rem);
+
+    line-height: 0.95;
+
+    letter-spacing: -3px;
+
+    margin-bottom: 18px;
+}
+
+.category-intro p {
+    max-width: 650px;
+
+    color: var(--gray);
+
+    font-size: 1.05rem;
+}
+
+
+/* =====================================================
+   LISTA DE SERVIÇOS
+   ===================================================== */
+
+.service-list {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 16px;
+
+    max-width: 1200px;
+}
+
+.service-list-card {
+    min-height: 170px;
+
+    padding: 25px;
+
+    display: grid;
+
+    grid-template-columns: 60px 1fr 30px;
+
+    gap: 20px;
+
+    align-items: center;
+
+    border: 1px solid #e6e6e6;
+
+    border-radius: var(--radius-small);
+
+    background: var(--white);
+
+    transition:
+        transform var(--transition),
+        box-shadow var(--transition),
+        border-color var(--transition);
+}
+
+.service-list-card:hover {
+    transform: translateY(-5px);
+
+    border-color: var(--red);
+
+    box-shadow: var(--shadow-hover);
+}
+
+.service-mini-icon {
+    width: 55px;
+    height: 55px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 16px;
+
+    font-size: 1.35rem;
+
+    font-weight: 950;
+}
+
+.red-mini {
+    background: #ffe2e1;
+    color: var(--red);
+}
+
+.yellow-mini {
+    background: #fff2b8;
+    color: #8d6d00;
+}
+
+.purple-mini {
+    background: #eee3ff;
+    color: var(--purple);
+}
+
+.blue-mini {
+    background: #e1edff;
+    color: var(--blue);
+}
+
+.green-mini {
+    background: #ddf5e7;
+    color: var(--green);
+}
+
+.orange-mini {
+    background: #ffe5d0;
+    color: var(--orange);
+}
+
+.service-info h3 {
+    font-size: 1.25rem;
+
+    margin-bottom: 5px;
+}
+
+.service-info p {
+    color: var(--gray);
+
+    font-size: 0.88rem;
+
+    line-height: 1.5;
+}
+
+.service-arrow {
+    font-size: 1.4rem;
+
+    color: var(--red);
+
+    transition: transform var(--transition);
+}
+
+.service-list-card:hover .service-arrow {
+    transform: translateX(5px);
+}
+
+
+/* =====================================================
+   BRANDING DARK
+   ===================================================== */
+
+.category-dark {
+    background: var(--black);
+
+    color: var(--white);
+}
+
+.category-dark .category-intro p {
+    color: #aaa;
+}
+
+.category-dark .category-number {
+    color: var(--yellow);
+}
+
+.dark-card {
+    background: #171717;
+
+    border-color: #292929;
+
+    color: var(--white);
+}
+
+.dark-card:hover {
+    background: #202020;
+
+    border-color: var(--yellow);
+}
+
+.dark-card .service-info p {
+    color: #999;
+}
+
+.dark-card .service-arrow {
+    color: var(--yellow);
+}
+
+
+/* =====================================================
+   DIGITAL GRADIENT
+   ===================================================== */
+
+.category-gradient {
+    background:
+        linear-gradient(
+            135deg,
+            #eef5ff,
+            #f4ecff
+        );
+}
+
+.category-gradient .category-number {
+    color: var(--blue);
+}
+
+
+/* =====================================================
+   CTA DOS SERVIÇOS
+   ===================================================== */
+
+.services-cta {
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 120px 8%;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--red),
+            var(--purple)
+        );
+
+    color: var(--white);
+}
+
+.services-cta .section-label {
+    color: var(--yellow);
+}
+
+.services-cta h2 {
+    max-width: 850px;
+
+    margin: 0 auto 20px;
+
+    font-size: clamp(3rem, 7vw, 6rem);
+
+    line-height: 0.9;
+
+    letter-spacing: -4px;
+}
+
+.services-cta p {
+    max-width: 600px;
+
+    margin: 0 auto 30px;
+
+    color: #f2eafa;
+}
+
+
+/* =====================================================
+   MOBILE — SERVIÇOS
+   ===================================================== */
+
+@media (max-width: 700px) {
+
+    .services-page-hero {
+        min-height: 70vh;
+
+        padding: 80px 6%;
+    }
+
+    .services-page-hero h1 {
+        font-size: clamp(3.5rem, 16vw, 5.5rem);
+
+        letter-spacing: -4px;
+    }
+
+    .services-page-pattern {
+        right: -20px;
+        bottom: 8%;
+
+        font-size: 1.5rem;
+
+        letter-spacing: 10px;
+    }
+
+    .service-category-section {
+        padding: 75px 6%;
+    }
+
+    .category-intro {
+        grid-template-columns: 1fr;
+
+        gap: 10px;
+
+        margin-bottom: 40px;
+    }
+
+    .category-number {
+        font-size: 2.5rem;
+    }
+
+    .category-intro h2 {
+        font-size: 3rem;
+
+        letter-spacing: -2px;
+    }
+
+    .service-list {
+        grid-template-columns: 1fr;
+    }
+
+    .service-list-card {
+        min-height: 150px;
+
+        grid-template-columns: 50px 1fr 20px;
+
+        gap: 14px;
+
+        padding: 18px;
+    }
+
+    .service-mini-icon {
+        width: 48px;
+        height: 48px;
+
+        border-radius: 13px;
+    }
+
+    .service-info h3 {
+        font-size: 1.1rem;
+    }
+
+    .service-info p {
+        font-size: 0.82rem;
+    }
+
+    .services-cta {
+        padding: 85px 6%;
+    }
+
+    .services-cta h2 {
+        letter-spacing: -2px;
+    }
+}
