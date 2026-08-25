@@ -4657,3 +4657,458 @@ footer p {
         padding: 90px 6%;
     }
 }
+
+/* =====================================================
+   LOGIN / CADASTRO
+   ===================================================== */
+
+.auth-page {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    background:
+        linear-gradient(
+            135deg,
+            #100b0b,
+            #2a1114 55%,
+            #6d1d1d
+        );
+
+    color: var(--white);
+}
+
+.auth-header {
+    background: transparent;
+}
+
+.auth-header .logo {
+    color: var(--white);
+}
+
+.back-link {
+    color: #ddd;
+
+    font-size: .8rem;
+
+    font-weight: 800;
+}
+
+.back-link:hover {
+    color: var(--yellow);
+}
+
+
+/* =====================================================
+   ÁREA PRINCIPAL
+   ===================================================== */
+
+.auth-main {
+    flex: 1;
+
+    width: min(1200px, 100%);
+
+    margin: 0 auto;
+
+    padding: 60px 6% 90px;
+
+    display: grid;
+
+    grid-template-columns: 1fr .75fr;
+
+    align-items: center;
+
+    gap: 90px;
+}
+
+
+/* =====================================================
+   INTRO
+   ===================================================== */
+
+.auth-intro {
+    max-width: 700px;
+}
+
+.auth-intro .section-label {
+    color: var(--yellow);
+}
+
+.auth-intro h1 {
+    margin: 18px 0 25px;
+
+    font-size: clamp(4rem, 7vw, 7rem);
+
+    line-height: .86;
+
+    letter-spacing: -5px;
+}
+
+.auth-intro > p {
+    max-width: 600px;
+
+    color: #ddd;
+
+    font-size: 1.05rem;
+}
+
+
+/* =====================================================
+   BENEFÍCIOS
+   ===================================================== */
+
+.auth-benefits {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 12px;
+
+    margin-top: 45px;
+}
+
+.auth-benefits div {
+    padding: 18px;
+
+    border: 1px solid rgba(255,255,255,.12);
+
+    border-radius: 15px;
+
+    background: rgba(255,255,255,.05);
+}
+
+.auth-benefits strong {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: var(--yellow);
+
+    font-size: .65rem;
+}
+
+.auth-benefits span {
+    color: #ddd;
+
+    font-size: .8rem;
+}
+
+
+/* =====================================================
+   CARTÃO
+   ===================================================== */
+
+.auth-card {
+    padding: 32px;
+
+    border-radius: 25px;
+
+    background: var(--white);
+
+    color: var(--black);
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.35);
+}
+
+
+/* =====================================================
+   TABS
+   ===================================================== */
+
+.auth-tabs {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 5px;
+
+    padding: 5px;
+
+    margin-bottom: 30px;
+
+    border-radius: 12px;
+
+    background: #f0f0f0;
+}
+
+.auth-tab {
+    padding: 12px;
+
+    border: 0;
+
+    border-radius: 9px;
+
+    background: transparent;
+
+    color: #777;
+
+    cursor: pointer;
+
+    font: inherit;
+
+    font-size: .8rem;
+
+    font-weight: 800;
+}
+
+.auth-tab.active {
+    background: var(--black);
+
+    color: var(--white);
+}
+
+
+/* =====================================================
+   FORMULÁRIO
+   ===================================================== */
+
+.auth-form {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+.auth-form label {
+    margin-top: 5px;
+
+    font-size: .75rem;
+
+    font-weight: 850;
+}
+
+.auth-form input[type="email"],
+.auth-form input[type="password"] {
+    width: 100%;
+
+    padding: 14px 15px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 10px;
+
+    outline: none;
+
+    background: #fafafa;
+
+    color: var(--black);
+
+    font: inherit;
+
+    font-size: .85rem;
+}
+
+.auth-form input:focus {
+    border-color: var(--red);
+
+    box-shadow:
+        0 0 0 3px rgba(229,37,33,.1);
+}
+
+
+/* =====================================================
+   OPÇÕES
+   ===================================================== */
+
+.auth-options {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin: 8px 0 15px;
+}
+
+.auth-options a {
+    color: var(--red);
+
+    font-size: .68rem;
+
+    font-weight: 800;
+}
+
+.remember {
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    color: #666;
+
+    font-size: .7rem;
+}
+
+.remember input {
+    accent-color: var(--red);
+}
+
+
+/* =====================================================
+   BOTÃO
+   ===================================================== */
+
+.auth-submit {
+    width: 100%;
+
+    border: 0;
+
+    cursor: pointer;
+
+    font: inherit;
+
+    font-weight: 900;
+}
+
+
+/* =====================================================
+   DIVISOR
+   ===================================================== */
+
+.auth-divider {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin: 20px 0;
+
+    color: #999;
+
+    font-size: .7rem;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+    content: "";
+
+    flex: 1;
+
+    height: 1px;
+
+    background: #ddd;
+}
+
+
+/* =====================================================
+   LOGIN SOCIAL
+   ===================================================== */
+
+.social-login {
+    width: 100%;
+
+    padding: 13px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 10px;
+
+    background: var(--white);
+
+    color: var(--black);
+
+    cursor: pointer;
+
+    font: inherit;
+
+    font-size: .8rem;
+
+    font-weight: 800;
+}
+
+.social-login:hover {
+    background: #f5f5f5;
+}
+
+
+/* =====================================================
+   TERMOS
+   ===================================================== */
+
+.auth-terms {
+    margin-top: 22px;
+
+    color: #888;
+
+    font-size: .65rem;
+
+    line-height: 1.5;
+
+    text-align: center;
+}
+
+.auth-terms a {
+    color: var(--red);
+
+    font-weight: 800;
+}
+
+
+/* =====================================================
+   FOOTER
+   ===================================================== */
+
+.auth-footer {
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 20px 6%;
+
+    color: #aaa;
+
+    font-size: .65rem;
+}
+
+
+/* =====================================================
+   MOBILE
+   ===================================================== */
+
+@media (max-width: 900px) {
+
+    .auth-main {
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+
+        padding-top: 40px;
+    }
+
+    .auth-intro h1 {
+        font-size: 4.5rem;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .auth-main {
+        padding: 35px 6% 60px;
+    }
+
+    .auth-intro h1 {
+        font-size: 3.6rem;
+
+        letter-spacing: -3px;
+    }
+
+    .auth-benefits {
+        grid-template-columns: 1fr;
+    }
+
+    .auth-card {
+        padding: 22px;
+    }
+
+    .auth-footer {
+        padding: 18px 6%;
+    }
+}
