@@ -3453,3 +3453,581 @@ footer p {
         padding: 90px 6%;
     }
 }
+
+/* =====================================================
+   NZINGAGPT
+   ===================================================== */
+
+.gpt-hero {
+    min-height: 82vh;
+
+    display: grid;
+    grid-template-columns: 1fr .8fr;
+
+    align-items: center;
+    gap: 70px;
+
+    padding: 90px 8%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #090909,
+            #25132f 50%,
+            #5421a5
+        );
+
+    color: var(--white);
+
+    overflow: hidden;
+}
+
+.gpt-hero-content {
+    max-width: 800px;
+}
+
+.gpt-hero-content .section-label {
+    color: var(--yellow);
+}
+
+.gpt-hero-content h1 {
+    font-size: clamp(4rem, 8vw, 7.5rem);
+
+    line-height: .86;
+
+    letter-spacing: -6px;
+
+    margin-bottom: 28px;
+}
+
+.gpt-hero-content p {
+    max-width: 620px;
+
+    color: #ddd;
+
+    font-size: 1.08rem;
+
+    margin-bottom: 30px;
+}
+
+.gpt-actions {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+}
+
+
+/* =====================================================
+   JANELA DO CHAT
+   ===================================================== */
+
+.gpt-window {
+    width: 100%;
+
+    padding: 20px;
+
+    border: 1px solid rgba(255,255,255,.15);
+
+    border-radius: 25px;
+
+    background: rgba(255,255,255,.08);
+
+    backdrop-filter: blur(15px);
+
+    box-shadow:
+        0 30px 90px rgba(0,0,0,.35);
+
+    transform: rotate(2deg);
+}
+
+.gpt-window-top {
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 8px 4px 18px;
+
+    border-bottom: 1px solid rgba(255,255,255,.12);
+
+    font-size: .72rem;
+    font-weight: 900;
+}
+
+.gpt-status {
+    color: #75e59b;
+}
+
+.gpt-message {
+    max-width: 85%;
+
+    padding: 14px 16px;
+
+    margin-top: 18px;
+
+    border-radius: 15px;
+
+    font-size: .85rem;
+
+    line-height: 1.5;
+}
+
+.gpt-user {
+    margin-left: auto;
+
+    background: var(--purple);
+
+    color: white;
+}
+
+.gpt-ai {
+    background: rgba(255,255,255,.95);
+
+    color: var(--black);
+}
+
+.gpt-input {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    margin-top: 20px;
+
+    padding: 14px 16px;
+
+    border-radius: 13px;
+
+    background: rgba(255,255,255,.09);
+
+    color: #999;
+
+    font-size: .8rem;
+}
+
+.gpt-input strong {
+    color: var(--yellow);
+
+    font-size: 1.3rem;
+}
+
+
+/* =====================================================
+   SOBRE
+   ===================================================== */
+
+.gpt-about {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 90px;
+
+    background: var(--cream);
+}
+
+.gpt-about-title h2 {
+    max-width: 700px;
+
+    margin-top: 15px;
+
+    font-size: clamp(3rem, 6vw, 5.5rem);
+
+    line-height: .92;
+
+    letter-spacing: -4px;
+}
+
+.gpt-about-text {
+    max-width: 620px;
+}
+
+.gpt-about-text p {
+    margin-bottom: 25px;
+
+    color: #555;
+
+    font-size: 1.05rem;
+}
+
+
+/* =====================================================
+   CAPACIDADES
+   ===================================================== */
+
+.gpt-capabilities {
+    background: var(--white);
+}
+
+.gpt-capability-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 16px;
+}
+
+.gpt-capability {
+    min-height: 260px;
+
+    padding: 28px;
+
+    border-radius: 20px;
+
+    border: 1px solid #e5e5e5;
+
+    background: var(--white);
+
+    transition:
+        transform var(--transition),
+        box-shadow var(--transition);
+}
+
+.gpt-capability:hover {
+    transform: translateY(-6px);
+
+    box-shadow: var(--shadow-hover);
+}
+
+.gpt-capability > span {
+    color: var(--purple);
+
+    font-size: .7rem;
+    font-weight: 950;
+}
+
+.gpt-capability h3 {
+    margin-top: 70px;
+
+    margin-bottom: 10px;
+
+    font-size: 1.3rem;
+}
+
+.gpt-capability p {
+    color: var(--gray);
+
+    font-size: .88rem;
+}
+
+
+/* =====================================================
+   MODELO NORMAL
+   ===================================================== */
+
+.gpt-limits {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 80px;
+
+    align-items: center;
+
+    background: #f2f2f2;
+}
+
+.gpt-limits h2 {
+    margin-top: 15px;
+
+    font-size: clamp(3rem, 6vw, 5rem);
+
+    line-height: .9;
+
+    letter-spacing: -4px;
+}
+
+.gpt-limits p {
+    max-width: 550px;
+
+    margin-top: 20px;
+
+    color: var(--gray);
+}
+
+.limit-list {
+    display: flex;
+
+    flex-direction: column;
+}
+
+.limit-list > div {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 20px 0;
+
+    border-bottom: 1px solid #d5d5d5;
+}
+
+.limit-list strong {
+    font-size: .9rem;
+}
+
+.limit-list span {
+    color: var(--gray);
+
+    font-size: .8rem;
+}
+
+
+/* =====================================================
+   PREMIUM
+   ===================================================== */
+
+.gpt-premium {
+    display: grid;
+
+    grid-template-columns: 1fr .65fr;
+
+    gap: 80px;
+
+    align-items: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--red),
+            #8c1d78,
+            var(--purple)
+        );
+
+    color: var(--white);
+}
+
+.premium-content {
+    max-width: 750px;
+}
+
+.premium-content .section-label {
+    color: var(--yellow);
+}
+
+.premium-content h2 {
+    margin-top: 15px;
+
+    font-size: clamp(3.5rem, 7vw, 6.5rem);
+
+    line-height: .88;
+
+    letter-spacing: -5px;
+}
+
+.premium-content p {
+    max-width: 600px;
+
+    margin-top: 25px;
+
+    color: #f0dff0;
+
+    font-size: 1.05rem;
+}
+
+.premium-card {
+    padding: 35px;
+
+    border-radius: 25px;
+
+    background: var(--white);
+
+    color: var(--black);
+
+    box-shadow:
+        0 30px 70px rgba(0,0,0,.25);
+}
+
+.premium-badge {
+    display: inline-block;
+
+    padding: 7px 11px;
+
+    border-radius: 999px;
+
+    background: var(--yellow);
+
+    color: var(--black);
+
+    font-size: .65rem;
+
+    font-weight: 950;
+}
+
+.premium-card h3 {
+    margin: 20px 0;
+
+    font-size: 1.5rem;
+}
+
+.premium-price {
+    padding-bottom: 20px;
+
+    border-bottom: 1px solid #ddd;
+}
+
+.premium-price strong {
+    font-size: 1.5rem;
+}
+
+.premium-price span {
+    color: var(--gray);
+
+    font-size: .8rem;
+}
+
+.premium-card ul {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 13px;
+
+    padding: 25px 0;
+
+    list-style: none;
+}
+
+.premium-card li {
+    font-size: .85rem;
+}
+
+.premium-card li::before {
+    content: "✓";
+
+    margin-right: 9px;
+
+    color: var(--red);
+
+    font-weight: 950;
+}
+
+
+/* =====================================================
+   TERMOS
+   ===================================================== */
+
+.gpt-terms {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 90px;
+
+    background: var(--cream);
+}
+
+.gpt-terms h2 {
+    max-width: 650px;
+
+    margin-top: 15px;
+
+    font-size: clamp(3rem, 6vw, 5rem);
+
+    line-height: .9;
+
+    letter-spacing: -4px;
+}
+
+.terms-text {
+    max-width: 600px;
+}
+
+.terms-text p {
+    margin-bottom: 25px;
+
+    color: #555;
+}
+
+.text-link {
+    color: var(--red);
+
+    font-weight: 900;
+}
+
+
+/* =====================================================
+   CTA FINAL
+   ===================================================== */
+
+.gpt-final {
+    padding: 130px 8%;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--yellow),
+            #ff9a36,
+            var(--red)
+        );
+}
+
+.gpt-final h2 {
+    max-width: 900px;
+
+    margin: 0 auto 30px;
+
+    font-size: clamp(3.5rem, 8vw, 7rem);
+
+    line-height: .86;
+
+    letter-spacing: -5px;
+}
+
+
+/* =====================================================
+   MOBILE
+   ===================================================== */
+
+@media (max-width: 900px) {
+
+    .gpt-hero,
+    .gpt-about,
+    .gpt-limits,
+    .gpt-premium,
+    .gpt-terms {
+        grid-template-columns: 1fr;
+    }
+
+    .gpt-hero {
+        padding: 75px 6%;
+    }
+
+    .gpt-window {
+        transform: none;
+    }
+
+    .gpt-capability-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .gpt-hero-content h1 {
+        font-size: 4rem;
+
+        letter-spacing: -3px;
+    }
+
+    .gpt-capability-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gpt-about-title h2,
+    .gpt-limits h2,
+    .premium-content h2,
+    .gpt-terms h2,
+    .gpt-final h2 {
+        letter-spacing: -2px;
+    }
+
+    .gpt-final {
+        padding: 90px 6%;
+    }
+}
