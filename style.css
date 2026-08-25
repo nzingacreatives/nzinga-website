@@ -4031,3 +4031,629 @@ footer p {
         padding: 90px 6%;
     }
 }
+
+/* =====================================================
+   NZINGA RAÍZES
+   ===================================================== */
+
+.roots-hero {
+    min-height: 82vh;
+
+    display: grid;
+    grid-template-columns: 1fr .75fr;
+
+    align-items: center;
+    gap: 70px;
+
+    padding: 90px 8%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #090909 0%,
+            #21100d 50%,
+            #b91d19 100%
+        );
+
+    color: var(--white);
+
+    overflow: hidden;
+}
+
+.roots-hero-content {
+    max-width: 900px;
+}
+
+.roots-hero-content .section-label {
+    color: var(--yellow);
+}
+
+.roots-hero-content h1 {
+    max-width: 900px;
+
+    font-size: clamp(4rem, 8vw, 7.5rem);
+
+    line-height: .84;
+
+    letter-spacing: -6px;
+
+    margin-bottom: 30px;
+}
+
+.roots-hero-content p {
+    max-width: 620px;
+
+    color: #ddd;
+
+    font-size: 1.08rem;
+
+    margin-bottom: 32px;
+}
+
+
+/* =====================================================
+   PADRÃO
+   ===================================================== */
+
+.roots-pattern {
+    min-height: 470px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 30px;
+
+    background:
+        repeating-linear-gradient(
+            45deg,
+            var(--yellow) 0,
+            var(--yellow) 25px,
+            var(--black) 25px,
+            var(--black) 50px,
+            var(--red) 50px,
+            var(--red) 75px
+        );
+
+    transform: rotate(3deg);
+
+    box-shadow:
+        25px 25px 0 rgba(255,255,255,.9);
+}
+
+.roots-pattern span {
+    width: 220px;
+    height: 220px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: var(--black);
+
+    color: var(--yellow);
+
+    border: 10px solid var(--white);
+
+    font-size: 4rem;
+    font-weight: 950;
+
+    transform: rotate(-3deg);
+}
+
+
+/* =====================================================
+   NZINGA MBANDI
+   ===================================================== */
+
+.roots-nzinga {
+    display: grid;
+
+    grid-template-columns: .9fr 1.1fr;
+
+    gap: 90px;
+
+    align-items: center;
+
+    background: var(--cream);
+}
+
+.roots-nzinga-image {
+    min-height: 520px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 25px;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2c1111,
+            #d08a28
+        );
+}
+
+.image-placeholder {
+    padding: 18px 25px;
+
+    border: 3px solid var(--white);
+
+    color: var(--white);
+
+    font-size: .75rem;
+    font-weight: 950;
+
+    letter-spacing: 2px;
+
+    transform: rotate(-4deg);
+}
+
+.roots-nzinga-content {
+    max-width: 700px;
+}
+
+.roots-nzinga-content h2 {
+    margin: 15px 0 25px;
+
+    font-size: clamp(3.5rem, 7vw, 6rem);
+
+    line-height: .88;
+
+    letter-spacing: -5px;
+}
+
+.roots-nzinga-content p {
+    margin-bottom: 22px;
+
+    color: #555;
+
+    font-size: 1.05rem;
+}
+
+.text-link {
+    color: var(--red);
+
+    font-weight: 900;
+}
+
+
+/* =====================================================
+   CATEGORIAS
+   ===================================================== */
+
+.roots-explore {
+    background: var(--white);
+}
+
+.roots-category-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 15px;
+}
+
+.roots-category {
+    min-height: 240px;
+
+    padding: 28px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    border-radius: 22px;
+
+    color: var(--black);
+
+    border: 1px solid #e5e5e5;
+
+    background: var(--white);
+
+    transition:
+        transform var(--transition),
+        box-shadow var(--transition);
+}
+
+.roots-category:hover {
+    transform: translateY(-7px);
+
+    box-shadow: var(--shadow-hover);
+}
+
+.roots-category:nth-child(1) {
+    background: var(--yellow);
+}
+
+.roots-category:nth-child(2) {
+    background: #f3c4c2;
+}
+
+.roots-category:nth-child(3) {
+    background: #b995ff;
+}
+
+.roots-category:nth-child(4) {
+    background: #85c3ff;
+}
+
+.roots-category:nth-child(5) {
+    background: #86dda2;
+}
+
+.roots-category:nth-child(6) {
+    background: #ffad69;
+}
+
+.roots-category span {
+    color: var(--red);
+
+    font-size: .7rem;
+    font-weight: 950;
+}
+
+.roots-category h3 {
+    font-size: 1.6rem;
+}
+
+.roots-category p {
+    max-width: 350px;
+
+    color: #4e4e4e;
+
+    font-size: .87rem;
+}
+
+
+/* =====================================================
+   PROVÉRBIOS
+   ===================================================== */
+
+.roots-proverbs {
+    background: #111;
+
+    color: var(--white);
+}
+
+.proverbs-header {
+    max-width: 800px;
+}
+
+.proverbs-header .section-label {
+    color: var(--yellow);
+}
+
+.proverbs-header h2 {
+    margin: 15px 0 20px;
+
+    font-size: clamp(4rem, 8vw, 7rem);
+
+    line-height: .85;
+
+    letter-spacing: -5px;
+}
+
+.proverbs-header p {
+    max-width: 600px;
+
+    color: #aaa;
+}
+
+.proverb-controls {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin: 45px 0 25px;
+}
+
+.proverb-filter {
+    padding: 9px 15px;
+
+    border: 1px solid #444;
+
+    border-radius: 999px;
+
+    background: transparent;
+
+    color: #ddd;
+
+    cursor: pointer;
+
+    font: inherit;
+
+    font-size: .75rem;
+}
+
+.proverb-filter.active,
+.proverb-filter:hover {
+    background: var(--yellow);
+
+    border-color: var(--yellow);
+
+    color: var(--black);
+}
+
+.proverb-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 15px;
+}
+
+.proverb-card {
+    min-height: 300px;
+
+    padding: 30px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    border-radius: 20px;
+
+    background: #1b1b1b;
+
+    border: 1px solid #292929;
+}
+
+.proverb-number {
+    color: var(--yellow);
+
+    font-size: .7rem;
+
+    font-weight: 950;
+}
+
+.proverb-card blockquote {
+    margin: 30px 0;
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
+
+    line-height: 1.2;
+}
+
+.proverb-source {
+    color: #888;
+
+    font-size: .7rem;
+
+    line-height: 1.5;
+}
+
+.proverb-more {
+    margin-top: 20px;
+
+    padding: 35px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--red),
+            #7e1f70
+        );
+}
+
+.proverb-more strong {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: var(--yellow);
+
+    font-size: 1.3rem;
+}
+
+.proverb-more p {
+    color: #eee;
+
+    font-size: .85rem;
+}
+
+
+/* =====================================================
+   CULTURA
+   ===================================================== */
+
+.roots-culture {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 90px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--yellow),
+            #f4c34d
+        );
+}
+
+.roots-culture h2 {
+    max-width: 650px;
+
+    margin-top: 15px;
+
+    font-size: clamp(3rem, 6vw, 5.5rem);
+
+    line-height: .9;
+
+    letter-spacing: -4px;
+}
+
+.culture-text {
+    max-width: 600px;
+}
+
+.culture-text p {
+    margin-bottom: 25px;
+
+    color: #4d3200;
+
+    font-size: 1.05rem;
+}
+
+
+/* =====================================================
+   REFLEXÕES
+   ===================================================== */
+
+.roots-reflections {
+    background: var(--cream);
+}
+
+.reflection-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 15px;
+}
+
+.reflection-grid article {
+    min-height: 250px;
+
+    padding: 28px;
+
+    border-radius: 20px;
+
+    background: var(--white);
+
+    border: 1px solid #e3e3e3;
+}
+
+.reflection-grid article > span {
+    color: var(--red);
+
+    font-size: .7rem;
+
+    font-weight: 950;
+}
+
+.reflection-grid h3 {
+    margin-top: 70px;
+
+    margin-bottom: 10px;
+
+    font-size: 1.35rem;
+}
+
+.reflection-grid p {
+    color: var(--gray);
+
+    font-size: .88rem;
+}
+
+
+/* =====================================================
+   CTA
+   ===================================================== */
+
+.roots-final {
+    padding: 130px 8%;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--red),
+            #8b1f73,
+            var(--purple)
+        );
+
+    color: var(--white);
+}
+
+.roots-final .section-label {
+    color: var(--yellow);
+}
+
+.roots-final h2 {
+    margin: 15px auto 20px;
+
+    font-size: clamp(4rem, 9vw, 8rem);
+
+    line-height: .85;
+
+    letter-spacing: -6px;
+}
+
+.roots-final p {
+    color: #eee;
+}
+
+
+/* =====================================================
+   MOBILE
+   ===================================================== */
+
+@media (max-width: 900px) {
+
+    .roots-hero,
+    .roots-nzinga,
+    .roots-culture {
+        grid-template-columns: 1fr;
+    }
+
+    .roots-hero {
+        padding: 75px 6%;
+    }
+
+    .roots-pattern {
+        min-height: 300px;
+
+        transform: none;
+    }
+
+    .roots-nzinga-image {
+        min-height: 350px;
+    }
+
+    .roots-category-grid,
+    .reflection-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .roots-hero-content h1 {
+        font-size: 4rem;
+
+        letter-spacing: -3px;
+    }
+
+    .roots-category-grid,
+    .reflection-grid,
+    .proverb-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .roots-nzinga-content h2,
+    .roots-culture h2,
+    .roots-final h2 {
+        letter-spacing: -2px;
+    }
+
+    .roots-final {
+        padding: 90px 6%;
+    }
+}
