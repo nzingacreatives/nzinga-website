@@ -7181,3 +7181,21 @@ footer p {
         gap: 10px;
     }
 }
+
+
+/* =====================================================
+   PREÇOS DOS SERVIÇOS
+   ===================================================== */
+
+.service-price {
+    display: block;
+    margin-top: 12px;
+    color: var(--red);
+    font-size: 0.95rem;
+    font-weight: 900;
+    letter-spacing: 0.3px;
+}
+
+.dark-card .service-price {
+    color: var(--yellow);
+}
