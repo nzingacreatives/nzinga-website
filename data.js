@@ -168,17 +168,44 @@ const NZINGA = {
         },
 
         {
-            id: "apresentacao",
-            nome: "Apresentação",
-            categoria: "Documentos",
-            preco: 12000,
-            especial: 12000,
-            descricao:
-                "Apresentação visual para trabalhos, aulas, projetos ou negócios."
-        }
+    id: "landing-page",
+    nome: "Landing Page",
+    categoria: "Digital & Web",
+    preco: 35000,
+    especial: 35000,
+    descricao:
+        "Página criada para apresentar uma oferta, produto ou campanha."
+},
 
-    ],
+{
+    id: "website",
+    nome: "Website",
+    categoria: "Digital & Web",
+    preco: 65000,
+    especial: 65000,
+    descricao:
+        "Presença digital completa para projetos, marcas e empresas."
+},
 
+{
+    id: "experiencia-digital",
+    nome: "Experiência Digital",
+    categoria: "Digital & Web",
+    preco: 85000,
+    especial: 85000,
+    descricao:
+        "Solução digital personalizada para necessidades específicas."
+},
+
+{
+    id: "apresentacao",
+    nome: "Apresentação",
+    categoria: "Documentos",
+    preco: 12000,
+    especial: 12000,
+    descricao:
+        "Apresentação visual para trabalhos, aulas, projetos ou negócios."
+}
 
     /* ================================================
        NZINGAGPT
