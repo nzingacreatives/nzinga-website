@@ -1,5 +1,5 @@
 /* =====================================================
-   NZINGA — BASE DE DADOS INICIAL
+   NZINGA — BASE DE DADOS
    ===================================================== */
 
 const NZINGA = {
@@ -11,9 +11,9 @@ const NZINGA = {
     },
 
 
-    /* ================================================
+    /* =================================================
        SERVIÇOS
-       ================================================ */
+       ================================================= */
 
     servicos: [
 
@@ -137,15 +137,15 @@ const NZINGA = {
                 "Construção completa da identidade visual e direção da marca."
         },
 
-{
-    id: "branding-completo",
-    nome: "Branding Completo",
-    categoria: "Branding",
-    preco: 110000,
-    especial: 110000,
-    descricao:
-        "Solução completa para construir, organizar e apresentar uma marca."
-},
+        {
+            id: "branding-completo",
+            nome: "Branding Completo",
+            categoria: "Branding",
+            preco: 110000,
+            especial: 110000,
+            descricao:
+                "Solução completa para construir, organizar e apresentar uma marca."
+        },
 
         {
             id: "roteiro",
@@ -168,48 +168,61 @@ const NZINGA = {
         },
 
         {
-    id: "landing-page",
-    nome: "Landing Page",
-    categoria: "Digital & Web",
-    preco: 35000,
-    especial: 35000,
-    descricao:
-        "Página criada para apresentar uma oferta, produto ou campanha."
-},
+            id: "conteudo-audiovisual",
+            nome: "Conteúdo Audiovisual",
+            categoria: "Vídeo",
+            preco: 30000,
+            especial: 30000,
+            descricao:
+                "Soluções visuais para campanhas e comunicação digital."
+        },
 
-{
-    id: "website",
-    nome: "Website",
-    categoria: "Digital & Web",
-    preco: 65000,
-    especial: 65000,
-    descricao:
-        "Presença digital completa para projetos, marcas e empresas."
-},
+        {
+            id: "landing-page",
+            nome: "Landing Page",
+            categoria: "Digital & Web",
+            preco: 35000,
+            especial: 35000,
+            descricao:
+                "Página criada para apresentar uma oferta, produto ou campanha."
+        },
 
-{
-    id: "experiencia-digital",
-    nome: "Experiência Digital",
-    categoria: "Digital & Web",
-    preco: 85000,
-    especial: 85000,
-    descricao:
-        "Solução digital personalizada para necessidades específicas."
-},
+        {
+            id: "website",
+            nome: "Website",
+            categoria: "Digital & Web",
+            preco: 65000,
+            especial: 65000,
+            descricao:
+                "Presença digital completa para projetos, marcas e empresas."
+        },
 
-{
-    id: "apresentacao",
-    nome: "Apresentação",
-    categoria: "Documentos",
-    preco: 12000,
-    especial: 12000,
-    descricao:
-        "Apresentação visual para trabalhos, aulas, projetos ou negócios."
-}
+        {
+            id: "experiencia-digital",
+            nome: "Experiência Digital",
+            categoria: "Digital & Web",
+            preco: 85000,
+            especial: 85000,
+            descricao:
+                "Solução digital personalizada para necessidades específicas."
+        },
 
-    /* ================================================
+        {
+            id: "apresentacao",
+            nome: "Apresentação",
+            categoria: "Documentos",
+            preco: 12000,
+            especial: 12000,
+            descricao:
+                "Apresentação visual para trabalhos, aulas, projetos ou negócios."
+        }
+
+    ],
+
+
+    /* =================================================
        NZINGAGPT
-       ================================================ */
+       ================================================= */
 
     nzingaGPT: {
 
@@ -224,17 +237,17 @@ const NZINGA = {
         premium: {
             nome: "NzingaGPT Premium",
             preco: 0,
-            limite: "Ampliado",
+            limite: "Ilimitado",
             descricao:
-                "Versão avançada com limites maiores e funcionalidades adicionais."
+                "Versão avançada com acesso ilimitado e funcionalidades adicionais."
         }
 
     },
 
 
-    /* ================================================
+    /* =================================================
        PROMOÇÃO
-       ================================================ */
+       ================================================= */
 
     promocao: {
 
@@ -249,10 +262,12 @@ const NZINGA = {
 };
 
 
-/*
-   Disponibiliza os dados para outras páginas.
-*/
+/* =====================================================
+   DISPONIBILIZAR OS DADOS
+   ===================================================== */
 
 if (typeof window !== "undefined") {
+
     window.NZINGA = NZINGA;
+
 }
