@@ -137,6 +137,16 @@ const NZINGA = {
                 "Construção completa da identidade visual e direção da marca."
         },
 
+{
+    id: "branding-completo",
+    nome: "Branding Completo",
+    categoria: "Branding",
+    preco: 110000,
+    especial: 110000,
+    descricao:
+        "Solução completa para construir, organizar e apresentar uma marca."
+},
+
         {
             id: "roteiro",
             nome: "Roteiro",
