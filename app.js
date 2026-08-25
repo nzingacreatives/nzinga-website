@@ -92,6 +92,9 @@ function iniciarPrecos() {
         elemento.textContent =
             formatarPreco(servico.preco);
 
+
+        elemento.style.display = "block";
+
     });
 
 }
