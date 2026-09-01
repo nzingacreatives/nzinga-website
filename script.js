@@ -14,7 +14,5 @@
       });
     });
   }
-
-  // Add a subtle loaded state so pages never depend on JS for their layout.
   requestAnimationFrame(() => document.documentElement.classList.add('ready'));
 })();
