@@ -65,8 +65,9 @@ Entrega a resposta mais útil e coerente possível para a mensagem atual, usando
       parts: [{ text: m.content }]
     }));
 
-    const model = process.env.NZINGA_MODEL || 'gemini-2.5-flash';
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:streamGenerateContent?alt=sse&key=${encodeURIComponent(process.env.GEMINI_API_KEY)}`;
+    // Keep the model fixed to Gemini so an old NZINGA_MODEL environment variable cannot break the backend.
+    const model = 'gemini-2.5-flash';
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:streamGenerateContent?alt=sse&key=${encodeURIComponent(process.env.GEMINI_API_KEY)}`;
 
     const upstream = await fetch(url, {
       method: 'POST',
