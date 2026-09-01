@@ -2,7 +2,7 @@ export const config = { maxDuration: 60 };
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Método não permitido.' });
-  if (!process.env.OPENAI_API_KEY) return res.status(503).json({ error: 'NzingaGPT ainda não está ligado ao modelo de IA.' });
+  if (!process.env.GEMINI_API_KEY) return res.status(503).json({ error: 'NzingaGPT ainda não está ligado ao modelo de IA.' });
 
   try {
     const { messages } = req.body || {};
@@ -60,14 +60,21 @@ SEGURANÇA E PRIVACIDADE
 OBJETIVO FINAL
 Entrega a resposta mais útil e coerente possível para a mensagem atual, usando o contexto disponível e mantendo uma personalidade estável ao longo da conversa.`;
 
-    const upstream = await fetch('https://api.openai.com/v1/chat/completions', {
+    const contents = safeMessages.map(m => ({
+      role: m.role === 'assistant' ? 'model' : 'user',
+      parts: [{ text: m.content }]
+    }));
+
+    const model = process.env.NZINGA_MODEL || 'gemini-2.5-flash';
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:streamGenerateContent?alt=sse&key=${encodeURIComponent(process.env.GEMINI_API_KEY)}`;
+
+    const upstream = await fetch(url, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${process.env.OPENAI_API_KEY}` },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        model: process.env.NZINGA_MODEL || 'gpt-5-mini',
-        messages: [{ role: 'system', content: system }, ...safeMessages],
-        temperature: 0.35,
-        stream: true
+        systemInstruction: { parts: [{ text: system }] },
+        contents,
+        generationConfig: { temperature: 0.35 }
       })
     });
 
@@ -97,21 +104,18 @@ Entrega a resposta mais útil e coerente possível para a mensagem atual, usando
         if (!line.startsWith('data:')) continue;
         const raw = line.slice(5).trim();
         if (!raw) continue;
-        if (raw === '[DONE]') {
-          res.write('event: done\ndata: {}\n\n');
-          continue;
-        }
         try {
           const chunk = JSON.parse(raw);
-          const delta = chunk.choices?.[0]?.delta?.content;
-          if (typeof delta === 'string' && delta) {
-            res.write(`data: ${JSON.stringify({ delta })}\n\n`);
-          }
+          const parts = chunk.candidates?.[0]?.content?.parts || [];
+          const text = parts.map(p => p?.text || '').join('');
+          if (text) res.write(`data: ${JSON.stringify({ delta: text })}\n\n`);
         } catch {
           // Ignore incomplete/non-JSON SSE frames.
         }
       }
     }
+
+    res.write('event: done\ndata: {}\n\n');
     res.end();
   } catch (error) {
     console.error('NzingaGPT error:', error);
