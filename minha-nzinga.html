@@ -1,1 +1,116 @@
-<!doctype html><html lang="pt-AO"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Minha Nzinga — perfil, pedidos, histórico e avaliações da Nzinga Creatives."><meta name="theme-color" content="#111111"><title>Minha Nzinga — Nzinga Creatives</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css"><style>.account{max-width:1180px;margin:auto;padding:70px 24px 110px}.account-hero{display:flex;justify-content:space-between;align-items:end;gap:30px;padding-bottom:45px}.account-hero h1{font-family:'Playfair Display',serif;font-size:clamp(3.5rem,8vw,7rem);line-height:.9;margin:12px 0}.account-hero p{max-width:620px;color:var(--muted);font-size:1.08rem;line-height:1.7}.avatar{width:105px;height:105px;border:3px solid var(--black);background:var(--yellow);display:grid;place-items:center;font-family:'Playfair Display',serif;font-size:3rem;box-shadow:9px 9px 0 var(--red)}.account-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}.panel{border:3px solid var(--black);padding:28px;background:var(--paper)}.panel h2{font-family:'Playfair Display',serif;font-size:2.2rem;margin:0 0 24px}.profile-form label{display:block;font-weight:700;margin-top:16px}.profile-form input{width:100%;margin-top:7px;padding:13px;border:2px solid var(--black);background:transparent;color:var(--ink);font:inherit}.button-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.stat{border:2px solid var(--black);padding:17px}.stat b{display:block;font-size:1.8rem}.stat small{color:var(--muted)}.orders{grid-column:1/-1}.order{border-top:2px solid var(--black);padding:18px 0;display:grid;grid-template-columns:1fr auto;gap:15px}.order:first-of-type{border-top:0}.order h3{margin:0 0 5px;font-size:1.15rem}.order p{margin:0;color:var(--muted);font-size:.9rem;line-height:1.5}.status{font-size:.72rem;font-weight:700;border:2px solid var(--black);padding:7px 10px;align-self:start}.empty{padding:28px;border:2px dashed var(--muted);color:var(--muted);line-height:1.6}.rating{grid-column:1/-1;background:var(--black);color:#fff;padding:34px;border:3px solid var(--black)}.rating h2{font-family:'Playfair Display',serif;font-size:2.8rem;margin:0 0 10px}.rating p{color:#bbb}.stars{display:flex;gap:5px;margin:20px 0}.stars button{background:transparent;border:0;color:#777;font-size:2rem;cursor:pointer;padding:0}.stars button.on{color:var(--yellow)}.rating textarea{width:100%;max-width:750px;min-height:90px;background:#181818;border:1px solid #555;color:#fff;padding:13px;font:inherit}.login-note{background:var(--yellow);border:2px solid var(--black);padding:18px;margin-top:18px;line-height:1.55}@media(max-width:800px){.account-hero{align-items:start;flex-direction:column}.account-grid{grid-template-columns:1fr}.orders,.rating{grid-column:auto}}@media(max-width:560px){.account{padding:50px 16px 95px}.panel{padding:20px}.stats{grid-template-columns:1fr}.order{grid-template-columns:1fr}.avatar{width:80px;height:80px;font-size:2.3rem}.rating h2{font-size:2.3rem}}</style></head><body><header class="nav"><a class="logo" href="index.html">NZINGA<span>CREATIVES</span></a><button class="menu" id="menuBtn" aria-label="Abrir menu">☰</button><nav id="navLinks"><a href="index.html">Início</a><a href="servicos.html">Serviços</a><a href="nzingagpt.html">NzingaGPT</a><a href="surpresas.html">Surpresas</a><a href="market.html">Market</a><a href="raizes.html">Raízes</a></nav></header><div class="samakaka" aria-hidden="true"></div><main class="account"><section class="account-hero"><div><p class="eyebrow">MINHA NZINGA · ÁREA PESSOAL</p><h1>O teu<br>espaço.</h1><p>Aqui ficam os teus pedidos, dados e avaliações. Por enquanto, esta versão funciona sem exigir uma conta externa.</p></div><div class="avatar" id="avatar">N</div></section><div class="account-grid"><section class="panel"><h2>Perfil</h2><form class="profile-form" id="profileForm"><label>Nome<input name="name" id="profileName" placeholder="O teu nome"></label><label>Contacto<input name="contact" id="profileContact" placeholder="Telefone ou outro contacto"></label><div class="button-row"><button class="button button-main" type="submit">Guardar perfil</button><a class="button" href="servicos.html">Novo pedido</a></div></form><div class="login-note"><b>Próxima evolução:</b> ligar este espaço a autenticação real para que o perfil e os pedidos possam ser vistos em qualquer dispositivo.</div></section><section class="panel"><h2>Resumo</h2><div class="stats"><div class="stat"><b id="orderCount">0</b><small>Pedidos</small></div><div class="stat"><b id="activeCount">0</b><small>Em andamento</small></div><div class="stat"><b id="reviewCount">0</b><small>Avaliações</small></div></div></section><section class="panel orders"><h2>Os teus pedidos</h2><div id="orders"></div></section><section class="rating"><p class="eyebrow">FEEDBACK</p><h2>Ajuda-nos a melhorar a Nzinga.</h2><p>Depois de receberes um trabalho, podes deixar uma avaliação. Por agora, o feedback fica guardado neste dispositivo.</p><div class="stars" id="stars" aria-label="Escolher avaliação"><button type="button" data-star="1">★</button><button type="button" data-star="2">★</button><button type="button" data-star="3">★</button><button type="button" data-star="4">★</button><button type="button" data-star="5">★</button></div><textarea id="reviewText" placeholder="Escreve uma avaliação..."></textarea><div class="button-row"><button class="button button-light" id="saveReview" type="button">Enviar avaliação →</button></div><p id="reviewStatus"></p></section></div></main><footer><a class="logo" href="index.html">NZINGA<span>CREATIVES</span></a><p>Ideias que ganham forma.</p><small>© 2026 Nzinga Creatives · Feito em Angola.</small></footer><script src="script.js"></script><script>const profile=JSON.parse(localStorage.getItem('nzingaProfile')||'{}');const orders=JSON.parse(localStorage.getItem('nzingaOrders')||'[]');const reviews=JSON.parse(localStorage.getItem('nzingaReviews')||'[]');const name=document.getElementById('profileName'),contact=document.getElementById('profileContact'),avatar=document.getElementById('avatar');name.value=profile.name||'';contact.value=profile.contact||'';avatar.textContent=(profile.name||'N').trim().charAt(0).toUpperCase();document.getElementById('profileForm').onsubmit=e=>{e.preventDefault();const p={name:name.value.trim(),contact:contact.value.trim()};localStorage.setItem('nzingaProfile',JSON.stringify(p));avatar.textContent=(p.name||'N').charAt(0).toUpperCase()};document.getElementById('orderCount').textContent=orders.length;document.getElementById('activeCount').textContent=orders.filter(o=>o.status!=='Concluído').length;document.getElementById('reviewCount').textContent=reviews.length;const list=document.getElementById('orders');if(!orders.length)list.innerHTML='<div class="empty">Ainda não tens pedidos. Quando começares um projeto em Serviços, ele aparecerá aqui.</div>';else list.innerHTML=orders.slice().reverse().map(o=>`<article class="order"><div><h3>${o.service||'Projeto Nzinga'}</h3><p>${o.tier||'Normal'} · ${new Date(o.id).toLocaleDateString('pt-AO')}<br>${(o.idea||'').slice(0,180)}</p></div><span class="status">${o.status||'Pedido iniciado'}</span></article>`).join('');let selected=0;document.querySelectorAll('[data-star]').forEach(btn=>btn.onclick=()=>{selected=Number(btn.dataset.star);document.querySelectorAll('[data-star]').forEach(b=>b.classList.toggle('on',Number(b.dataset.star)<=selected))});document.getElementById('saveReview').onclick=()=>{if(!selected){document.getElementById('reviewStatus').textContent='Escolhe uma classificação de 1 a 5 estrelas.';return}const arr=JSON.parse(localStorage.getItem('nzingaReviews')||'[]');arr.push({stars:selected,text:document.getElementById('reviewText').value.trim(),date:Date.now()});localStorage.setItem('nzingaReviews',JSON.stringify(arr));document.getElementById('reviewStatus').textContent='Avaliação guardada. Obrigado pelo feedback.';document.getElementById('reviewText').value='';selected=0;document.querySelectorAll('[data-star]').forEach(b=>b.classList.remove('on'));document.getElementById('reviewCount').textContent=arr.length};</script></body></html>
+<!doctype html>
+<html lang="pt-AO">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Minha Nzinga — perfil, pedidos, histórico e avaliações da Nzinga Creatives.">
+<meta name="theme-color" content="#111111"><title>Minha Nzinga — Nzinga Creatives</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.account{max-width:1180px;margin:auto;padding:70px 24px 110px}.account-hero{display:flex;justify-content:space-between;align-items:end;gap:30px;padding-bottom:45px}.account-hero h1{font-family:'Playfair Display',serif;font-size:clamp(3.5rem,8vw,7rem);line-height:.9;margin:12px 0}.account-hero p{max-width:620px;color:var(--muted);font-size:1.08rem;line-height:1.7}
+.profile-hero{display:flex;align-items:center;gap:18px}.avatar{width:112px;height:112px;border:3px solid var(--black);background:var(--yellow);display:grid;place-items:center;overflow:hidden;flex:0 0 auto;font-family:'Playfair Display',serif;font-size:3rem;box-shadow:9px 9px 0 var(--red)}.avatar img{width:100%;height:100%;object-fit:cover;display:block}.avatar img[hidden]{display:none}.avatar-actions{display:flex;gap:8px;flex-wrap:wrap}.avatar-input{display:none}.photo-hint{margin:7px 0 0!important;font-size:.78rem!important;line-height:1.35!important;color:var(--muted)!important}
+.account-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}.panel{border:3px solid var(--black);padding:28px;background:var(--paper)}.panel h2{font-family:'Playfair Display',serif;font-size:2.2rem;margin:0 0 24px}.profile-form label{display:block;font-weight:700;margin-top:16px}.profile-form input{width:100%;margin-top:7px;padding:13px;border:2px solid var(--black);background:transparent;color:var(--ink);font:inherit}.button-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.stat{border:2px solid var(--black);padding:17px}.stat b{display:block;font-size:1.8rem}.stat small{color:var(--muted)}.orders{grid-column:1/-1}.order{border-top:2px solid var(--black);padding:18px 0;display:grid;grid-template-columns:1fr auto;gap:15px}.order:first-of-type{border-top:0}.order h3{margin:0 0 5px;font-size:1.15rem}.order p{margin:0;color:var(--muted);font-size:.9rem;line-height:1.5}.status{font-size:.72rem;font-weight:700;border:2px solid var(--black);padding:7px 10px;align-self:start}.empty{padding:28px;border:2px dashed var(--muted);color:var(--muted);line-height:1.6}.rating{grid-column:1/-1;background:var(--black);color:#fff;padding:34px;border:3px solid var(--black)}.rating h2{font-family:'Playfair Display',serif;font-size:2.8rem;margin:0 0 10px}.rating p{color:#bbb}.stars{display:flex;gap:5px;margin:20px 0}.stars button{background:transparent;border:0;color:#777;font-size:2rem;cursor:pointer;padding:0}.stars button.on{color:var(--yellow)}.rating textarea{width:100%;max-width:750px;min-height:90px;background:#181818;border:1px solid #555;color:#fff;padding:13px;font:inherit}.login-note{background:var(--yellow);border:2px solid var(--black);padding:18px;margin-top:18px;line-height:1.55}.continue-checkout{margin-top:18px;padding:18px;border:2px solid var(--black);background:var(--paper)}.continue-checkout b{display:block;margin-bottom:5px}
+@media(max-width:800px){.account-hero{align-items:start;flex-direction:column}.account-grid{grid-template-columns:1fr}.orders,.rating{grid-column:auto}}@media(max-width:560px){.account{padding:50px 16px 95px}.panel{padding:20px}.stats{grid-template-columns:1fr}.order{grid-template-columns:1fr}.profile-hero{align-items:flex-start}.avatar{width:88px;height:88px;font-size:2.4rem}.rating h2{font-size:2.3rem}}
+</style>
+</head>
+<body>
+<header class="nav"><a class="logo" href="index.html">NZINGA<span>CREATIVES</span></a><button class="menu" id="menuBtn" aria-label="Abrir menu">☰</button><nav id="navLinks"><a href="index.html">Início</a><a href="servicos.html">Serviços</a><a href="nzingagpt.html">NzingaGPT</a><a href="surpresas.html">Surpresas</a><a href="market.html">Market</a><a href="raizes.html">Raízes</a></nav></header>
+<div class="samakaka" aria-hidden="true"></div>
+<main class="account">
+<section class="account-hero"><div><p class="eyebrow">MINHA NZINGA · ÁREA PESSOAL</p><h1>O teu<br>espaço.</h1><p>Aqui ficam os teus pedidos, dados e avaliações. Por enquanto, esta versão funciona sem exigir uma conta externa.</p></div><div class="profile-hero"><div class="avatar" id="avatar"><span id="avatarInitials">N</span><img id="avatarImage" alt="Foto de perfil" hidden></div></div></section>
+<div class="account-grid">
+<section class="panel"><h2>Perfil</h2>
+<form class="profile-form" id="profileForm">
+<label>Nome<input name="name" id="profileName" placeholder="O teu nome" autocomplete="name"></label>
+<label>Contacto<input name="contact" id="profileContact" placeholder="Telefone ou outro contacto" autocomplete="tel"></label>
+<div class="button-row"><button class="button button-main" type="submit">Guardar perfil</button><a class="button" href="servicos.html">Novo pedido</a></div>
+</form>
+<div class="button-row avatar-actions"><label class="button" for="avatarInput">Alterar foto</label><button class="button" id="removePhoto" type="button">Remover foto</button><input class="avatar-input" id="avatarInput" type="file" accept="image/png,image/jpeg,image/webp,image/gif"></div>
+<p class="photo-hint">A foto é guardada neste dispositivo nesta primeira versão. Imagens grandes são reduzidas automaticamente.</p>
+<div class="login-note"><b>Próxima evolução:</b> ligar este espaço a autenticação real e armazenamento para que o perfil, a foto e os pedidos acompanhem a pessoa em qualquer dispositivo.</div>
+</section>
+<section class="panel"><h2>Resumo</h2><div class="stats"><div class="stat"><b id="orderCount">0</b><small>Pedidos</small></div><div class="stat"><b id="activeCount">0</b><small>Em andamento</small></div><div class="stat"><b id="reviewCount">0</b><small>Avaliações</small></div></div><div id="checkoutBox"></div></section>
+<section class="panel orders"><h2>Os teus pedidos</h2><div id="orders"></div></section>
+<section class="rating"><p class="eyebrow">FEEDBACK</p><h2>Ajuda-nos a melhorar a Nzinga.</h2><p>Depois de receberes um trabalho, podes deixar uma avaliação. Por agora, o feedback fica guardado neste dispositivo.</p><div class="stars" id="stars" aria-label="Escolher avaliação"><button type="button" data-star="1" aria-label="1 estrela">★</button><button type="button" data-star="2" aria-label="2 estrelas">★</button><button type="button" data-star="3" aria-label="3 estrelas">★</button><button type="button" data-star="4" aria-label="4 estrelas">★</button><button type="button" data-star="5" aria-label="5 estrelas">★</button></div><textarea id="reviewText" placeholder="Escreve uma avaliação..."></textarea><div class="button-row"><button class="button button-light" id="saveReview" type="button">Enviar avaliação →</button></div><p id="reviewStatus"></p></section>
+</div></main>
+<footer><a class="logo" href="index.html">NZINGA<span>CREATIVES</span></a><p>Ideias que ganham forma.</p><small>© 2026 Nzinga Creatives · Feito em Angola.</small></footer>
+<script src="script.js"></script>
+<script>
+const profile=JSON.parse(localStorage.getItem('nzingaProfile')||'{}');
+const orders=JSON.parse(localStorage.getItem('nzingaOrders')||'[]');
+const reviews=JSON.parse(localStorage.getItem('nzingaReviews')||'[]');
+const nameInput=document.getElementById('profileName');
+const contactInput=document.getElementById('profileContact');
+const avatarInitials=document.getElementById('avatarInitials');
+const avatarImage=document.getElementById('avatarImage');
+const avatarInput=document.getElementById('avatarInput');
+const removePhoto=document.getElementById('removePhoto');
+
+nameInput.value=profile.name||'';
+contactInput.value=profile.contact||'';
+
+function updateAvatar(p){
+  const initial=(p.name||'N').trim().charAt(0).toUpperCase()||'N';
+  avatarInitials.textContent=initial;
+  if(p.photo){avatarImage.src=p.photo;avatarImage.hidden=false;avatarInitials.hidden=true}
+  else{avatarImage.removeAttribute('src');avatarImage.hidden=true;avatarInitials.hidden=false}
+}
+updateAvatar(profile);
+
+document.getElementById('profileForm').onsubmit=e=>{
+  e.preventDefault();
+  const current=JSON.parse(localStorage.getItem('nzingaProfile')||'{}');
+  const p={name:nameInput.value.trim(),contact:contactInput.value.trim(),photo:current.photo||''};
+  localStorage.setItem('nzingaProfile',JSON.stringify(p));
+  updateAvatar(p);
+};
+
+avatarInput.onchange=()=>{
+  const file=avatarInput.files&&avatarInput.files[0];
+  if(!file)return;
+  if(!file.type.startsWith('image/'))return;
+  const reader=new FileReader();
+  reader.onload=()=>{
+    const img=new Image();
+    img.onload=()=>{
+      const max=512,scale=Math.min(1,max/Math.max(img.width,img.height));
+      const canvas=document.createElement('canvas');
+      canvas.width=Math.max(1,Math.round(img.width*scale));canvas.height=Math.max(1,Math.round(img.height*scale));
+      const ctx=canvas.getContext('2d');ctx.drawImage(img,0,0,canvas.width,canvas.height);
+      const compressed=canvas.toDataURL('image/webp',.82);
+      const current=JSON.parse(localStorage.getItem('nzingaProfile')||'{}');current.photo=compressed;
+      localStorage.setItem('nzingaProfile',JSON.stringify(current));updateAvatar(current);
+      avatarInput.value='';
+    };
+    img.src=reader.result;
+  };
+  reader.readAsDataURL(file);
+};
+
+removePhoto.onclick=()=>{
+  const current=JSON.parse(localStorage.getItem('nzingaProfile')||'{}');delete current.photo;localStorage.setItem('nzingaProfile',JSON.stringify(current));updateAvatar(current);
+};
+
+document.getElementById('orderCount').textContent=orders.length;
+document.getElementById('activeCount').textContent=orders.filter(o=>o.status!=='Concluído').length;
+document.getElementById('reviewCount').textContent=reviews.length;
+
+function esc(value){return String(value??'').replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','\"':'&quot;'}[c]));}
+const list=document.getElementById('orders');
+if(!orders.length)list.innerHTML='<div class="empty">Ainda não tens pedidos. Quando começares um projeto em Serviços, ele aparecerá aqui.</div>';
+else list.innerHTML=orders.slice().reverse().map(o=>`<article class="order"><div><h3>${esc(o.service||'Projeto Nzinga')}</h3><p>${esc(o.tier||'Normal')} · ${o.id?new Date(o.id).toLocaleDateString('pt-AO'):''}<br>${esc((o.idea||'').slice(0,180))}</p></div><span class="status">${esc(o.status||'Pedido iniciado')}</span></article>`).join('');
+
+const currentOrder=JSON.parse(localStorage.getItem('nzingaCurrentOrder')||'null');
+if(currentOrder){
+ document.getElementById('checkoutBox').innerHTML=`<div class="continue-checkout"><b>Pedido em aberto</b><span>${esc(currentOrder.service||'Projeto Nzinga')} · ${esc(currentOrder.tier||'Normal')}</span><div class="button-row"><a class="button button-main" href="checkout.html">Continuar checkout →</a></div></div>`;
+}
+
+let selected=0;
+document.querySelectorAll('[data-star]').forEach(btn=>btn.onclick=()=>{selected=Number(btn.dataset.star);document.querySelectorAll('[data-star]').forEach(b=>b.classList.toggle('on',Number(b.dataset.star)<=selected))});
+document.getElementById('saveReview').onclick=()=>{
+ if(!selected){document.getElementById('reviewStatus').textContent='Escolhe uma classificação de 1 a 5 estrelas.';return}
+ const arr=JSON.parse(localStorage.getItem('nzingaReviews')||'[]');arr.push({stars:selected,text:document.getElementById('reviewText').value.trim(),date:Date.now()});localStorage.setItem('nzingaReviews',JSON.stringify(arr));document.getElementById('reviewStatus').textContent='Avaliação guardada. Obrigado pelo feedback.';document.getElementById('reviewText').value='';selected=0;document.querySelectorAll('[data-star]').forEach(b=>b.classList.remove('on'));document.getElementById('reviewCount').textContent=arr.length;
+};
+</script>
+</body></html>
