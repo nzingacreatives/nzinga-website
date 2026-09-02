@@ -39,5 +39,54 @@
   bottomNav.innerHTML = items.map(([href,icon,label]) => `<a href="${href}" class="${path === href ? 'active' : ''}" aria-label="${label}"><span>${icon}</span><small>${label}</small></a>`).join('');
   document.body.appendChild(bottomNav);
 
+  if (path === 'market.html') initMarket();
+
+  async function initMarket() {
+    const loadScript = src => new Promise((resolve,reject) => { const s=document.createElement('script'); s.src=src; s.onload=resolve; s.onerror=reject; document.head.appendChild(s); });
+    try {
+      await loadScript('https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2');
+      await loadScript('supabase-config.js');
+    } catch { return; }
+    const cfg = window.NZINGA_SUPABASE;
+    if (!cfg || !window.supabase) return;
+    const sb = window.supabase.createClient(cfg.url, cfg.publishableKey);
+    const products = document.getElementById('products');
+    const sell = document.querySelector('.sell');
+    if (!products || !sell) return;
+    const escapeHtml = s => String(s ?? '').replace(/[&<>\"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#39;'}[c]));
+    const money = (value,currency) => `${Number(value||0).toLocaleString('pt-AO',{minimumFractionDigits:2,maximumFractionDigits:2})} ${currency||'AOA'}`;
+    const renderProduct = p => `<article class="product" data-category="${escapeHtml(p.category||'arte')}" data-db-product="true"><div class="cover">${escapeHtml((p.title||'NZINGA').slice(0,22))}</div><div class="product-info"><span class="tag">${escapeHtml(String(p.category||'Digital').toUpperCase())}</span><h2>${escapeHtml(p.title)}</h2><p>${escapeHtml(p.description||'Recurso digital criado na comunidade Nzinga.')}</p><div class="product-bottom"><span class="price">${money(p.price,p.currency)}</span><button class="buy" type="button" disabled>Em breve</button></div></div></article>`;
+
+    async function loadPublished() {
+      const {data,error} = await sb.from('market_products').select('id,title,description,price,currency,category,image_path').eq('status','published').order('created_at',{ascending:false});
+      if (error) return;
+      products.querySelectorAll('[data-db-product]').forEach(x=>x.remove());
+      (data||[]).forEach(p => products.insertAdjacentHTML('afterbegin',renderProduct(p)));
+      bindFilters();
+    }
+
+    function bindFilters() {
+      document.querySelectorAll('.filter').forEach(f => {
+        f.onclick = () => {
+          document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));
+          f.classList.add('active');
+          const wanted=f.dataset.filter;
+          let visible=0;
+          products.querySelectorAll('.product').forEach(i=>{const show=wanted==='all'||i.dataset.category===wanted;i.style.display=show?'block':'none';if(show)visible++});
+          const empty=document.getElementById('empty'); if(empty) empty.style.display=visible?'none':'block';
+        };
+      });
+    }
+
+    const box=document.createElement('div');
+    box.style.cssText='margin-top:18px;border:2px solid #fff;padding:22px;background:#181818;display:none;';
+    box.innerHTML='<h3 style="margin-top:0">Publicar no Market</h3><p>Envia o teu recurso para revisão. Ele ficará como rascunho até ser aprovado pela Nzinga.</p><form id="marketForm" style="display:grid;gap:10px"><input name="title" placeholder="Nome do produto" maxlength="120" required style="padding:12px"><textarea name="description" placeholder="Descrição" maxlength="1000" style="padding:12px;min-height:80px"></textarea><select name="category" style="padding:12px"><option value="template">Template</option><option value="documento">Documento</option><option value="ebook">Ebook</option><option value="arte">Arte</option><option value="Digital">Outro digital</option></select><input name="price" type="number" min="0" step="0.01" placeholder="Preço em AOA" required style="padding:12px"><button class="button button-main" type="submit">Enviar para revisão →</button><p id="marketStatus" style="min-height:1.3em;margin:0"></p></form>';
+    sell.appendChild(box);
+    const action=sell.querySelector('.button-main');
+    if(action){action.removeAttribute('href');action.textContent='Quero participar →';action.style.cursor='pointer';action.onclick=async()=>{const {data:{session}}=await sb.auth.getSession();if(!session){location.href='minha-nzinga.html';return}box.style.display=box.style.display==='none'?'block':'none';};}
+    box.querySelector('#marketForm').onsubmit=async e=>{e.preventDefault();const {data:{session}}=await sb.auth.getSession();if(!session){$('marketStatus').textContent='Entra na tua conta primeiro.';return}const fd=new FormData(e.target);const {error}=await sb.from('market_products').insert({creator_id:session.user.id,title:String(fd.get('title')||'').trim(),description:String(fd.get('description')||'').trim(),category:String(fd.get('category')||'Digital'),price:Number(fd.get('price')||0),currency:'AOA',status:'draft'});const status=box.querySelector('#marketStatus');status.textContent=error?'Não foi possível enviar agora.':'Enviado para revisão. O produto ainda não está público.';if(!error)e.target.reset();};
+    await loadPublished();
+  }
+
   requestAnimationFrame(() => document.documentElement.classList.add('ready'));
 })();
