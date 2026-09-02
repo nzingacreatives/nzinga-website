@@ -10,6 +10,15 @@ window.NZINGA_SUPABASE = {
     var box=document.getElementById('authBox');
     var head=document.getElementById('profileHead');
     var grid=document.getElementById('accountGrid');
+
+    /* Admin pages load their enhancements without touching the existing dashboard logic. */
+    if(location.pathname.endsWith('/admin.html')||location.pathname.endsWith('admin.html')){
+      var adminScript=document.createElement('script');
+      adminScript.src='admin-orders.js?v=1';
+      adminScript.defer=true;
+      document.head.appendChild(adminScript);
+    }
+
     if(!box||!head||!grid)return;
     var sb=window.supabase.createClient(window.NZINGA_SUPABASE.url,window.NZINGA_SUPABASE.publishableKey);
 
