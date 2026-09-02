@@ -13,10 +13,12 @@ window.NZINGA_SUPABASE = {
 
     /* Admin pages load their enhancements without touching the existing dashboard logic. */
     if(location.pathname.endsWith('/admin.html')||location.pathname.endsWith('admin.html')){
-      var adminScript=document.createElement('script');
-      adminScript.src='admin-orders.js?v=1';
-      adminScript.defer=true;
-      document.head.appendChild(adminScript);
+      ['admin-orders.js?v=1','admin-users.js?v=1'].forEach(function(src){
+        var adminScript=document.createElement('script');
+        adminScript.src=src;
+        adminScript.defer=true;
+        document.head.appendChild(adminScript);
+      });
     }
 
     if(!box||!head||!grid)return;
