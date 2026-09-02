@@ -37,17 +37,61 @@
     const form=document.getElementById('authForm');if(!form||form.dataset.nzingaAuthReady==='1')return;form.dataset.nzingaAuthReady='1';const email=document.getElementById('authEmail');const password=document.getElementById('authPassword');const status=document.getElementById('authStatus');let signup=document.getElementById('signupBtn');
     if(!signup){signup=document.createElement('button');signup.id='signupBtn';signup.type='button';signup.className='button';signup.textContent='Criar conta';form.appendChild(signup)}
     const message=(text,error=false)=>{if(status){status.textContent=text;status.style.color=error?'#ffb3b3':'#fff';status.style.display='block'}};
-    const showAccountCreated=(confirmed=false)=>{
-      if(!status)return;
-      status.innerHTML=confirmed
-        ? '<strong>Conta criada e e-mail confirmado.</strong><br>A tua sessão foi activada. A abrir a Minha Nzinga…'
-        : '<strong>Conta criada com sucesso.</strong><br>Agora verifica o teu e-mail e clica no botão de confirmação. Depois volta a esta página para entrar na tua conta.';
-      status.style.color='#fff';status.style.display='block';status.style.padding='14px 16px';status.style.marginTop='14px';status.style.border='2px solid #fff';status.style.lineHeight='1.55';
-    };
+    const showAccountCreated=(confirmed=false)=>{if(!status)return;status.innerHTML=confirmed?'<strong>Conta criada e e-mail confirmado.</strong><br>A tua sessão foi activada. A abrir a Minha Nzinga…':'<strong>Conta criada com sucesso.</strong><br>Agora verifica o teu e-mail e clica no botão de confirmação. Depois volta a esta página para entrar na tua conta.';status.style.color='#fff';status.style.display='block';status.style.padding='14px 16px';status.style.marginTop='14px';status.style.border='2px solid #fff';status.style.lineHeight='1.55'};
     const getClient=()=>{if(window.supabase&&window.NZINGA_SUPABASE)return window.supabase.createClient(window.NZINGA_SUPABASE.url,window.NZINGA_SUPABASE.publishableKey);throw new Error('O serviço de contas não carregou. Atualiza a página e tenta novamente.')};
     signup.addEventListener('click',async event=>{event.preventDefault();event.stopImmediatePropagation();try{const sb=getClient();const e=(email?.value||'').trim();const p=password?.value||'';if(!e||p.length<6){message('Preenche o e-mail e usa uma palavra-passe com pelo menos 6 caracteres.',true);return}signup.disabled=true;signup.textContent='A criar conta…';message('A criar a tua conta…');const {data,error}=await sb.auth.signUp({email:e,password:p,options:{emailRedirectTo:location.origin+'/minha-nzinga.html'}});if(error)throw error;if(data?.session){showAccountCreated(true);setTimeout(()=>location.reload(),1200)}else{showAccountCreated(false);signup.textContent='E-mail enviado ✓';signup.disabled=true}},true);
     form.addEventListener('submit',async event=>{event.preventDefault();event.stopImmediatePropagation();try{const sb=getClient();const e=(email?.value||'').trim();const p=password?.value||'';if(!e||p.length<6){message('Preenche o e-mail e usa uma palavra-passe com pelo menos 6 caracteres.',true);return}const button=form.querySelector('button[type="submit"]');if(button){button.disabled=true;button.textContent='A entrar…'}message('A verificar a tua conta…');const {data,error}=await sb.auth.signInWithPassword({email:e,password:p});if(error)throw error;if(!data?.session)throw new Error('A conta foi encontrada, mas a sessão não foi criada. Confirma o teu e-mail primeiro.');message('Entrada confirmada. A abrir a tua Minha Nzinga…');setTimeout(()=>location.reload(),500)}catch(err){const raw=String(err?.message||'');const friendly=/not confirmed|email not confirmed/i.test(raw)?'O e-mail ainda não foi confirmado. Abre a mensagem da Nzinga no teu e-mail e confirma a conta primeiro.':raw||'Não foi possível entrar agora. Confirma o e-mail e os dados.';message(friendly,true)}finally{const button=form.querySelector('button[type="submit"]');if(button){button.disabled=false;button.textContent='Entrar'}}},true);
     try{const sb=getClient();sb.auth.getSession().then(({data})=>{if(data?.session&&status){status.innerHTML='<strong>Conta confirmada.</strong><br>A tua sessão está activa. A carregar a Minha Nzinga…';status.style.display='block';setTimeout(()=>location.reload(),350)}})}catch{}
   }
+
+  // Corrige o editor de perfil da Minha Nzinga sem alterar a lógica do chat ou do resto do site.
+  // Usa handlers em fase de captura para substituir o handler antigo da página e mostra o erro real quando algo falhar.
+  function initMinhaNzingaProfileFix(){
+    if(location.pathname.split('/').pop()!=='minha-nzinga.html') return;
+    if(!window.supabase || !window.NZINGA_SUPABASE) return;
+    const sb=window.supabase.createClient(window.NZINGA_SUPABASE.url,window.NZINGA_SUPABASE.publishableKey);
+    const $=id=>document.getElementById(id);
+    const status=()=>$('profileStatus');
+    const setStatus=(text,error=false)=>{const el=status();if(!el)return;el.textContent=text;el.style.color=error?'#b00020':''};
+    const getSession=async()=>{const {data,error}=await sb.auth.getSession();if(error)throw error;if(!data?.session)throw new Error('Sessão expirada. Entra novamente.');return data.session};
+    const saveProfile=async()=>{
+      try{
+        const session=await getSession();
+        const name=($('profileName')?.value||'').trim();
+        const contact=($('profileContact')?.value||'').trim();
+        const {data,error}=await sb.from('profiles').upsert({id:session.user.id,name,contact,updated_at:new Date().toISOString()},{onConflict:'id'}).select('id,name,contact').single();
+        if(error) throw error;
+        if($('profileTitle')) $('profileTitle').textContent='Olá, '+(data?.name||session.user.email?.split('@')[0]||'Nzinga')+'.';
+        setStatus('✓ Perfil guardado com sucesso.');
+      }catch(err){console.error('Nzinga profile save:',err);setStatus('Não foi possível guardar: '+(err?.message||'erro desconhecido'),true)}
+    };
+    const uploadAvatar=async(file)=>{
+      try{
+        const session=await getSession();
+        if(!file) return;
+        if(!file.type.startsWith('image/')) throw new Error('Escolhe uma imagem válida.');
+        if(file.size>6*1024*1024) throw new Error('A foto deve ter no máximo 6 MB.');
+        const ext=(file.name.split('.').pop()||'jpg').toLowerCase().replace(/[^a-z0-9]/g,'')||'jpg';
+        const path=session.user.id+'/'+Date.now()+'.'+ext;
+        const {error:uploadError}=await sb.storage.from('profile-photos').upload(path,file,{contentType:file.type,cacheControl:'3600',upsert:false});
+        if(uploadError) throw uploadError;
+        const {error:profileError}=await sb.from('profiles').upsert({id:session.user.id,avatar_path:path,updated_at:new Date().toISOString()},{onConflict:'id'});
+        if(profileError){await sb.storage.from('profile-photos').remove([path]);throw profileError;}
+        const url=sb.storage.from('profile-photos').getPublicUrl(path).data.publicUrl;
+        if($('avatarImage')){$('avatarImage').src=url;$('avatarImage').classList.remove('hidden')}
+        if($('avatarInitials'))$('avatarInitials').classList.add('hidden');
+        setStatus('✓ Foto de perfil atualizada.');
+      }catch(err){console.error('Nzinga avatar upload:',err);setStatus('Não foi possível guardar a foto: '+(err?.message||'erro desconhecido'),true)}
+    };
+    const bind=()=>{
+      const form=$('profileForm');
+      if(form&&!form.dataset.profileFixReady){form.dataset.profileFixReady='1';form.addEventListener('submit',e=>{e.preventDefault();e.stopImmediatePropagation();saveProfile()},true)}
+      const input=$('avatarInput');
+      if(input&&!input.dataset.profileFixReady){input.dataset.profileFixReady='1';input.addEventListener('change',e=>{e.stopImmediatePropagation();uploadAvatar(e.target.files?.[0]);e.target.value=''},true)}
+    };
+    bind();
+    setTimeout(bind,250);
+  }
+  if(path==='minha-nzinga.html') setTimeout(initMinhaNzingaProfileFix,0);
   requestAnimationFrame(()=>document.documentElement.classList.add('ready'));
 })();
