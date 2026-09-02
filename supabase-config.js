@@ -12,7 +12,7 @@ window.NZINGA_SUPABASE = {
     var grid=document.getElementById('accountGrid');
 
     if(location.pathname.endsWith('/admin.html')||location.pathname.endsWith('admin.html')){
-      ['admin-orders.js?v=1','admin-users.js?v=1','admin-reviews.js?v=1','admin-team.js?v=1'].forEach(function(src){
+      ['admin-orders.js?v=1','admin-users.js?v=1','admin-reviews.js?v=1','admin-team.js?v=1','admin-audit.js?v=1'].forEach(function(src){
         var adminScript=document.createElement('script');
         adminScript.src=src;
         adminScript.defer=true;
