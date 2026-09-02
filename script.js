@@ -3,30 +3,63 @@
 
   const go = (href) => {
     if (!href || href === '#') return;
-    const url = new URL(href, location.href).href;
-    window.location.assign(url);
+    window.location.href = href;
   };
 
-  // Global navigation: use capture phase so page-specific handlers cannot
-  // accidentally cancel navigation. The chat logic is not touched.
-  document.addEventListener('click', (event) => {
-    const link = event.target?.closest?.('.nav a, #navLinks a, .bottom-nav a');
-    if (!link || !link.getAttribute('href') || link.getAttribute('href') === '#') return;
-    event.preventDefault();
-    event.stopImmediatePropagation();
-    go(link.getAttribute('href'));
-  }, true);
+  const initNavigation = () => {
+    const menuBtn = document.getElementById('menuBtn');
+    const nav = document.getElementById('navLinks');
 
-  const menuBtn = document.getElementById('menuBtn');
-  const nav = document.getElementById('navLinks');
-  if (menuBtn && nav) {
-    menuBtn.setAttribute('aria-expanded', 'false');
-    menuBtn.addEventListener('click', (event) => {
-      event.preventDefault();
-      event.stopPropagation();
-      const open = nav.classList.toggle('open');
-      menuBtn.setAttribute('aria-expanded', String(open));
+    if (menuBtn && nav && !menuBtn.dataset.navReady) {
+      menuBtn.dataset.navReady = '1';
+      menuBtn.setAttribute('aria-expanded', 'false');
+      menuBtn.addEventListener('click', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        const open = nav.classList.toggle('open');
+        menuBtn.setAttribute('aria-expanded', String(open));
+      });
+    }
+
+    // Keep normal anchors native. This avoids page-specific scripts cancelling navigation.
+    document.querySelectorAll('.nav a, #navLinks a, .bottom-nav a').forEach((link) => {
+      if (link.dataset.navReady) return;
+      link.dataset.navReady = '1';
+      link.addEventListener('click', (event) => {
+        const href = link.getAttribute('href');
+        if (!href || href === '#') return;
+        if (event.defaultPrevented) {
+          event.stopImmediatePropagation();
+          go(href);
+        }
+      }, true);
     });
+
+    let bottomNav = document.querySelector('.bottom-nav');
+    if (!bottomNav && document.body) {
+      bottomNav = document.createElement('nav');
+      bottomNav.className = 'bottom-nav';
+      bottomNav.setAttribute('aria-label', 'Navegação rápida');
+      const path = location.pathname.split('/').pop() || 'index.html';
+      const items = [
+        ['index.html', '⌂', 'Início'],
+        ['servicos.html', '◇', 'Serviços'],
+        ['surpresas.html', '✦', 'Surpresas'],
+        ['nzingagpt.html', '◉', 'NzingaGPT'],
+        ['minha-nzinga.html', '☻', 'Minha Nzinga'],
+        ['admin.html', '♜', 'Admin']
+      ];
+      bottomNav.innerHTML = items.map(([href, icon, label]) =>
+        `<a href="${href}" class="${path === href ? 'active' : ''}" aria-label="${label}"><span>${icon}</span><small>${label}</small></a>`
+      ).join('');
+      document.body.appendChild(bottomNav);
+    }
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initNavigation, { once: true });
+  } else {
+    initNavigation();
   }
 
   const quote = document.querySelector('[data-proverb]');
@@ -39,22 +72,7 @@
   ];
   if (quote) quote.textContent = proverbs[Math.floor(Math.random() * proverbs.length)];
 
-  const bottomNav = document.createElement('nav');
-  bottomNav.className = 'bottom-nav';
-  bottomNav.setAttribute('aria-label', 'Navegação rápida');
   const path = location.pathname.split('/').pop() || 'index.html';
-  const items = [
-    ['index.html', '⌂', 'Início'],
-    ['servicos.html', '◇', 'Serviços'],
-    ['surpresas.html', '✦', 'Surpresas'],
-    ['nzingagpt.html', '◉', 'NzingaGPT'],
-    ['minha-nzinga.html', '☻', 'Minha Nzinga'],
-    ['admin.html', '♜', 'Admin']
-  ];
-  bottomNav.innerHTML = items.map(([href, icon, label]) =>
-    `<a href="${href}" class="${path === href ? 'active' : ''}" aria-label="${label}"><span>${icon}</span><small>${label}</small></a>`
-  ).join('');
-  document.body.appendChild(bottomNav);
 
   if (path === 'market.html') initMarket();
   if (path === 'minha-nzinga.html') initMinhaNzingaAuth();
