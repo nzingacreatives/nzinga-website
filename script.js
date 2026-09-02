@@ -1,77 +1,107 @@
-(() => {
-  const menuBtn = document.getElementById('menuBtn');
-  const nav = document.getElementById('navLinks');
-  if (menuBtn && nav) {
-    menuBtn.setAttribute('aria-expanded', 'false');
-    menuBtn.addEventListener('click', () => {
-      const open = nav.classList.toggle('open');
-      menuBtn.setAttribute('aria-expanded', String(open));
-    });
-    nav.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        nav.classList.remove('open');
-        menuBtn.setAttribute('aria-expanded', 'false');
-      });
-    });
-  }
-
-  const quote = document.querySelector('[data-proverb]');
-  const proverbs = [
-    'A sabedoria é como um embondeiro: ninguém consegue abraçá-la sozinho.',
-    'Até o rio mais longo começa com pequenas gotas.',
-    'Quem pergunta não se perde no caminho.',
-    'Uma única mão não consegue amarrar um pacote.',
-    'Quando as raízes são profundas, não há razão para temer o vento.'
-  ];
-  if (quote) quote.textContent = proverbs[Math.floor(Math.random() * proverbs.length)];
-
-  const bottomNav = document.createElement('nav');
-  bottomNav.className = 'bottom-nav';
-  bottomNav.setAttribute('aria-label', 'Navegação rápida');
+/* Nzinga Creatives — global interactions */
+(function(){
   const path = location.pathname.split('/').pop() || 'index.html';
-  const items = [
-    ['index.html','⌂','Início'],
-    ['servicos.html','◇','Serviços'],
-    ['surpresas.html','✦','Surpresas'],
-    ['nzingagpt.html','◉','NzingaGPT'],
-    ['minha-nzinga.html','☻','Minha Nzinga']
-  ];
-  bottomNav.innerHTML = items.map(([href,icon,label]) => `<a href="${href}" class="${path === href ? 'active' : ''}" aria-label="${label}"><span>${icon}</span><small>${label}</small></a>`).join('');
-  document.body.appendChild(bottomNav);
 
-  if (path === 'market.html') initMarket();
-
-  async function initMarket() {
-    const loadScript = src => new Promise((resolve,reject) => { const s=document.createElement('script'); s.src=src; s.onload=resolve; s.onerror=reject; document.head.appendChild(s); });
-    try { await loadScript('https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2'); await loadScript('supabase-config.js'); } catch { return; }
-    const cfg = window.NZINGA_SUPABASE;
-    if (!cfg || !window.supabase) return;
-    const sb = window.supabase.createClient(cfg.url, cfg.publishableKey);
-    const products = document.getElementById('products');
-    const sell = document.querySelector('.sell');
-    if (!products || !sell) return;
-    const escapeHtml = s => String(s ?? '').replace(/[&<>\"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#39;'}[c]));
-    const money = (value,currency) => `${Number(value||0).toLocaleString('pt-AO',{minimumFractionDigits:2,maximumFractionDigits:2})} ${currency||'AOA'}`;
-    const renderProduct = p => `<article class="product" data-category="${escapeHtml(p.category||'arte')}" data-db-product="true"><div class="cover">${escapeHtml((p.title||'NZINGA').slice(0,22))}</div><div class="product-info"><span class="tag">${escapeHtml(String(p.category||'Digital').toUpperCase())}</span><h2>${escapeHtml(p.title)}</h2><p>${escapeHtml(p.description||'Recurso digital criado na comunidade Nzinga.')}</p><div class="product-bottom"><span class="price">${money(p.price,p.currency)}</span><button class="buy" type="button" disabled>Em breve</button></div></div></article>`;
-    async function loadPublished() {
-      const {data,error} = await sb.from('market_products').select('id,title,description,price,currency,category,image_path').eq('status','published').order('created_at',{ascending:false});
-      if (error) return;
-      products.querySelectorAll('[data-db-product]').forEach(x=>x.remove());
-      (data||[]).forEach(p => products.insertAdjacentHTML('afterbegin',renderProduct(p)));
-      bindFilters();
-    }
-    function bindFilters() {
-      document.querySelectorAll('.filter').forEach(f => { f.onclick = () => { document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active')); f.classList.add('active'); const wanted=f.dataset.filter; let visible=0; products.querySelectorAll('.product').forEach(i=>{const show=wanted==='all'||i.dataset.category===wanted;i.style.display=show?'block':'none';if(show)visible++}); const empty=document.getElementById('empty'); if(empty) empty.style.display=visible?'none':'block'; }; });
-    }
-    const box=document.createElement('div');
-    box.style.cssText='margin-top:18px;border:2px solid #fff;padding:22px;background:#181818;display:none;';
-    box.innerHTML='<h3 style="margin-top:0">Publicar no Market</h3><p>Envia o teu recurso para revisão. Ele ficará como rascunho até ser aprovado pela Nzinga.</p><form id="marketForm" style="display:grid;gap:10px"><input name="title" placeholder="Nome do produto" maxlength="120" required style="padding:12px"><textarea name="description" placeholder="Descrição" maxlength="1000" style="padding:12px;min-height:80px"></textarea><select name="category" style="padding:12px"><option value="template">Template</option><option value="documento">Documento</option><option value="ebook">Ebook</option><option value="arte">Arte</option><option value="Digital">Outro digital</option></select><input name="price" type="number" min="0" step="0.01" placeholder="Preço em AOA" required style="padding:12px"><button class="button button-main" type="submit">Enviar para revisão →</button><p id="marketStatus" style="min-height:1.3em;margin:0"></p></form>';
-    sell.appendChild(box);
-    const action=sell.querySelector('.button-main');
-    if(action){action.removeAttribute('href');action.textContent='Quero participar →';action.style.cursor='pointer';action.onclick=async()=>{const {data:{session}}=await sb.auth.getSession();if(!session){location.href='minha-nzinga.html';return}box.style.display=box.style.display==='none'?'block':'none';};}
-    box.querySelector('#marketForm').onsubmit=async e=>{e.preventDefault();const status=box.querySelector('#marketStatus');const {data:{session}}=await sb.auth.getSession();if(!session){status.textContent='Entra na tua conta primeiro.';return}const fd=new FormData(e.target);const {error}=await sb.from('market_products').insert({creator_id:session.user.id,title:String(fd.get('title')||'').trim(),description:String(fd.get('description')||'').trim(),category:String(fd.get('category')||'Digital'),price:Number(fd.get('price')||0),currency:'AOA',status:'draft'});status.textContent=error?'Não foi possível enviar agora.':'Enviado para revisão. O produto ainda não está público.';if(!error)e.target.reset();};
-    await loadPublished();
+  function initBottomNav(){
+    if(document.querySelector('.bottom-nav')) return;
+    const nav=document.createElement('nav');
+    nav.className='bottom-nav';
+    nav.setAttribute('aria-label','Navegação principal');
+    nav.innerHTML=`<a href="index.html">Início</a><a href="servicos.html">Serviços</a><a href="surpresas.html">Surpresas</a><a href="nzingagpt.html">NzingaGPT</a><a href="minha-nzinga.html">Minha Nzinga</a>`;
+    document.body.appendChild(nav);
   }
 
-  requestAnimationFrame(() => document.documentElement.classList.add('ready'));
+  function initMenu(){
+    const btn=document.getElementById('menuBtn');
+    const links=document.getElementById('navLinks');
+    if(btn&&links) btn.addEventListener('click',()=>links.classList.toggle('open'));
+  }
+
+  function initProverb(){
+    const el=document.querySelector('[data-proverb]');
+    if(!el) return;
+    const list=['A união faz a força.','Quem caminha com propósito chega mais longe.','A sabedoria cresce quando é partilhada.','Uma ideia pode transformar um caminho.'];
+    el.textContent=list[Math.floor(Math.random()*list.length)];
+  }
+
+  function loadSupabase(){
+    return new Promise((resolve,reject)=>{
+      if(window.supabase && window.NZINGA_SUPABASE) return resolve(window.supabase.createClient(window.NZINGA_SUPABASE.url,window.NZINGA_SUPABASE.publishableKey));
+      const cfg=document.createElement('script');
+      cfg.src='supabase-config.js';
+      cfg.onload=()=>{
+        if(!window.supabase){reject(new Error('Supabase não carregou.'));return;}
+        resolve(window.supabase.createClient(window.NZINGA_SUPABASE.url,window.NZINGA_SUPABASE.publishableKey));
+      };
+      cfg.onerror=()=>reject(new Error('Não foi possível carregar a configuração.'));
+      document.head.appendChild(cfg);
+    });
+  }
+
+  function initMinhaNzingaAuth(){
+    const form=document.getElementById('authForm');
+    if(!form) return;
+    const email=document.getElementById('authEmail');
+    const password=document.getElementById('authPassword');
+    const status=document.getElementById('authStatus');
+    let signup=document.getElementById('signupBtn');
+
+    // Corrige versões antigas/cacheadas onde o botão não chegou a ser renderizado.
+    if(!signup){
+      signup=document.createElement('button');
+      signup.id='signupBtn';
+      signup.type='button';
+      signup.className='button';
+      signup.textContent='Criar conta';
+      form.appendChild(signup);
+    }
+
+    function message(text,error=false){
+      if(!status) return;
+      status.textContent=text;
+      status.style.color=error?'#ffb3b3':'#fff';
+    }
+
+    let sb;
+    loadSupabase().then(client=>{sb=client;}).catch(err=>message(err.message,true));
+
+    // addEventListener não substitui handlers inline existentes e funciona mesmo se o HTML antigo estiver em cache.
+    signup.addEventListener('click',async()=>{
+      try{
+        if(!sb) sb=await loadSupabase();
+        const e=(email?.value||'').trim();
+        const p=password?.value||'';
+        if(!e||p.length<6){message('Preenche o e-mail e usa uma palavra-passe com pelo menos 6 caracteres.',true);return;}
+        signup.disabled=true;
+        signup.textContent='A criar conta…';
+        message('A criar a tua conta…');
+        const {data,error}=await sb.auth.signUp({email:e,password:p,options:{emailRedirectTo:location.origin+'/minha-nzinga.html'}});
+        if(error) throw error;
+        if(data?.session){message('Conta criada com sucesso. A entrar…');setTimeout(()=>location.reload(),500);}
+        else message('Conta criada. Verifica o teu e-mail para confirmar o acesso.');
+      }catch(err){message(err?.message||'Não foi possível criar a conta agora.',true);}
+      finally{signup.disabled=false;signup.textContent='Criar conta';}
+    });
+
+    form.addEventListener('submit',async e=>{
+      // O handler original continua responsável pelo login; este listener apenas garante feedback em versões antigas.
+      if(e.defaultPrevented) return;
+      e.preventDefault();
+      try{
+        if(!sb) sb=await loadSupabase();
+        const {data,error}=await sb.auth.signInWithPassword({email:(email?.value||'').trim(),password:password?.value||''});
+        if(error) throw error;
+        if(data?.session) location.reload();
+      }catch(err){message(err?.message||'Não foi possível entrar. Verifica os dados.',true);}
+    });
+  }
+
+  function init(){
+    initMenu();
+    initBottomNav();
+    initProverb();
+    if(path==='minha-nzinga.html') initMinhaNzingaAuth();
+    if(path==='market.html' && typeof window.initMarket==='function') window.initMarket();
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init); else init();
 })();
