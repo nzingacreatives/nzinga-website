@@ -92,7 +92,9 @@
       if(window.supabase && window.NZINGA_SUPABASE) return window.supabase.createClient(window.NZINGA_SUPABASE.url,window.NZINGA_SUPABASE.publishableKey);
       throw new Error('O serviço de contas não carregou. Atualiza a página e tenta novamente.');
     };
-    signup.addEventListener('click',async()=>{
+    signup.addEventListener('click',async(event)=>{
+      event.preventDefault();
+      event.stopImmediatePropagation();
       try{
         const sb=await getClient();
         const e=(email?.value||'').trim(); const p=password?.value||'';
@@ -103,7 +105,7 @@
         message(data?.session?'Conta criada com sucesso.':'Conta criada. Verifica o teu e-mail para confirmar o acesso.');
       }catch(err){message(err?.message||'Não foi possível criar a conta agora.',true);}
       finally{signup.disabled=false;signup.textContent='Criar conta';}
-    });
+    },true);
   }
 
   requestAnimationFrame(() => document.documentElement.classList.add('ready'));
