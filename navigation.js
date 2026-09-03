@@ -1,1 +1,13 @@
-(()=>{'use strict';const items=[['index.html','⌂','Início'],['servicos.html','◇','Serviços'],['nzingagpt.html','◉','NzingaGPT'],['surpresas.html','✦','Surpresas'],['market.html','▣','Market'],['raizes.html','◆','Raízes'],['minha-nzinga.html','☻','Minha Nzinga'],['admin.html','♜','Admin']];function init(){const current=(location.pathname.split('/').pop()||'index.html').toLowerCase();const btn=document.getElementById('menuBtn');const nav=document.getElementById('navLinks');if(btn&&nav){const toggle=()=>{const open=!nav.classList.contains('open');nav.classList.toggle('open',open);btn.setAttribute('aria-expanded',String(open));};btn.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();toggle();});btn.addEventListener('touchstart',e=>{e.preventDefault();toggle();},{passive:false});nav.addEventListener('click',e=>{const a=e.target.closest('a[href]');if(!a)return;e.stopPropagation();const href=a.getAttribute('href');if(href&&href!=='#')location.href=href;});document.addEventListener('click',e=>{if(!nav.contains(e.target)&&e.target!==btn){nav.classList.remove('open');btn.setAttribute('aria-expanded','false');}});}let bar=document.getElementById('nzingaBottomNav');if(!bar){bar=document.createElement('nav');bar.id='nzingaBottomNav';bar.className='nzinga-bottom-nav';bar.innerHTML=items.map(([href,icon,label])=>`<a href="${href}"${current===href?' class="active"':''}><span>${icon}</span><small>${label}</small></a>`).join('');document.body.appendChild(bar);}bar.addEventListener('click',e=>{const a=e.target.closest('a[href]');if(!a)return;e.preventDefault();e.stopPropagation();location.href=a.getAttribute('href');});}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();})();
+(()=>{'use strict';
+const items=[['index.html','⌂','Início'],['servicos.html','◇','Serviços'],['nzingagpt.html','◉','NzingaGPT'],['surpresas.html','✦','Surpresas'],['market.html','▣','Market'],['raizes.html','◆','Raízes'],['minha-nzinga.html','☻','Minha Nzinga'],['admin.html','♜','Admin']];
+function init(){
+  if(!document.body||document.querySelector('.bottom-nav'))return;
+  const current=(location.pathname.split('/').pop()||'index.html').toLowerCase();
+  const bar=document.createElement('nav');
+  bar.className='bottom-nav';
+  bar.setAttribute('aria-label','Navegação rápida');
+  bar.innerHTML=items.map(([href,icon,label])=>`<a href="${href}"${current===href?' class="active"':''} aria-label="${label}"><span>${icon}</span><small>${label}</small></a>`).join('');
+  document.body.appendChild(bar);
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
+})();
