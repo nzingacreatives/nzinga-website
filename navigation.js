@@ -1,12 +1,5 @@
 (()=>{'use strict';
-const items=[['index.html','⌂','Início'],['servicos.html','◇','Serviços'],['nzingagpt.html','◉','NzingaGPT'],['market.html','▣','Market'],['minha-nzinga.html','☻','Minha Nzinga']];
-function init(){
- if(!document.body)return;
- const current=(location.pathname.split('/').pop()||'index.html').toLowerCase();
- let bar=document.querySelector('.bottom-nav');
- if(!bar){bar=document.createElement('nav');bar.className='bottom-nav';bar.setAttribute('aria-label','Navegação rápida');document.body.appendChild(bar);}
- bar.innerHTML=items.map(([href,icon,label])=>`<a href="/${href}"${current===href?' class="active"':''} aria-label="${label}"><span>${icon}</span><small>${label}</small></a>`).join('');
- bar.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{window.location.href=a.href;}));
-}
-if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
-})();
+const icons={home:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5 10.5V20h14v-9.5"/><path d="M9 20v-5h6v5"/></svg>',services:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5h14v14H5z"/><path d="m8 12 2.5 2.5L16 9"/></svg>',gpt:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c4.8 0 8 2.7 8 6.8 0 3.9-3.2 6.2-8 6.2s-8-2.3-8-6.2C4 5.7 7.2 3 12 3Z"/><path d="M8 19c1.2 1.4 2.6 2 4 2s2.8-.6 4-2"/><circle cx="9" cy="9" r=".8"/><circle cx="15" cy="9" r=".8"/></svg>',market:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h16l-1 12H5L4 8Z"/><path d="M8 8a4 4 0 0 1 8 0"/><path d="M8 12v.1M16 12v.1"/></svg>',account:'<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c.7-3.3 3-5 7-5s6.3 1.7 7 5"/></svg>'};
+const items=[['index.html','home','Início'],['servicos.html','services','Serviços'],['nzingagpt.html','gpt','NzingaGPT'],['market.html','market','Market'],['minha-nzinga.html','account','Minha Nzinga']];
+function init(){if(!document.body)return;const current=(location.pathname.split('/').pop()||'index.html').toLowerCase();let bar=document.querySelector('.bottom-nav');if(!bar){bar=document.createElement('nav');bar.className='bottom-nav';bar.setAttribute('aria-label','Navegação rápida');document.body.appendChild(bar)}bar.innerHTML=items.map(([href,icon,label])=>`<a href="/${href}"${current===href?' class="active"':''} aria-label="${label}"><span class="nav-icon">${icons[icon]}</span><small>${label}</small></a>`).join('')}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();})();
