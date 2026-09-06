@@ -65,22 +65,37 @@ Entrega a resposta mais útil e coerente possível para a mensagem atual, usando
       parts: [{ text: m.content }]
     }));
 
-    const model = 'gemini-3.6-flash';
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:streamGenerateContent?alt=sse&key=${encodeURIComponent(process.env.GEMINI_API_KEY)}`;
+    // Try the newest stable Flash first, then fall back automatically if Google
+    // temporarily returns an availability/rate-limit error.
+    const models = ['gemini-3.8-flash', 'gemini-3.7-flash', 'gemini-3.6-flash'];
+    let upstream = null;
+    let lastErrorData = null;
 
-    const upstream = await fetch(url, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        systemInstruction: { parts: [{ text: system }] },
-        contents
-      })
-    });
+    for (const model of models) {
+      const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:streamGenerateContent?alt=sse&key=${encodeURIComponent(process.env.GEMINI_API_KEY)}`;
+      const candidate = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          systemInstruction: { parts: [{ text: system }] },
+          contents
+        })
+      });
 
-    if (!upstream.ok || !upstream.body) {
-      const errorData = await upstream.json().catch(() => ({}));
-      console.error('NzingaGPT upstream error:', errorData);
-      return res.status(502).json({ error: 'Não foi possível obter uma resposta agora.' });
+      if (candidate.ok && candidate.body) {
+        upstream = candidate;
+        break;
+      }
+
+      lastErrorData = await candidate.json().catch(() => ({}));
+      const retryable = candidate.status === 429 || candidate.status === 500 || candidate.status === 502 || candidate.status === 503 || candidate.status === 504;
+      console.warn('NzingaGPT model unavailable:', model, candidate.status, lastErrorData);
+      if (!retryable) break;
+    }
+
+    if (!upstream || !upstream.body) {
+      console.error('NzingaGPT upstream error:', lastErrorData);
+      return res.status(502).json({ error: 'Não foi possível obter uma resposta agora. Tenta novamente em instantes.' });
     }
 
     res.statusCode = 200;
