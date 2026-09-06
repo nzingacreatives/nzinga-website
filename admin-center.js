@@ -1,24 +1,35 @@
-/* Nzinga Admin — centralização das áreas e ações destrutivas. */
+/* Nzinga Admin — centralização das áreas, ícones e ações destrutivas. */
 (function(){
   'use strict';
   function start(){
     if(!/admin\.html$/i.test(location.pathname)||!window.supabase||!window.NZINGA_SUPABASE)return;
-    var sb=window.supabase.createClient(window.NZINGA_SUPABASE.url,window.NZINGA_SUPABASE.publishableKey);
     var nav=document.querySelector('.side-nav');
     if(!nav||document.getElementById('nz-admin-center-ready'))return;
     var marker=document.createElement('span');marker.id='nz-admin-center-ready';marker.hidden=true;document.body.appendChild(marker);
     addStyle();
-    setTimeout(function(){normalizeNav();watchPanels()},700);
-
+    setTimeout(function(){normalizeNav();watchPanels();},700);
+    var svg={
+      market:'<svg viewBox="0 0 24 24"><path d="M4 8h16l-1 12H5L4 8Z"/><path d="M8 8a4 4 0 0 1 8 0"/></svg>',
+      orders:'<svg viewBox="0 0 24 24"><path d="M6 4h12v16H6zM9 8h6M9 12h6M9 16h4"/></svg>',
+      reviews:'<svg viewBox="0 0 24 24"><path d="m12 4 2.2 4.5 4.8.7-3.5 3.4.8 4.8-4.3-2.3-4.3 2.3.8-4.8L5 9.2l4.8-.7z"/></svg>',
+      users:'<svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3"/><path d="M5 20c.8-3.5 3.2-5 7-5s6.2 1.5 7 5"/></svg>',
+      team:'<svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c.7-3.4 2.7-5 6-5s5.3 1.6 6 5M15 15c2.8-.1 4.7 1.5 5.5 4"/></svg>',
+      audit:'<svg viewBox="0 0 24 24"><path d="M4 5h16v14H4zM8 9h8M8 13h6M8 17h4"/></svg>'
+    };
+    function navIcon(key){return '<span class="nz-admin-nav-icon" aria-hidden="true">'+(svg[key]||'')+'</span>'}
     function normalizeNav(){
-      var audit=document.getElementById('auditTab');if(audit)audit.innerHTML='<span>♧</span> Atividades';
-      var team=document.querySelector('.side-nav button[data-tab="team"]');if(team)team.innerHTML='<span>♜</span> Equipa';
-      var buttons=[].slice.call(nav.querySelectorAll('button'));
-      buttons.forEach(function(b){b.title=b.textContent.trim()});
+      var team=nav.querySelector('button[data-tab="team"]');if(team)team.innerHTML=navIcon('team')+'<span>Equipa</span>';
+      var audit=nav.querySelector('button[data-tab="audit"]');if(audit)audit.innerHTML=navIcon('audit')+'<span>Atividades</span>';
+      var products=nav.querySelector('button[data-tab="products"]');if(products)products.innerHTML=navIcon('market')+'<span>Market</span>';
+      var orders=nav.querySelector('button[data-tab="orders"]');if(orders)orders.innerHTML=navIcon('orders')+'<span>Pedidos</span>';
+      var reviews=nav.querySelector('button[data-tab="reviews"]');if(reviews)reviews.innerHTML=navIcon('reviews')+'<span>Avaliações</span>';
+      var users=nav.querySelector('button[data-tab="users"]');if(users)users.innerHTML=navIcon('users')+'<span>Utilizadores</span>';
+      [].slice.call(nav.querySelectorAll('button')).forEach(function(b){b.title=b.textContent.trim();b.setAttribute('aria-label',b.textContent.trim())});
     }
     function addStyle(){
       var s=document.createElement('style');s.id='nzinga-admin-center-style';s.textContent=''
-      +'.side-nav button[data-tab="team"],.side-nav button[data-tab="audit"]{font-weight:700}'
+      +'.side-nav button{gap:11px!important}.nz-admin-nav-icon{width:20px;height:20px;display:grid;place-items:center;flex:none}.nz-admin-nav-icon svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}'
+      +'.side-nav button.active .nz-admin-nav-icon{transform:translateY(-.5px)}'
       +'.admin-card .nz-admin-delete{border:1px solid #c91510!important;background:transparent!important;color:inherit!important}'
       +'.nz-admin-delete:focus-visible,.admin-actions button:focus-visible,.admin-actions select:focus-visible{outline:3px solid #f7c515;outline-offset:2px}'
       +'body.admin-theme-light .nz-admin-delete{color:#9e0d16!important;border-color:#c91510!important}'
@@ -27,7 +38,7 @@
       +'@media(max-width:650px){.side-nav button{flex:0 0 auto}.nz-admin-delete{width:100%}}';document.head.appendChild(s);
     }
     function watchPanels(){
-      ['panel-products','panel-orders','panel-reviews','panel-users'].forEach(function(id){var p=document.getElementById(id);if(!p)return;new MutationObserver(function(){setTimeout(function(){enhance(id,p)},80)}).observe(p,{childList:true,subtree:true});setTimeout(function(){enhance(id,p)},1200)});
+      ['panel-products','panel-orders','panel-reviews','panel-users','panel-team','panel-audit'].forEach(function(id){var p=document.getElementById(id);if(!p)return;new MutationObserver(function(){setTimeout(function(){enhance(id,p)},80)}).observe(p,{childList:true,subtree:true});setTimeout(function(){enhance(id,p)},1200)});
     }
     function enhance(id,panel){
       if(id==='panel-products')addDelete(panel,'product');
@@ -42,7 +53,7 @@
         var id=null;
         if(type==='product'){var e=card.querySelector('[data-edit]');id=e&&e.dataset.edit}
         if(type==='order'){var e2=card.querySelector('[data-order]');id=e2&&e2.dataset.order}
-        if(type==='review'){var d=card.querySelector('[data-review-details]');if(d){var text=card.querySelector('.review-id');id=text?text.textContent.replace(/^.*?:\\s*/,'').trim():null}}
+        if(type==='review'){var d=card.querySelector('[data-review-details]');if(d){var text=card.querySelector('.review-id');id=text?text.textContent.replace(/^.*?:\s*/,'').trim():null}}
         if(type==='user')id=card.dataset.userId;
         if(!id)return;
         var actions=card.querySelector('.admin-actions');if(!actions)return;
@@ -55,13 +66,9 @@
       if(!confirm('Eliminar este '+labels[type]+' permanentemente? Esta ação não pode ser desfeita.'))return;
       button.disabled=true;button.textContent='A eliminar…';
       var table={product:'market_products',order:'orders',review:'reviews',user:'profiles'}[type];
-      var result=await sb.from(table).delete().eq('id',id);
+      var result=await window.supabase.createClient(window.NZINGA_SUPABASE.url,window.NZINGA_SUPABASE.publishableKey).from(table).delete().eq('id',id);
       if(result.error){button.disabled=false;button.textContent='Eliminar '+labels[type];alert('Não foi possível eliminar: '+result.error.message);return}
-      await audit(type,id);
       location.reload();
-    }
-    async function audit(type,id){
-      try{var r=await sb.auth.getSession(),u=r&&r.data&&r.data.session?r.data.session.user:null;if(!u)return;var actions={product:'market.product_deleted',order:'orders.order_deleted',review:'reviews.deleted',user:'users.profile_deleted'};var tables={product:'market_products',order:'orders',review:'reviews',user:'profiles'};await sb.from('admin_audit_logs').insert({actor_id:u.id,action:actions[type],target_table:tables[type],target_id:id,details:{source:'admin-center'}})}catch(e){console.warn('Audit:',e)}
     }
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else start();
