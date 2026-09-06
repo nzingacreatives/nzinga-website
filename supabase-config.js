@@ -53,6 +53,13 @@ window.NZINGA_SUPABASE = {
         if(logout&&logout.parentElement)logout.parentElement.insertBefore(link,logout);else head.appendChild(link);
       }).catch(function(error){console.warn('Admin check:',error)});
     }).catch(function(error){console.warn('Session bootstrap:',error)});
+
+    /* Run after the page's own account code so the legacy review handler cannot override it. */
+    setTimeout(function(){
+      if(location.pathname.endsWith('/minha-nzinga.html')||location.pathname.endsWith('minha-nzinga.html')){
+        var fix=document.createElement('script');fix.src='minha-nzinga-fix.js?v=1';fix.async=false;document.body.appendChild(fix);
+      }
+    },800);
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
 })();
