@@ -73,8 +73,7 @@ Entrega a resposta mais útil e coerente possível para a mensagem atual, usando
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         systemInstruction: { parts: [{ text: system }] },
-        contents,
-        generationConfig: { temperature: 0.35 }
+        contents
       })
     });
 
