@@ -1,0 +1,44 @@
+:root{--accessible-yellow:#f7c515;--accessible-black:#111;--accessible-white:#fff}
+/* High-contrast surfaces */
+.rating{background:#fff!important;color:#111!important;border-color:#111!important}
+.rating h2,.rating p,.rating .review-item,.rating .review-item small{color:#111!important}
+.rating .eyebrow{color:#c91510!important}
+.rating .stars button{color:#111!important}
+.rating .stars button.on{color:#c91510!important}
+.rating textarea{background:#fff!important;color:#111!important;border:2px solid #111!important}
+.rating textarea::placeholder{color:#444!important}
+footer{background:var(--accessible-yellow)!important;color:#111!important;border-top:3px solid #111}
+footer .logo,footer p,footer small{color:#111!important}
+#logoutBtn{background:#fff!important;color:#111!important;border:2px solid #111!important}
+/* Market: never use low-contrast grey text on grey surfaces */
+.market .product,.market .filter{background:#fff!important;color:#111!important}
+.market .product p,.market .product-info p{color:#111!important}
+.market .tag{color:#c91510!important}
+.market .filter{border-color:#111!important}
+.market .filter.active,.market .filter:hover{background:#111!important;color:#fff!important}
+.market .buy{background:#fff!important;color:#111!important;border:2px solid #111!important;opacity:1}
+.market .product-bottom{border-color:#111!important}
+.market .sell{background:#111!important;color:#fff!important}
+.market .sell p{color:#fff!important}
+.market .sell .eyebrow{color:#f7c515!important}
+/* Repeated graphic details without constant motion */
+.market .product,.portfolio-grid div,.service-grid a,.home-cards a{position:relative;overflow:hidden}
+.market .product:after,.service-grid a:after,.home-cards a:after{content:'✦  ·  ✦';position:absolute;right:12px;top:10px;font-size:.55rem;letter-spacing:4px;color:#111;opacity:.16;pointer-events:none}
+/* Services filters and cards */
+.filter{background:#fff!important;color:#111!important;border-color:#111!important}
+.filter.active,.filter:hover{background:#111!important;color:#fff!important}
+/* Accessible dark mode: keep readable black-on-white content where requested */
+@media(prefers-color-scheme:dark){
+  .rating{background:#fff!important;color:#111!important}
+  .rating h2,.rating p,.rating .review-item,.rating .review-item small{color:#111!important}
+  .rating .stars button{color:#111!important}.rating .stars button.on{color:#c91510!important}
+  .rating textarea{background:#fff!important;color:#111!important}
+  footer{background:#f7c515!important;color:#111!important}
+  footer .logo,footer p,footer small{color:#111!important}
+  #logoutBtn{background:#fff!important;color:#111!important}
+  .market .product,.market .filter{background:#fff!important;color:#111!important}
+  .market .product p,.market .product-info p{color:#111!important}
+  .market .filter.active,.market .filter:hover{background:#111!important;color:#fff!important}
+  .market .buy{background:#fff!important;color:#111!important}
+}
+@media(prefers-reduced-motion:reduce){.market .product,.portfolio-grid div,.service-grid a,.home-cards a{transition:none!important}}
