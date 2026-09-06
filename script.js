@@ -25,14 +25,12 @@
       });
     }
 
-    // Native links stay native: no global preventDefault/stopImmediatePropagation.
+    // Barra inferior: apenas as cinco áreas principais.
     const items = [
       ['index.html', '⌂', 'Início'],
       ['servicos.html', '◇', 'Serviços'],
-      ['surpresas.html', '✦', 'Surpresas'],
       ['nzingagpt.html', '◉', 'NzingaGPT'],
       ['market.html', '▣', 'Market'],
-      ['raizes.html', '✺', 'Raízes'],
       ['minha-nzinga.html', '☻', 'Minha Nzinga']
     ];
 
@@ -41,11 +39,14 @@
       bottomNav = document.createElement('nav');
       bottomNav.className = 'bottom-nav';
       bottomNav.setAttribute('aria-label', 'Navegação rápida');
+      document.body.appendChild(bottomNav);
+    }
+
+    if (bottomNav) {
       const path = currentPage();
       bottomNav.innerHTML = items.map(([href, icon, label]) =>
-        `<a href="${href}" class="${path === href ? 'active' : ''}" aria-label="${label}"><span>${icon}</span><small>${label}</small></a>`
+        `<a href="/${href}" class="${path === href ? 'active' : ''}" aria-label="${label}"><span>${icon}</span><small>${label}</small></a>`
       ).join('');
-      document.body.appendChild(bottomNav);
     }
   }
 
