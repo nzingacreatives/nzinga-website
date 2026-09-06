@@ -25,7 +25,6 @@
       });
     }
 
-    // Barra inferior: apenas as cinco áreas principais.
     const items = [
       ['index.html', '⌂', 'Início'],
       ['servicos.html', '◇', 'Serviços'],
@@ -165,10 +164,92 @@
     await loadPublished();
   }
 
+  async function initCheckout() {
+    const btn = document.getElementById('confirm');
+    const area = document.getElementById('checkoutArea');
+    const success = document.getElementById('success');
+    const status = document.getElementById('status');
+    const authState = document.getElementById('authState');
+    const required = document.getElementById('authRequired');
+    const current = JSON.parse(localStorage.getItem('nzingaCurrentOrder') || 'null');
+    if (!btn || !area || !current) return;
+
+    try {
+      if (!window.supabase) await loadScript('https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2');
+      if (!window.NZINGA_SUPABASE) await loadScript('supabase-config.js');
+    } catch (error) {
+      if (status) status.textContent = 'Não foi possível ligar à conta Nzinga agora.';
+      return;
+    }
+
+    const cfg = window.NZINGA_SUPABASE;
+    if (!cfg || !window.supabase) return;
+    const sb = window.supabase.createClient(cfg.url, cfg.publishableKey);
+    const { data: { session } } = await sb.auth.getSession();
+
+    if (!session) {
+      if (authState) authState.textContent = 'É necessário entrar na tua conta para finalizar o pedido.';
+      if (required) required.classList.add('show');
+      btn.disabled = true;
+      btn.style.opacity = '.55';
+      return;
+    }
+
+    if (authState) authState.textContent = 'Conta: ' + (session.user.email || 'autenticada');
+
+    const finish = (createdId) => {
+      const local = JSON.parse(localStorage.getItem('nzingaOrders') || '[]');
+      const i = local.findIndex(o => String(o.id) === String(current.id));
+      if (i >= 0) {
+        local[i] = { ...local[i], status: 'Pedido iniciado', supabaseId: createdId, payment: 'Pagamento a confirmar' };
+        localStorage.setItem('nzingaOrders', JSON.stringify(local));
+      }
+      localStorage.setItem('nzingaCurrentOrder', JSON.stringify({ ...current, status: 'Pedido iniciado', supabaseId: createdId, payment: 'Pagamento a confirmar' }));
+      area.style.display = 'none';
+      if (success) success.classList.add('show');
+    };
+
+    const save = async (event) => {
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      if (btn.dataset.nzingaSaving === '1') return;
+      btn.dataset.nzingaSaving = '1';
+      btn.disabled = true;
+      btn.textContent = 'A guardar pedido...';
+      if (status) status.textContent = '';
+
+      const payload = {
+        user_id: session.user.id,
+        service: String(current.service || 'Projeto Nzinga'),
+        tier: String(current.tier || 'Normal'),
+        name: String(current.name || ''),
+        contact: String(current.contact || ''),
+        idea: String(current.idea || ''),
+        status: 'Pedido iniciado'
+      };
+
+      const { data: created, error } = await sb.from('orders').insert(payload).select('id').single();
+      if (error) {
+        console.error('Nzinga checkout:', error);
+        if (status) status.textContent = error.message || 'Não foi possível guardar o pedido na conta. Tenta novamente.';
+        btn.dataset.nzingaSaving = '0';
+        btn.disabled = false;
+        btn.textContent = 'Confirmar pedido →';
+        return;
+      }
+
+      finish(created.id);
+    };
+
+    // Captura o clique antes dos handlers antigos do checkout para garantir o status inicial permitido pelo RLS.
+    btn.addEventListener('click', save, true);
+  }
+
   function boot() {
     initNavigation();
     initProverb();
     if (currentPage() === 'market.html') initMarket();
+    if (currentPage() === 'checkout.html') initCheckout();
     document.documentElement.classList.add('ready');
   }
 
