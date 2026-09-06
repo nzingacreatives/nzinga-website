@@ -1,51 +1,12 @@
 (() => {
   'use strict';
-  const KEY = 'nzingaGPT.sessions.v2';
-  const ANON_KEY = 'nzingaGPT.anonymous';
-  const welcome = { role: 'assistant', content: 'Olá. Não precisas escolher um modo. Podes simplesmente começar a falar comigo.', time: Date.now() };
-
-  function readSessions(){
-    try { return JSON.parse(localStorage.getItem(KEY) || '[]'); } catch { return []; }
-  }
-  function writeSessions(sessions){
-    try { localStorage.setItem(KEY, JSON.stringify(sessions)); } catch(e) { console.warn(e); }
-  }
-  function addControls(){
-    const sidebar = document.querySelector('.chat-sidebar');
-    if(!sidebar || document.getElementById('gptActions')) return;
-    const box = document.createElement('div');
-    box.id = 'gptActions';
-    box.className = 'gpt-actions';
-    box.innerHTML = '<p class="side-label">CONVERSA</p><div class="gpt-action-grid"><button type="button" id="newGptConversation">＋ Nova conversa</button><button type="button" id="anonymousGptConversation">◌ Conversa anónima</button></div><p class="gpt-action-note" id="gptActionNote">A conversa anónima não fica guardada no histórico.</p>';
-    sidebar.prepend(box);
-    document.getElementById('newGptConversation').addEventListener('click', () => {
-      sessionStorage.removeItem(ANON_KEY);
-      const sessions = readSessions();
-      sessions.unshift({id: crypto.randomUUID(), createdAt: Date.now(), updatedAt: Date.now(), messages:[{...welcome, time:Date.now()}]});
-      writeSessions(sessions.slice(0,20));
-      location.reload();
-    });
-    document.getElementById('anonymousGptConversation').addEventListener('click', () => {
-      sessionStorage.setItem(ANON_KEY, '1');
-      location.reload();
-    });
-  }
-
-  function maintainAnonymousMode(){
-    if(sessionStorage.getItem(ANON_KEY) !== '1') return;
-    const note = document.getElementById('gptActionNote');
-    if(note) note.textContent = 'Modo anónimo ativo. Esta conversa não será guardada no histórico.';
-    const btn = document.getElementById('anonymousGptConversation');
-    if(btn){ btn.classList.add('active'); btn.textContent = '● Conversa anónima ativa'; }
-    const purge = () => { try { localStorage.removeItem(KEY); } catch(e) {} };
-    setTimeout(purge, 0);
-    setInterval(purge, 500);
-    window.addEventListener('beforeunload', purge);
-  }
-
-  function init(){
-    addControls();
-    maintainAnonymousMode();
-  }
-  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init, {once:true}); else init();
+  const KEY='nzingaGPT.sessions.v2',ANON_KEY='nzingaGPT.anonymous';
+  const welcome={role:'assistant',content:'Olá. Não precisas escolher um modo. Podes simplesmente começar a falar comigo.',time:Date.now()};
+  function read(){try{return JSON.parse(localStorage.getItem(KEY)||'[]')}catch{return[]}}
+  function write(s){try{localStorage.setItem(KEY,JSON.stringify(s))}catch(e){console.warn(e)}}
+  function style(){if(document.getElementById('gptActionsStyle'))return;const s=document.createElement('style');s.id='gptActionsStyle';s.textContent='.gpt-actions{margin-bottom:24px}.gpt-action-grid{display:grid;gap:8px}.gpt-action-grid button{width:100%;text-align:left;border:2px solid #111;background:#fff;color:#111;padding:11px 12px;font:inherit;font-size:.75rem;font-weight:700;cursor:pointer;border-radius:10px}.gpt-action-grid button:hover,.gpt-action-grid button.active{background:#f7c515;color:#111}.gpt-action-grid button+button{background:#111;color:#fff}.gpt-action-grid button+button:hover,.gpt-action-grid button+button.active{background:#f7c515;color:#111}.gpt-action-note{font-size:.68rem;line-height:1.45;color:#555;margin:9px 0 0}.gpt-action-grid button:focus-visible{outline:3px solid #c91510;outline-offset:2px}@media(prefers-color-scheme:dark){.gpt-action-grid button{background:#fff;color:#111;border-color:#fff}.gpt-action-grid button+button{background:#111;color:#fff;border-color:#fff}.gpt-action-note{color:#ddd}}';document.head.appendChild(s)}
+  function controls(){const side=document.querySelector('.chat-sidebar');if(!side||document.getElementById('gptActions'))return;const box=document.createElement('div');box.id='gptActions';box.className='gpt-actions';box.innerHTML='<p class="side-label">CONVERSA</p><div class="gpt-action-grid"><button type="button" id="newGptConversation">＋ Nova conversa</button><button type="button" id="anonymousGptConversation">◌ Conversa anónima</button></div><p class="gpt-action-note" id="gptActionNote">A conversa anónima não fica guardada no histórico.</p>';side.prepend(box);document.getElementById('newGptConversation').onclick=()=>{sessionStorage.removeItem(ANON_KEY);const sessions=read();sessions.unshift({id:crypto.randomUUID(),createdAt:Date.now(),updatedAt:Date.now(),messages:[{...welcome,time:Date.now()}]});write(sessions.slice(0,20));location.reload()};document.getElementById('anonymousGptConversation').onclick=()=>{sessionStorage.setItem(ANON_KEY,'1');location.reload()}}
+  function anonymous(){if(sessionStorage.getItem(ANON_KEY)!=='1')return;const note=document.getElementById('gptActionNote'),btn=document.getElementById('anonymousGptConversation');if(note)note.textContent='Modo anónimo ativo. Esta conversa não será guardada no histórico.';if(btn){btn.classList.add('active');btn.textContent='● Conversa anónima ativa'}const purge=()=>{try{localStorage.removeItem(KEY)}catch(e){}};setTimeout(purge,0);setInterval(purge,500);window.addEventListener('beforeunload',purge)}
+  function init(){style();controls();anonymous()}
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
 })();
