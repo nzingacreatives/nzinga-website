@@ -20,6 +20,18 @@ html[data-nzinga-theme="dark"] body{background:#101010!important;color:#f5f5f5!i
 html[data-nzinga-theme="dark"] h1,html[data-nzinga-theme="dark"] h2,html[data-nzinga-theme="dark"] h3,html[data-nzinga-theme="dark"] h4,html[data-nzinga-theme="dark"] p,html[data-nzinga-theme="dark"] li,html[data-nzinga-theme="dark"] label,html[data-nzinga-theme="dark"] small{color:#f1f1f1!important}
 html[data-nzinga-theme="dark"] input,html[data-nzinga-theme="dark"] textarea,html[data-nzinga-theme="dark"] select{background:#181818!important;color:#fff!important;border-color:#eee!important}
 html[data-nzinga-theme="dark"] .card,html[data-nzinga-theme="dark"] .panel,html[data-nzinga-theme="dark"] .stat,html[data-nzinga-theme="dark"] .market-card,html[data-nzinga-theme="dark"] .product,html[data-nzinga-theme="dark"] .rating,html[data-nzinga-theme="dark"] .auth-box{background:#181818!important;color:#fff!important;border-color:#eee!important}
+/* NzingaGPT: no modo escuro, bolhas e conteúdo do chat mantêm contraste próprio. */
+html[data-nzinga-theme="dark"] .nz-chat .bubble.assistant,
+html[data-nzinga-theme="dark"] .nz-chat .bubble.assistant *{background:#fff!important;color:#111!important}
+html[data-nzinga-theme="dark"] .nz-chat .bubble.user,
+html[data-nzinga-theme="dark"] .nz-chat .bubble.user *{background:#111!important;color:#fff!important}
+html[data-nzinga-theme="dark"] .nz-chat .starter,
+html[data-nzinga-theme="dark"] .nz-chat .starter *{background:#fff!important;color:#111!important}
+html[data-nzinga-theme="dark"] .nz-chat .starter:hover,
+html[data-nzinga-theme="dark"] .nz-chat .starter:hover *{background:#f2c000!important;color:#111!important}
+html[data-nzinga-theme="dark"] .nz-chat .bubble.assistant a{color:#9e0d09!important}
+html[data-nzinga-theme="dark"] .nz-chat .bubble.assistant blockquote{color:#333!important}
+html[data-nzinga-theme="dark"] .nz-chat .bubble.assistant code{background:#e9e9e9!important;color:#111!important}
 :focus-visible{outline:4px solid #f2c000!important;outline-offset:3px!important}
 @media(max-width:600px){body{font-size:16px!important}.settings-page p,.settings-card p{line-height:1.7!important}.settings-option{font-size:1rem!important}}
 `;
