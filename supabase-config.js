@@ -16,6 +16,9 @@ window.NZINGA_SUPABASE = {
         var adminScript=document.createElement('script');adminScript.src=src;adminScript.async=false;document.head.appendChild(adminScript);
       });
     }
+    if(location.pathname.endsWith('/checkout.html')||location.pathname.endsWith('checkout.html')){
+      var checkoutFix=document.createElement('script');checkoutFix.src='checkout-fix.js?v=1';checkoutFix.async=false;document.head.appendChild(checkoutFix);
+    }
 
     if(!box||!head||!grid)return;
     var sb=window.supabase.createClient(window.NZINGA_SUPABASE.url,window.NZINGA_SUPABASE.publishableKey);
