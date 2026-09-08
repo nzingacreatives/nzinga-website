@@ -13,8 +13,11 @@ let busy=false,timer=0;
 function country(){return localStorage.getItem(COUNTRY)||'AO'}
 function loadConfig(done){
  if(window.NZINGA_MARKET_PRICES){done();return}
+ if(document.querySelector('script[data-nzinga-market-prices]'))return;
  const s=document.createElement('script');
- s.src='market-prices.js?v=2';
+ s.src='market-prices.js?v=3';
+ s.defer=true;
+ s.dataset.nzingaMarketPrices='1';
  s.onload=done;
  s.onerror=done;
  document.head.appendChild(s);
@@ -36,7 +39,7 @@ function remember(root=document){
 function preparePriceMeta(){
  document.querySelectorAll('.service-card .mini-price').forEach(box=>{
    const price=box.querySelector('b');
-   const service=box.querySelector?box.closest('.service-card')?.querySelector('h3')?.textContent.trim():'';
+   const service=box.closest('.service-card')?.querySelector('h3')?.textContent.trim()||'';
    const tier=box.querySelector('small')?.textContent.trim().toUpperCase()||'';
    if(!price||!service||!tier)return;
    if(!price.hasAttribute(BASE)){
@@ -88,7 +91,8 @@ function boot(){
    }).observe(document.body,{childList:true,subtree:true});
    window.addEventListener('storage',e=>{if(e.key===COUNTRY)schedule()});
    document.addEventListener('nzinga:country',schedule);
-   window.NZINGA_PRICE={refresh:render,remember,MARKETS:api?.MARKETS,PRICES:api?.PRICES};
+   const api=window.NZINGA_MARKET_PRICES;
+   window.NZINGA_PRICE={refresh:render,remember,MARKETS:api?.MARKETS||{},PRICES:api?.PRICES||{}};
  });
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot,{once:true});else boot();
