@@ -1,30 +1,24 @@
-/* Nzinga Creatives — preços regionais estáveis
-   Mantém cada preço com uma base original em AOA e calcula a moeda de exibição
-   sempre a partir dessa base. Isto evita conversões repetidas quando o país muda.
+/* Nzinga Creatives — preços comerciais por mercado
+   NÃO converte preços entre moedas.
+   Angola mantém os valores publicados em Kz.
+   Cada outro mercado só mostra um preço quando esse preço foi definido
+   explicitamente em market-prices.js.
 */
 (()=>{'use strict';
 const COUNTRY='nzinga-country';
 const BASE='data-nzinga-base-aoa';
-const CURRENCY={
- AO:{code:'AOA',locale:'pt-AO',symbol:'Kz',rate:1},
- PT:{code:'EUR',locale:'pt-PT',symbol:'€',rate:1/1100},
- BR:{code:'BRL',locale:'pt-BR',symbol:'R$',rate:1/180},
- MZ:{code:'MZN',locale:'pt-MZ',symbol:'MT',rate:1/17},
- FR:{code:'EUR',locale:'en-FR',symbol:'€',rate:1/1100},
- BE:{code:'EUR',locale:'en-BE',symbol:'€',rate:1/1100},
- CH:{code:'CHF',locale:'en-CH',symbol:'CHF',rate:1/1250},
- CA:{code:'CAD',locale:'en-CA',symbol:'CA$',rate:1/670},
- ES:{code:'EUR',locale:'en-ES',symbol:'€',rate:1/1100},
- AR:{code:'ARS',locale:'en-AR',symbol:'AR$',rate:1/0.8},
- MX:{code:'MXN',locale:'en-MX',symbol:'MX$',rate:1/53},
- CO:{code:'COP',locale:'en-CO',symbol:'$',rate:1/0.23},
- CL:{code:'CLP',locale:'en-CL',symbol:'$',rate:1/1.02},
- IT:{code:'EUR',locale:'en-IT',symbol:'€',rate:1/1100},
- SM:{code:'EUR',locale:'en-SM',symbol:'€',rate:1/1100},
- VA:{code:'EUR',locale:'en-VA',symbol:'€',rate:1/1100}
-};
+const READY='data-nzinga-price-ready';
 let busy=false,timer=0;
+
 function country(){return localStorage.getItem(COUNTRY)||'AO'}
+function loadConfig(done){
+ if(window.NZINGA_MARKET_PRICES){done();return}
+ const s=document.createElement('script');
+ s.src='market-prices.js?v=2';
+ s.onload=done;
+ s.onerror=done;
+ document.head.appendChild(s);
+}
 function parseBase(text){
  const m=String(text||'').match(/(?<![\d.,])([\d][\d\s.,]*)\s*(?:Kz|AOA)\b/i);
  if(!m)return null;
@@ -34,44 +28,68 @@ function parseBase(text){
 }
 function remember(root=document){
  root.querySelectorAll?.('body *').forEach(el=>{
-   if(el.children.length) return;
-   if(el.hasAttribute(BASE)) return;
+   if(el.children.length||el.hasAttribute(BASE))return;
    const v=parseBase(el.textContent);
-   if(v!==null) el.setAttribute(BASE,String(v));
+   if(v!==null)el.setAttribute(BASE,String(v));
  });
 }
-function format(base,c){
- if(c.code==='AOA') return `${new Intl.NumberFormat('pt-AO',{maximumFractionDigits:0}).format(base)} Kz`;
- let value=base*c.rate;
- if(!Number.isFinite(value)) value=0;
- return new Intl.NumberFormat(c.locale,{style:'currency',currency:c.code,maximumFractionDigits:0,minimumFractionDigits:0}).format(value);
+function preparePriceMeta(){
+ document.querySelectorAll('.service-card .mini-price').forEach(box=>{
+   const price=box.querySelector('b');
+   const service=box.querySelector?box.closest('.service-card')?.querySelector('h3')?.textContent.trim():'';
+   const tier=box.querySelector('small')?.textContent.trim().toUpperCase()||'';
+   if(!price||!service||!tier)return;
+   if(!price.hasAttribute(BASE)){
+     const base=parseBase(price.textContent);
+     if(base!==null)price.setAttribute(BASE,String(base));
+   }
+   price.dataset.nzingaService=service;
+   price.dataset.nzingaTier=tier;
+   price.setAttribute(READY,'1');
+ });
+}
+function formatAO(base){return `${new Intl.NumberFormat('pt-AO',{maximumFractionDigits:0}).format(base)} Kz`}
+function formatMarket(value,market){
+ const info=window.NZINGA_MARKET_PRICES?.MARKETS?.[market];
+ if(!info)return null;
+ return new Intl.NumberFormat(info.locale,{style:'currency',currency:info.currency,maximumFractionDigits:0,minimumFractionDigits:0}).format(value);
 }
 function render(){
- if(busy)return; busy=true;
+ if(busy)return;
+ busy=true;
  try{
-   remember();
-   const c=CURRENCY[country()]||CURRENCY.AO;
-   document.querySelectorAll(`[${BASE}]`).forEach(el=>{
+   preparePriceMeta();
+   const market=country();
+   const api=window.NZINGA_MARKET_PRICES;
+   document.querySelectorAll(`[${READY}]`).forEach(el=>{
      const base=Number(el.getAttribute(BASE));
      if(!Number.isFinite(base))return;
-     const original=el.textContent;
-     const price=format(base,c);
-     const m=original.match(/(.*?)(\d[\d\s.,]*\s*(?:Kz|AOA|€|R\$|MT|CHF|CA\$|AR\$|MX\$|COP|CLP)?)(.*)/i);
-     el.textContent=m?`${m[1]}${price}${m[3]}`:price;
+     const service=el.dataset.nzingaService||'';
+     const tier=el.dataset.nzingaTier||'';
+     let price=null;
+     if(market==='AO')price=formatAO(base);
+     else if(api){
+       const value=api.getPrice(service,tier,market);
+       price=value===null?'Preço não definido':formatMarket(value,market);
+     }else price='Preço não definido';
+     el.textContent=price||'Preço não definido';
    });
  }finally{busy=false}
 }
 function schedule(){clearTimeout(timer);timer=setTimeout(render,0)}
 function boot(){
- remember(); render();
- new MutationObserver(m=>{
-   let relevant=false;
-   m.forEach(x=>{x.addedNodes.forEach(n=>{if(n.nodeType===1){remember(n);relevant=true}});if(x.type==='childList')relevant=true});
-   if(relevant)schedule();
- }).observe(document.body,{childList:true,subtree:true});
- window.addEventListener('storage',e=>{if(e.key===COUNTRY)schedule()});
- document.addEventListener('nzinga:country',schedule);
- window.NZINGA_PRICE={refresh:render,remember,CURRENCY};
+ loadConfig(()=>{
+   remember();
+   render();
+   new MutationObserver(m=>{
+     let relevant=false;
+     m.forEach(x=>{x.addedNodes.forEach(n=>{if(n.nodeType===1){relevant=true;remember(n)}});if(x.type==='childList')relevant=true});
+     if(relevant)schedule();
+   }).observe(document.body,{childList:true,subtree:true});
+   window.addEventListener('storage',e=>{if(e.key===COUNTRY)schedule()});
+   document.addEventListener('nzinga:country',schedule);
+   window.NZINGA_PRICE={refresh:render,remember,MARKETS:api?.MARKETS,PRICES:api?.PRICES};
+ });
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot,{once:true});else boot();
 })();
