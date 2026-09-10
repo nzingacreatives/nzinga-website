@@ -6,7 +6,6 @@ window.NZINGA_SUPABASE = {
   function load(src){var s=document.createElement('script');s.src=src;s.async=false;document.head.appendChild(s)}
   function boot(){
     load('site-visual-fix.js?v=3');
-    if(location.pathname.endsWith('/servicos.html')||location.pathname.endsWith('servicos.html'))load('sales-prices.js?v=3');
     if(location.pathname.endsWith('/index.html')||location.pathname.endsWith('/')||location.pathname==='')load('public-reviews.js?v=1');
     if(!window.supabase||!window.NZINGA_SUPABASE)return;
     var box=document.getElementById('authBox'),head=document.getElementById('profileHead'),grid=document.getElementById('accountGrid');
