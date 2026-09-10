@@ -1,0 +1,12 @@
+/* Nzinga Creatives — tema único escuro */
+:root{color-scheme:dark!important;--paper:#181818!important;--black:#111!important;--ink:#fff!important;--muted:#b8b8b8!important;--line:#3a3a3a!important}
+html,html[data-nzinga-theme="light"],html[data-nzinga-theme="dark"]{background:#111!important;color-scheme:dark!important}
+html body,html[data-nzinga-theme="light"] body,html[data-nzinga-theme="dark"] body{background:#181818!important;color:#fff!important}
+html[data-nzinga-theme="light"] .nav,html[data-nzinga-theme="dark"] .nav{background:#111!important;color:#fff!important}
+html[data-nzinga-theme="light"] .logo,html[data-nzinga-theme="light"] nav a,html[data-nzinga-theme="light"] .menu,html[data-nzinga-theme="dark"] .logo,html[data-nzinga-theme="dark"] nav a,html[data-nzinga-theme="dark"] .menu{color:#fff!important}
+html[data-nzinga-theme="light"] .menu,html[data-nzinga-theme="dark"] .menu{background:#181818!important;border-color:#444!important}
+html[data-nzinga-theme="light"] .portfolio,html[data-nzinga-theme="dark"] .portfolio{background:#111!important}
+html[data-nzinga-theme="light"] .panel,html[data-nzinga-theme="light"] .stat,html[data-nzinga-theme="light"] .auth-box,html[data-nzinga-theme="light"] .rating,html[data-nzinga-theme="light"] .market .product,html[data-nzinga-theme="light"] .market .market-card,html[data-nzinga-theme="dark"] .panel,html[data-nzinga-theme="dark"] .stat,html[data-nzinga-theme="dark"] .auth-box,html[data-nzinga-theme="dark"] .rating,html[data-nzinga-theme="dark"] .market .product,html[data-nzinga-theme="dark"] .market .market-card{background:#181818!important;color:#fff!important;border-color:#3a3a3a!important}
+html[data-nzinga-theme="light"] input,html[data-nzinga-theme="light"] textarea,html[data-nzinga-theme="light"] select,html[data-nzinga-theme="dark"] input,html[data-nzinga-theme="dark"] textarea,html[data-nzinga-theme="dark"] select{background:#111!important;color:#fff!important;border-color:#444!important}
+.logo::after{display:none!important}
+.account-theme-panel,.theme-panel,[data-theme-toggle],#themeToggle,#theme-toggle{display:none!important}
