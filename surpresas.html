@@ -1,5 +1,233 @@
-<!doctype html><html lang="pt-AO"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Nzinga Surpresas — cria experiências interativas para partilhar."><title>Surpresas — Nzinga Creatives</title><link rel="stylesheet" href="style.css"><style>
-.sx{max-width:1180px;margin:auto;padding:48px 20px 110px}.sxhero{display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:center;padding:38px 0 55px}.sxhero h1{font-size:clamp(3.2rem,8vw,7rem);line-height:.85;margin:10px 0}.sxhero h1 i{color:var(--red);font-style:normal}.sxintro{max-width:650px;line-height:1.7}.sxart{min-height:330px;border:3px solid #111;background:#111;position:relative;overflow:hidden;box-shadow:12px 12px 0 var(--red)}.sxart:before{content:"SURPRESA";position:absolute;right:-40px;bottom:5px;color:var(--yellow);font-size:5rem;font-weight:900;transform:rotate(-90deg);opacity:.12}.sxart:after{content:"01 · ESCOLHE  /  02 · PERSONALIZA  /  03 · PARTILHA";position:absolute;left:18px;bottom:16px;color:#fff;font:700 .58rem monospace;letter-spacing:.1em}.orbit{position:absolute;width:220px;height:220px;border:2px solid var(--nz-cyan,#24d9ff);border-radius:50%;left:28px;top:38px;box-shadow:0 0 35px rgba(36,217,255,.15)}.orbit:before,.orbit:after{content:"";position:absolute;inset:28px;border:1px dashed var(--nz-green,#55e06f);border-radius:50%}.orbit:after{inset:72px;border-color:var(--nz-yellow);border-style:solid}.diamond{position:absolute;width:75px;height:75px;background:var(--red);right:80px;top:70px;transform:rotate(45deg);border:3px solid #111;box-shadow:7px 7px 0 var(--yellow)}.creator{border:3px solid #111;background:#181818;color:#fff;box-shadow:10px 10px 0 var(--yellow)}.creator-top{background:#111;border-bottom:2px solid var(--red);padding:17px 20px;display:flex;justify-content:space-between}.steps{color:var(--yellow);letter-spacing:4px}.body{padding:25px}.step{display:none}.step.active{display:block}.choices{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0}.choice{min-height:125px;border:2px solid #fff;background:#181818;color:#fff;text-align:left;padding:16px;cursor:pointer;font:inherit;position:relative}.choice:hover,.choice.active{border-color:var(--nz-cyan,#24d9ff);box-shadow:5px 5px 0 var(--red);transform:translate(-2px,-2px)}.choice strong{display:block;font-size:1.05rem;margin-bottom:8px}.choice small{opacity:.78;line-height:1.45}.field{width:100%;box-sizing:border-box;background:#111;color:#fff;border:2px solid #777;padding:15px;font:inherit;min-height:125px;resize:vertical}.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}.input{background:#111;color:#fff;border:2px solid #777;padding:13px;font:inherit;width:100%;box-sizing:border-box}.actions{display:flex;justify-content:space-between;gap:12px;margin-top:18px}.btnx{border:2px solid #111;padding:13px 18px;font-weight:800;cursor:pointer;background:var(--yellow);color:#111}.btnx.alt{background:transparent;color:#fff;border-color:#fff}.result{display:none;margin-top:45px;min-height:420px;border:4px solid #111;position:relative;overflow:hidden;background:#0b1020;padding:28px}.result.show{display:flex;align-items:center;justify-content:center}.result-card{width:min(650px,100%);background:#181818;color:#fff;border:3px solid var(--nz-cyan,#24d9ff);padding:34px;text-align:center;box-shadow:10px 10px 0 var(--red);position:relative}.result-card h2{font-size:clamp(2.2rem,6vw,4rem);margin:8px 0;color:var(--yellow)}.result-card p{white-space:pre-wrap;line-height:1.7}.sharebox{margin-top:18px;border:1px dashed #777;padding:12px;text-align:left;font-size:.8rem;word-break:break-all;color:#ccc}.saved{margin-top:18px;color:var(--nz-green,#55e06f);font-size:.85rem}.history{margin-top:55px;border-top:3px solid var(--yellow);padding-top:24px}.history-list{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.history-item{border:2px solid #333;background:#181818;padding:15px;color:#fff}.history-item small{color:#aaa}.history-item p{line-height:1.5}.empty{opacity:.65}@media(max-width:800px){.sxhero{grid-template-columns:1fr}.choices,.history-list{grid-template-columns:1fr}.row{grid-template-columns:1fr}.sxart{min-height:270px}.actions{flex-direction:column}.btnx{width:100%}}
-</style></head><body><header class="nav"><a class="logo" href="index.html">NZINGA<span>CREATIVES</span></a><button class="menu" id="menuBtn" type="button" aria-label="Abrir menu" aria-expanded="false">☰</button><nav id="navLinks"><a href="index.html">Início</a><a href="servicos.html">Serviços</a><a href="nzingagpt.html">NzingaGPT</a><a class="active" href="surpresas.html">Surpresas</a><a href="market.html">Market</a><a href="raizes.html">Raízes</a></nav></header><div class="samakaka"></div><main class="sx"><section class="sxhero"><div><p class="eyebrow">NZINGA SURPRESAS · EXPERIÊNCIAS</p><h1>Cria algo que a pessoa vai <i>descobrir.</i></h1><p class="sxintro">Uma surpresa na Nzinga não é só uma mensagem. É uma pequena experiência: escolhe a intenção, escreve o conteúdo, define como deve aparecer e gera uma página que podes partilhar.</p></div><div class="sxart" aria-hidden="true"><div class="orbit"></div><div class="diamond"></div></div></section><section class="creator"><div class="creator-top"><b>CRIADOR DE SURPRESAS</b><span class="steps" id="steps">● ○ ○</span></div><div class="body"><div class="step active" data-step="1"><p class="eyebrow">01 · QUAL É A INTENÇÃO?</p><div class="choices" data-group="type"><button class="choice active" data-value="celebrar"><strong>Celebrar</strong><small>Aniversário, conquista, vitória ou momento feliz.</small></button><button class="choice" data-value="agradecer"><strong>Agradecer</strong><small>Diz algo que merecia ser dito há mais tempo.</small></button><button class="choice" data-value="surpresa"><strong>Surpreender</strong><small>Uma mensagem inesperada, sem motivo especial.</small></button></div><div class="actions"><span></span><button class="btnx" id="next1">Continuar →</button></div></div><div class="step" data-step="2"><p class="eyebrow">02 · PERSONALIZA</p><div class="row"><input class="input" id="from" maxlength="40" placeholder="De: teu nome (opcional)"><input class="input" id="to" maxlength="40" placeholder="Para: nome da pessoa"></div><textarea class="field" id="msg" maxlength="1000" placeholder="Escreve a mensagem que queres que a pessoa descubra..."></textarea><p><span id="count">0</span>/1000</p><div class="actions"><button class="btnx alt" id="back2">← Voltar</button><button class="btnx" id="next2">Ver surpresa →</button></div></div><div class="step" data-step="3"><p class="eyebrow">03 · REVÊ E PARTILHA</p><div class="row"><select class="input" id="style"><option value="impacto">Impacto</option><option value="carinho">Carinho</option><option value="comic">BD / Quadrinhos</option></select><select class="input" id="access"><option value="publico">Link aberto</option><option value="local">Guardar apenas neste dispositivo</option></select></div><div class="actions"><button class="btnx alt" id="back3">← Voltar</button><button class="btnx" id="make">Criar agora ✦</button></div></div></div></section><section class="result" id="result" aria-live="polite"><div class="result-card"><div class="eyebrow" id="rtype">SURPRESA</div><h2 id="rtitle">Uma coisa especial foi preparada.</h2><p id="rmsg"></p><div class="sharebox" id="sharebox"></div><div class="saved" id="saved"></div><div class="actions"><button class="btnx" id="copy">Copiar texto</button><button class="btnx alt" id="again">Criar outra</button></div></div></section><section class="history"><p class="eyebrow">ARQUIVO LOCAL</p><h2>As tuas últimas surpresas</h2><div class="history-list" id="history"><div class="empty">Ainda não criaste nenhuma surpresa neste dispositivo.</div></div></section></main><footer><a class="logo" href="index.html">NZINGA<span>CREATIVES</span></a><p>Ideias que ganham forma.</p><small>© 2026 Nzinga Creatives · Feito em Angola.</small></footer><script src="navigation.js?v=2"></script><script>
-(()=>{const qs=s=>document.querySelector(s), qsa=s=>[...document.querySelectorAll(s)];let step=1,type='celebrar';const steps=qs('#steps'),result=qs('#result'),msg=qs('#msg');function show(n){step=n;qsa('.step').forEach(x=>x.classList.toggle('active',+x.dataset.step===n));steps.textContent=n===1?'● ○ ○':n===2?'● ● ○':'● ● ●'}qsa('.choice').forEach(b=>b.onclick=()=>{qsa('.choice').forEach(x=>x.classList.remove('active'));b.classList.add('active');type=b.dataset.value});qs('#next1').onclick=()=>show(2);qs('#back2').onclick=()=>show(1);msg.oninput=()=>qs('#count').textContent=msg.value.length;qs('#next2').onclick=()=>{if(!msg.value.trim()){msg.focus();return}show(3)};qs('#back3').onclick=()=>show(2);function title(){return type==='celebrar'?'Hoje é para celebrar.':type==='agradecer'?'Há coisas que merecem ser ditas.':'Uma surpresa só porque sim.'}function renderHistory(){const h=qs('#history'),a=JSON.parse(localStorage.getItem('nzingaSurprises')||'[]');if(!a.length){h.innerHTML='<div class="empty">Ainda não criaste nenhuma surpresa neste dispositivo.</div>';return}h.innerHTML=a.slice(0,6).map(x=>'<article class="history-item"><small>'+x.date+'</small><p>'+x.msg.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]))+'</p></article>').join('')}qs('#make').onclick=()=>{const to=qs('#to').value.trim(),from=qs('#from').value.trim(),style=qs('#style').value,txt=msg.value.trim();const prefix=to?'Para '+to+(from?' · de '+from:'')+'\n\n':'';const final=prefix+txt;qs('#rtype').textContent=type.toUpperCase()+' · '+style.toUpperCase();qs('#rtitle').textContent=title();qs('#rmsg').textContent=final;const payload=btoa(unescape(encodeURIComponent(JSON.stringify({type,to,from,msg:txt,style}))));qs('#sharebox').textContent='Link de experiência: '+location.origin+location.pathname+'?s='+payload;qs('#saved').textContent=qs('#access').value==='local'?'Guardado apenas neste dispositivo.':'Experiência pronta para partilhar.';const a=JSON.parse(localStorage.getItem('nzingaSurprises')||'[]');a.unshift({date:new Date().toLocaleString('pt-AO'),msg:final,type});localStorage.setItem('nzingaSurprises',JSON.stringify(a.slice(0,12)));renderHistory();result.classList.add('show');result.scrollIntoView({behavior:'smooth',block:'center'})};qs('#copy').onclick=()=>navigator.clipboard?.writeText(qs('#rmsg').textContent||'');qs('#again').onclick=()=>{result.classList.remove('show');show(1);msg.value='';qs('#count').textContent='0';window.scrollTo({top:0,behavior:'smooth'})};renderHistory()})();
-</script></body></html>
+<!doctype html>
+<html lang="pt-AO">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Nzinga Surpresas — cria experiências interativas e partilháveis.">
+<title>Nzinga Surpresas — Nzinga Creatives</title>
+<link rel="stylesheet" href="style.css">
+<style>
+:root{--sx-bg:#111;--sx-panel:#181818;--sx-red:#c91510;--sx-yellow:#f7c515;--sx-cyan:#24d9ff;--sx-green:#55e06f}
+body{background:var(--sx-bg);color:#fff}
+.sx{max-width:1180px;margin:auto;padding:48px 18px 110px}
+.sx-hero{display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:center;padding:28px 0 50px}
+.sx-hero h1{font-size:clamp(3rem,8vw,7rem);line-height:.86;margin:8px 0}
+.sx-hero h1 i{color:var(--sx-red);font-style:normal}
+.sx-intro{max-width:650px;line-height:1.7;color:#ddd}
+.sx-art{height:360px;border:3px solid #000;background:#090d14;position:relative;overflow:hidden;box-shadow:12px 12px 0 var(--sx-red)}
+.sx-art .ring{position:absolute;border:2px solid var(--sx-cyan);border-radius:50%;width:230px;height:230px;left:12%;top:13%;box-shadow:0 0 35px rgba(36,217,255,.15)}
+.sx-art .ring:before,.sx-art .ring:after{content:"";position:absolute;inset:28px;border:1px dashed var(--sx-green);border-radius:50%}
+.sx-art .ring:after{inset:72px;border:2px solid var(--sx-yellow)}
+.sx-art .shape{position:absolute;width:85px;height:85px;right:18%;top:22%;background:var(--sx-red);border:3px solid #000;transform:rotate(45deg);box-shadow:8px 8px 0 var(--sx-yellow)}
+.sx-art .balloon-mini{position:absolute;width:54px;height:68px;border-radius:50% 50% 48% 48%;background:var(--sx-yellow);left:59%;bottom:21%;border:3px solid #000}
+.sx-art .balloon-mini:after{content:"";position:absolute;width:2px;height:70px;background:#fff;left:50%;top:100%}
+.sx-art .label{position:absolute;left:18px;bottom:16px;font:800 .6rem monospace;letter-spacing:.13em;color:#fff}
+.creator,.history{border:3px solid #000;background:var(--sx-panel);box-shadow:10px 10px 0 var(--sx-yellow)}
+.creator-head{background:#090909;border-bottom:2px solid var(--sx-red);padding:17px 20px;display:flex;justify-content:space-between;gap:10px;align-items:center}
+.creator-head b{letter-spacing:.06em}.steps{color:var(--sx-yellow);font:800 .8rem monospace}
+.creator-body{padding:24px}
+.step{display:none}.step.active{display:block}
+.eyebrow{color:var(--sx-yellow)!important}
+.choice-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0 22px}
+.choice{min-height:118px;border:2px solid #fff;background:#111;color:#fff;text-align:left;padding:15px;cursor:pointer;font:inherit}
+.choice:hover,.choice.active{border-color:var(--sx-cyan);box-shadow:5px 5px 0 var(--sx-red);transform:translate(-2px,-2px)}
+.choice strong{display:block;margin-bottom:7px}.choice small{color:#ccc;line-height:1.4}
+.mode-grid{grid-template-columns:repeat(4,1fr)}
+.mode-grid .choice{min-height:145px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.field,.input{width:100%;box-sizing:border-box;background:#0d0d0d;color:#fff;border:2px solid #777;padding:13px;font:inherit}
+.field{min-height:110px;resize:vertical}
+.input:focus,.field:focus{outline:3px solid rgba(36,217,255,.35);border-color:var(--sx-cyan)}
+.form-label{display:block;font-weight:700;margin:15px 0 7px}
+.helper{font-size:.75rem;color:#aaa;line-height:1.5}
+.actions{display:flex;justify-content:space-between;gap:10px;margin-top:18px}
+.btnx{border:2px solid #000;background:var(--sx-yellow);color:#111;padding:12px 17px;font:inherit;font-weight:800;cursor:pointer}
+.btnx.alt{background:transparent;color:#fff;border-color:#fff}
+.btnx:disabled{opacity:.55;cursor:wait}
+.ai-box{border:2px solid var(--sx-cyan);background:#0a1119;padding:16px;margin-top:15px}
+.ai-box b{color:var(--sx-green)}
+.ai-box button{margin-top:10px}
+.quiz-editor{display:grid;gap:12px;margin-top:12px}
+.q-card{border:2px solid #444;padding:14px;background:#111}
+.q-card h4{margin:0 0 10px;color:var(--sx-yellow)}
+.q-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+.checkline{display:flex;align-items:center;gap:6px;font-size:.72rem;color:#ccc;margin-top:8px}
+.result{display:none;margin-top:46px;border:4px solid #000;background:#070b12;min-height:460px;padding:26px;box-shadow:12px 12px 0 var(--sx-red)}
+.result.show{display:block}
+.result-card{max-width:760px;margin:auto;background:#181818;border:3px solid var(--sx-cyan);padding:26px;box-shadow:9px 9px 0 var(--sx-yellow)}
+.result-card h2{font-size:clamp(2rem,5vw,4rem);margin:7px 0;color:var(--sx-yellow)}
+.linkbox{border:1px dashed #777;padding:12px;word-break:break-all;color:#ccc;font:.72rem monospace;margin-top:14px}
+.history{margin-top:55px;box-shadow:none;border-color:#333}
+.history-head{padding:20px;border-bottom:2px solid #333;display:flex;justify-content:space-between;gap:12px;align-items:center}
+.history-list{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:18px}
+.history-item{border:2px solid #333;background:#111;padding:14px}
+.history-item small{color:#888}.history-item p{line-height:1.45}
+.history-item button{margin-top:8px}
+.history-tools{display:flex;gap:8px}
+.empty{padding:20px;color:#888}
+#recipient{display:none;min-height:calc(100vh - 120px);padding:30px 15px 90px;background:radial-gradient(circle at 50% 20%,#182234 0,#090b10 45%,#050505 100%);position:relative;overflow:hidden}
+.exp{max-width:760px;margin:auto;text-align:center;min-height:70vh;display:flex;align-items:center;justify-content:center;position:relative}
+.exp-scene{width:100%;display:none;position:relative}.exp-scene.active{display:block}
+.exp h2{font-size:clamp(2.2rem,8vw,5rem);margin:10px 0;color:var(--sx-yellow)}
+.exp p{color:#eee;line-height:1.65}
+.exp-btn{border:3px solid #000;background:var(--sx-yellow);color:#111;padding:13px 20px;font-weight:900;cursor:pointer;box-shadow:6px 6px 0 var(--sx-red)}
+.door{width:190px;height:270px;margin:20px auto;background:linear-gradient(90deg,#35170f,#78341e,#35170f);border:7px solid #160b07;position:relative;box-shadow:18px 18px 0 rgba(0,0,0,.5)}
+.door:before{content:"BATE";position:absolute;left:50%;top:45%;transform:translate(-50%,-50%);font-weight:900;color:#f7c515;letter-spacing:.15em}
+.knob{position:absolute;right:22px;top:51%;width:13px;height:13px;background:#f7c515;border-radius:50%}
+.balloon-field{height:430px;position:relative;margin:10px auto;overflow:hidden}
+.balloon{position:absolute;width:64px;height:82px;border-radius:52% 52% 48% 48%;border:3px solid #000;cursor:pointer;animation:float 3s ease-in-out infinite;box-shadow:4px 5px 0 rgba(0,0,0,.45)}
+.balloon:after{content:"";position:absolute;width:2px;height:65px;background:#ddd;left:50%;top:100%}
+.balloon span{position:absolute;inset:0;display:grid;place-items:center;color:#111;font-weight:900;font-size:.7rem}
+.balloon.popped{animation:pop .25s forwards}
+@keyframes float{50%{transform:translateY(-14px) rotate(2deg)}}@keyframes pop{to{transform:scale(1.8);opacity:0}}
+.cake{font-size:6rem;filter:drop-shadow(6px 6px 0 #000);margin:15px}.cake-card{max-width:620px;margin:auto;background:#181818;border:3px solid var(--sx-yellow);padding:24px;box-shadow:8px 8px 0 var(--sx-red)}
+.quiz-play{display:grid;gap:12px;max-width:620px;margin:20px auto}.quiz-answer{border:2px solid #fff;background:#111;color:#fff;padding:15px;text-align:left;cursor:pointer;font:inherit}.quiz-answer:hover{border-color:var(--sx-cyan);background:#17202b}
+.box-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:620px;margin:25px auto}.gift-box{height:150px;background:#c91510;border:4px solid #000;cursor:pointer;position:relative;box-shadow:8px 8px 0 var(--sx-yellow)}.gift-box:before{content:"";position:absolute;left:43%;top:0;width:18%;height:100%;background:#f7c515}.gift-box:after{content:"";position:absolute;left:20%;top:42%;width:60%;height:18%;background:#f7c515}.gift-box.opened{transform:rotate(-2deg) scale(.95);opacity:.45}
+.envelope{font-size:8rem;cursor:pointer;filter:drop-shadow(7px 7px 0 #000)}
+.final-message{white-space:pre-wrap;background:#181818;border:3px solid var(--sx-cyan);padding:24px;text-align:left;line-height:1.8;box-shadow:8px 8px 0 var(--sx-red)}
+.exp-photo{max-width:100%;max-height:260px;object-fit:cover;border:3px solid #000;margin:10px auto}
+@media(max-width:800px){.sx-hero{grid-template-columns:1fr}.choice-grid,.mode-grid{grid-template-columns:1fr 1fr}.row,.q-grid{grid-template-columns:1fr}.history-list{grid-template-columns:1fr}.sx-art{height:280px}.box-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.choice-grid,.mode-grid{grid-template-columns:1fr}.creator-body{padding:17px}.actions{flex-direction:column}.btnx{width:100%}.balloon-field{height:390px}.balloon{width:55px;height:72px}}
+</style>
+</head>
+<body>
+<header class="nav"><a class="logo" href="index.html">NZINGA<span>CREATIVES</span></a><button class="menu" id="menuBtn" type="button" aria-label="Abrir menu" aria-expanded="false">☰</button><nav id="navLinks"><a href="index.html">Início</a><a href="servicos.html">Serviços</a><a href="nzingagpt.html">NzingaGPT</a><a class="active" href="surpresas.html">Surpresas</a><a href="market.html">Market</a><a href="raizes.html">Raízes</a></nav></header>
+<div class="samakaka"></div>
+
+<main id="creatorPage" class="sx">
+<section class="sx-hero">
+<div><p class="eyebrow">NZINGA SURPRESAS · EXPERIÊNCIAS INTERATIVAS</p><h1>Não mandes só uma mensagem. <i>Cria um momento.</i></h1><p class="sx-intro">Cria uma pequena experiência para alguém abrir no telemóvel: balões para rebentar, quiz para desbloquear, caixas para abrir ou uma mensagem escondida. No fim, recebes um link para partilhar.</p></div>
+<div class="sx-art" aria-hidden="true"><div class="ring"></div><div class="shape"></div><div class="balloon-mini"></div><div class="label">TOCA · JOGA · DESCOBRE · REVELA</div></div>
+</section>
+
+<section class="creator">
+<div class="creator-head"><b>CRIADOR DE SURPRESAS</b><span class="steps" id="steps">● ○ ○ ○</span></div>
+<div class="creator-body">
+<div class="step active" data-step="1">
+<p class="eyebrow">01 · PARA QUÊ?</p>
+<div class="choice-grid" id="intentGrid">
+<button class="choice active" data-intent="aniversario"><strong>Aniversário</strong><small>Uma experiência para celebrar mais um ano.</small></button>
+<button class="choice" data-intent="celebracao"><strong>Celebrar</strong><small>Conquista, vitória, formatura, novo trabalho ou outro momento.</small></button>
+<button class="choice" data-intent="agradecimento"><strong>Agradecer</strong><small>Transforma um obrigado numa experiência.</small></button>
+<button class="choice" data-intent="amizade"><strong>Amizade</strong><small>Uma surpresa para alguém especial.</small></button>
+<button class="choice" data-intent="romantico"><strong>Romântico</strong><small>Uma declaração, convite ou momento a dois.</small></button>
+<button class="choice" data-intent="outro"><strong>Outro motivo</strong><small>Tu decides a ocasião.</small></button>
+</div>
+<label class="form-label" for="purpose">O que está a acontecer?</label>
+<input class="input" id="purpose" maxlength="140" placeholder="Ex.: aniversário de 26 anos, pedido de desculpas, formatura...">
+<div class="actions"><span></span><button class="btnx" id="next1">Continuar →</button></div>
+</div>
+
+<div class="step" data-step="2">
+<p class="eyebrow">02 · COMO A PESSOA VAI DESCOBRIR?</p>
+<div class="choice-grid mode-grid" id="modeGrid">
+<button class="choice active" data-mode="balloons"><strong>Balões + idade</strong><small>Um balão por ano. Rebenta todos e desbloqueia o bolo e a mensagem.</small></button>
+<button class="choice" data-mode="quiz"><strong>Quiz</strong><small>Responde a perguntas e desbloqueia a mensagem final.</small></button>
+<button class="choice" data-mode="boxes"><strong>Caixas surpresa</strong><small>Abre caixas até encontrar a revelação.</small></button>
+<button class="choice" data-mode="reveal"><strong>Mensagem escondida</strong><small>Uma porta/envelope e uma revelação final.</small></button>
+</div>
+<div class="row">
+<div><label class="form-label" for="from">De</label><input class="input" id="from" maxlength="50" placeholder="O teu nome"></div>
+<div><label class="form-label" for="to">Para</label><input class="input" id="to" maxlength="50" placeholder="Nome da pessoa"></div>
+</div>
+<div id="ageWrap"><label class="form-label" for="age">Idade da pessoa</label><input class="input" id="age" type="number" min="1" max="60" placeholder="Ex.: 26"><p class="helper">Usada no modo Balões + idade. Limitamos a 60 para manter a experiência leve.</p></div>
+<div id="quizEditor" class="quiz-editor" hidden></div>
+<label class="form-label" for="message">Mensagem final</label>
+<textarea class="field" id="message" maxlength="1800" placeholder="Escreve a mensagem que a pessoa vai descobrir..."></textarea>
+<p class="helper"><span id="count">0</span>/1800</p>
+<div class="ai-box"><b>Não sabes o que escrever?</b><p class="helper">Explica a situação e a NzingaGPT prepara uma mensagem. Depois podes editar antes de criar.</p><textarea class="field" id="aiContext" maxlength="500" placeholder="Ex.: É para a minha irmã que faz 26 anos. Somos muito próximos e quero algo divertido, mas emocionante."></textarea><button class="btnx" id="generateAI" type="button">Criar mensagem com IA →</button><span id="aiStatus" class="helper"></span></div>
+<div class="actions"><button class="btnx alt" id="back2">← Voltar</button><button class="btnx" id="next2">Continuar →</button></div>
+</div>
+
+<div class="step" data-step="3">
+<p class="eyebrow">03 · PERSONALIZA O VISUAL</p>
+<div class="choice-grid">
+<button class="choice active" data-style="impacto"><strong>Impacto</strong><small>Contraste forte, movimento e revelações.</small></button>
+<button class="choice" data-style="carinho"><strong>Carinho</strong><small>Mais suave, íntimo e focado na mensagem.</small></button>
+<button class="choice" data-style="bd"><strong>BD / Quadrinhos</strong><small>Balões, caixas e elementos desenhados.</small></button>
+</div>
+<div class="row"><div><label class="form-label" for="photo">Imagem opcional</label><input class="input" id="photo" type="file" accept="image/*"><p class="helper">Usada apenas no link. Para manter o link leve, a imagem será reduzida.</p></div><div><label class="form-label" for="access">Acesso</label><select class="input" id="access"><option value="link">Link partilhável</option><option value="local">Guardar só neste dispositivo</option></select></div></div>
+<div class="actions"><button class="btnx alt" id="back3">← Voltar</button><button class="btnx" id="make">Criar experiência ✦</button></div>
+</div>
+
+<div class="step" data-step="4">
+<p class="eyebrow">04 · PRONTA</p><div id="summary" class="cake-card"></div>
+<div class="actions"><button class="btnx alt" id="edit">← Editar</button><button class="btnx" id="finalMake">Gerar link →</button></div>
+</div>
+</div>
+</section>
+
+<section class="result" id="result" aria-live="polite"><div class="result-card"><p class="eyebrow">EXPERIÊNCIA CRIADA</p><h2 id="rtitle">Está pronta.</h2><p id="rmsg"></p><div class="linkbox" id="sharebox"></div><div class="actions"><button class="btnx" id="copy">Copiar link</button><button class="btnx alt" id="openExperience">Abrir experiência</button></div><p id="saved" class="helper"></p></div></section>
+
+<section class="history">
+<div class="history-head"><div><p class="eyebrow">ARQUIVO LOCAL</p><h2>As tuas últimas surpresas</h2></div><div class="history-tools"><button class="btnx alt" id="clearHistory" type="button">Apagar histórico</button></div></div>
+<div class="history-list" id="history"></div>
+</section>
+</main>
+
+<section id="recipient">
+<div class="exp">
+<div class="exp-scene active" data-scene="welcome"><p class="eyebrow">UMA EXPERIÊNCIA NZINGA</p><h2 id="eHello">Há algo preparado para ti.</h2><p id="eIntro"></p><div class="door"></div><button class="exp-btn" id="startExp">Bater à porta →</button></div>
+<div class="exp-scene" data-scene="balloons"><p class="eyebrow">DESCOBRE</p><h2 id="balloonTitle">Rebenta todos.</h2><p id="balloonHint"></p><div class="balloon-field" id="balloonField"></div><p id="balloonCount"></p></div>
+<div class="exp-scene" data-scene="quiz"><p class="eyebrow">DESBLOQUEIA A MENSAGEM</p><h2 id="quizTitle">Vamos ver se sabes.</h2><div class="quiz-play" id="quizPlay"></div></div>
+<div class="exp-scene" data-scene="boxes"><p class="eyebrow">UMA ÚLTIMA ESCOLHA</p><h2>Qual caixa esconda a surpresa?</h2><div class="box-grid" id="boxGrid"></div></div>
+<div class="exp-scene" data-scene="reveal"><p class="eyebrow">TOCA PARA REVELAR</p><h2 id="revealTitle">Ainda não viste tudo.</h2><div class="envelope" id="envelope">✉</div><p>Toca no envelope.</p></div>
+<div class="exp-scene" data-scene="final"><p class="eyebrow">PARA TI</p><h2 id="finalTitle">Uma mensagem.</h2><img id="expPhoto" class="exp-photo" hidden><div class="final-message" id="finalMessage"></div><button class="exp-btn" id="restartExp">Recomeçar ↻</button></div>
+</div>
+</section>
+
+<footer><a class="logo" href="index.html">NZINGA<span>CREATIVES</span></a><p>Ideias que ganham forma.</p><small>© 2026 Nzinga Creatives · Feito em Angola.</small></footer>
+
+<script src="navigation.js?v=2"></script><script src="script.js"></script>
+<script>
+(()=>{'use strict';
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+let state={intent:'aniversario',mode:'balloons',style:'impacto',from:'',to:'',age:0,purpose:'',message:'',photo:'',quiz:[]};
+let step=1;
+const intentLabels={aniversario:'Aniversário',celebracao:'Celebração',agradecimento:'Agradecimento',amizade:'Amizade',romantico:'Romântico',outro:'Outro'};
+const modeLabels={balloons:'Balões + idade',quiz:'Quiz',boxes:'Caixas surpresa',reveal:'Mensagem escondida'};
+
+function showStep(n){step=n;$$('.step').forEach(x=>x.classList.toggle('active',+x.dataset.step===n));$('#steps').textContent=['● ○ ○ ○','● ● ○ ○','● ● ● ○','● ● ● ●'][n-1]||'● ○ ○ ○';window.scrollTo({top:document.querySelector('.creator').offsetTop-20,behavior:'smooth'})}
+function select(group,attr){$$('#'+group+' .choice').forEach(b=>b.onclick=()=>{$$('#'+group+' .choice').forEach(x=>x.classList.remove('active'));b.classList.add('active');state[attr]=b.dataset[attr]})}
+select('intentGrid','intent');select('modeGrid','mode');
+$$('[data-style]').forEach(b=>b.onclick=()=>{$$('[data-style]').forEach(x=>x.classList.remove('active'));b.classList.add('active');state.style=b.dataset.style});
+function buildQuiz(){const box=$('#quizEditor');box.hidden=state.mode!=='quiz';$('#ageWrap').style.display=state.mode==='balloons'?'block':'none';if(state.mode!=='quiz')return;box.innerHTML='';for(let i=0;i<3;i++){const q=state.quiz[i]||{q:'',a:['','',''],correct:0};const el=document.createElement('div');el.className='q-card';el.innerHTML='<h4>Pergunta '+(i+1)+'</h4><input class="input q-text" placeholder="Escreve a pergunta" maxlength="180" value="'+esc(q.q)+'"><div class="q-grid">'+q.a.map((a,j)=>'<input class="input q-a" data-j="'+j+'" placeholder="Resposta '+(j+1)+'" maxlength="100" value="'+esc(a)+'">').join('')+'</div><label class="checkline">Resposta certa: <select class="input q-correct">'+[0,1,2].map(j=>'<option value="'+j+'" '+(q.correct===j?'selected':'')+'>Resposta '+(j+1)+'</option>').join('')+'</select></label>';box.appendChild(el)}}
+function esc(v){return String(v||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+function readQuiz(){if(state.mode!=='quiz')return true;const cards=$$('#quizEditor .q-card');state.quiz=cards.map(c=>({q:c.querySelector('.q-text').value.trim(),a:[...c.querySelectorAll('.q-a')].map(x=>x.value.trim()),correct:Number(c.querySelector('.q-correct').value)}));return state.quiz.every(q=>q.q&&q.a.every(Boolean))}
+$('#next1').onclick=()=>{state.purpose=$('#purpose').value.trim();buildQuiz();showStep(2)};
+$('#back2').onclick=()=>showStep(1);
+$('#next2').onclick=()=>{if(!readQuiz()){alert('Preenche as 3 perguntas e as respostas do quiz.');return}state.from=$('#from').value.trim();state.to=$('#to').value.trim();state.age=Math.max(1,Math.min(60,Number($('#age').value)||0));state.message=$('#message').value.trim();if(!state.message){$('#message').focus();return}buildSummary();showStep(3)};
+$('#back3').onclick=()=>showStep(2);
+$('#edit').onclick=()=>showStep(2);
+$('#message').oninput=()=>$('#count').textContent=$('#message').value.length;
+$('#modeGrid').addEventListener('click',()=>buildQuiz());
+function buildSummary(){const photo=$('#photo').files?.[0];$('#summary').innerHTML='<p><b>'+intentLabels[state.intent]+'</b> · '+modeLabels[state.mode]+'</p><h3>'+esc(state.to||'Pessoa especial')+'</h3><p>'+esc(state.purpose||'Uma surpresa personalizada')+'</p><p>'+esc(state.message).slice(0,260)+(state.message.length>260?'…':'')+'</p><p class="helper">'+(photo?'Imagem selecionada.':'Sem imagem.')+'</p>'}
+async function aiGenerate(){const ctx=$('#aiContext').value.trim();if(!ctx){$('#aiContext').focus();return}const status=$('#aiStatus');const btn=$('#generateAI');btn.disabled=true;status.textContent=' A criar…';try{const prompt='Cria uma mensagem pessoal em português para uma experiência Nzinga Surpresas. Situação: '+ctx+'\nIntenção: '+intentLabels[state.intent]+'\nDestinatário: '+($('#to').value.trim()||'não indicado')+'\nRemetente: '+($('#from').value.trim()||'não indicado')+'\nNão uses emojis. Escreve uma mensagem natural, específica e emocional, sem exageros. Apenas a mensagem final.';const res=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:[{role:'user',content:prompt}]})});if(!res.ok)throw new Error('IA indisponível');const reader=res.body?.getReader();if(!reader)throw new Error('Resposta inválida');const dec=new TextDecoder();let buf='',ans='';while(true){const {done,value}=await reader.read();if(done)break;buf+=dec.decode(value,{stream:true});const lines=buf.split('\n');buf=lines.pop()||'';for(const line of lines){if(!line.startsWith('data:'))continue;try{const e=JSON.parse(line.slice(5).trim());if(typeof e.delta==='string')ans+=e.delta}catch{}}}if(!ans)throw new Error('Não foi possível gerar a mensagem');$('#message').value=ans.trim();$('#count').textContent=$('#message').value.length;status.textContent=' Mensagem criada. Podes editar.'}catch(e){status.textContent=' '+(e.message||'Não foi possível criar agora.')}finally{btn.disabled=false}}
+$('#generateAI').onclick=aiGenerate;
+
+function imgData(file){return new Promise(resolve=>{if(!file){resolve('');return}const reader=new FileReader();reader.onload=()=>{const im=new Image();im.onload=()=>{const max=900,scale=Math.min(1,max/im.width,max/im.height),c=document.createElement('canvas');c.width=Math.round(im.width*scale);c.height=Math.round(im.height*scale);c.getContext('2d').drawImage(im,0,0,c.width,c.height);resolve(c.toDataURL('image/jpeg',.62))};im.src=reader.result};reader.readAsDataURL(file)})}
+function enc(obj){const raw=encodeURIComponent(JSON.stringify(obj));const b=btoa(unescape(raw));return b.replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'')}
+function dec(s){try{let b=s.replace(/-/g,'+').replace(/_/g,'/');while(b.length%4)b+='=';return JSON.parse(decodeURIComponent(escape(atob(b))))}catch{return null}}
+async function makeExperience(){state.from=$('#from').value.trim();state.to=$('#to').value.trim();state.purpose=$('#purpose').value.trim();state.message=$('#message').value.trim();state.age=Math.max(1,Math.min(60,Number($('#age').value)||0));state.photo=await imgData($('#photo').files?.[0]);const payload={...state,createdAt:new Date().toISOString()};const link=location.origin+location.pathname+'?s='+enc(payload);$('#rtitle').textContent=(state.to?state.to+' — ':'')+'a tua surpresa está pronta';$('#rmsg').textContent=state.mode==='balloons'?'A pessoa vai rebentar os balões e desbloquear a mensagem.':state.mode==='quiz'?'A pessoa terá de responder ao quiz para desbloquear a mensagem.':state.mode==='boxes'?'A pessoa vai abrir as caixas até encontrar a surpresa.':'A pessoa vai tocar e revelar a mensagem.';$('#sharebox').textContent=link;$('#saved').textContent=$('#access').value==='local'?'Guardada neste dispositivo.':'Link pronto para partilhar.';const list=JSON.parse(localStorage.getItem('nzingaSurprises')||'[]');list.unshift({id:Date.now(),date:new Date().toLocaleString('pt-AO'),to:state.to,intent:state.intent,mode:state.mode,message:state.message,link});localStorage.setItem('nzingaSurprises',JSON.stringify(list.slice(0,20)));renderHistory();$('#result').classList.add('show');$('#result').scrollIntoView({behavior:'smooth',block:'center'});window.__lastSurpriseLink=link}
+$('#make').onclick=()=>{if(!readQuiz())return;buildSummary();showStep(4)};
+$('#finalMake').onclick=makeExperience;
+$('#copy').onclick=()=>navigator.clipboard?.writeText(window.__lastSurpriseLink||'');
+$('#openExperience').onclick=()=>{if(window.__lastSurpriseLink)location.href=window.__lastSurpriseLink};
+function renderHistory(){const box=$('#history'),list=JSON.parse(localStorage.getItem('nzingaSurprises')||'[]');if(!list.length){box.innerHTML='<div class="empty">Ainda não criaste nenhuma surpresa neste dispositivo.</div>';return}box.innerHTML=list.map(x=>'<article class="history-item"><small>'+esc(x.date)+'</small><h3>'+esc(x.to||'Sem destinatário')+'</h3><p>'+esc(modeLabels[x.mode]||x.mode)+' · '+esc(intentLabels[x.intent]||x.intent)+'</p><p>'+esc(x.message||'') .slice(0,100)+(String(x.message||'').length>100?'…':'')+'</p><button class="btnx alt" data-delete="'+x.id+'">Apagar</button></article>').join('')}
+$('#history').onclick=e=>{const id=e.target.dataset.delete;if(!id)return;const list=JSON.parse(localStorage.getItem('nzingaSurprises')||'[]').filter(x=>String(x.id)!==String(id));localStorage.setItem('nzingaSurprises',JSON.stringify(list));renderHistory()};
+$('#clearHistory').onclick=()=>{localStorage.removeItem('nzingaSurprises');renderHistory()};
+renderHistory();
+
+function recipientMode(data){$('#creatorPage').style.display='none';$('#recipient').style.display='block';document.querySelector('footer').style.display='none';document.title=(data.to?'Para '+data.to+' — ':'')+'Nzinga Surpresa';$('#eHello').textContent=data.to?'Olá, '+data.to+'.':'Há algo preparado para ti.';$('#eIntro').textContent=data.from?'Uma experiência criada por '+data.from+'.':'Alguém preparou isto especialmente para ti.';const scenes=$$('.exp-scene');let current='welcome';function scene(name){current=name;scenes.forEach(s=>s.classList.toggle('active',s.dataset.scene===name));window.scrollTo({top:0,behavior:'smooth'})}
+function finish(){scene('final');$('#finalTitle').textContent=data.to?'Para '+data.to:'Para ti';$('#finalMessage').textContent=data.message||'Uma surpresa feita especialmente para ti.';if(data.photo){$('#expPhoto').src=data.photo;$('#expPhoto').hidden=false}}
+$('#startExp').onclick=()=>{if(data.mode==='balloons'){setupBalloons();scene('balloons')}else if(data.mode==='quiz'){setupQuiz();scene('quiz')}else if(data.mode==='boxes'){setupBoxes();scene('boxes')}else{scene('reveal')}};
+$('#envelope').onclick=finish;
+$('#restartExp').onclick=()=>scene('welcome');
+function setupBalloons(){const field=$('#balloonField');field.innerHTML='';const count=Math.max(1,Math.min(60,Number(data.age)||6));$('#balloonTitle').textContent=(data.to||'Tu')+', rebenta '+count+' balões.';$('#balloonHint').textContent='Cada toque aproxima-te da mensagem final.';let popped=0;$('#balloonCount').textContent='0 / '+count;for(let i=0;i<count;i++){const b=document.createElement('button');b.className='balloon';b.style.left=(5+(i*37)%88)+'%';b.style.top=(5+(i*61)%82)+'%';b.style.background=[ '#f7c515','#c91510','#24d9ff','#55e06f'][i%4];b.innerHTML='<span>'+(i+1)+'</span>';b.onclick=()=>{if(b.classList.contains('popped'))return;b.classList.add('popped');popped++;$('#balloonCount').textContent=popped+' / '+count;if(popped===count)setTimeout(finish,450)};field.appendChild(b)}}
+function setupQuiz(){const play=$('#quizPlay');let qi=0;const qs=data.quiz||[];function next(){if(qi>=qs.length){finish();return}const q=qs[qi];play.innerHTML='<h3>'+esc(q.q)+'</h3>'+q.a.map((a,i)=>'<button class="quiz-answer" data-i="'+i+'">'+esc(a)+'</button>').join('');play.querySelectorAll('.quiz-answer').forEach(b=>b.onclick=()=>{if(Number(b.dataset.i)===Number(q.correct)){qi++;next()}else{b.textContent='Tenta outra vez';b.disabled=true}})}next()}
+function setupBoxes(){const grid=$('#boxGrid');grid.innerHTML='';const winner=Math.floor(Math.random()*3);for(let i=0;i<3;i++){const b=document.createElement('button');b.className='gift-box';b.setAttribute('aria-label','Caixa '+(i+1));b.onclick=()=>{if(i===winner){b.classList.add('opened');setTimeout(finish,350)}else{b.animate([{transform:'rotate(-5deg)'},{transform:'rotate(5deg)'},{transform:'rotate(0)'}],300)}};grid.appendChild(b)}}
+}
+const params=new URLSearchParams(location.search),data=dec(params.get('s')||'');if(data&&data.message)recipientMode(data);
+else{$('#age').value='';buildQuiz();showStep(1)}
+})();
+</script>
+</body></html>
