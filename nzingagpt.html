@@ -125,41 +125,7 @@
 .gpt-first-prompts{display:flex;flex-wrap:wrap;gap:8px;max-width:900px;margin:8px auto 14px;padding:0}
 .gpt-first-prompts button{border:1px solid #454549;background:#181819;color:#eee;padding:9px 12px;border-radius:8px;cursor:pointer;font:600 .74rem 'DM Sans'}
 .gpt-first-prompts button:hover{background:#f7c515;color:#111;border-color:#111}
-</style></head>
-<body>
-<header class="nav">
-<a class="logo" href="index.html"><img src="/nzinga-logo.svg" alt="Nzinga Creatives"><span>NZINGA <b>CREATIVES</b></span></a>
-<button class="menu" id="menuBtn" type="button" aria-label="Abrir menu" aria-expanded="false">☰</button>
-<nav id="navLinks"><a href="index.html">Início</a><a href="servicos.html">Serviços</a><a class="active" href="nzingagpt.html">NzingaGPT</a><a href="surpresas.html">Surpresas</a><a href="market.html">Market</a><a href="raizes.html">Raízes</a></nav>
-</header>
-<div class="samakaka"></div>
-<aside id="gptDrawer" class="gpt-drawer" aria-label="Menu do NzingaGPT" aria-hidden="true">
-<div class="gpt-drawer-head"><strong>NzingaGPT</strong><button id="gptClose" class="gpt-drawer-close" type="button" aria-label="Fechar menu">×</button></div>
-<button id="newGptConversation" class="gpt-drawer-new" type="button">＋ Nova conversa</button>
-<button id="anonymousGptConversation" class="gpt-drawer-anon" type="button">◉ Conversa anónima</button>
-<p class="gpt-drawer-label">CONVERSAS</p>
-<input id="gptHistorySearch" class="gpt-search" type="search" placeholder="Pesquisar conversas..." aria-label="Pesquisar conversas">
-<div class="gpt-drawer-history"><div class="gpt-history-list" id="gptHistoryList"></div></div>
-<button id="gptClearHistory" class="gpt-drawer-clear" type="button">Apagar histórico</button>
-<p class="gpt-drawer-label">PRIVACIDADE</p><p class="gpt-action-note">Conversas normais ficam guardadas localmente neste dispositivo. A conversa anónima não entra no histórico normal.</p>
-</aside><button id="gptDrawerBackdrop" class="gpt-drawer-backdrop" type="button" aria-label="Fechar menu"></button>
-<main class="gpt-page">
-<button id="gptMenu" class="gpt-floating-menu" type="button" aria-label="Abrir menu" aria-expanded="false">☰</button>
-<div class="gpt-topbar"><div class="gpt-topbar-left"><img class="gpt-brand-mark" src="nzinga-logo.svg" alt="" aria-hidden="true"><span class="gpt-topbar-title">NzingaGPT</span></div><div class="gpt-topbar-right"><button id="gptNewTop" type="button" aria-label="Nova conversa">＋</button></div></div>
-
-<div class="gpt-layout">
-<aside class="chat-sidebar" aria-hidden="true"><div class="gpt-actions"></div></aside>
-<section class="chat-panel" aria-label="Conversa com NzingaGPT">
-<div class="messages" id="messages" aria-live="polite"></div>
-<div class="composer-wrap"><form class="composer" id="chatForm"><textarea id="gptPrompt" placeholder="Escreve o que quiseres..."></textarea><button id="sendBtn" type="submit">Enviar ↑</button></form><p class="composer-hint">Enter envia · Shift + Enter cria nova linha</p><p class="status-note"><span id="status">● ONLINE</span></p></div>
-</section></div></main>
-<footer><a class="logo" href="index.html"><img src="/nzinga-logo.svg" alt="Nzinga Creatives"><span>NZINGA <b>CREATIVES</b></span></a><p>Ideias que ganham forma.</p><small>© 2026 Nzinga Creatives · Feito em Angola.</small></footer>
-<script src="script.js"></script>
-<script src="gpt-actions.js?v=12"></script>
-<script src="nzingagpt-core.js?v=10"></script>
-<script src="navigation.js?v=3"></script>
-</body>
-</html><style>
+</style><style>
 .gpt-brand-mark{width:46px;height:34px;object-fit:contain;display:block;filter:drop-shadow(0 0 1px #fff) drop-shadow(0 0 2px #fff)}.gpt-floating-menu{position:fixed;left:12px;top:50%;transform:translateY(-50%);z-index:10020;width:42px;height:42px;border:2px solid var(--black);border-radius:50%;background:var(--paper);color:var(--ink);font:inherit;font-weight:800;cursor:pointer;box-shadow:4px 4px 0 var(--yellow)}.gpt-floating-menu:hover{background:var(--yellow)}.gpt-page{padding-top:78px;padding-bottom:125px;max-width:1180px}.gpt-topbar{margin-top:8px;min-height:58px;padding:10px 14px}.gpt-start-title{font-size:.74rem}.gpt-start-bar{min-height:34px}.gpt-inline-suggestions button{font-size:.62rem;padding:6px 9px}.composer button,.gpt-voice-btn,.gpt-voice-mode{height:40px}.gpt-message-tools button{font-size:.88rem}@media(max-width:600px){.gpt-floating-menu{left:8px;width:38px;height:38px}.gpt-brand-mark{width:40px;height:30px}.gpt-topbar-title{font-size:1.22rem}.gpt-message-tools button{width:31px;height:25px}.composer button,.gpt-voice-btn,.gpt-voice-mode{height:38px}}
 </style>
 
@@ -206,3 +172,38 @@ body:has(.gpt-page) .gpt-message-tools button:hover,body:has(.gpt-page) .gpt-mes
 .gpt-topbar .gpt-brand-mark{filter:drop-shadow(0 0 0 #fff) drop-shadow(0 0 2px #fff)}
 .gpt-topbar .gpt-topbar-title{color:#fff}
 </style>
+</head>
+<body>
+<header class="nav">
+<a class="logo" href="index.html"><img src="/nzinga-logo.svg" alt="Nzinga Creatives"><span>NZINGA <b>CREATIVES</b></span></a>
+<button class="menu" id="menuBtn" type="button" aria-label="Abrir menu" aria-expanded="false">☰</button>
+<nav id="navLinks"><a href="index.html">Início</a><a href="servicos.html">Serviços</a><a class="active" href="nzingagpt.html">NzingaGPT</a><a href="surpresas.html">Surpresas</a><a href="market.html">Market</a><a href="raizes.html">Raízes</a></nav>
+</header>
+<div class="samakaka"></div>
+<aside id="gptDrawer" class="gpt-drawer" aria-label="Menu do NzingaGPT" aria-hidden="true">
+<div class="gpt-drawer-head"><strong>NzingaGPT</strong><button id="gptClose" class="gpt-drawer-close" type="button" aria-label="Fechar menu">×</button></div>
+<button id="newGptConversation" class="gpt-drawer-new" type="button">＋ Nova conversa</button>
+<button id="anonymousGptConversation" class="gpt-drawer-anon" type="button">◉ Conversa anónima</button>
+<p class="gpt-drawer-label">CONVERSAS</p>
+<input id="gptHistorySearch" class="gpt-search" type="search" placeholder="Pesquisar conversas..." aria-label="Pesquisar conversas">
+<div class="gpt-drawer-history"><div class="gpt-history-list" id="gptHistoryList"></div></div>
+<button id="gptClearHistory" class="gpt-drawer-clear" type="button">Apagar histórico</button>
+<p class="gpt-drawer-label">PRIVACIDADE</p><p class="gpt-action-note">Conversas normais ficam guardadas localmente neste dispositivo. A conversa anónima não entra no histórico normal.</p>
+</aside><button id="gptDrawerBackdrop" class="gpt-drawer-backdrop" type="button" aria-label="Fechar menu"></button>
+<main class="gpt-page">
+<button id="gptMenu" class="gpt-floating-menu" type="button" aria-label="Abrir menu" aria-expanded="false">☰</button>
+<div class="gpt-topbar"><div class="gpt-topbar-left"><img class="gpt-brand-mark" src="nzinga-logo.svg" alt="" aria-hidden="true"><span class="gpt-topbar-title">NzingaGPT</span></div><div class="gpt-topbar-right"><button id="gptNewTop" type="button" aria-label="Nova conversa">＋</button></div></div>
+
+<div class="gpt-layout">
+<aside class="chat-sidebar" aria-hidden="true"><div class="gpt-actions"></div></aside>
+<section class="chat-panel" aria-label="Conversa com NzingaGPT">
+<div class="messages" id="messages" aria-live="polite"></div>
+<div class="composer-wrap"><form class="composer" id="chatForm"><textarea id="gptPrompt" placeholder="Escreve o que quiseres..."></textarea><button id="sendBtn" type="submit">Enviar ↑</button></form><p class="composer-hint">Enter envia · Shift + Enter cria nova linha</p><p class="status-note"><span id="status">● ONLINE</span></p></div>
+</section></div></main>
+<footer><a class="logo" href="index.html"><img src="/nzinga-logo.svg" alt="Nzinga Creatives"><span>NZINGA <b>CREATIVES</b></span></a><p>Ideias que ganham forma.</p><small>© 2026 Nzinga Creatives · Feito em Angola.</small></footer>
+<script src="script.js"></script>
+<script src="gpt-actions.js?v=12"></script>
+<script src="nzingagpt-core.js?v=10"></script>
+<script src="navigation.js?v=3"></script>
+</body>
+</html>
