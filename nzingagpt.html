@@ -121,7 +121,11 @@
 @media(max-width:600px){.gpt-start-bar{padding:6px 0}.gpt-start-sub{font-size:.6rem}.gpt-start-options{padding-bottom:11px}.gpt-inline-suggestions{gap:5px}.gpt-inline-suggestions button{font-size:.58rem;padding:7px 8px}}
 </style>
 
-</head>
+<style>
+.gpt-first-prompts{display:flex;flex-wrap:wrap;gap:8px;max-width:900px;margin:8px auto 14px;padding:0}
+.gpt-first-prompts button{border:1px solid #454549;background:#181819;color:#eee;padding:9px 12px;border-radius:8px;cursor:pointer;font:600 .74rem 'DM Sans'}
+.gpt-first-prompts button:hover{background:#f7c515;color:#111;border-color:#111}
+</style></head>
 <body>
 <header class="nav">
 <a class="logo" href="index.html"><img src="/nzinga-logo.svg" alt="Nzinga Creatives"><span>NZINGA <b>CREATIVES</b></span></a>
@@ -147,12 +151,6 @@
 <aside class="chat-sidebar" aria-hidden="true"><div class="gpt-actions"></div></aside>
 <section class="chat-panel" aria-label="Conversa com NzingaGPT">
 <div class="messages" id="messages" aria-live="polite"></div>
-<section class="gpt-start-section">
-<div class="gpt-start-bar"><div><h2 class="gpt-start-title">Ponto de partida</h2></div><button id="gptStartToggle" class="gpt-start-toggle" type="button" aria-expanded="false">＋</button></div>
-<div id="gptStartOptions" class="gpt-start-options" hidden>
-<div class="gpt-inline-suggestions"><button type="button" class="starter-inline">Tenho uma ideia meio confusa.</button><button type="button" class="starter-inline">Quero aprender alguma coisa.</button><button type="button" class="starter-inline">Preciso de ajuda.</button></div>
-</div>
-</section>
 <div class="composer-wrap"><form class="composer" id="chatForm"><textarea id="gptPrompt" placeholder="Escreve o que quiseres..."></textarea><button id="sendBtn" type="submit">Enviar ↑</button></form><p class="composer-hint">Enter envia · Shift + Enter cria nova linha</p><p class="status-note"><span id="status">● ONLINE</span></p></div>
 </section></div></main>
 <footer><a class="logo" href="index.html"><img src="/nzinga-logo.svg" alt="Nzinga Creatives"><span>NZINGA <b>CREATIVES</b></span></a><p>Ideias que ganham forma.</p><small>© 2026 Nzinga Creatives · Feito em Angola.</small></footer>
