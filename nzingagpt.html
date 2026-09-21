@@ -90,9 +90,9 @@
 .gpt-drawer-clear{width:100%;margin-top:10px;border:1px solid var(--black);background:transparent;color:var(--ink);padding:9px;border-radius:8px;font:inherit;font-size:.65rem;font-weight:700;cursor:pointer}
 .gpt-drawer-backdrop{position:fixed;inset:0;z-index:10009;background:rgba(0,0,0,.5);opacity:0;pointer-events:none;transition:opacity .22s ease}
 .gpt-drawer-backdrop.open{opacity:1;pointer-events:auto}
-.gpt-start-section{margin:24px 0 20px}
-.gpt-start-title{font-family:'Playfair Display',serif;font-size:1.65rem;margin:0 0 4px}
-.gpt-start-sub{font-size:.72rem;color:var(--muted);margin:0 0 12px}
+.gpt-start-section{margin:18px 0 12px;border-bottom:1px solid var(--black)}
+.gpt-start-title{font-family:inherit;font-size:.78rem;margin:0;font-weight:800;letter-spacing:.04em}
+.gpt-start-sub{font-size:.62rem;color:var(--muted);margin:2px 0 0}
 .gpt-mode-grid-main{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
 .gpt-mode-grid-main button{border:2px solid var(--black);background:var(--paper);color:var(--ink);padding:13px 10px;text-align:left;border-radius:9px;font:inherit;font-weight:700;cursor:pointer}
 .gpt-mode-grid-main button:hover,.gpt-mode-grid-main button.active{background:var(--yellow)}
@@ -124,9 +124,12 @@
 </section>
 <div class="gpt-topbar"><div class="gpt-topbar-left"><button id="gptMenu" type="button" aria-label="Abrir menu" aria-expanded="false">☰</button><span class="gpt-topbar-title">NzingaGPT</span></div><div class="gpt-topbar-right"><button id="gptNewTop" type="button" aria-label="Nova conversa">＋</button></div></div>
 <section class="gpt-start-section">
-<h2 class="gpt-start-title">Ponto de partida</h2><p class="gpt-start-sub">Escolhe uma direção ou começa simplesmente a escrever.</p>
+<div class="gpt-start-bar"><div><h2 class="gpt-start-title">Ponto de partida</h2><p class="gpt-start-sub">Escolhe uma direção para começar.</p></div><button id="gptStartToggle" class="gpt-start-toggle" type="button" aria-expanded="false">＋</button></div>
+<div id="gptStartOptions" class="gpt-start-options" hidden>
 <div class="gpt-mode-grid-main">
 <button type="button" data-gpt-mode="ideia">Explorar</button><button type="button" data-gpt-mode="aprender">Aprender</button><button type="button" data-gpt-mode="organizar">Organizar</button><button type="button" data-gpt-mode="escrever">Escrever</button>
+</div>
+<div class="gpt-inline-suggestions"><span>SUGESTÕES</span><button type="button" class="starter-inline">Tenho uma ideia meio confusa.</button><button type="button" class="starter-inline">Quero aprender alguma coisa.</button><button type="button" class="starter-inline">Preciso de ajuda com um problema.</button><button type="button" class="starter-inline">Quero simplesmente conversar.</button></div>
 </div>
 </section>
 <section class="gpt-capabilities" aria-label="O que o NzingaGPT pode fazer">
@@ -150,4 +153,14 @@
 <script src="nzingagpt-core.js?v=4"></script>
 <script src="navigation.js?v=3"></script>
 </body>
-</html>
+</html><style>
+.gpt-start-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:7px 0}
+.gpt-start-toggle{width:30px;height:30px;border:1px solid var(--black);background:transparent;color:var(--ink);border-radius:7px;font-size:1.1rem;line-height:1;cursor:pointer}
+.gpt-start-toggle:hover{background:var(--yellow)}
+.gpt-start-options{padding:8px 0 14px}
+.gpt-inline-suggestions{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-top:10px}
+.gpt-inline-suggestions span{font-size:.55rem;font-weight:800;letter-spacing:.1em;color:var(--muted);margin-right:3px}
+.gpt-inline-suggestions button{border:1px solid var(--black);background:var(--paper);color:var(--ink);padding:7px 9px;border-radius:999px;font:inherit;font-size:.6rem;cursor:pointer}
+.gpt-inline-suggestions button:hover{background:var(--yellow)}
+.gpt-start-options[hidden]{display:none}
+</style>
