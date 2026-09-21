@@ -377,9 +377,9 @@ html body{
   color:#fff!important;
   overflow-x:hidden!important;
 }
-body:not(.services-bw):not(:has(.gpt-page)):not(:has(.sx)):not(:has(#recipient)) main{
-  background:#f4f1eb!important;
-  color:#171717!important;
+body:not(.services-bw):not(.roots-page):not(:has(.gpt-page)):not(:has(.sx)):not(:has(#recipient)) main{
+  background:#111!important;
+  color:#fff!important;
 }
 body.services-bw main{
   background:#111!important;
