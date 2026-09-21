@@ -63,7 +63,7 @@
 .gpt-voice-btn:hover,.gpt-voice-btn.listening,.gpt-voice-mode.active{background:var(--yellow);color:#111;border-color:#111}
 .gpt-message-tools button:hover,.gpt-message-tools button.active{background:var(--yellow);color:#111;border-color:#111}
 #gptClearHistory{display:flex;align-items:center;gap:7px;width:100%;margin-top:8px;padding:8px 10px;border:1px solid var(--black);background:transparent;color:var(--ink);font:inherit;font-size:.61rem;font-weight:700;cursor:pointer;border-radius:8px}
-@media(max-width:900px){.gpt-capabilities{grid-template-columns:repeat(2,1fr)}.gpt-layout{grid-template-columns:1fr}.chat-sidebar{display:none}}
+@media(max-width:900px){.gpt-capabilities{grid-template-columns:repeat(2,1fr)}.gpt-layout{grid-template-columns:1fr}.chat-sidebar{display:block;order:-1;padding:0}.gpt-actions{border:2px solid var(--black);padding:13px;background:var(--paper);box-shadow:5px 5px 0 var(--yellow)}.gpt-action-grid{grid-template-columns:repeat(2,1fr)}.gpt-mode-grid{grid-template-columns:repeat(2,1fr)}.gpt-history{margin-top:13px}.gpt-history-toggle{min-height:44px}}
 @media(max-width:600px){.gpt-page{padding-inline:16px}.gpt-hero{padding-top:52px}.gpt-hero-row{align-items:flex-start;flex-direction:column}.gpt-badge{align-self:flex-start}.gpt-capabilities{grid-template-columns:1fr 1fr}.gpt-cap{min-height:95px;padding:12px}.messages{max-height:none;min-height:330px;padding:19px 14px}.bubble{max-width:94%;padding:14px 15px}.starters{grid-template-columns:1fr;padding-inline:14px}.composer-wrap{padding-inline:10px}.composer{gap:5px}.composer textarea{min-width:0}.gpt-voice-btn{width:44px;height:44px}.gpt-voice-mode{height:44px;padding:0 8px;font-size:.72rem}.composer button{height:44px;padding:0 12px}.gpt-message-tools button{width:28px}}
 @media(prefers-color-scheme:dark){.gpt-hero{border-color:#fff}.gpt-cap,.gpt-action-grid button,.gpt-history-toggle,.gpt-history-open,.gpt-history-delete,.starter{background:#fff!important;color:#111!important}.chat-panel{background:#111;color:#fff;border-color:#fff}.chat-panel-top{border-color:#fff}.bubble.assistant{background:#fff!important;color:#111!important}.bubble.user{background:#111!important;color:#fff!important}.starter-label,.side-label,.gpt-hero .gpt-lead,.gpt-cap p,.gpt-action-note,.memory-note,.gpt-history-empty,.composer-hint,.status-note{color:#ccc}.gpt-history{border-color:#fff}.gpt-voice-mode{background:#111;color:#fff}}
 </style>
@@ -97,6 +97,7 @@
 
 <div class="gpt-layout">
 <aside class="chat-sidebar">
+<div class="gpt-actions">
 <p class="side-label">CONVERSA</p>
 <div class="gpt-action-grid">
 <button type="button" id="newGptConversation">＋ Nova conversa</button>
@@ -117,6 +118,7 @@
 </div>
 <p class="side-label">SOBRE</p>
 <p class="memory-note">As conversas normais ficam guardadas localmente neste dispositivo. Podes apagar uma conversa ou limpar o histórico.</p>
+</div>
 </aside>
 
 <section class="chat-panel" aria-label="Conversa com NzingaGPT">
