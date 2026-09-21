@@ -12,45 +12,52 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <style>
-body.roots-page{background:#f4f1eb!important;color:#171717!important}
-.roots-page .roots{max-width:1180px;margin:auto;padding:48px 24px 100px}
+body.roots-page{background:#111!important;color:#fff!important}
+.roots-page .roots{max-width:1180px;margin:auto;padding:48px 24px 100px;background:#111}
 .roots-hero{display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:center;padding:30px 0 60px}
-.roots-hero h1{font-family:'Playfair Display',serif;font-size:clamp(3.2rem,7vw,6.5rem);line-height:.93;letter-spacing:-.05em;margin:12px 0 24px}
-.roots-hero h1 i{color:#a83228;font-style:normal}
-.roots-hero p:not(.eyebrow){font-size:1.05rem;line-height:1.75;color:#5d5b57;max-width:620px}
-.roots-visual{position:relative;min-height:500px;background:#171717;border:3px solid #111;box-shadow:12px 12px 0 #f3c51b;overflow:hidden}
-.roots-visual .photo-main{position:absolute;inset:18px 18px 125px;background:url('https://commons.wikimedia.org/wiki/Special:FilePath/Est%C3%A1tua_da_Rainha_Nzinga_Mbandi.jpg') center/cover no-repeat}
-.roots-visual .photo-one,.roots-visual .photo-two{position:absolute;bottom:18px;width:42%;height:92px;border:3px solid #fff;box-shadow:6px 6px 0 #111;background-size:cover;background-position:center}
-.roots-visual .photo-one{left:18px;background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Tundavala_Gap.jpg')}
-.roots-visual .photo-two{right:18px;background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Kalandula_waterfalls_of_the_Lucala-River_in_Malange%2C_Angola.JPG')}
-.roots-visual .stamp{position:absolute;left:28px;top:28px;background:#f3c51b;border:2px solid #111;padding:8px 10px;font-size:.62rem;font-weight:800;letter-spacing:.1em}
-.roots-visual .label{position:absolute;right:24px;top:28px;background:#fff;border:2px solid #111;padding:8px 10px;font-size:.62rem;font-weight:800}
-.roots-strip{display:grid;grid-template-columns:repeat(4,1fr);border:2px solid #111;margin:10px 0 70px}
-.roots-strip div{padding:24px;border-right:2px solid #111;background:#fff}
+.roots-hero h1{font-family:'Playfair Display',serif;font-size:clamp(3.2rem,7vw,6.5rem);line-height:.93;letter-spacing:-.05em;margin:12px 0 24px;color:#fff}
+.roots-hero h1 i{color:#f3c51b;font-style:normal}
+.roots-hero p:not(.eyebrow){font-size:1.05rem;line-height:1.75;color:#d0d0d0;max-width:620px}
+.roots-visual{position:relative;min-height:500px;background:#050505;border:3px solid #fff;box-shadow:12px 12px 0 #f3c51b;overflow:hidden}
+.roots-square{position:absolute;border:2px solid #111}
+.roots-square-main{inset:22px 22px 105px;background:#111;border-color:#f3c51b}
+.roots-square-white{width:43%;height:150px;left:22px;bottom:22px;background:#fff}
+.roots-square-yellow{width:30%;height:92px;right:22px;top:22px;background:#f3c51b}
+.roots-square-red{width:26%;height:120px;right:22px;bottom:22px;background:#c91510}
+.roots-mark{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);font-size:8rem;font-weight:900;letter-spacing:-.12em;color:#fff;line-height:.8}
+.roots-visual .stamp{position:absolute;left:34px;top:34px;background:#f3c51b;border:2px solid #111;color:#111;padding:8px 10px;font-size:.62rem;font-weight:800;letter-spacing:.1em}
+.roots-visual .label{position:absolute;right:34px;top:136px;background:#fff;color:#111;border:2px solid #111;padding:8px 10px;font-size:.62rem;font-weight:800}
+.roots-strip{display:grid;grid-template-columns:repeat(4,1fr);border:2px solid #fff;margin:10px 0 70px}
+.roots-strip div{padding:24px;border-right:2px solid #fff;background:#fff;color:#111}
 .roots-strip div:last-child{border-right:0}
-.roots-strip b{display:block;font-size:1.7rem;margin-bottom:8px}
-.roots-strip span{color:#666;line-height:1.5;font-size:.9rem}
-.roots-section{padding:70px 0;border-top:2px solid #111}
-.roots-section h2{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,4.5rem);margin:8px 0 18px}
+.roots-strip b{display:block;font-size:1.7rem;margin-bottom:8px;color:#c91510}
+.roots-strip span{color:#555;line-height:1.5;font-size:.9rem}
+.roots-section{padding:70px 0;border-top:2px solid #fff}
+.roots-section h2{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,4.5rem);margin:8px 0 18px;color:#fff}
 .topic-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-.topic-card{min-height:220px;padding:26px;background:#fff;border:2px solid #111;box-shadow:7px 7px 0 rgba(17,17,17,.14)}
-.topic-card:nth-child(1){box-shadow:7px 7px 0 rgba(168,50,40,.75)}
-.topic-card:nth-child(2){box-shadow:7px 7px 0 rgba(243,197,27,.9)}
-.topic-card:nth-child(3){background:#171717;color:#fff;box-shadow:7px 7px 0 #a83228}
-.topic-card:nth-child(4){box-shadow:7px 7px 0 rgba(17,17,17,.35)}
+.topic-card{min-height:220px;padding:26px;background:#fff;color:#111;border:2px solid #fff;box-shadow:7px 7px 0 #f3c51b}
+.topic-card:nth-child(1){box-shadow:7px 7px 0 #c91510}
+.topic-card:nth-child(2){box-shadow:7px 7px 0 #f3c51b}
+.topic-card:nth-child(3){background:#111;color:#fff;border-color:#fff;box-shadow:7px 7px 0 #c91510}
+.topic-card:nth-child(4){background:#fff;box-shadow:7px 7px 0 #fff}
 .topic-card .num{font-size:.65rem;font-weight:800;letter-spacing:.12em}
 .topic-card h3{font-family:'Playfair Display',serif;font-size:2.2rem;margin:35px 0 10px}
 .topic-card p{line-height:1.6;color:#666;max-width:480px}
 .topic-card:nth-child(3) p{color:#ccc}
 .roots-culture{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:stretch}
-.culture-image{min-height:330px;border:3px solid #111;background:url('https://commons.wikimedia.org/wiki/Special:FilePath/Angola%20n%C3%A3o%20se%20explica%2C%20sente-se%20no%20ritmo.jpg') center/cover no-repeat;box-shadow:10px 10px 0 #f3c51b}
-.culture-copy{background:#111;color:#fff;padding:34px;border:3px solid #111}
+.culture-art{min-height:330px;background:#fff;border:3px solid #fff;box-shadow:10px 10px 0 #f3c51b;position:relative;overflow:hidden}
+.culture-art span{position:absolute;border:2px solid #111}
+.culture-art span:nth-child(1){left:12%;top:12%;width:38%;height:34%;background:#111}
+.culture-art span:nth-child(2){right:12%;top:24%;width:27%;height:54%;background:#c91510}
+.culture-art span:nth-child(3){left:27%;bottom:10%;width:42%;height:25%;background:#f3c51b}
+.culture-art b{position:absolute;left:18px;bottom:18px;color:#111;font-size:1.1rem;letter-spacing:.08em}
+.culture-copy{background:#111;color:#fff;padding:34px;border:3px solid #fff}
 .culture-copy h3{font-family:'Playfair Display',serif;font-size:2.6rem;margin:10px 0 18px}
 .culture-copy p{line-height:1.7;color:#ddd}
-.roots-coming{background:#f3c51b;border:3px solid #111;padding:40px;box-shadow:10px 10px 0 #111}
-.roots-coming h2{margin:8px 0;font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,4rem)}
+.roots-coming{background:#f3c51b;color:#111;border:3px solid #111;padding:40px;box-shadow:10px 10px 0 #fff}
+.roots-coming h2{margin:8px 0;font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,4rem);color:#111}
 @media(max-width:800px){.roots-hero,.roots-culture{grid-template-columns:1fr}.roots-visual{min-height:430px}.roots-strip{grid-template-columns:1fr 1fr}.roots-strip div:nth-child(2){border-right:0}.roots-strip div:nth-child(-n+2){border-bottom:2px solid #111}.topic-grid{grid-template-columns:1fr}}
-@media(max-width:520px){.roots-page .roots{padding:34px 16px 90px}.roots-hero{padding-top:12px}.roots-visual{min-height:360px;box-shadow:8px 8px 0 #f3c51b}.roots-visual .photo-main{inset:12px 12px 98px}.roots-visual .photo-one,.roots-visual .photo-two{bottom:12px;height:70px;width:43%}.roots-visual .photo-one{left:12px}.roots-visual .photo-two{right:12px}.roots-visual .stamp{left:18px;top:18px}.roots-visual .label{right:18px;top:18px}.roots-strip{grid-template-columns:1fr}.roots-strip div{border-right:0!important;border-bottom:2px solid #111}.roots-strip div:last-child{border-bottom:0}.roots-section{padding:52px 0}.topic-card h3{font-size:1.9rem}.culture-image{min-height:260px}}
+@media(max-width:520px){.roots-page .roots{padding:34px 16px 90px}.roots-hero{padding-top:12px}.roots-visual{min-height:360px;box-shadow:8px 8px 0 #f3c51b}.roots-strip{grid-template-columns:1fr}.roots-strip div{border-right:0!important;border-bottom:2px solid #111}.roots-strip div:last-child{border-bottom:0}.roots-section{padding:52px 0}.topic-card h3{font-size:1.9rem}.culture-image{min-height:260px}}
 </style>
 </head>
 <body class="roots-page">
@@ -68,9 +75,13 @@ body.roots-page{background:#f4f1eb!important;color:#171717!important}
 <p>História, línguas, arte, música, sabores, símbolos e pessoas. Um espaço para descobrir Angola através das histórias que ficaram — e das que ainda estão a ser contadas.</p>
 <a class="button button-main" href="#explorar">Explorar as raízes ↓</a>
 </div>
-<div class="roots-visual" aria-label="Colagem sobre Angola e Rainha Nzinga">
-<div class="photo-main"></div><div class="photo-one"></div><div class="photo-two"></div>
-<div class="stamp">MEMÓRIA · ANGOLA</div><div class="label">NZINGA · PAISAGEM · CULTURA</div>
+<div class="roots-visual" aria-label="Composição gráfica Nzinga Raízes">
+<div class="roots-square roots-square-main"></div>
+<div class="roots-square roots-square-white"></div>
+<div class="roots-square roots-square-yellow"></div>
+<div class="roots-square roots-square-red"></div>
+<div class="roots-mark">NZ</div>
+<div class="stamp">MEMÓRIA · ANGOLA</div><div class="label">NZINGA · RAÍZES</div>
 </div>
 </section>
 <div class="roots-strip">
@@ -87,8 +98,8 @@ body.roots-page{background:#f4f1eb!important;color:#171717!important}
 </section>
 <section class="roots-section">
 <div class="roots-culture">
-<div class="culture-image" role="img" aria-label="Dança tradicional em Angola"></div>
-<div class="culture-copy"><p class="eyebrow" style="color:#f3c51b">02 · CULTURA</p><h3>A cultura não é um enfeite.</h3><p>É memória, linguagem, ritmo, invenção e futuro. Esta área vai reunir referências visuais e histórias que ajudem a conhecer Angola sem transformar a cultura num simples fundo decorativo.</p></div>
+<div class="culture-art" aria-hidden="true"><span></span><span></span><span></span><b>NZINGA<br>RAÍZES</b></div>
+<div class="culture-copy"><p class="eyebrow" style="color:#f3c51b">02 · CULTURA</p><h3>A cultura não é um enfeite.</h3><p>É memória, linguagem, ritmo, invenção e futuro. Esta área reúne referências e histórias para conhecer Angola sem transformar a cultura num simples fundo decorativo.</p></div>
 </div>
 </section>
 <section class="roots-section">
