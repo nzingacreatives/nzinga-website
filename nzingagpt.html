@@ -44,7 +44,7 @@
 .chat-panel{border:3px solid var(--black);background:var(--paper);box-shadow:9px 9px 0 var(--yellow);min-width:0}
 .chat-panel-top{padding:15px 17px;border-bottom:2px solid var(--black);display:flex;justify-content:space-between;gap:15px;align-items:center}
 .chat-panel-top strong{font-size:.78rem}.chat-panel-top span{font-size:.65rem;color:var(--muted)}
-.messages{min-height:360px;max-height:58vh;overflow-y:auto;padding:24px 20px;display:flex;flex-direction:column;gap:20px}
+.messages{min-height:360px;max-height:calc(100vh - 230px);overflow-y:auto;padding:24px 20px;display:flex;flex-direction:column;gap:20px}
 .bubble{padding:16px 18px;line-height:1.65;border:2px solid #111!important;overflow-wrap:anywhere;max-width:86%;border-radius:15px!important}
 .bubble.assistant{align-self:flex-start;background:#fff!important;color:#111!important;box-shadow:5px 5px 0 var(--yellow)}
 .bubble.user{align-self:flex-end;background:#111!important;color:#fff!important;box-shadow:5px 5px 0 var(--red);white-space:pre-wrap}
@@ -57,7 +57,7 @@
 .starter-label{font-size:.62rem;letter-spacing:.13em;font-weight:700;margin:0 20px 9px;color:var(--muted)}
 .starters{padding:0 20px 18px;display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
 .starter{font:inherit;text-align:left;padding:11px 12px;border:2px solid #111!important;background:#fff!important;color:#111!important;cursor:pointer;border-radius:9px!important}.starter:hover{background:var(--yellow)!important}
-.composer-wrap{padding:0 15px 15px}.composer{position:relative;width:100%;background:#111;padding:8px;display:flex;gap:7px;box-shadow:6px 6px 0 var(--red);z-index:5;border-radius:11px}
+.composer-wrap{position:fixed;left:50%;bottom:10px;transform:translateX(-50%);width:min(1136px,calc(100% - 32px));padding:8px 10px 7px;background:var(--paper);border:2px solid var(--black);box-shadow:6px 6px 0 var(--yellow);z-index:10000;border-radius:12px}.composer{position:relative;width:100%;background:#111;padding:8px;display:flex;gap:7px;box-shadow:6px 6px 0 var(--red);z-index:5;border-radius:11px}
 .composer textarea{flex:1;resize:none;border:0;outline:0;background:transparent;color:#fff;padding:12px;font:inherit;min-height:48px;max-height:180px}.composer textarea::placeholder{color:#aaa}
 .composer button{border:2px solid #111;background:var(--yellow);color:#000;font:inherit;font-weight:700;padding:0 16px;cursor:pointer;border-radius:8px}
 .composer button:disabled{opacity:.55;cursor:wait}.composer-hint{text-align:right;color:var(--muted);font-size:.6rem;margin:8px 2px 0}
@@ -70,7 +70,7 @@
 .gpt-message-tools svg{width:15px;height:15px;display:block;margin:auto}.gpt-message-tools button:hover,.gpt-message-tools button.active{background:var(--yellow);color:#111;border-color:#111}
 #gptClearHistory{display:flex;align-items:center;gap:7px;width:100%;margin-top:8px;padding:8px 10px;border:1px solid var(--black);background:transparent;color:var(--ink);font:inherit;font-size:.61rem;font-weight:700;cursor:pointer;border-radius:8px}
 @media(max-width:900px){.gpt-capabilities{grid-template-columns:repeat(2,1fr)}.gpt-layout{grid-template-columns:1fr}.chat-sidebar{display:block;order:-1;padding:0}.gpt-actions{border:2px solid var(--black);padding:13px;background:var(--paper);box-shadow:5px 5px 0 var(--yellow)}.gpt-action-grid{grid-template-columns:repeat(2,1fr)}.gpt-mode-grid{grid-template-columns:repeat(2,1fr)}.gpt-history{margin-top:13px}.gpt-history-toggle{min-height:44px}}
-@media(max-width:600px){.gpt-page{padding-inline:16px}.gpt-hero{padding-top:52px}.gpt-hero-row{align-items:flex-start;flex-direction:column}.gpt-badge{align-self:flex-start}.gpt-capabilities{grid-template-columns:1fr 1fr}.gpt-cap{min-height:95px;padding:12px}.messages{max-height:none;min-height:330px;padding:19px 14px}.bubble{max-width:94%;padding:14px 15px}.starters{grid-template-columns:1fr;padding-inline:14px}.composer-wrap{padding-inline:10px}.composer{gap:5px}.composer textarea{min-width:0}.gpt-voice-btn{width:44px;height:44px}.gpt-voice-mode{height:44px;padding:0 8px;font-size:.72rem}.composer button{height:44px;padding:0 12px}.gpt-message-tools button{width:28px}}
+@media(max-width:600px){.gpt-page{padding-inline:16px;padding-bottom:115px}.gpt-hero{padding-top:52px}.gpt-hero-row{align-items:flex-start;flex-direction:column}.gpt-badge{align-self:flex-start}.gpt-capabilities{grid-template-columns:1fr 1fr}.gpt-cap{min-height:95px;padding:12px}.messages{max-height:none;min-height:330px;padding:19px 14px}.bubble{max-width:94%;padding:14px 15px}.starters{grid-template-columns:1fr;padding-inline:14px}.composer-wrap{width:calc(100% - 20px);padding:7px}.composer{gap:5px}.composer textarea{min-width:0}.gpt-voice-btn{width:44px;height:44px}.gpt-voice-mode{height:44px;padding:0 8px;font-size:.72rem}.composer button{height:44px;padding:0 12px}.gpt-message-tools button{width:28px}}
 @media(prefers-color-scheme:dark){.gpt-hero{border-color:#fff}.gpt-cap,.gpt-action-grid button,.gpt-history-toggle,.gpt-history-open,.gpt-history-delete,.starter{background:#fff!important;color:#111!important}.chat-panel{background:#111;color:#fff;border-color:#fff}.chat-panel-top{border-color:#fff}.bubble.assistant{background:#fff!important;color:#111!important}.bubble.user{background:#111!important;color:#fff!important}.starter-label,.side-label,.gpt-hero .gpt-lead,.gpt-cap p,.gpt-action-note,.memory-note,.gpt-history-empty,.composer-hint,.status-note{color:#ccc}.gpt-history{border-color:#fff}.gpt-voice-mode{background:#111;color:#fff}}
 
 .nav,.samakaka,footer{display:none!important}
@@ -78,7 +78,7 @@
 .gpt-topbar-left,.gpt-topbar-right{display:flex;align-items:center;gap:8px}
 .gpt-topbar button{border:2px solid var(--black);background:var(--paper);color:var(--ink);height:38px;min-width:38px;padding:0 10px;border-radius:8px;font:inherit;font-weight:700;cursor:pointer}
 .gpt-topbar button:hover{background:var(--yellow)}
-.gpt-topbar-title{font-size:1.18rem;font-weight:800;letter-spacing:-.02em}
+.gpt-topbar-title{font-size:1.42rem;font-weight:800;letter-spacing:-.02em}
 .gpt-drawer{position:fixed;z-index:10010;left:0;top:0;bottom:0;width:min(86vw,350px);background:var(--paper);color:var(--ink);border-right:3px solid var(--black);box-shadow:10px 0 0 var(--red);transform:translateX(-105%);transition:transform .22s ease;overflow-y:auto;padding:18px}
 .gpt-drawer.open{transform:translateX(0)}
 .gpt-drawer-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
@@ -97,7 +97,7 @@
 .gpt-drawer-clear{width:100%;margin-top:10px;border:1px solid var(--black);background:transparent;color:var(--ink);padding:9px;border-radius:8px;font:inherit;font-size:.65rem;font-weight:700;cursor:pointer}
 .gpt-drawer-backdrop{position:fixed;inset:0;z-index:10009;background:rgba(0,0,0,.5);opacity:0;pointer-events:none;transition:opacity .22s ease}
 .gpt-drawer-backdrop.open{opacity:1;pointer-events:auto}
-.gpt-start-section{margin:4px 16px 10px;border-top:1px solid #ddd;border-bottom:1px solid var(--black)}
+.gpt-start-section{margin:4px 16px 14px;border-top:1px solid #ddd;border-bottom:1px solid var(--black)}
 .gpt-start-title{font-family:inherit;font-size:.78rem;margin:0;font-weight:800;letter-spacing:.04em}
 .gpt-start-sub{font-size:.62rem;color:var(--muted);margin:2px 0 0}
 .gpt-mode-grid-main{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
@@ -157,11 +157,11 @@
 </section></div></main>
 <footer><a class="logo" href="index.html">NZINGA<span>CREATIVES</span></a><p>Ideias que ganham forma.</p><small>© 2026 Nzinga Creatives · Feito em Angola.</small></footer>
 <script src="script.js"></script>
-<script src="gpt-actions.js?v=9"></script>
-<script src="nzingagpt-core.js?v=7"></script>
+<script src="gpt-actions.js?v=10"></script>
+<script src="nzingagpt-core.js?v=8"></script>
 <script src="navigation.js?v=3"></script>
 </body>
 </html><style>
 <style>
-.gpt-brand-mark{width:34px;height:26px;object-fit:contain;display:block}.gpt-floating-menu{position:fixed;left:12px;top:50%;transform:translateY(-50%);z-index:10020;width:42px;height:42px;border:2px solid var(--black);border-radius:50%;background:var(--paper);color:var(--ink);font:inherit;font-weight:800;cursor:pointer;box-shadow:4px 4px 0 var(--yellow)}.gpt-floating-menu:hover{background:var(--yellow)}.gpt-page{padding-top:8px}.gpt-topbar{margin-top:8px}.gpt-start-title{font-size:.74rem}.gpt-start-bar{min-height:34px}.gpt-inline-suggestions button{font-size:.62rem;padding:6px 9px}.composer button,.gpt-voice-btn,.gpt-voice-mode{height:40px}.gpt-message-tools button{font-size:.88rem}@media(max-width:600px){.gpt-floating-menu{left:8px;width:38px;height:38px}.gpt-brand-mark{width:30px;height:24px}.gpt-topbar-title{font-size:1.05rem}.gpt-message-tools button{width:31px;height:25px}.composer button,.gpt-voice-btn,.gpt-voice-mode{height:38px}}
+.gpt-brand-mark{width:46px;height:34px;object-fit:contain;display:block;filter:drop-shadow(0 0 1px #fff) drop-shadow(0 0 2px #fff)}.gpt-floating-menu{position:fixed;left:12px;top:50%;transform:translateY(-50%);z-index:10020;width:42px;height:42px;border:2px solid var(--black);border-radius:50%;background:var(--paper);color:var(--ink);font:inherit;font-weight:800;cursor:pointer;box-shadow:4px 4px 0 var(--yellow)}.gpt-floating-menu:hover{background:var(--yellow)}.gpt-page{padding-top:8px;padding-bottom:105px}.gpt-topbar{margin-top:8px;min-height:58px;padding:10px 14px}.gpt-start-title{font-size:.74rem}.gpt-start-bar{min-height:34px}.gpt-inline-suggestions button{font-size:.62rem;padding:6px 9px}.composer button,.gpt-voice-btn,.gpt-voice-mode{height:40px}.gpt-message-tools button{font-size:.88rem}@media(max-width:600px){.gpt-floating-menu{left:8px;width:38px;height:38px}.gpt-brand-mark{width:40px;height:30px}.gpt-topbar-title{font-size:1.22rem}.gpt-message-tools button{width:31px;height:25px}.composer button,.gpt-voice-btn,.gpt-voice-mode{height:38px}}
 </style>
