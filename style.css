@@ -81,3 +81,73 @@ body.services-bw{background:#111!important;color:#fff!important}body.services-bw
 /* Identidade global: símbolo pequeno + nome, sem cortar as linhas do cabeçalho. */
 .nav .logo{display:flex!important;align-items:center!important;gap:8px!important;text-decoration:none!important;white-space:nowrap!important}.nav .logo img{width:34px!important;height:30px!important;object-fit:contain!important;filter:drop-shadow(0 0 1px #fff)!important}.nav .logo span{font-weight:900!important;letter-spacing:.03em!important}.nav .logo span b{font-weight:700!important}.nav{border-bottom:3px solid var(--red)!important;position:relative!important}.nav:after{content:'';position:absolute;left:0;right:0;bottom:-3px;height:3px;background:var(--red);z-index:-1}.samakaka{border-top:0!important;border-bottom:3px solid var(--yellow)!important;box-sizing:border-box!important}
 @media(max-width:560px){.nav .logo img{width:30px!important;height:26px!important}.nav .logo{gap:6px!important}.nav .logo span{font-size:.82rem!important}}
+
+
+/* NZINGA FINAL UI PASS — navigation, colour balance, GPT spacing */
+html,body{background:#f4f1eb!important;color:#171717!important}
+body:not(.services-bw):not(:has(.gpt-page)):not(:has(.sx)){background:#f4f1eb!important;color:#171717!important}
+body:not(.services-bw):not(:has(.gpt-page)):not(:has(.sx)) main{background:transparent!important}
+.bottom-nav,.nzinga-bottom-nav{
+  position:fixed!important;left:0!important;right:0!important;bottom:0!important;
+  width:100%!important;height:72px!important;display:grid!important;
+  grid-template-columns:repeat(5,minmax(0,1fr))!important;align-items:stretch!important;
+  background:#111!important;color:#fff!important;border-top:2px solid #f7c515!important;
+  z-index:2147483647!important;visibility:visible!important;opacity:1!important;
+}
+.bottom-nav a,.nzinga-bottom-nav a{
+  min-width:0!important;width:100%!important;height:72px!important;
+  display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;
+  color:#d7d7d7!important;text-decoration:none!important;visibility:visible!important;opacity:1!important;
+}
+.bottom-nav a small,.nzinga-bottom-nav a small{display:block!important;color:inherit!important;font-size:.58rem!important;line-height:1.1!important;margin-top:4px!important}
+.bottom-nav a .nav-icon,.nzinga-bottom-nav a .nav-icon{display:flex!important;width:22px!important;height:22px!important;color:inherit!important}
+.bottom-nav a .nav-icon svg,.nzinga-bottom-nav a .nav-icon svg{display:block!important;width:100%!important;height:100%!important;stroke:currentColor!important}
+.bottom-nav a.active,.nzinga-bottom-nav a.active{color:#f7c515!important}
+.bottom-nav a:not(.active),.nzinga-bottom-nav a:not(.active){color:#d7d7d7!important}
+body:has(.gpt-page){background:#0f0f10!important;color:#f5f5f5!important}
+body:has(.gpt-page) .gpt-page{max-width:1180px!important;padding-top:72px!important;padding-bottom:96px!important}
+.gpt-topbar{
+  position:fixed!important;top:72px!important;left:50%!important;right:auto!important;
+  transform:translateX(-50%)!important;width:min(1180px,100%)!important;
+  min-height:58px!important;margin:0!important;border-radius:0!important;
+  background:#171717!important;border-bottom:2px solid #f7c515!important;
+  box-sizing:border-box!important;z-index:10030!important;
+}
+.gpt-topbar:before{top:0!important;height:2px!important;background:#c91510!important}
+.gpt-topbar:after{bottom:0!important;height:2px!important;background:#f7c515!important}
+.gpt-topbar-left,.gpt-topbar-right{align-items:center!important}
+.gpt-topbar .gpt-brand-mark{width:34px!important;height:30px!important;max-width:34px!important;max-height:30px!important}
+.gpt-topbar .gpt-topbar-title{font-size:1rem!important;line-height:1!important;white-space:nowrap!important}
+body:has(.gpt-page) .messages{
+  min-height:0!important;max-height:none!important;height:auto!important;
+  padding:18px 20px 120px!important;margin:0 auto!important;
+}
+body:has(.gpt-page) .composer-wrap{
+  position:fixed!important;left:50%!important;bottom:82px!important;
+  transform:translateX(-50%)!important;width:min(900px,calc(100% - 24px))!important;
+  padding:5px!important;background:transparent!important;border:0!important;box-shadow:none!important;
+  z-index:10020!important;
+}
+body:has(.gpt-page) .composer{
+  min-height:58px!important;padding:7px!important;background:#19191b!important;
+  border:2px solid #454549!important;box-shadow:5px 5px 0 #f7c515!important;border-radius:9px!important;
+}
+body:has(.gpt-page) .composer textarea{min-height:46px!important;padding:12px!important;font-size:1rem!important}
+body:has(.gpt-page) .composer-hint,body:has(.gpt-page) .status-note{display:none!important}
+body:has(.gpt-page) .gpt-first-prompts{margin:6px auto 10px!important}
+body:has(.gpt-page) .gpt-first-prompts button{padding:8px 10px!important}
+@media(max-width:600px){
+  .bottom-nav,.nzinga-bottom-nav,.bottom-nav a,.nzinga-bottom-nav a{height:68px!important}
+  .gpt-page{padding-top:66px!important;padding-bottom:88px!important}
+  .gpt-topbar{top:68px!important;min-height:54px!important}
+  body:has(.gpt-page) .messages{padding:12px 12px 105px!important}
+  body:has(.gpt-page) .composer-wrap{bottom:72px!important;width:calc(100% - 14px)!important}
+  body:has(.gpt-page) .composer{min-height:56px!important}
+  body:has(.gpt-page) .composer textarea{min-height:44px!important}
+}
+/* Keep the home colourful and image-led without making the whole page black. */
+body:not(.services-bw):not(:has(.gpt-page)):not(:has(.sx)) .hero,
+body:not(.services-bw):not(:has(.gpt-page)):not(:has(.sx)) .section,
+body:not(.services-bw):not(:has(.gpt-page)):not(:has(.sx)) .home-ecosystem{background:#f4f1eb!important}
+body:not(.services-bw):not(:has(.gpt-page)):not(:has(.sx)) .portfolio{background:#e8e2d7!important}
+
