@@ -487,3 +487,22 @@ body:has(#recipient) #recipient{background:#111!important}
   .bottom-nav,.nzinga-bottom-nav,.bottom-nav a,.nzinga-bottom-nav a{height:68px!important}
   .nav nav.open{background:#111!important}
 }
+
+
+/* === GPT SPACING REFINEMENT === */
+body:has(.gpt-page) .gpt-page{
+  padding-bottom:112px!important;
+}
+body:has(.gpt-page) .messages{
+  min-height:0!important;
+  max-height:none!important;
+  height:auto!important;
+  padding-bottom:96px!important;
+}
+body:has(.gpt-page) .gpt-first-prompts{
+  margin-bottom:10px!important;
+}
+@media(max-width:600px){
+  body:has(.gpt-page) .gpt-page{padding-bottom:88px!important}
+  body:has(.gpt-page) .messages{padding-bottom:90px!important}
+}
