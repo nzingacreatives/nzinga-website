@@ -167,3 +167,21 @@ body:not(:has(.gpt-page)):not(:has(.sx)):not(:has(#recipient)) footer .logo,
 body:not(:has(.gpt-page)):not(:has(.sx)):not(:has(#recipient)) footer p,
 body:not(:has(.gpt-page)):not(:has(.sx)):not(:has(#recipient)) footer small{color:#fff!important}
 body:not(:has(.gpt-page)):not(:has(.sx)):not(:has(#recipient)) .samakaka{background-color:#111!important}
+
+/* === NZINGA BLACK PAGE SYSTEM === */
+body:not(:has(.gpt-page)):not(:has(.sx)):not(.services-bw):not(.roots-page){background:#111!important;color:#fff!important}
+body:not(:has(.gpt-page)):not(:has(.sx)):not(.services-bw):not(.roots-page) main{background:#111!important;color:#fff!important}
+body:not(:has(.gpt-page)):not(:has(.sx)):not(.services-bw):not(.roots-page) .hero-copy>p:not(.eyebrow),
+body:not(:has(.gpt-page)):not(:has(.sx)):not(.services-bw):not(.roots-page) .section-intro>p:last-child,
+body:not(:has(.gpt-page)):not(:has(.sx)):not(.services-bw):not(.roots-page) .service-grid p,
+body:not(:has(.gpt-page)):not(:has(.sx)):not(.services-bw):not(.roots-page) .home-cards p{color:#ccc!important}
+body:not(:has(.gpt-page)):not(:has(.sx)):not(.services-bw):not(.roots-page) .section{border-color:#fff!important}
+body:not(:has(.gpt-page)):not(:has(.sx)):not(.services-bw):not(.roots-page) .service-grid,
+body:not(:has(.gpt-page)):not(:has(.sx)):not(.services-bw):not(.roots-page) .home-cards{border-color:#fff!important;box-shadow:8px 8px 0 #f7c515!important}
+body:not(:has(.gpt-page)):not(:has(.sx)):not(.services-bw):not(.roots-page) .service-grid a,
+body:not(:has(.gpt-page)):not(:has(.sx)):not(.services-bw):not(.roots-page) .home-cards a{background:#fff!important;color:#111!important;border-color:#111!important}
+body:not(:has(.gpt-page)):not(:has(.sx)):not(.services-bw):not(.roots-page) .service-grid a p,
+body:not(:has(.gpt-page)):not(:has(.sx)):not(.services-bw):not(.roots-page) .home-cards a p{color:#555!important}
+body:not(:has(.gpt-page)):not(:has(.sx)):not(.services-bw):not(.roots-page) .portfolio{background:#111!important;color:#fff!important}
+body:not(:has(.gpt-page)):not(:has(.sx)):not(.services-bw):not(.roots-page) .home-ai{background:#111!important;border-top:2px solid #fff!important}
+body:not(:has(.gpt-page)):not(:has(.sx)):not(.services-bw):not(.roots-page) .final-cta{background:#f7c515!important;color:#111!important}
