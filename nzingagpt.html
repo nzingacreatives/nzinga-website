@@ -74,11 +74,11 @@
 @media(prefers-color-scheme:dark){.gpt-hero{border-color:#fff}.gpt-cap,.gpt-action-grid button,.gpt-history-toggle,.gpt-history-open,.gpt-history-delete,.starter{background:#fff!important;color:#111!important}.chat-panel{background:#111;color:#fff;border-color:#fff}.chat-panel-top{border-color:#fff}.bubble.assistant{background:#fff!important;color:#111!important}.bubble.user{background:#111!important;color:#fff!important}.starter-label,.side-label,.gpt-hero .gpt-lead,.gpt-cap p,.gpt-action-note,.memory-note,.gpt-history-empty,.composer-hint,.status-note{color:#ccc}.gpt-history{border-color:#fff}.gpt-voice-mode{background:#111;color:#fff}}
 
 .nav,.samakaka,footer{display:none!important}
-.gpt-topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;border:2px solid var(--black);background:var(--paper);padding:9px 12px;margin:24px 0 12px;position:sticky;top:8px;z-index:30;box-shadow:4px 4px 0 var(--yellow)}
+.gpt-topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;border:1px solid #3b3b3b;background:#171717;color:#fff;padding:10px 16px;margin:0;position:fixed;top:0;left:50%;transform:translateX(-50%);width:min(1180px,100%);min-height:64px;z-index:10030;box-shadow:0 1px 0 rgba(255,255,255,.08)}
 .gpt-topbar-left,.gpt-topbar-right{display:flex;align-items:center;gap:8px}
-.gpt-topbar button{border:2px solid var(--black);background:var(--paper);color:var(--ink);height:38px;min-width:38px;padding:0 10px;border-radius:8px;font:inherit;font-weight:700;cursor:pointer}
+.gpt-topbar button{border:1px solid #555;background:#222;color:#fff;height:38px;min-width:38px;padding:0 10px;border-radius:8px;font:inherit;font-weight:700;cursor:pointer}
 .gpt-topbar button:hover{background:var(--yellow)}
-.gpt-topbar-title{font-size:1.42rem;font-weight:800;letter-spacing:-.02em}
+.gpt-topbar-title{font-size:1.55rem;font-weight:800;letter-spacing:-.02em}
 .gpt-drawer{position:fixed;z-index:10010;left:0;top:0;bottom:0;width:min(86vw,350px);background:var(--paper);color:var(--ink);border-right:3px solid var(--black);box-shadow:10px 0 0 var(--red);transform:translateX(-105%);transition:transform .22s ease;overflow-y:auto;padding:18px}
 .gpt-drawer.open{transform:translateX(0)}
 .gpt-drawer-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
@@ -157,11 +157,40 @@
 </section></div></main>
 <footer><a class="logo" href="index.html">NZINGA<span>CREATIVES</span></a><p>Ideias que ganham forma.</p><small>© 2026 Nzinga Creatives · Feito em Angola.</small></footer>
 <script src="script.js"></script>
-<script src="gpt-actions.js?v=10"></script>
-<script src="nzingagpt-core.js?v=8"></script>
+<script src="gpt-actions.js?v=11"></script>
+<script src="nzingagpt-core.js?v=9"></script>
 <script src="navigation.js?v=3"></script>
 </body>
 </html><style>
 <style>
-.gpt-brand-mark{width:46px;height:34px;object-fit:contain;display:block;filter:drop-shadow(0 0 1px #fff) drop-shadow(0 0 2px #fff)}.gpt-floating-menu{position:fixed;left:12px;top:50%;transform:translateY(-50%);z-index:10020;width:42px;height:42px;border:2px solid var(--black);border-radius:50%;background:var(--paper);color:var(--ink);font:inherit;font-weight:800;cursor:pointer;box-shadow:4px 4px 0 var(--yellow)}.gpt-floating-menu:hover{background:var(--yellow)}.gpt-page{padding-top:8px;padding-bottom:105px}.gpt-topbar{margin-top:8px;min-height:58px;padding:10px 14px}.gpt-start-title{font-size:.74rem}.gpt-start-bar{min-height:34px}.gpt-inline-suggestions button{font-size:.62rem;padding:6px 9px}.composer button,.gpt-voice-btn,.gpt-voice-mode{height:40px}.gpt-message-tools button{font-size:.88rem}@media(max-width:600px){.gpt-floating-menu{left:8px;width:38px;height:38px}.gpt-brand-mark{width:40px;height:30px}.gpt-topbar-title{font-size:1.22rem}.gpt-message-tools button{width:31px;height:25px}.composer button,.gpt-voice-btn,.gpt-voice-mode{height:38px}}
+.gpt-brand-mark{width:46px;height:34px;object-fit:contain;display:block;filter:drop-shadow(0 0 1px #fff) drop-shadow(0 0 2px #fff)}.gpt-floating-menu{position:fixed;left:12px;top:50%;transform:translateY(-50%);z-index:10020;width:42px;height:42px;border:2px solid var(--black);border-radius:50%;background:var(--paper);color:var(--ink);font:inherit;font-weight:800;cursor:pointer;box-shadow:4px 4px 0 var(--yellow)}.gpt-floating-menu:hover{background:var(--yellow)}.gpt-page{padding-top:78px;padding-bottom:125px;max-width:1180px}.gpt-topbar{margin-top:8px;min-height:58px;padding:10px 14px}.gpt-start-title{font-size:.74rem}.gpt-start-bar{min-height:34px}.gpt-inline-suggestions button{font-size:.62rem;padding:6px 9px}.composer button,.gpt-voice-btn,.gpt-voice-mode{height:40px}.gpt-message-tools button{font-size:.88rem}@media(max-width:600px){.gpt-floating-menu{left:8px;width:38px;height:38px}.gpt-brand-mark{width:40px;height:30px}.gpt-topbar-title{font-size:1.22rem}.gpt-message-tools button{width:31px;height:25px}.composer button,.gpt-voice-btn,.gpt-voice-mode{height:38px}}
+</style>
+
+<style>
+/* GPT uses one stable dark theme regardless of device preference. */
+body:has(.gpt-page){background:#0f0f10!important;color:#f5f5f5!important}
+body:has(.gpt-page) .gpt-page{background:#0f0f10}
+body:has(.gpt-page) .chat-panel{background:#111!important;border:0!important;box-shadow:none!important}
+body:has(.gpt-page) .messages{max-width:900px;margin:0 auto;min-height:calc(100vh - 205px);max-height:calc(100vh - 205px);padding:20px 20px 18px}
+body:has(.gpt-page) .gpt-start-section{max-width:900px;margin:0 auto 14px;border-top:1px solid #333;border-bottom:1px solid #333;color:#f5f5f5}
+body:has(.gpt-page) .gpt-start-title{font-size:.78rem}
+body:has(.gpt-page) .gpt-start-toggle{border-color:#555;color:#fff}
+body:has(.gpt-page) .gpt-start-sub,
+body:has(.gpt-page) .gpt-inline-suggestions span{color:#aaa}
+body:has(.gpt-page) .gpt-inline-suggestions button,
+body:has(.gpt-page) .gpt-mode-grid-main button{background:#181819;color:#eee;border-color:#444}
+body:has(.gpt-page) .composer-wrap{background:#0f0f10;border-color:#333;box-shadow:none}
+body:has(.gpt-page) .composer{background:#19191b;border:1px solid #454549;box-shadow:none}
+body:has(.gpt-page) .composer textarea{color:#fff}
+body:has(.gpt-page) .composer-hint,
+body:has(.gpt-page) .status-note{color:#888}
+body:has(.gpt-page) .gpt-floating-menu{background:#1b1b1d;color:#fff;border-color:#555;box-shadow:0 2px 8px rgba(0,0,0,.4)}
+body:has(.gpt-page) .gpt-message-tools{border-top-color:#333}
+body:has(.gpt-page) .gpt-message-tools button{color:#bbb;border-color:#444;background:transparent}
+body:has(.gpt-page) .gpt-message-tools button:hover,body:has(.gpt-page) .gpt-message-tools button.active{background:#272727;color:#fff;border-color:#666}
+@media(max-width:600px){
+  .gpt-page{padding-top:70px;padding-bottom:120px}
+  body:has(.gpt-page) .messages{min-height:calc(100vh - 190px);max-height:calc(100vh - 190px);padding:16px 12px}
+  body:has(.gpt-page) .composer-wrap{width:calc(100% - 16px);bottom:6px;padding:6px}
+}
 </style>
