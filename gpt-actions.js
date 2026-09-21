@@ -70,13 +70,13 @@ function addMessageTools(){
  const speak=t=>{if(!('speechSynthesis'in window))return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='pt-AO';u.rate=.98;speechSynthesis.speak(u)};
  const copy=async t=>{try{await navigator.clipboard.writeText(t);return true}catch{return false}};
  const decorate=b=>{if(!b.classList.contains('assistant')||b.dataset.toolsReady||!b.textContent.trim()||b.textContent.trim()==='...')return;b.dataset.toolsReady='1';
-  const bar=document.createElement('div');bar.className='gpt-message-tools';bar.innerHTML='<button type="button" data-a="like">♡</button><button type="button" data-a="copy">⧉</button><button type="button" data-a="listen">🔊</button><button type="button" data-a="share">↗</button><button type="button" data-a="regen">↻</button>';b.appendChild(bar);
+  const bar=document.createElement('div');bar.className='gpt-message-tools';bar.innerHTML='<button type="button" data-a="like" title="Gostar" aria-label="Gostar">♡</button><button type="button" data-a="copy" title="Copiar" aria-label="Copiar">⧉</button><button type="button" data-a="listen" title="Ouvir" aria-label="Ouvir">◖</button><button type="button" data-a="share" title="Partilhar" aria-label="Partilhar">↗</button><button type="button" data-a="regen" title="Regenerar resposta" aria-label="Regenerar resposta">⟳</button>';b.appendChild(bar);
   bar.onclick=async e=>{const x=e.target.closest('button');if(!x)return;const a=x.dataset.a,t=b.cloneNode(true).innerText;
    if(a==='like'){x.classList.toggle('active');x.textContent=x.classList.contains('active')?'♥':'♡'}
    if(a==='copy'){x.textContent=await copy(t)?'✓':'!';setTimeout(()=>x.textContent='⧉',900)}
    if(a==='listen'){if(speechSynthesis?.speaking){speechSynthesis.cancel();x.textContent='🔊'}else{x.textContent='■';speak(t);setTimeout(()=>x.textContent='🔊',1200)}}
    if(a==='share'){try{if(navigator.share)await navigator.share({title:'NzingaGPT',text:t});else await copy(t);x.textContent='✓';setTimeout(()=>x.textContent='↗',900)}catch{}}
-   if(a==='regen'){const u=[...root.querySelectorAll('.bubble.user')].at(-1);if(u){const i=document.getElementById('gptPrompt');i.value=u.innerText;document.getElementById('chatForm')?.requestSubmit()}}
+   if(a==='regen'){if(window.__nzingaRegenerateLast){x.disabled=true;x.textContent='…';await window.__nzingaRegenerateLast();x.disabled=false;x.textContent='⟳'}}
   };
  };
  new MutationObserver(()=>root.querySelectorAll('.bubble.assistant').forEach(decorate)).observe(root,{childList:true,subtree:true});
