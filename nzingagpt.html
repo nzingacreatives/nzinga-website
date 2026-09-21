@@ -4,6 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="NzingaGPT — conversa, aprende, organiza e transforma ideias.">
+<link rel="icon" href="/nzinga-logo.svg" type="image/svg+xml">
+<meta name="theme-color" content="#111111">
+<meta property="og:title" content="NzingaGPT — Nzinga Creatives">
+<meta property="og:description" content="Conversa, aprende, organiza e transforma ideias.">
+<meta property="og:image" content="https://nzinga-website.vercel.app/nzinga-logo.svg">
+<meta property="og:type" content="website">
 <title>NzingaGPT — Nzinga Creatives</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,7 +17,7 @@
 <link rel="stylesheet" href="style.css">
 <style>
 .gpt-page{max-width:1180px;margin:auto;padding:0 22px 110px}
-.gpt-hero{padding:70px 0 38px;border-bottom:3px solid var(--black)}
+.gpt-hero{display:none;padding:70px 0 38px;border-bottom:3px solid var(--black)}
 .gpt-hero-row{display:flex;justify-content:space-between;gap:30px;align-items:end}
 .gpt-hero h1{font-family:'Playfair Display',serif;font-size:clamp(3.7rem,8vw,7rem);line-height:.88;letter-spacing:-.05em;margin:10px 0 20px}
 .gpt-hero h1 i{font-style:normal;color:var(--red)}
@@ -57,9 +63,9 @@
 .composer button:disabled{opacity:.55;cursor:wait}.composer-hint{text-align:right;color:var(--muted);font-size:.6rem;margin:8px 2px 0}
 .status-note{text-align:left;color:var(--muted);font-size:.64rem;margin:8px 2px 0}.status-note #status{font-weight:700;color:var(--ink)}
 .gpt-message-tools{display:flex;gap:5px;margin-top:10px;padding-top:8px;border-top:1px solid #ddd}
-.gpt-message-tools button{border:1px solid #aaa;background:transparent;color:#555;width:30px;height:28px;border-radius:7px;cursor:pointer;font:inherit;font-size:.76rem}
-.gpt-voice-btn,.gpt-voice-mode{height:48px;border:2px solid #fff;background:#111;color:#fff;font:inherit;font-weight:700;border-radius:8px;cursor:pointer;white-space:nowrap}
-.gpt-voice-btn{width:48px;display:grid;place-items:center}.gpt-voice-mode{padding:0 12px}
+.gpt-message-tools button{border:1px solid #aaa;background:transparent;color:#555;width:32px;height:26px;border-radius:7px;cursor:pointer;font:inherit;font-size:.76rem}
+.gpt-voice-btn,.gpt-voice-mode{height:40px;border:2px solid #fff;background:#111;color:#fff;font:inherit;font-weight:700;border-radius:8px;cursor:pointer;white-space:nowrap}
+.gpt-voice-btn{width:42px;display:grid;place-items:center}.gpt-voice-mode{padding:0 12px}
 .gpt-voice-btn:hover,.gpt-voice-btn.listening,.gpt-voice-mode.active{background:var(--yellow);color:#111;border-color:#111}
 .gpt-message-tools button:hover,.gpt-message-tools button.active{background:var(--yellow);color:#111;border-color:#111}
 #gptClearHistory{display:flex;align-items:center;gap:7px;width:100%;margin-top:8px;padding:8px 10px;border:1px solid var(--black);background:transparent;color:var(--ink);font:inherit;font-size:.61rem;font-weight:700;cursor:pointer;border-radius:8px}
@@ -67,11 +73,12 @@
 @media(max-width:600px){.gpt-page{padding-inline:16px}.gpt-hero{padding-top:52px}.gpt-hero-row{align-items:flex-start;flex-direction:column}.gpt-badge{align-self:flex-start}.gpt-capabilities{grid-template-columns:1fr 1fr}.gpt-cap{min-height:95px;padding:12px}.messages{max-height:none;min-height:330px;padding:19px 14px}.bubble{max-width:94%;padding:14px 15px}.starters{grid-template-columns:1fr;padding-inline:14px}.composer-wrap{padding-inline:10px}.composer{gap:5px}.composer textarea{min-width:0}.gpt-voice-btn{width:44px;height:44px}.gpt-voice-mode{height:44px;padding:0 8px;font-size:.72rem}.composer button{height:44px;padding:0 12px}.gpt-message-tools button{width:28px}}
 @media(prefers-color-scheme:dark){.gpt-hero{border-color:#fff}.gpt-cap,.gpt-action-grid button,.gpt-history-toggle,.gpt-history-open,.gpt-history-delete,.starter{background:#fff!important;color:#111!important}.chat-panel{background:#111;color:#fff;border-color:#fff}.chat-panel-top{border-color:#fff}.bubble.assistant{background:#fff!important;color:#111!important}.bubble.user{background:#111!important;color:#fff!important}.starter-label,.side-label,.gpt-hero .gpt-lead,.gpt-cap p,.gpt-action-note,.memory-note,.gpt-history-empty,.composer-hint,.status-note{color:#ccc}.gpt-history{border-color:#fff}.gpt-voice-mode{background:#111;color:#fff}}
 
+.nav,.samakaka,footer{display:none!important}
 .gpt-topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;border:2px solid var(--black);background:var(--paper);padding:9px 12px;margin:24px 0 12px;position:sticky;top:8px;z-index:30;box-shadow:4px 4px 0 var(--yellow)}
 .gpt-topbar-left,.gpt-topbar-right{display:flex;align-items:center;gap:8px}
 .gpt-topbar button{border:2px solid var(--black);background:var(--paper);color:var(--ink);height:38px;min-width:38px;padding:0 10px;border-radius:8px;font:inherit;font-weight:700;cursor:pointer}
 .gpt-topbar button:hover{background:var(--yellow)}
-.gpt-topbar-title{font-size:.8rem;font-weight:700}
+.gpt-topbar-title{font-size:1.18rem;font-weight:800;letter-spacing:-.02em}
 .gpt-drawer{position:fixed;z-index:10010;left:0;top:0;bottom:0;width:min(86vw,350px);background:var(--paper);color:var(--ink);border-right:3px solid var(--black);box-shadow:10px 0 0 var(--red);transform:translateX(-105%);transition:transform .22s ease;overflow-y:auto;padding:18px}
 .gpt-drawer.open{transform:translateX(0)}
 .gpt-drawer-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
@@ -90,7 +97,7 @@
 .gpt-drawer-clear{width:100%;margin-top:10px;border:1px solid var(--black);background:transparent;color:var(--ink);padding:9px;border-radius:8px;font:inherit;font-size:.65rem;font-weight:700;cursor:pointer}
 .gpt-drawer-backdrop{position:fixed;inset:0;z-index:10009;background:rgba(0,0,0,.5);opacity:0;pointer-events:none;transition:opacity .22s ease}
 .gpt-drawer-backdrop.open{opacity:1;pointer-events:auto}
-.gpt-start-section{margin:18px 0 12px;border-bottom:1px solid var(--black)}
+.gpt-start-section{margin:4px 16px 10px;border-top:1px solid #ddd;border-bottom:1px solid var(--black)}
 .gpt-start-title{font-family:inherit;font-size:.78rem;margin:0;font-weight:800;letter-spacing:.04em}
 .gpt-start-sub{font-size:.62rem;color:var(--muted);margin:2px 0 0}
 .gpt-mode-grid-main{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
@@ -133,27 +140,28 @@
 <p class="gpt-drawer-label">PRIVACIDADE</p><p class="gpt-action-note">Conversas normais ficam guardadas localmente neste dispositivo. A conversa anónima não entra no histórico normal.</p>
 </aside><button id="gptDrawerBackdrop" class="gpt-drawer-backdrop" type="button" aria-label="Fechar menu"></button>
 <main class="gpt-page">
-<div class="gpt-topbar"><div class="gpt-topbar-left"><button id="gptMenu" type="button" aria-label="Abrir menu" aria-expanded="false">☰</button><span class="gpt-topbar-title">NzingaGPT</span></div><div class="gpt-topbar-right"><button id="gptNewTop" type="button" aria-label="Nova conversa">＋</button></div></div>
-<section class="gpt-start-section">
-<div class="gpt-start-bar"><div><h2 class="gpt-start-title">Ponto de partida</h2></div><button id="gptStartToggle" class="gpt-start-toggle" type="button" aria-expanded="false">＋</button></div>
-<div id="gptStartOptions" class="gpt-start-options" hidden>
-<div class="gpt-mode-grid-main">
-<button type="button" data-gpt-mode="ideia">Explorar</button><button type="button" data-gpt-mode="aprender">Aprender</button><button type="button" data-gpt-mode="organizar">Organizar</button><button type="button" data-gpt-mode="escrever">Escrever</button>
-</div>
-<div class="gpt-inline-suggestions"><span>SUGESTÕES</span><button type="button" class="starter-inline">Tenho uma ideia meio confusa.</button><button type="button" class="starter-inline">Quero aprender alguma coisa.</button><button type="button" class="starter-inline">Preciso de ajuda com um problema.</button><button type="button" class="starter-inline">Quero simplesmente conversar.</button></div>
-</div>
-</section>
+<button id="gptMenu" class="gpt-floating-menu" type="button" aria-label="Abrir menu" aria-expanded="false">☰</button>
+<div class="gpt-topbar"><div class="gpt-topbar-left"><img class="gpt-brand-mark" src="nzinga-logo.svg" alt="" aria-hidden="true"><span class="gpt-topbar-title">NzingaGPT</span></div><div class="gpt-topbar-right"><button id="gptNewTop" type="button" aria-label="Nova conversa">＋</button></div></div>
+
 <div class="gpt-layout">
 <aside class="chat-sidebar" aria-hidden="true"><div class="gpt-actions"></div></aside>
 <section class="chat-panel" aria-label="Conversa com NzingaGPT">
-<header class="chat-panel-top"><strong>NzingaGPT</strong><span>Conversa nova</span></header>
 <div class="messages" id="messages" aria-live="polite"></div>
+<section class="gpt-start-section">
+<div class="gpt-start-bar"><div><h2 class="gpt-start-title">Ponto de partida</h2></div><button id="gptStartToggle" class="gpt-start-toggle" type="button" aria-expanded="false">＋</button></div>
+<div id="gptStartOptions" class="gpt-start-options" hidden>
+<div class="gpt-inline-suggestions"><button type="button" class="starter-inline">Tenho uma ideia meio confusa.</button><button type="button" class="starter-inline">Quero aprender alguma coisa.</button><button type="button" class="starter-inline">Preciso de ajuda.</button></div>
+</div>
+</section>
 <div class="composer-wrap"><form class="composer" id="chatForm"><textarea id="gptPrompt" placeholder="Escreve o que quiseres..."></textarea><button id="sendBtn" type="submit">Enviar ↑</button></form><p class="composer-hint">Enter envia · Shift + Enter cria nova linha</p><p class="status-note"><span id="status">● ONLINE</span></p></div>
 </section></div></main>
 <footer><a class="logo" href="index.html">NZINGA<span>CREATIVES</span></a><p>Ideias que ganham forma.</p><small>© 2026 Nzinga Creatives · Feito em Angola.</small></footer>
 <script src="script.js"></script>
-<script src="gpt-actions.js?v=8"></script>
-<script src="nzingagpt-core.js?v=6"></script>
+<script src="gpt-actions.js?v=9"></script>
+<script src="nzingagpt-core.js?v=7"></script>
 <script src="navigation.js?v=3"></script>
 </body>
 </html><style>
+<style>
+.gpt-brand-mark{width:34px;height:26px;object-fit:contain;display:block}.gpt-floating-menu{position:fixed;left:12px;top:50%;transform:translateY(-50%);z-index:10020;width:42px;height:42px;border:2px solid var(--black);border-radius:50%;background:var(--paper);color:var(--ink);font:inherit;font-weight:800;cursor:pointer;box-shadow:4px 4px 0 var(--yellow)}.gpt-floating-menu:hover{background:var(--yellow)}.gpt-page{padding-top:8px}.gpt-topbar{margin-top:8px}.gpt-start-title{font-size:.74rem}.gpt-start-bar{min-height:34px}.gpt-inline-suggestions button{font-size:.62rem;padding:6px 9px}.composer button,.gpt-voice-btn,.gpt-voice-mode{height:40px}.gpt-message-tools button{font-size:.88rem}@media(max-width:600px){.gpt-floating-menu{left:8px;width:38px;height:38px}.gpt-brand-mark{width:30px;height:24px}.gpt-topbar-title{font-size:1.05rem}.gpt-message-tools button{width:31px;height:25px}.composer button,.gpt-voice-btn,.gpt-voice-mode{height:38px}}
+</style>
