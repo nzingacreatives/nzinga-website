@@ -366,132 +366,124 @@ body:has(#recipient) #recipient{background:#111!important}
   .nz-social-links a,.button,.filter,.service-card,.home-cards a{transition:none!important}
 }
 
-/* === FINAL UI CLEANUP === */
-html,body{background:#f4f1eb!important}
-body:not(:has(.gpt-page)):not(:has(.sx)):not(:has(#recipient)){background:#f4f1eb!important}
-.bottom-nav,.nzinga-bottom-nav{
+
+/* === FINAL UI AUTHORITY — NZINGA SHELL === */
+html{
+  background:#111!important;
+  color-scheme:dark!important;
+}
+html body{
+  background:#111!important;
+  color:#fff!important;
+  overflow-x:hidden!important;
+}
+body:not(.services-bw):not(:has(.gpt-page)):not(:has(.sx)):not(:has(#recipient)) main{
+  background:#f4f1eb!important;
+  color:#171717!important;
+}
+body.services-bw main{
+  background:#111!important;
+  color:#fff!important;
+}
+.nav{
+  height:72px!important;
+  min-height:72px!important;
+  background:#111!important;
+  color:#fff!important;
+  border-bottom:0!important;
+  box-shadow:0 3px 0 #f7c515!important;
+}
+.nav nav a,
+.nav .logo{
+  color:#fff!important;
+}
+.nav nav a.active{color:#f7c515!important}
+.nav-button{
+  background:#c91510!important;
+  color:#fff!important;
+  border-color:#111!important;
+}
+.menu{
+  background:#111!important;
+  color:#fff!important;
+  border-color:#fff!important;
+}
+.samakaka{
+  height:13px!important;
+  min-height:13px!important;
+  background-color:#111!important;
+  background-image:url('/samakaka.svg')!important;
+  background-repeat:repeat-x!important;
+  background-size:42px 13px!important;
+  opacity:.22!important;
+  border:0!important;
+}
+body.services-bw .nav,
+body.services-bw .nav>nav{
+  background:#111!important;
+  color:#fff!important;
+}
+body.services-bw .nav a{color:#fff!important}
+footer{
   background:#111!important;
   color:#fff!important;
   border-top:2px solid #f7c515!important;
-  box-shadow:0 -5px 18px rgba(0,0,0,.24)!important;
 }
-.bottom-nav a,.nzinga-bottom-nav a{color:#aaa!important}
-.bottom-nav a.active,.nzinga-bottom-nav a.active{color:#f7c515!important}
-.bottom-nav a.active::after{background:#c91510!important}
-.nav-icon svg{stroke:currentColor!important}
-
-/* GPT: the input itself is the only visible composer surface. */
-body:has(.gpt-page) .composer-wrap{
+footer .logo,footer p,footer small{color:#fff!important}
+.nz-social-links a{color:#fff!important;border-color:#fff!important}
+.nz-social-links a:hover{background:#f7c515!important;color:#111!important}
+.bottom-nav,.nzinga-bottom-nav{
   position:fixed!important;
-  left:50%!important;
-  bottom:78px!important;
-  transform:translateX(-50%)!important;
-  width:min(1040px,calc(100% - 28px))!important;
-  padding:0!important;
-  margin:0!important;
-  background:transparent!important;
-  border:0!important;
-  box-shadow:none!important;
-  z-index:10000!important;
-}
-body:has(.gpt-page) .composer{
-  width:100%!important;
-  min-height:68px!important;
-  padding:9px!important;
-  gap:8px!important;
-  background:#19191b!important;
-  border:2px solid #555!important;
-  box-shadow:7px 7px 0 #f7c515!important;
-  border-radius:10px!important;
-}
-body:has(.gpt-page) .composer textarea{
-  min-height:50px!important;
-  max-height:180px!important;
-  padding:12px 13px!important;
-  font-size:1rem!important;
-}
-body:has(.gpt-page) .composer button,
-body:has(.gpt-page) .gpt-voice-btn,
-body:has(.gpt-page) .gpt-voice-mode{
-  height:50px!important;
-}
-body:has(.gpt-page) .composer button{padding:0 17px!important}
-body:has(.gpt-page) .composer-hint,
-body:has(.gpt-page) .status-note{display:none!important}
-
-/* Do not let the GPT logo render oversized while CSS is still loading. */
-.gpt-topbar .gpt-brand-mark,
-body:has(.gpt-page) .gpt-brand-mark{
-  width:40px!important;height:30px!important;
-  max-width:40px!important;max-height:30px!important;
-  min-width:40px!important;min-height:30px!important;
-  object-fit:contain!important;display:block!important;
-}
-.gpt-topbar{
-  min-height:58px!important;
-  height:58px!important;
-  left:0!important;right:0!important;top:0!important;
-  z-index:10010!important;
-}
-body:has(.gpt-page) .gpt-page{padding-top:72px!important;padding-bottom:170px!important}
-body:has(.gpt-page) .messages{
-  padding-bottom:150px!important;
-  min-height:calc(100vh - 150px)!important;
-  max-height:calc(100vh - 150px)!important;
-}
-body:has(.gpt-page) .gpt-start-section{display:none!important}
-
-/* Market: actual Angola imagery instead of flat white product covers. */
-.market .product:nth-child(1) .cover{
-  background-image:linear-gradient(rgba(17,17,17,.20),rgba(17,17,17,.58)),url('https://commons.wikimedia.org/wiki/Special:FilePath/Luanda%20Skyline%20-%20Angola%202015%20%28cropped%29.jpg')!important;
-  background-size:cover!important;background-position:center!important;color:#fff!important;
-}
-.market .product:nth-child(2) .cover{
-  background-image:linear-gradient(rgba(17,17,17,.08),rgba(17,17,17,.38)),url('https://commons.wikimedia.org/wiki/Special:FilePath/Luanda%20from%20above.jpg')!important;
-  background-size:cover!important;background-position:center!important;color:#fff!important;
-}
-.market .product:nth-child(3) .cover{
-  background-image:linear-gradient(rgba(17,17,17,.08),rgba(17,17,17,.45)),url('https://commons.wikimedia.org/wiki/Special:FilePath/Tundavala%20Gap.jpg')!important;
-  background-size:cover!important;background-position:center!important;color:#fff!important;
-}
-.market .product:nth-child(4) .cover{
-  background-image:linear-gradient(rgba(17,17,17,.10),rgba(17,17,17,.48)),url('https://commons.wikimedia.org/wiki/Special:FilePath/Kalandula%20waterfalls%20of%20the%20Lucala-River%20in%20Malange%2C%20Angola.JPG')!important;
-  background-size:cover!important;background-position:center!important;color:#fff!important;
-}
-.market .product:nth-child(5) .cover{
-  background-image:linear-gradient(rgba(17,17,17,.08),rgba(17,17,17,.45)),url('https://commons.wikimedia.org/wiki/Special:FilePath/Angola%20n%C3%A3o%20se%20explica%2C%20sente-se%20no%20ritmo.jpg')!important;
-  background-size:cover!important;background-position:center!important;color:#fff!important;
-}
-.market .product:nth-child(6) .cover{
-  background-image:linear-gradient(rgba(17,17,17,.10),rgba(17,17,17,.50)),url('https://commons.wikimedia.org/wiki/Special:FilePath/Luanda%20Marginal%20at%20night.jpg')!important;
-  background-size:cover!important;background-position:center!important;color:#fff!important;
-}
-.market .cover:after{color:#f7c515!important;text-shadow:0 2px 5px #111}
-
-/* Minha Nzinga gets a visual anchor instead of a mostly white opening. */
-.account-hero{
-  position:relative!important;
-  min-height:360px!important;
-  overflow:hidden!important;
-  padding:45px 0!important;
-  align-items:end!important;
-  border:3px solid #111!important;
-  background:
-    linear-gradient(90deg,rgba(17,17,17,.88) 0%,rgba(17,17,17,.56) 48%,rgba(17,17,17,.10) 100%),
-    url('https://commons.wikimedia.org/wiki/Special:FilePath/Luanda%20from%20above.jpg') center/cover no-repeat!important;
+  left:0!important;right:0!important;bottom:0!important;
+  height:72px!important;
+  display:grid!important;
+  grid-template-columns:repeat(5,minmax(0,1fr))!important;
+  background:#111!important;
   color:#fff!important;
+  border-top:2px solid #f7c515!important;
+  box-shadow:0 -5px 18px rgba(0,0,0,.35)!important;
+  z-index:2147483647!important;
 }
-.account-hero h1,.account-hero p,.account-hero .eyebrow{color:#fff!important;position:relative;z-index:2}
-.account-hero .eyebrow{color:#f7c515!important}
-.account-hero>div{padding:0 34px;position:relative;z-index:2}
-.account .panel{background:#fff!important}
-.account .auth-box{box-shadow:7px 7px 0 #f7c515!important}
+.bottom-nav a,.nzinga-bottom-nav a{
+  color:#d7d7d7!important;
+  min-width:0!important;
+  width:100%!important;
+  height:72px!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  justify-content:center!important;
+}
+.bottom-nav a small,.nzinga-bottom-nav a small{
+  display:block!important;
+  color:inherit!important;
+  font-size:.58rem!important;
+  line-height:1.1!important;
+  margin-top:4px!important;
+}
+.bottom-nav a.active,.nzinga-bottom-nav a.active{color:#f7c515!important}
+.nav-icon svg{stroke:currentColor!important}
+.home-ai,.sell{background:#111!important}
+.final-cta{
+  background:#f7c515!important;
+  color:#111!important;
+}
+.final-cta h2,.final-cta .eyebrow{color:#111!important}
+.home-ecosystem .portfolio-grid a{
+  border-color:#171717!important;
+}
+body:has(.gpt-page){
+  background:#0f0f10!important;
+  color:#f5f5f5!important;
+}
+body:has(.gpt-page) .nav,
+body:has(.gpt-page) footer{background:#111!important;color:#fff!important}
+body:has(.sx) .nav,
+body:has(.sx) footer{background:#111!important;color:#fff!important}
+body:has(#recipient) #recipient{background:#111!important}
 @media(max-width:600px){
-  body:has(.gpt-page) .composer-wrap{bottom:74px!important;width:calc(100% - 14px)!important}
-  body:has(.gpt-page) .composer{min-height:62px!important;padding:7px!important}
-  body:has(.gpt-page) .composer textarea{min-height:46px!important}
-  body:has(.gpt-page) .composer button,body:has(.gpt-page) .gpt-voice-btn,body:has(.gpt-page) .gpt-voice-mode{height:46px!important}
-  body:has(.gpt-page) .messages{padding-bottom:140px!important}
-  .account-hero{min-height:300px!important}
-  .account-hero>div{padding:0 20px}
+  .nav{height:68px!important;min-height:68px!important}
+  .samakaka{height:11px!important;min-height:11px!important;background-size:34px 11px!important}
+  .bottom-nav,.nzinga-bottom-nav,.bottom-nav a,.nzinga-bottom-nav a{height:68px!important}
+  .nav nav.open{background:#111!important}
 }
