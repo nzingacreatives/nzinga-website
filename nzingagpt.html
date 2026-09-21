@@ -20,11 +20,11 @@
 .gpt-capabilities{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:22px 0 34px}
 .gpt-cap{border:2px solid var(--black);padding:15px;background:var(--paper);min-height:112px}
 .gpt-cap b{display:block;margin:9px 0 5px}.gpt-cap p{font-size:.75rem;color:var(--muted);line-height:1.45;margin:0}
-.gpt-layout{display:grid;grid-template-columns:245px minmax(0,1fr);gap:30px;align-items:start}
-.chat-sidebar{padding-top:4px}
+.gpt-layout{display:block;min-width:0}
+.chat-sidebar{display:none}
 .side-label{font-size:.63rem;letter-spacing:.14em;color:var(--muted);font-weight:700;margin:18px 0 9px}
 .gpt-action-grid,.gpt-mode-grid{display:grid;gap:7px}
-.gpt-action-grid button,.gpt-history-toggle,.gpt-mode-grid button{display:flex;align-items:center;gap:8px;width:100%;text-align:left;border:2px solid var(--black);background:var(--paper);color:var(--ink);padding:10px 11px;font:inherit;font-size:.72rem;font-weight:700;cursor:pointer;border-radius:9px}
+.gpt-action-grid button,.gpt-history-toggle{display:flex;align-items:center;gap:8px;width:100%;text-align:left;border:2px solid var(--black);background:var(--paper);color:var(--ink);padding:10px 11px;font:inherit;font-size:.72rem;font-weight:700;cursor:pointer;border-radius:9px}
 .gpt-action-grid button:nth-child(2){background:var(--black);color:#fff}
 .gpt-action-grid button:hover,.gpt-action-grid button.active,.gpt-history-toggle:hover,.gpt-mode-grid button:hover{background:var(--yellow);color:#111}
 .gpt-mode-grid button.active{background:var(--red);color:#fff}
@@ -66,6 +66,39 @@
 @media(max-width:900px){.gpt-capabilities{grid-template-columns:repeat(2,1fr)}.gpt-layout{grid-template-columns:1fr}.chat-sidebar{display:block;order:-1;padding:0}.gpt-actions{border:2px solid var(--black);padding:13px;background:var(--paper);box-shadow:5px 5px 0 var(--yellow)}.gpt-action-grid{grid-template-columns:repeat(2,1fr)}.gpt-mode-grid{grid-template-columns:repeat(2,1fr)}.gpt-history{margin-top:13px}.gpt-history-toggle{min-height:44px}}
 @media(max-width:600px){.gpt-page{padding-inline:16px}.gpt-hero{padding-top:52px}.gpt-hero-row{align-items:flex-start;flex-direction:column}.gpt-badge{align-self:flex-start}.gpt-capabilities{grid-template-columns:1fr 1fr}.gpt-cap{min-height:95px;padding:12px}.messages{max-height:none;min-height:330px;padding:19px 14px}.bubble{max-width:94%;padding:14px 15px}.starters{grid-template-columns:1fr;padding-inline:14px}.composer-wrap{padding-inline:10px}.composer{gap:5px}.composer textarea{min-width:0}.gpt-voice-btn{width:44px;height:44px}.gpt-voice-mode{height:44px;padding:0 8px;font-size:.72rem}.composer button{height:44px;padding:0 12px}.gpt-message-tools button{width:28px}}
 @media(prefers-color-scheme:dark){.gpt-hero{border-color:#fff}.gpt-cap,.gpt-action-grid button,.gpt-history-toggle,.gpt-history-open,.gpt-history-delete,.starter{background:#fff!important;color:#111!important}.chat-panel{background:#111;color:#fff;border-color:#fff}.chat-panel-top{border-color:#fff}.bubble.assistant{background:#fff!important;color:#111!important}.bubble.user{background:#111!important;color:#fff!important}.starter-label,.side-label,.gpt-hero .gpt-lead,.gpt-cap p,.gpt-action-note,.memory-note,.gpt-history-empty,.composer-hint,.status-note{color:#ccc}.gpt-history{border-color:#fff}.gpt-voice-mode{background:#111;color:#fff}}
+
+.gpt-topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;border:2px solid var(--black);background:var(--paper);padding:9px 12px;margin:24px 0 12px;position:sticky;top:8px;z-index:30;box-shadow:4px 4px 0 var(--yellow)}
+.gpt-topbar-left,.gpt-topbar-right{display:flex;align-items:center;gap:8px}
+.gpt-topbar button{border:2px solid var(--black);background:var(--paper);color:var(--ink);height:38px;min-width:38px;padding:0 10px;border-radius:8px;font:inherit;font-weight:700;cursor:pointer}
+.gpt-topbar button:hover{background:var(--yellow)}
+.gpt-topbar-title{font-size:.8rem;font-weight:700}
+.gpt-drawer{position:fixed;z-index:10010;left:0;top:0;bottom:0;width:min(86vw,350px);background:var(--paper);color:var(--ink);border-right:3px solid var(--black);box-shadow:10px 0 0 var(--red);transform:translateX(-105%);transition:transform .22s ease;overflow-y:auto;padding:18px}
+.gpt-drawer.open{transform:translateX(0)}
+.gpt-drawer-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+.gpt-drawer-head strong{font-size:1rem}
+.gpt-drawer-close{border:2px solid var(--black);background:var(--paper);color:var(--ink);width:38px;height:38px;border-radius:8px;font-size:1.2rem;cursor:pointer}
+.gpt-drawer-new{width:100%;border:2px solid var(--black);background:var(--black);color:#fff;padding:12px;border-radius:9px;font:inherit;font-weight:700;cursor:pointer;margin-bottom:9px}
+.gpt-drawer-anon{width:100%;border:2px solid var(--black);background:var(--paper);color:var(--ink);padding:11px;border-radius:9px;font:inherit;font-weight:700;cursor:pointer;text-align:left}
+.gpt-drawer-anon.active{background:var(--red);color:#fff}
+.gpt-search{width:100%;margin:14px 0 8px;border:2px solid var(--black);background:var(--paper);color:var(--ink);padding:11px;border-radius:9px;font:inherit;outline:none}
+.gpt-drawer-label{font-size:.62rem;letter-spacing:.13em;font-weight:700;color:var(--muted);margin:17px 0 8px}
+.gpt-drawer-history{display:grid;gap:6px}
+.gpt-drawer .gpt-history-item{display:grid;grid-template-columns:1fr auto;gap:5px}
+.gpt-drawer .gpt-history-open{display:flex;flex-direction:column;gap:3px;min-width:0;border:1px solid var(--black);background:var(--paper);color:var(--ink);border-radius:8px}
+.gpt-drawer .gpt-history-open small{font-size:.56rem;opacity:.65}
+.gpt-drawer .gpt-history-delete{border:1px solid var(--black);background:var(--paper);color:var(--ink);border-radius:8px}
+.gpt-drawer-clear{width:100%;margin-top:10px;border:1px solid var(--black);background:transparent;color:var(--ink);padding:9px;border-radius:8px;font:inherit;font-size:.65rem;font-weight:700;cursor:pointer}
+.gpt-drawer-backdrop{position:fixed;inset:0;z-index:10009;background:rgba(0,0,0,.5);opacity:0;pointer-events:none;transition:opacity .22s ease}
+.gpt-drawer-backdrop.open{opacity:1;pointer-events:auto}
+.gpt-start-section{margin:24px 0 20px}
+.gpt-start-title{font-family:'Playfair Display',serif;font-size:1.65rem;margin:0 0 4px}
+.gpt-start-sub{font-size:.72rem;color:var(--muted);margin:0 0 12px}
+.gpt-mode-grid-main{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.gpt-mode-grid-main button{border:2px solid var(--black);background:var(--paper);color:var(--ink);padding:13px 10px;text-align:left;border-radius:9px;font:inherit;font-weight:700;cursor:pointer}
+.gpt-mode-grid-main button:hover,.gpt-mode-grid-main button.active{background:var(--yellow)}
+@media(max-width:900px){.gpt-capabilities{grid-template-columns:repeat(2,1fr)}.gpt-mode-grid-main{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.gpt-page{padding-inline:16px}.gpt-topbar{top:5px}.gpt-hero{padding-top:38px}.gpt-mode-grid-main{grid-template-columns:1fr 1fr}.gpt-drawer{width:min(88vw,340px)}}
+@media(prefers-color-scheme:dark){.gpt-topbar,.gpt-topbar button,.gpt-drawer,.gpt-drawer-close,.gpt-drawer-anon,.gpt-search,.gpt-drawer .gpt-history-open,.gpt-drawer .gpt-history-delete,.gpt-drawer-clear,.gpt-mode-grid-main button{background:#111;color:#fff;border-color:#fff}.gpt-drawer-new{background:#fff;color:#111}.gpt-drawer-anon.active{background:#e30613;color:#fff;border-color:#fff}}
 </style>
 </head>
 <body>
@@ -75,76 +108,43 @@
 <nav id="navLinks"><a href="index.html">Início</a><a href="servicos.html">Serviços</a><a class="active" href="nzingagpt.html">NzingaGPT</a><a href="surpresas.html">Surpresas</a><a href="market.html">Market</a><a href="raizes.html">Raízes</a></nav>
 </header>
 <div class="samakaka"></div>
-
+<aside id="gptDrawer" class="gpt-drawer" aria-label="Menu do NzingaGPT" aria-hidden="true">
+<div class="gpt-drawer-head"><strong>NzingaGPT</strong><button id="gptClose" class="gpt-drawer-close" type="button" aria-label="Fechar menu">×</button></div>
+<button id="newGptConversation" class="gpt-drawer-new" type="button">＋ Nova conversa</button>
+<button id="anonymousGptConversation" class="gpt-drawer-anon" type="button">◉ Conversa anónima</button>
+<p class="gpt-drawer-label">CONVERSAS</p>
+<input id="gptHistorySearch" class="gpt-search" type="search" placeholder="Pesquisar conversas..." aria-label="Pesquisar conversas">
+<div class="gpt-drawer-history"><div class="gpt-history-list" id="gptHistoryList"></div></div>
+<button id="gptClearHistory" class="gpt-drawer-clear" type="button">Apagar histórico</button>
+<p class="gpt-drawer-label">PRIVACIDADE</p><p class="gpt-action-note">Conversas normais ficam guardadas localmente neste dispositivo. A conversa anónima não entra no histórico normal.</p>
+</aside><button id="gptDrawerBackdrop" class="gpt-drawer-backdrop" type="button" aria-label="Fechar menu"></button>
 <main class="gpt-page">
 <section class="gpt-hero">
-<div class="gpt-hero-row">
-<div>
-<p class="eyebrow">NZINGAGPT · LABORATÓRIO DE IDEIAS</p>
-<h1>Pensa. Cria.<br><i>Transforma.</i></h1>
-<p class="gpt-lead">Um espaço da Nzinga para conversar, aprender, organizar problemas, melhorar textos e transformar ideias soltas em próximos passos claros.</p>
-</div>
-<span class="gpt-badge">INTELIGÊNCIA CRIATIVA</span>
+<div class="gpt-hero-row"><div><p class="eyebrow">NZINGAGPT · LABORATÓRIO DE IDEIAS</p><h1>Pensa. Cria.<br><i>Transforma.</i></h1><p class="gpt-lead">Um espaço da Nzinga para conversar, aprender, organizar problemas, melhorar textos e transformar ideias soltas em próximos passos claros.</p></div><span class="gpt-badge">INTELIGÊNCIA CRIATIVA</span></div>
+</section>
+<div class="gpt-topbar"><div class="gpt-topbar-left"><button id="gptMenu" type="button" aria-label="Abrir menu" aria-expanded="false">☰</button><span class="gpt-topbar-title">NzingaGPT</span></div><div class="gpt-topbar-right"><button id="gptNewTop" type="button" aria-label="Nova conversa">＋</button></div></div>
+<section class="gpt-start-section">
+<h2 class="gpt-start-title">Ponto de partida</h2><p class="gpt-start-sub">Escolhe uma direção ou começa simplesmente a escrever.</p>
+<div class="gpt-mode-grid-main">
+<button type="button" data-gpt-mode="ideia">Explorar</button><button type="button" data-gpt-mode="aprender">Aprender</button><button type="button" data-gpt-mode="organizar">Organizar</button><button type="button" data-gpt-mode="escrever">Escrever</button>
 </div>
 </section>
-
 <section class="gpt-capabilities" aria-label="O que o NzingaGPT pode fazer">
 <article class="gpt-cap"><span class="eyebrow">01</span><b>Explorar</b><p>Desenvolve uma ideia contigo e encontra possibilidades.</p></article>
 <article class="gpt-cap"><span class="eyebrow">02</span><b>Aprender</b><p>Explica assuntos por etapas, exemplos e perguntas.</p></article>
 <article class="gpt-cap"><span class="eyebrow">03</span><b>Organizar</b><p>Transforma tarefas e problemas em passos e prioridades.</p></article>
 <article class="gpt-cap"><span class="eyebrow">04</span><b>Escrever</b><p>Ajuda a criar, corrigir, resumir e melhorar textos.</p></article>
 </section>
-
 <div class="gpt-layout">
-<aside class="chat-sidebar">
-<div class="gpt-actions">
-<p class="side-label">CONVERSA</p>
-<div class="gpt-action-grid">
-<button type="button" id="newGptConversation">＋ Nova conversa</button>
-<button type="button" id="anonymousGptConversation">◉ Conversa anónima</button>
-</div>
-<p class="side-label">PONTO DE PARTIDA</p>
-<div class="gpt-mode-grid">
-<button type="button" data-gpt-mode="ideia">Explorar uma ideia</button>
-<button type="button" data-gpt-mode="escrever">Escrever ou melhorar</button>
-<button type="button" data-gpt-mode="aprender">Aprender algo</button>
-<button type="button" data-gpt-mode="organizar">Organizar</button>
-<button type="button" data-gpt-mode="plano">Criar um plano</button>
-</div>
-<p class="gpt-action-note">A conversa anónima não fica guardada no histórico.</p>
-<div class="gpt-history">
-<button type="button" class="gpt-history-toggle" id="gptHistoryToggle">▤ Histórico</button>
-<div class="gpt-history-list" id="gptHistoryList" hidden></div>
-</div>
-<p class="side-label">SOBRE</p>
-<p class="memory-note">As conversas normais ficam guardadas localmente neste dispositivo. Podes apagar uma conversa ou limpar o histórico.</p>
-</div>
-</aside>
-
+<aside class="chat-sidebar" aria-hidden="true"><div class="gpt-actions"></div></aside>
 <section class="chat-panel" aria-label="Conversa com NzingaGPT">
 <header class="chat-panel-top"><strong>NzingaGPT</strong><span>Conversa nova a cada entrada · histórico preservado</span></header>
 <div class="messages" id="messages" aria-live="polite"></div>
 <p class="starter-label">SUGESTÕES PARA COMEÇAR</p>
-<div class="starters" id="starters">
-<button class="starter">Tenho uma ideia meio confusa.</button>
-<button class="starter">Quero aprender alguma coisa.</button>
-<button class="starter">Preciso de ajuda com um problema.</button>
-<button class="starter">Quero simplesmente conversar.</button>
-</div>
-<div class="composer-wrap">
-<form class="composer" id="chatForm">
-<textarea id="gptPrompt" placeholder="Escreve o que quiseres..."></textarea>
-<button id="sendBtn" type="submit">Enviar ↑</button>
-</form>
-<p class="composer-hint">Enter envia · Shift + Enter cria nova linha</p>
-<p class="status-note"><span id="status">● ONLINE</span></p>
-</div>
-</section>
-</div>
-</main>
-
+<div class="starters" id="starters"><button class="starter">Tenho uma ideia meio confusa.</button><button class="starter">Quero aprender alguma coisa.</button><button class="starter">Preciso de ajuda com um problema.</button><button class="starter">Quero simplesmente conversar.</button></div>
+<div class="composer-wrap"><form class="composer" id="chatForm"><textarea id="gptPrompt" placeholder="Escreve o que quiseres..."></textarea><button id="sendBtn" type="submit">Enviar ↑</button></form><p class="composer-hint">Enter envia · Shift + Enter cria nova linha</p><p class="status-note"><span id="status">● ONLINE</span></p></div>
+</section></div></main>
 <footer><a class="logo" href="index.html">NZINGA<span>CREATIVES</span></a><p>Ideias que ganham forma.</p><small>© 2026 Nzinga Creatives · Feito em Angola.</small></footer>
-
 <script src="script.js"></script>
 <script src="gpt-actions.js?v=5"></script>
 <script src="nzingagpt-core.js?v=3"></script>
