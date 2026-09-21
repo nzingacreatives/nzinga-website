@@ -6,88 +6,39 @@
 <meta name="theme-color" content="#111111"><meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="Nzinga Creatives — design, conteúdo, documentos, experiências digitais e produtos criativos com identidade própria.">
   <meta name="theme-color" content="#111111"><title>Nzinga Creatives — O que queres criar?</title><link rel="stylesheet" href="style.css">
-  <style>
-    .home-ecosystem .portfolio-grid div{background:var(--yellow)!important;color:#111!important;border-color:#111!important;border-bottom-color:#111!important;box-shadow:6px 6px 0 var(--red);transition:transform .2s ease,box-shadow .2s ease}
-    .home-ecosystem .portfolio-grid div:nth-child(even){background:var(--red)!important;color:#fff!important;border-color:#111!important;box-shadow:6px 6px 0 #111}
-    .home-ecosystem .portfolio-grid div:hover{transform:translate(-3px,-3px) rotate(-1deg);box-shadow:9px 9px 0 #111}
-    .home-ecosystem .portfolio-grid div:before{color:#111!important}
-    .home-ecosystem .portfolio-grid div:nth-child(even):before{color:#fff!important}
-    .home-ecosystem .portfolio-grid div:after{content:'✦ · ✦ · ✦';position:absolute;right:18px;top:15px;font-size:.65rem;letter-spacing:5px;color:#111;opacity:.55}
-    .home-ecosystem .portfolio-grid div:nth-child(even):after{color:#fff}
-    .home-ai-title{color:#fff!important}
-    .home-ai-copy{color:#fff!important}
-    .home-ai-copy strong{color:var(--yellow)}
-    .home-ai .eyebrow{color:var(--yellow)}
-    .hero-art{background:#111!important;box-shadow:10px 10px 0 var(--yellow)!important;overflow:hidden}
-    .hero-art-photo{display:block!important}
-    .hero-art-photo-note{display:none!important}
-    .art-pattern{opacity:.8;background:radial-gradient(circle at 20% 20%,rgba(247,197,21,.24) 0 2px,transparent 3px),linear-gradient(135deg,transparent 43%,rgba(247,197,21,.34) 44% 45%,transparent 46%),radial-gradient(circle at 76% 30%,rgba(201,21,16,.5),transparent 22%),#171717!important;background-size:18px 18px,auto,auto,auto!important;z-index:1}
-    .hero-art:before{content:'♛';font-size:15rem;color:var(--red);text-shadow:8px 8px 0 var(--yellow),15px 15px 0 #000!important;z-index:3}
-    .hero-art .queen-face{position:absolute;z-index:4;left:50%;top:48%;transform:translate(-50%,-50%);width:120px;height:155px;border:4px solid #111;border-radius:48% 48% 42% 42%;background:#5b3322;box-shadow:0 18px 0 #111}
-    .hero-art .queen-face:before{content:'•  •';position:absolute;left:32px;top:57px;color:#fff;letter-spacing:17px;font-weight:700}
-    .hero-art .queen-face:after{content:'';position:absolute;left:48px;top:91px;width:24px;height:10px;border-bottom:3px solid #fff;border-radius:50%}
-    .hero-art .queen-crown{position:absolute;z-index:5;left:50%;top:21%;transform:translateX(-50%);font-size:5.8rem;color:var(--yellow);text-shadow:4px 4px 0 var(--red),7px 7px 0 #111}
-    .hero-art .queen-label{position:absolute;z-index:7;right:22px;top:28px;background:var(--yellow);color:#111;border:3px solid #111;padding:8px 11px;font-weight:700;font-size:.65rem;transform:rotate(4deg);box-shadow:5px 5px 0 var(--red)}
-    .hero-art .queen-tag{position:absolute;z-index:7;left:20px;bottom:78px;background:var(--red);color:#fff;border:3px solid #111;padding:8px 11px;font-weight:700;font-size:.68rem;transform:rotate(-3deg);box-shadow:5px 5px 0 #111}
-    footer.home-footer{color:#fff!important;border-top:3px solid var(--yellow);background:#111!important}
-    footer.home-footer .logo,footer.home-footer p,footer.home-footer small{color:#fff!important}
-    @media(max-width:650px){.hero-art .queen-face{width:96px;height:125px}.hero-art .queen-crown{font-size:4.7rem}}
   
-    /* Angola visual field + richer ecosystem cards */
-    .hero-art{background:#111!important}
-    .hero-art .angola-map{position:absolute;inset:0;z-index:2;pointer-events:none}
-    .hero-art .angola-map:before{content:"";position:absolute;left:8%;top:12%;width:130px;height:210px;border:2px solid rgba(36,217,255,.5);clip-path:polygon(28% 0,70% 8%,92% 28%,79% 51%,90% 73%,62% 100%,34% 86%,15% 61%,0 38%,13% 18%);transform:rotate(-9deg);opacity:.55}
-    .hero-art .angola-map:after{content:"LUANDA  ·  KALANDULA  ·  TUNDAVALA  ·  NZINGA";position:absolute;left:20px;bottom:18px;color:#fff;font:800 .55rem/1.4 monospace;letter-spacing:.13em;max-width:72%;opacity:.82}
-    .hero-art .angola-sun{position:absolute;right:24px;bottom:30px;width:82px;height:82px;border:2px solid var(--nz-cyan);border-radius:50%;box-shadow:0 0 24px rgba(36,217,255,.2);opacity:.8}
-    .hero-art .angola-sun:before,.hero-art .angola-sun:after{content:"";position:absolute;inset:15px;border:1px solid var(--nz-green);transform:rotate(45deg)}
-    .hero-art .angola-sun:after{inset:27px;border-color:var(--nz-yellow);border-radius:50%;transform:none}
-    .home-ecosystem .portfolio-grid div{min-height:145px;display:flex;flex-direction:column;justify-content:flex-end;gap:8px;text-decoration:none}
-    .home-ecosystem .portfolio-grid div strong{font-size:1.25rem}
-    .home-ecosystem .portfolio-grid div small{font-size:.78rem;line-height:1.45;opacity:.86}
-    .home-ecosystem .portfolio-grid div:before{font-size:1.6rem!important}
-    .home-ai{background:#111!important;border:2px solid rgba(36,217,255,.45)!important}
-    .home-ai .chat-demo{background:#0b1020!important;color:#fff!important}
-    .home-ai .chat-demo span{color:#55e06f!important}
-    .ecosystem-link{display:block;color:inherit;text-decoration:none}
-    @media(max-width:650px){.hero-art .angola-map:before{width:88px;height:140px}.hero-art .angola-map:after{font-size:.48rem}.hero-art .angola-sun{width:62px;height:62px;right:14px}}
-  </style>
 
 <style>
-/* HOME — real Angola visual collage */
 .hero-art{
-  background-image:linear-gradient(180deg,rgba(0,0,0,.02),rgba(0,0,0,.16)),url('https://commons.wikimedia.org/wiki/Special:Redirect/file/Tundavala%20Gap.jpg')!important;
-  background-size:cover!important;background-position:center!important;
-  border:3px solid #111!important;box-shadow:10px 10px 0 var(--yellow)!important;
+  display:grid;
+  isolation:isolate;
+  background:#ebe5dc!important;
 }
-.hero-art .art-pattern{display:none!important}
-.hero-art .queen-crown{display:none!important}
-.hero-art .queen-label{display:none!important}
-.hero-art .queen-tag{display:none!important}
-.hero-art .angola-map{
-  position:absolute!important;left:16px!important;top:16px!important;width:43%!important;height:42%!important;
-  background:linear-gradient(180deg,rgba(0,0,0,.02),rgba(0,0,0,.12)),url('https://commons.wikimedia.org/wiki/Special:Redirect/file/Kalandula%20waterfalls%20of%20the%20Lucala-River%20in%20Malange%2C%20Angola.JPG') center/cover!important;
-  border:3px solid #fff!important;box-shadow:7px 7px 0 #111!important;z-index:8!important;
-}
-.hero-art .angola-map:before{display:none!important}
-.hero-art .angola-map:after{content:'KALANDULA · MALANJE'!important;left:10px!important;bottom:9px!important;color:#fff!important;background:#111!important;padding:5px 7px!important;font:800 .55rem/1 monospace!important;letter-spacing:.08em!important;max-width:none!important;opacity:1!important}
-.hero-art .angola-sun{
-  position:absolute!important;right:16px!important;bottom:16px!important;width:43%!important;height:38%!important;
-  border:3px solid #fff!important;border-radius:0!important;box-shadow:7px 7px 0 #111!important;opacity:1!important;
-  background:linear-gradient(180deg,rgba(0,0,0,.02),rgba(0,0,0,.14)),url('https://commons.wikimedia.org/wiki/Special:Redirect/file/Luanda%20from%20above.jpg') center/cover!important;
-}
-.hero-art .angola-sun:before,.hero-art .angola-sun:after{display:none!important}
-.hero-art:before{content:'LUANDA  ·  KALANDULA  ·  TUNDAVALA';position:absolute!important;z-index:12!important;left:18px!important;right:18px!important;top:50%!important;transform:translateY(-50%)!important;color:#fff!important;background:rgba(17,17,17,.88)!important;border:2px solid #fff!important;padding:12px 10px!important;text-align:center!important;font:800 .68rem/1.4 monospace!important;letter-spacing:.12em!important;text-shadow:none!important;opacity:1!important}
-.hero-art:after{content:'ANGOLA · NZINGA'!important;z-index:13!important;left:18px!important;bottom:18px!important;background:#f7c515!important;color:#111!important;border:2px solid #111!important;padding:7px 9px!important;font:800 .58rem/1 monospace!important;transform:rotate(-2deg)!important}
+.hero-photo-main,.hero-photo-side,.hero-photo-bottom{border-radius:0!important}
+.hero-photo-main img{object-position:center 50%!important}
+.hero-photo-side img{object-position:center 50%!important}
+.hero-photo-bottom img{object-position:center 50%!important}
 @media(max-width:650px){
- .hero-art .angola-map{width:46%!important;height:38%!important}.hero-art .angola-sun{width:46%!important;height:34%!important}
- .hero-art:before{font-size:.55rem!important;letter-spacing:.06em!important}
+  .hero-photo-main img{object-position:center 48%!important}
 }
 </style></head>
 <body>
 <header class="nav"><a class="logo" href="index.html"><img src="/nzinga-logo.svg" alt="Nzinga Creatives"><span>NZINGA <b>CREATIVES</b></span></a><button class="menu" id="menuBtn" type="button" aria-label="Abrir menu" aria-expanded="false">☰</button><nav id="navLinks"><a class="active" href="index.html">Início</a><a href="servicos.html">Serviços</a><a href="nzingagpt.html">NzingaGPT</a><a href="surpresas.html">Surpresas</a><a href="market.html">Market</a><a href="raizes.html">Raízes</a><a class="nav-button" href="servicos.html">Começar</a></nav></header>
 <div class="samakaka" aria-hidden="true"></div>
 <main>
-<section class="hero"><div class="hero-copy"><p class="eyebrow">NZINGA CREATIVES · IDEIAS · FORMA · EXPERIÊNCIA</p><h1>O que queres<br><i>dar forma?</i></h1><p>Design, experiências digitais e criação visual com identidade própria — num só universo.</p><div class="hero-actions"><a class="button button-main" href="servicos.html">Começar agora</a><a class="button button-ghost" href="#explorar">Explorar ↓</a></div><p class="hero-marks">✦ ✦ ✦</p></div><div class="hero-art" aria-label="Representação gráfica inspirada em Nzinga Mbandi, Angola"><div class="art-pattern"></div><div class="angola-map" aria-hidden="true"><div class="angola-sun"></div></div><div class="queen-crown">♛</div><div class="queen-face"></div><div class="queen-label">NZINGA MBANDI</div><div class="queen-tag">ANGOLA · MEMÓRIA · CRIAÇÃO</div></div></section>
+<section class="hero"><div class="hero-copy"><p class="eyebrow">NZINGA CREATIVES · IDEIAS · FORMA · EXPERIÊNCIA</p><h1>O que queres<br><i>dar forma?</i></h1><p>Design, experiências digitais e criação visual com identidade própria — num só universo.</p><div class="hero-actions"><a class="button button-main" href="servicos.html">Começar agora</a><a class="button button-ghost" href="#explorar">Explorar ↓</a></div><p class="hero-marks">✦ ✦ ✦</p></div><div class="hero-art" aria-label="Colagem visual de Angola — Luanda, Kalandula e Tundavala">
+  <figure class="hero-photo hero-photo-main">
+    <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Tundavala%20Gap.jpg" alt="Paisagem de Tundavala, Angola" loading="eager">
+  </figure>
+  <figure class="hero-photo hero-photo-side">
+    <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Kalandula%20waterfalls%20of%20the%20Lucala-River%20in%20Malange%2C%20Angola.JPG" alt="Quedas de Kalandula, Angola" loading="lazy">
+  </figure>
+  <figure class="hero-photo hero-photo-bottom">
+    <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Luanda%20from%20above.jpg" alt="Vista aérea de Luanda, Angola" loading="lazy">
+  </figure>
+  <div class="hero-art-caption"><span>ANGOLA</span><strong>LUANDA · KALANDULA · TUNDAVALA</strong></div>
+  <div class="hero-art-mark" aria-hidden="true"></div>
+</div></section>
 <section class="section" id="explorar"><div class="section-intro"><p class="eyebrow">01 · ENCONTRA O TEU CAMINHO</p><h2>Começa pela tua ideia.</h2><p>Escolhe o que precisas agora. A Nzinga cresce contigo.</p></div><div class="service-grid"><a href="servicos.html"><span>01</span><h3>Quero criar uma marca</h3><p>Logotipo, identidade visual, branding e estratégia.</p><b>Ver serviços →</b></a><a href="servicos.html"><span>02</span><h3>Quero criar conteúdo</h3><p>Posts, carrosséis, copy, roteiros e packs.</p><b>Ver serviços →</b></a><a href="servicos.html"><span>03</span><h3>Quero criar algo digital</h3><p>Websites, landing pages, páginas interativas e soluções web.</p><b>Explorar →</b></a><a href="market.html"><span>04</span><h3>Quero algo pronto</h3><p>E-books, templates, recursos e outros produtos digitais.</p><b>Ir para o Market →</b></a></div></section>
 <section class="portfolio home-ecosystem"><div class="section"><div class="section-intro"><p class="eyebrow">02 · O ECOSSISTEMA</p><h2>Mais do que serviços. Um universo para criar.</h2><p>Um espaço para criar, descobrir, aprender, pedir ajuda e transformar ideias em experiências.</p></div><div class="portfolio-grid"><a href="nzingagpt.html"><strong>NZINGAGPT</strong><small>Ajuda a pensar, escrever, organizar e encontrar caminhos.</small><b>Conversar →</b></a><a href="market.html"><strong>MARKET</strong><small>Produtos digitais, recursos e criações disponíveis na Nzinga.</small><b>Explorar →</b></a><a href="surpresas.html"><strong>SURPRESAS</strong><small>Cria experiências interativas para partilhar com alguém.</small><b>Criar →</b></a><a href="raizes.html"><strong>RAÍZES</strong><small>História, cultura, símbolos, línguas e memória de Angola.</small><b>Descobrir →</b></a><a href="servicos.html"><strong>SERVIÇOS</strong><small>Mais de 100 opções para transformar uma ideia em algo concreto.</small><b>Ver catálogo →</b></a><a href="minha-nzinga.html"><strong>MINHA NZINGA</strong><small>Conta, pedidos, perfil, definições e a tua experiência pessoal.</small><b>Entrar →</b></a></div></div></section>
 <section class="ai home-ai"><div><p class="eyebrow">03 · NZINGAGPT</p><h2 class="home-ai-title">Uma inteligência criativa para te acompanhar.</h2><p class="home-ai-copy"><strong>Pensa.</strong> Planeia, escreve, organiza ideias, tira dúvidas e encontra caminhos dentro do universo Nzinga.</p><div class="hero-actions"><a class="button button-light" href="nzingagpt.html">Abrir NzingaGPT →</a></div></div><div class="chat-demo"><p>“Tenho uma ideia. Ajuda-me a transformá-la em algo real.”</p><span>NzingaGPT está pronto para começar.</span></div></section>
