@@ -100,6 +100,20 @@
 @media(max-width:600px){.gpt-page{padding-inline:16px}.gpt-topbar{top:5px}.gpt-hero{padding-top:38px}.gpt-mode-grid-main{grid-template-columns:1fr 1fr}.gpt-drawer{width:min(88vw,340px)}}
 @media(prefers-color-scheme:dark){.gpt-topbar,.gpt-topbar button,.gpt-drawer,.gpt-drawer-close,.gpt-drawer-anon,.gpt-search,.gpt-drawer .gpt-history-open,.gpt-drawer .gpt-history-delete,.gpt-drawer-clear,.gpt-mode-grid-main button{background:#111;color:#fff;border-color:#fff}.gpt-drawer-new{background:#fff;color:#111}.gpt-drawer-anon.active{background:#e30613;color:#fff;border-color:#fff}}
 </style>
+
+<style>
+.gpt-start-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:7px 0}
+.gpt-start-toggle{width:30px;height:30px;border:1px solid var(--black);background:transparent;color:var(--ink);border-radius:7px;font-size:1.1rem;line-height:1;cursor:pointer}
+.gpt-start-toggle:hover{background:var(--yellow)}
+.gpt-start-options{padding:8px 0 14px}
+.gpt-inline-suggestions{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-top:10px}
+.gpt-inline-suggestions span{font-size:.55rem;font-weight:800;letter-spacing:.1em;color:var(--muted);margin-right:3px}
+.gpt-inline-suggestions button{border:1px solid var(--black);background:var(--paper);color:var(--ink);padding:7px 9px;border-radius:999px;font:inherit;font-size:.6rem;cursor:pointer}
+.gpt-inline-suggestions button:hover{background:var(--yellow)}
+.gpt-start-options[hidden]{display:none}
+@media(max-width:600px){.gpt-start-bar{padding:6px 0}.gpt-start-sub{font-size:.6rem}.gpt-start-options{padding-bottom:11px}.gpt-inline-suggestions{gap:5px}.gpt-inline-suggestions button{font-size:.58rem;padding:7px 8px}}
+</style>
+
 </head>
 <body>
 <header class="nav">
@@ -132,35 +146,17 @@
 <div class="gpt-inline-suggestions"><span>SUGESTÕES</span><button type="button" class="starter-inline">Tenho uma ideia meio confusa.</button><button type="button" class="starter-inline">Quero aprender alguma coisa.</button><button type="button" class="starter-inline">Preciso de ajuda com um problema.</button><button type="button" class="starter-inline">Quero simplesmente conversar.</button></div>
 </div>
 </section>
-<section class="gpt-capabilities" aria-label="O que o NzingaGPT pode fazer">
-<article class="gpt-cap"><span class="eyebrow">01</span><b>Explorar</b><p>Desenvolve uma ideia contigo e encontra possibilidades.</p></article>
-<article class="gpt-cap"><span class="eyebrow">02</span><b>Aprender</b><p>Explica assuntos por etapas, exemplos e perguntas.</p></article>
-<article class="gpt-cap"><span class="eyebrow">03</span><b>Organizar</b><p>Transforma tarefas e problemas em passos e prioridades.</p></article>
-<article class="gpt-cap"><span class="eyebrow">04</span><b>Escrever</b><p>Ajuda a criar, corrigir, resumir e melhorar textos.</p></article>
-</section>
 <div class="gpt-layout">
 <aside class="chat-sidebar" aria-hidden="true"><div class="gpt-actions"></div></aside>
 <section class="chat-panel" aria-label="Conversa com NzingaGPT">
 <header class="chat-panel-top"><strong>NzingaGPT</strong><span>Conversa nova a cada entrada · histórico preservado</span></header>
 <div class="messages" id="messages" aria-live="polite"></div>
-<p class="starter-label">SUGESTÕES PARA COMEÇAR</p>
-<div class="starters" id="starters"><button class="starter">Tenho uma ideia meio confusa.</button><button class="starter">Quero aprender alguma coisa.</button><button class="starter">Preciso de ajuda com um problema.</button><button class="starter">Quero simplesmente conversar.</button></div>
 <div class="composer-wrap"><form class="composer" id="chatForm"><textarea id="gptPrompt" placeholder="Escreve o que quiseres..."></textarea><button id="sendBtn" type="submit">Enviar ↑</button></form><p class="composer-hint">Enter envia · Shift + Enter cria nova linha</p><p class="status-note"><span id="status">● ONLINE</span></p></div>
 </section></div></main>
 <footer><a class="logo" href="index.html">NZINGA<span>CREATIVES</span></a><p>Ideias que ganham forma.</p><small>© 2026 Nzinga Creatives · Feito em Angola.</small></footer>
 <script src="script.js"></script>
-<script src="gpt-actions.js?v=6"></script>
-<script src="nzingagpt-core.js?v=4"></script>
+<script src="gpt-actions.js?v=7"></script>
+<script src="nzingagpt-core.js?v=5"></script>
 <script src="navigation.js?v=3"></script>
 </body>
 </html><style>
-.gpt-start-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:7px 0}
-.gpt-start-toggle{width:30px;height:30px;border:1px solid var(--black);background:transparent;color:var(--ink);border-radius:7px;font-size:1.1rem;line-height:1;cursor:pointer}
-.gpt-start-toggle:hover{background:var(--yellow)}
-.gpt-start-options{padding:8px 0 14px}
-.gpt-inline-suggestions{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-top:10px}
-.gpt-inline-suggestions span{font-size:.55rem;font-weight:800;letter-spacing:.1em;color:var(--muted);margin-right:3px}
-.gpt-inline-suggestions button{border:1px solid var(--black);background:var(--paper);color:var(--ink);padding:7px 9px;border-radius:999px;font:inherit;font-size:.6rem;cursor:pointer}
-.gpt-inline-suggestions button:hover{background:var(--yellow)}
-.gpt-start-options[hidden]{display:none}
-</style>
