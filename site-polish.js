@@ -42,7 +42,7 @@ function visualPolish(){
     body.dark-mode .service-card p,body.dark-mode .panel p,html.dark-mode .service-card p,html.dark-mode .panel p{color:#f2f2f2}
     body.dark-mode .service-card h3,body.dark-mode .panel h2,body.dark-mode .category h2,html.dark-mode .service-card h3,html.dark-mode .panel h2,html.dark-mode .category h2{color:#fff}
     .samakaka{position:relative;isolation:isolate;overflow:hidden}
-    .samakaka:after{content:'';position:absolute;inset:0;z-index:-1;background:repeating-linear-gradient(135deg,transparent 0 16px,#d71920 16px 20px,transparent 20px 36px,#f2c400 36px 40px,transparent 40px 56px);opacity:.72}
+    .samakaka:after{display:none!important}
     @keyframes nzFadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.button,.request-btn,.details-btn,.filter,.avatar-action,.close,.submit,.card-actions button,.nav a,.bottom-nav a{transition:none}.service-card,.panel,.topic,.note-card,.illustration,.how,.rating,.auth-box{animation:none}}
   `; document.head.appendChild(s);
