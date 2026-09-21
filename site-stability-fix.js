@@ -3,7 +3,7 @@
 const css=document.createElement('style');
 css.id='nzinga-stability-fix';
 css.textContent=`
-html,body{background:#111;color:#fff}
+html,body{background:var(--paper,#f4f1eb);color:var(--ink,#1c1c1c)}
 .nz-reveal,.nz-reveal.nz-visible,.nz-reveal:active,.nz-reveal:focus,.nz-reveal:focus-within{opacity:1!important;visibility:visible!important;transform:none!important}
 .service-grid a,.home-cards a,.portfolio-grid a,.home-ecosystem .portfolio-grid a{color:inherit!important;text-decoration:none!important;-webkit-tap-highlight-color:transparent}
 .service-grid a:active,.home-cards a:active,.portfolio-grid a:active{color:inherit!important;opacity:1!important}
