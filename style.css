@@ -151,3 +151,19 @@ body:not(.services-bw):not(:has(.gpt-page)):not(:has(.sx)) .section,
 body:not(.services-bw):not(:has(.gpt-page)):not(:has(.sx)) .home-ecosystem{background:#f4f1eb!important}
 body:not(.services-bw):not(:has(.gpt-page)):not(:has(.sx)) .portfolio{background:#e8e2d7!important}
 
+
+/* === SHELL RULE: black site chrome, varied content surfaces === */
+html,body{background:#111!important;color:#fff!important}
+body:not(:has(.gpt-page)):not(:has(.sx)):not(:has(#recipient)) main{background:#f4f1eb!important;color:#171717!important}
+body:not(:has(.gpt-page)):not(:has(.sx)):not(:has(#recipient)) .nav{
+ background:#111!important;color:#fff!important;border-bottom:2px solid #111!important;box-shadow:0 3px 0 #f7c515!important;
+}
+body:not(:has(.gpt-page)):not(:has(.sx)):not(:has(#recipient)) .nav nav a{color:#fff!important}
+body:not(:has(.gpt-page)):not(:has(.sx)):not(:has(#recipient)) .nav nav a.active{color:#f7c515!important}
+body:not(:has(.gpt-page)):not(:has(.sx)):not(:has(#recipient)) .nav-button{background:#c91510!important;color:#fff!important}
+body:not(:has(.gpt-page)):not(:has(.sx)):not(:has(#recipient)) .logo{color:#fff!important}
+body:not(:has(.gpt-page)):not(:has(.sx)):not(:has(#recipient)) footer{background:#111!important;color:#fff!important;border-top:2px solid #f7c515!important}
+body:not(:has(.gpt-page)):not(:has(.sx)):not(:has(#recipient)) footer .logo,
+body:not(:has(.gpt-page)):not(:has(.sx)):not(:has(#recipient)) footer p,
+body:not(:has(.gpt-page)):not(:has(.sx)):not(:has(#recipient)) footer small{color:#fff!important}
+body:not(:has(.gpt-page)):not(:has(.sx)):not(:has(#recipient)) .samakaka{background-color:#111!important}
