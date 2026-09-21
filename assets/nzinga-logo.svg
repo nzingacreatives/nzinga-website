@@ -1,11 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 140" role="img" aria-labelledby="title desc">
-<title>Nzinga Creatives</title><desc>Logotipo geométrico Nzinga Creatives em preto, vermelho e amarelo.</desc>
-<rect width="240" height="140" fill="#fff"/>
-<path fill="#111" d="M27 20h34l2 91H28z"/>
-<path fill="#c91510" d="M61 20l62 73-1 18-30 4-32-47z"/>
-<path fill="#111" d="M99 18h34v37l-17 18-17-18z"/>
-<path fill="#111" d="M134 46l35-28 48 38-19 27-29-24-18 17-17-17z"/>
-<path fill="#111" d="M134 82l35 28 48-38-19-27-29 24-18-17-17 17z"/>
-<path fill="#f7c515" d="M207 56l20 3 2 22-19 2-10-12z"/>
-<path fill="#f7c515" d="M207 83l21-1-2 22-20 3-9-12z"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 735 555" role="img" aria-labelledby="title desc"><title id="title">Nzinga Creatives</title><desc id="desc">Logotipo geométrico Nzinga Creatives em preto, vermelho, amarelo e branco.</desc>
+<polygon points="412,313 411,419 530,517 670,418 613,346 531,406" fill="#080808" stroke="#fff" stroke-width="4" stroke-linejoin="round" paint-order="stroke"/>
+<polygon points="669,135 531,35 415,133 413,264 531,147 613,207" fill="#080808" stroke="#fff" stroke-width="4" stroke-linejoin="round" paint-order="stroke"/>
+<polygon points="134,34 26,44 16,540 154,532" fill="#080808" stroke="#fff" stroke-width="4" stroke-linejoin="round" paint-order="stroke"/>
+<polygon points="415,12 278,20 286,213 414,104" fill="#080808" stroke="#fff" stroke-width="4" stroke-linejoin="round" paint-order="stroke"/>
+<polygon points="137,37 144,262 298,519 408,508 409,447 312,364 328,351 410,419 413,135 288,241 286,288" fill="#e30613" stroke="#fff" stroke-width="4" stroke-linejoin="round" paint-order="stroke"/>
+<polygon points="616,348 671,416 675,415 694,401 701,351 622,346" fill="#f4c400" stroke="#fff" stroke-width="4" stroke-linejoin="round" paint-order="stroke"/>
+<polygon points="693,152 677,140 669,136 616,206 627,207 701,202" fill="#f4c400" stroke="#fff" stroke-width="4" stroke-linejoin="round" paint-order="stroke"/>
 </svg>
