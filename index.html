@@ -51,10 +51,41 @@
     .ecosystem-link{display:block;color:inherit;text-decoration:none}
     @media(max-width:650px){.hero-art .angola-map:before{width:88px;height:140px}.hero-art .angola-map:after{font-size:.48rem}.hero-art .angola-sun{width:62px;height:62px;right:14px}}
   </style>
-</head>
+
+<style>
+/* HOME — real Angola visual collage */
+.hero-art{
+  background-image:linear-gradient(180deg,rgba(0,0,0,.08),rgba(0,0,0,.58)),url('https://commons.wikimedia.org/wiki/Special:Redirect/file/Tundavala_Gap.jpg')!important;
+  background-size:cover!important;background-position:center!important;
+  border:3px solid #111!important;box-shadow:10px 10px 0 var(--yellow)!important;
+}
+.hero-art .art-pattern{display:none!important}
+.hero-art .queen-crown{display:none!important}
+.hero-art .queen-label{display:none!important}
+.hero-art .queen-tag{display:none!important}
+.hero-art .angola-map{
+  position:absolute!important;left:16px!important;top:16px!important;width:43%!important;height:42%!important;
+  background:linear-gradient(180deg,rgba(0,0,0,.04),rgba(0,0,0,.35)),url('https://commons.wikimedia.org/wiki/Special:Redirect/file/Kalandula_waterfalls_of_the_Lucala-River_in_Malange,_Angola.JPG') center/cover!important;
+  border:3px solid #fff!important;box-shadow:7px 7px 0 #111!important;z-index:8!important;
+}
+.hero-art .angola-map:before{display:none!important}
+.hero-art .angola-map:after{content:'KALANDULA · MALANJE'!important;left:10px!important;bottom:9px!important;color:#fff!important;background:#111!important;padding:5px 7px!important;font:800 .55rem/1 monospace!important;letter-spacing:.08em!important;max-width:none!important;opacity:1!important}
+.hero-art .angola-sun{
+  position:absolute!important;right:16px!important;bottom:16px!important;width:43%!important;height:38%!important;
+  border:3px solid #fff!important;border-radius:0!important;box-shadow:7px 7px 0 #111!important;opacity:1!important;
+  background:linear-gradient(180deg,rgba(0,0,0,.08),rgba(0,0,0,.48)),url('https://commons.wikimedia.org/wiki/Special:Redirect/file/Luanda_from_above.jpg') center/cover!important;
+}
+.hero-art .angola-sun:before,.hero-art .angola-sun:after{display:none!important}
+.hero-art:before{content:'LUANDA  ·  KALANDULA  ·  TUNDAVALA';position:absolute!important;z-index:12!important;left:18px!important;right:18px!important;top:50%!important;transform:translateY(-50%)!important;color:#fff!important;background:rgba(17,17,17,.88)!important;border:2px solid #fff!important;padding:12px 10px!important;text-align:center!important;font:800 .68rem/1.4 monospace!important;letter-spacing:.12em!important;text-shadow:none!important;opacity:1!important}
+.hero-art:after{content:'ANGOLA · NZINGA'!important;z-index:13!important;left:18px!important;bottom:18px!important;background:#f7c515!important;color:#111!important;border:2px solid #111!important;padding:7px 9px!important;font:800 .58rem/1 monospace!important;transform:rotate(-2deg)!important}
+@media(max-width:650px){
+ .hero-art .angola-map{width:46%!important;height:38%!important}.hero-art .angola-sun{width:46%!important;height:34%!important}
+ .hero-art:before{font-size:.55rem!important;letter-spacing:.06em!important}
+}
+</style></head>
 <body>
 <header class="nav"><a class="logo" href="index.html">NZINGA<span>CREATIVES</span></a><button class="menu" id="menuBtn" type="button" aria-label="Abrir menu" aria-expanded="false">☰</button><nav id="navLinks"><a class="active" href="index.html">Início</a><a href="servicos.html">Serviços</a><a href="nzingagpt.html">NzingaGPT</a><a href="surpresas.html">Surpresas</a><a href="market.html">Market</a><a href="raizes.html">Raízes</a><a class="nav-button" href="servicos.html">Começar</a></nav></header>
-<div class="samakaka"></div>
+<div class="samakaka" aria-hidden="true"></div>
 <main>
 <section class="hero"><div class="hero-copy"><p class="eyebrow">NZINGA CREATIVES · IDEIAS · FORMA · EXPERIÊNCIA</p><h1>O que queres<br><i>dar forma?</i></h1><p>Design, experiências digitais e criação visual com identidade própria — num só universo.</p><div class="hero-actions"><a class="button button-main" href="servicos.html">Começar agora</a><a class="button button-ghost" href="#explorar">Explorar ↓</a></div><p class="hero-marks">✦ ✦ ✦</p></div><div class="hero-art" aria-label="Representação gráfica inspirada em Nzinga Mbandi, Angola"><div class="art-pattern"></div><div class="angola-map" aria-hidden="true"><div class="angola-sun"></div></div><div class="queen-crown">♛</div><div class="queen-face"></div><div class="queen-label">NZINGA MBANDI</div><div class="queen-tag">ANGOLA · MEMÓRIA · CRIAÇÃO</div></div></section>
 <section class="section" id="explorar"><div class="section-intro"><p class="eyebrow">01 · ENCONTRA O TEU CAMINHO</p><h2>Começa pela tua ideia.</h2><p>Escolhe o que precisas agora. A Nzinga cresce contigo.</p></div><div class="service-grid"><a href="servicos.html"><span>01</span><h3>Quero criar uma marca</h3><p>Logotipo, identidade visual, branding e estratégia.</p><b>Ver serviços →</b></a><a href="servicos.html"><span>02</span><h3>Quero criar conteúdo</h3><p>Posts, carrosséis, copy, roteiros e packs.</p><b>Ver serviços →</b></a><a href="servicos.html"><span>03</span><h3>Quero criar algo digital</h3><p>Websites, landing pages, páginas interativas e soluções web.</p><b>Explorar →</b></a><a href="market.html"><span>04</span><h3>Quero algo pronto</h3><p>E-books, templates, recursos e outros produtos digitais.</p><b>Ir para o Market →</b></a></div></section>
