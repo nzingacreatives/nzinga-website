@@ -16,7 +16,7 @@
       +'.admin-card,.admin-form,.admin-top,.panel-head,.stat{overflow-wrap:anywhere;word-break:break-word}'
       +'#nz-admin-global-nav{width:100%;height:68px;display:flex!important;align-items:center;justify-content:space-between;padding:0 max(5vw,18px);border-bottom:2px solid #ededed;background:#101010;position:sticky;top:0;z-index:100000!important;isolation:isolate;pointer-events:auto!important}'
       +'#nz-admin-global-nav *{pointer-events:auto!important;box-sizing:border-box}'
-      +'#nz-admin-global-nav .nz-logo{color:#fff!important;text-decoration:none;font-weight:800;letter-spacing:.08em;line-height:1;display:block;cursor:pointer;flex:0 0 auto}'
+      +'#nz-admin-global-nav .nz-logo{color:#fff!important;text-decoration:none;font-weight:800;letter-spacing:.08em;line-height:1;display:inline-flex;align-items:center;gap:8px;cursor:pointer;flex:0 0 auto}'+'#nz-admin-global-nav .nz-logo img{width:38px;height:30px;object-fit:contain;display:block}'
       +'#nz-admin-global-nav .nz-logo span{display:block;font-size:.55rem;letter-spacing:.28em;margin-top:4px}'
       +'#nz-admin-global-nav .nz-menu{display:none!important;background:#101010!important;border:2px solid #fff!important;color:#fff!important;padding:7px 10px;font-size:1.25rem;line-height:1;cursor:pointer;touch-action:manipulation;position:relative;z-index:100002}'
       +'#nz-admin-global-nav .nz-links{display:flex!important;align-items:center;gap:clamp(12px,2vw,26px);min-width:0}'
@@ -75,7 +75,7 @@
 
     var header=document.createElement('header');
     header.id='nz-admin-global-nav';
-    header.innerHTML='<a class="nz-logo" href="/index.html">NZINGA<span>CREATIVES</span></a>'
+    header.innerHTML='<a class="nz-logo" href="/index.html"><img src="/nzinga-logo.svg" alt="Nzinga Creatives"><span>NZINGA <b>CREATIVES</b></span></a>'
       +'<button type="button" class="nz-menu" id="nzAdminMenu" aria-label="Abrir menu" aria-expanded="false">☰</button>'
       +'<nav class="nz-links" id="nzAdminLinks" aria-label="Navegação principal">'
       +'<a href="/index.html">Início</a><a href="/servicos.html">Serviços</a><a href="/nzingagpt.html">NzingaGPT</a><a href="/surpresas.html">Surpresas</a><a href="/market.html">Market</a><a href="/raizes.html">Raízes</a><a class="nz-start" href="/minha-nzinga.html">Minha Nzinga</a></nav>';
