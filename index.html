@@ -34,13 +34,20 @@
   <a class="drawer-cta" href="/servicos.html">Iniciar um projeto ↗</a>
   <span>LUANDA, ANGOLA / EST. 2026</span>
 </nav>
+<nav class="dynamic-bar" aria-label="Navegação rápida">
+  <a href="#inicio" data-section="inicio" class="active"><span>01</span>Início</a>
+  <a href="#o-que-fazemos" data-section="o-que-fazemos"><span>02</span>Serviços</a>
+  <a href="#trabalhos" data-section="trabalhos"><span>03</span>Universo</a>
+  <a href="#porque-nzinga" data-section="porque-nzinga"><span>04</span>Nzinga</a>
+  <button type="button" id="dynamicMenu" aria-label="Abrir menu">Menu <b>+</b></button>
+</nav>
 <main id="inicio">
 <section class="nz-hero">
   <div class="hero-left">
     <p class="eyebrow">01 / EMPRESA CRIATIVA ANGOLANA</p>
     <h1>Boas ideias.<br>Uma <span>presença</span><br>que fica<span class="dot">.</span></h1>
     <p class="hero-intro">Somos a Nzinga Creatives. Damos forma à identidade, à comunicação e ao lado digital de pessoas e negócios.</p>
-    <a class="round-link" href="/servicos.html"><span>INICIAR UM<br>PROJETO</span><b>↗</b></a>
+    <a class="hero-action" href="/servicos.html"><span>INICIAR UM<br>PROJETO</span><b>↗</b></a>
     <a class="text-cta" href="#trabalhos">Ver trabalhos ↓</a>
   </div>
   <figure class="hero-right">
@@ -84,7 +91,11 @@
 <footer class="nz-footer"><div><strong>NZINGA CREATIVES</strong><span>Criatividade com raízes. Presença sem fronteiras.</span></div><small>© 2026 Nzinga Creatives · Feito em Angola.</small><a href="#inicio">Voltar ao topo ↗</a></footer>
 </div>
 <script>
-const btn=document.getElementById('menuBtn');const drawer=document.getElementById('drawer');btn.addEventListener('click',()=>{const open=drawer.classList.toggle('open');btn.setAttribute('aria-expanded',open);btn.innerHTML=open?'MENU <b>×</b>':'MENU <b>+</b>'});drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{drawer.classList.remove('open');btn.setAttribute('aria-expanded','false');btn.innerHTML='MENU <b>+</b>'}));
+const btn=document.getElementById('menuBtn');const drawer=document.getElementById('drawer');const dynamicMenu=document.getElementById('dynamicMenu');
+function toggleMenu(){const open=drawer.classList.toggle('open');btn.setAttribute('aria-expanded',open);btn.innerHTML=open?'MENU <b>×</b>':'MENU <b>+</b>';dynamicMenu.innerHTML=open?'Fechar <b>×</b>':'Menu <b>+</b>';}
+btn.addEventListener('click',toggleMenu);dynamicMenu.addEventListener('click',toggleMenu);
+drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{drawer.classList.remove('open');btn.setAttribute('aria-expanded','false');btn.innerHTML='MENU <b>+</b>';dynamicMenu.innerHTML='Menu <b>+</b>'}));
+const barLinks=[...document.querySelectorAll('.dynamic-bar a[data-section]')];const sections=['inicio','o-que-fazemos','trabalhos','porque-nzinga'].map(id=>document.getElementById(id)).filter(Boolean);const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){barLinks.forEach(link=>link.classList.toggle('active',link.dataset.section===entry.target.id));}})},{rootMargin:'-35% 0px -55% 0px',threshold:0});sections.forEach(section=>observer.observe(section));
 </script>
 </body>
 </html>
