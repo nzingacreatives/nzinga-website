@@ -41,8 +41,8 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Método não permitido.' });
   }
 
-  if (!process.env.OPENAI_API_KEY) {
-    return res.status(503).json({ error: 'NzingaGPT ainda não está ligado ao modelo de IA. A configuração do servidor está incompleta.' });
+  if (!process.env.GEMINI_API_KEY) {
+    return res.status(503).json({ error: 'NzingaGPT ainda não está ligado ao Gemini. A configuração do servidor está incompleta.' });
   }
 
   try {
@@ -61,29 +61,40 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: 'A última mensagem deve ser do utilizador.' });
     }
 
-    const upstream = await fetch('https://api.openai.com/v1/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${process.env.OPENAI_API_KEY}`
-      },
-      body: JSON.stringify({
-        model: process.env.NZINGA_MODEL || 'gpt-5-mini',
-        messages: [{ role: 'system', content: SYSTEM_PROMPT }, ...safeMessages],
-        stream: true
-      })
-    });
+    const contents = safeMessages.map((m) => ({
+      role: m.role === 'assistant' ? 'model' : 'user',
+      parts: [{ text: m.content }]
+    }));
 
-    if (!upstream.ok || !upstream.body) {
-      const errorData = await upstream.json().catch(() => ({}));
-      console.error('NzingaGPT upstream error:', upstream.status, errorData);
-      return res.status(502).json({
-        error: upstream.status === 401
-          ? 'A chave de acesso ao modelo de IA é inválida. Verifica a configuração do servidor.'
-          : upstream.status === 429
-            ? 'O serviço de IA está temporariamente limitado. Tenta novamente daqui a pouco.'
-            : 'Não foi possível obter uma resposta agora. Tenta novamente.'
+    const models = ['gemini-3.8-flash', 'gemini-3.7-flash', 'gemini-3.6-flash'];
+    let upstream = null;
+    let lastErrorData = null;
+
+    for (const model of models) {
+      const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:streamGenerateContent?alt=sse&key=${encodeURIComponent(process.env.GEMINI_API_KEY)}`;
+      const candidate = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
+          contents
+        })
       });
+
+      if (candidate.ok && candidate.body) {
+        upstream = candidate;
+        break;
+      }
+
+      lastErrorData = await candidate.json().catch(() => ({}));
+      const retryable = candidate.status === 429 || candidate.status === 500 || candidate.status === 502 || candidate.status === 503 || candidate.status === 504;
+      console.warn('NzingaGPT Gemini model unavailable:', model, candidate.status, lastErrorData);
+      if (!retryable) break;
+    }
+
+    if (!upstream || !upstream.body) {
+      console.error('NzingaGPT Gemini upstream error:', lastErrorData);
+      return res.status(502).json({ error: 'Não foi possível obter uma resposta do Gemini agora. Verifica a chave e os limites da API e tenta novamente.' });
     }
 
     res.status(200);
@@ -101,10 +112,9 @@ export default async function handler(req, res) {
       if (!raw || raw === '[DONE]') return;
       try {
         const chunk = JSON.parse(raw);
-        const delta = chunk.choices?.[0]?.delta?.content;
-        if (typeof delta === 'string' && delta) {
-          res.write(`data: ${JSON.stringify({ delta })}\n\n`);
-        }
+        const parts = chunk.candidates?.[0]?.content?.parts || [];
+        const delta = parts.map((part) => part?.text || '').join('');
+        if (delta) res.write(`data: ${JSON.stringify({ delta })}\n\n`);
       } catch {
         // Ignora eventos incompletos ou malformados.
       }
