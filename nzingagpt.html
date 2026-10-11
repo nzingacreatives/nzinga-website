@@ -3,229 +3,29 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="NzingaGPT — conversa, aprende, organiza e transforma ideias.">
-<link rel="icon" href="/nzinga-logo.svg" type="image/svg+xml">
-<meta name="theme-color" content="#111111">
-<meta property="og:title" content="NzingaGPT — Nzinga Creatives">
-<meta property="og:description" content="Conversa, aprende, organiza e transforma ideias.">
-<meta property="og:image" content="https://nzinga-website.vercel.app/nzinga-logo.svg">
-<meta property="og:type" content="website">
+<meta name="theme-color" content="#090909">
+<meta name="description" content="NzingaGPT — uma inteligência conversacional da Nzinga Creatives.">
+<link rel="icon" href="/nzinga-mark-2026.svg" type="image/svg+xml">
 <title>NzingaGPT — Nzinga Creatives</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-.gpt-page{max-width:1180px;margin:auto;padding:0 22px 110px}
-.gpt-hero{display:none;padding:70px 0 38px;border-bottom:3px solid var(--black)}
-.gpt-hero-row{display:flex;justify-content:space-between;gap:30px;align-items:end}
-.gpt-hero h1{font-family:'Playfair Display',serif;font-size:clamp(3.7rem,8vw,7rem);line-height:.88;letter-spacing:-.05em;margin:10px 0 20px}
-.gpt-hero h1 i{font-style:normal;color:var(--red)}
-.gpt-lead{max-width:700px;color:var(--muted);font-size:1.05rem;line-height:1.7}
-.gpt-badge{border:2px solid var(--black);background:var(--yellow);padding:10px 13px;font-size:.68rem;font-weight:700;white-space:nowrap}
-.gpt-capabilities{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:22px 0 34px}
-.gpt-cap{border:2px solid var(--black);padding:15px;background:var(--paper);min-height:112px}
-.gpt-cap b{display:block;margin:9px 0 5px}.gpt-cap p{font-size:.75rem;color:var(--muted);line-height:1.45;margin:0}
-.gpt-layout{display:block;min-width:0}
-.chat-sidebar{display:none}
-.side-label{font-size:.63rem;letter-spacing:.14em;color:var(--muted);font-weight:700;margin:18px 0 9px}
-.gpt-action-grid,.gpt-mode-grid{display:grid;gap:7px}
-.gpt-action-grid button,.gpt-history-toggle{display:flex;align-items:center;gap:8px;width:100%;text-align:left;border:2px solid var(--black);background:var(--paper);color:var(--ink);padding:10px 11px;font:inherit;font-size:.72rem;font-weight:700;cursor:pointer;border-radius:9px}
-.gpt-action-grid button:nth-child(2){background:var(--black);color:#fff}
-.gpt-action-grid button:hover,.gpt-action-grid button.active,.gpt-history-toggle:hover,.gpt-mode-grid button:hover{background:var(--yellow);color:#111}
-.gpt-mode-grid button.active{background:var(--red);color:#fff}
-.gpt-action-note,.memory-note{font-size:.68rem;line-height:1.5;color:var(--muted)}
-.gpt-history{border-top:2px solid var(--black);margin-top:16px;padding-top:10px}
-.gpt-history-list{display:grid;gap:6px;margin-top:7px}
-.gpt-history-item{display:grid;grid-template-columns:1fr auto;gap:5px}
-.gpt-history-open,.gpt-history-delete{border:1px solid var(--black);background:var(--paper);color:var(--ink);cursor:pointer;padding:7px 8px;font:inherit;font-size:.62rem}
-.gpt-history-open{text-align:left;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.gpt-history-delete{width:34px}.gpt-history-delete:hover{background:var(--red);color:#fff}
-.gpt-history-empty{font-size:.63rem;color:var(--muted)}
-.chat-panel{border:3px solid var(--black);background:var(--paper);box-shadow:9px 9px 0 var(--yellow);min-width:0}
-.chat-panel-top{padding:15px 17px;border-bottom:2px solid var(--black);display:flex;justify-content:space-between;gap:15px;align-items:center}
-.chat-panel-top strong{font-size:.78rem}.chat-panel-top span{font-size:.65rem;color:var(--muted)}
-.messages{min-height:360px;max-height:calc(100vh - 230px);overflow-y:auto;padding:24px 20px;display:flex;flex-direction:column;gap:20px}
-.bubble{padding:16px 18px;line-height:1.65;border:2px solid #111!important;overflow-wrap:anywhere;max-width:86%;border-radius:15px!important}
-.bubble.assistant{align-self:flex-start;background:#fff!important;color:#111!important;box-shadow:5px 5px 0 var(--yellow)}
-.bubble.user{align-self:flex-end;background:#111!important;color:#fff!important;box-shadow:5px 5px 0 var(--red);white-space:pre-wrap}
-.bubble p{margin:0 0 11px}.bubble p:last-child{margin-bottom:0}
-.bubble h1,.bubble h2,.bubble h3{font-family:'Playfair Display',serif;line-height:1.15;margin:17px 0 9px}
-.bubble h1{font-size:1.55rem}.bubble h2{font-size:1.35rem}.bubble h3{font-size:1.15rem}
-.bubble strong{font-weight:700}.bubble em{font-style:italic}.bubble code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:rgba(17,17,17,.1);padding:2px 5px;border-radius:5px}
-.bubble pre{margin:13px 0 4px;padding:13px;overflow:auto;background:#111;color:#fff;border-radius:9px}
-.bubble ul,.bubble ol{margin:8px 0 13px;padding-left:24px}.bubble li{margin:4px 0}.bubble blockquote{margin:11px 0;padding:7px 13px;border-left:4px solid var(--yellow);color:#444}.bubble a{color:var(--red);font-weight:700}
-.starter-label{font-size:.62rem;letter-spacing:.13em;font-weight:700;margin:0 20px 9px;color:var(--muted)}
-.starters{padding:0 20px 18px;display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
-.starter{font:inherit;text-align:left;padding:11px 12px;border:2px solid #111!important;background:#fff!important;color:#111!important;cursor:pointer;border-radius:9px!important}.starter:hover{background:var(--yellow)!important}
-.composer-wrap{position:fixed;left:50%;bottom:10px;transform:translateX(-50%);width:min(1136px,calc(100% - 32px));padding:8px 10px 7px;background:var(--paper);border:2px solid var(--black);box-shadow:6px 6px 0 var(--yellow);z-index:10000;border-radius:12px}.composer{position:relative;width:100%;background:#111;padding:8px;display:flex;gap:7px;box-shadow:6px 6px 0 var(--red);z-index:5;border-radius:11px}
-.composer textarea{flex:1;resize:none;border:0;outline:0;background:transparent;color:#fff;padding:12px;font:inherit;min-height:48px;max-height:180px}.composer textarea::placeholder{color:#aaa}
-.composer button{border:2px solid #111;background:var(--yellow);color:#000;font:inherit;font-weight:700;padding:0 16px;cursor:pointer;border-radius:8px}
-.composer button:disabled{opacity:.55;cursor:wait}.composer-hint{text-align:right;color:var(--muted);font-size:.6rem;margin:8px 2px 0}
-.status-note{text-align:left;color:var(--muted);font-size:.64rem;margin:8px 2px 0}.status-note #status{font-weight:700;color:var(--ink)}
-.gpt-message-tools{display:flex;gap:5px;margin-top:10px;padding-top:8px;border-top:1px solid #ddd}
-.gpt-message-tools button{border:1px solid #aaa;background:transparent;color:#555;width:32px;height:26px;border-radius:7px;cursor:pointer;font:inherit;font-size:.76rem}
-.gpt-voice-btn,.gpt-voice-mode{height:40px;border:2px solid #fff;background:#111;color:#fff;font:inherit;font-weight:700;border-radius:8px;cursor:pointer;white-space:nowrap}
-.gpt-voice-btn{width:42px;display:grid;place-items:center}.gpt-voice-mode{padding:0 12px}
-.gpt-voice-btn:hover,.gpt-voice-btn.listening,.gpt-voice-mode.active{background:var(--yellow);color:#111;border-color:#111}
-.gpt-message-tools svg{width:15px;height:15px;display:block;margin:auto}.gpt-message-tools button:hover,.gpt-message-tools button.active{background:var(--yellow);color:#111;border-color:#111}
-#gptClearHistory{display:flex;align-items:center;gap:7px;width:100%;margin-top:8px;padding:8px 10px;border:1px solid var(--black);background:transparent;color:var(--ink);font:inherit;font-size:.61rem;font-weight:700;cursor:pointer;border-radius:8px}
-@media(max-width:900px){.gpt-capabilities{grid-template-columns:repeat(2,1fr)}.gpt-layout{grid-template-columns:1fr}.chat-sidebar{display:block;order:-1;padding:0}.gpt-actions{border:2px solid var(--black);padding:13px;background:var(--paper);box-shadow:5px 5px 0 var(--yellow)}.gpt-action-grid{grid-template-columns:repeat(2,1fr)}.gpt-mode-grid{grid-template-columns:repeat(2,1fr)}.gpt-history{margin-top:13px}.gpt-history-toggle{min-height:44px}}
-@media(max-width:600px){.gpt-page{padding-inline:16px;padding-bottom:115px}.gpt-hero{padding-top:52px}.gpt-hero-row{align-items:flex-start;flex-direction:column}.gpt-badge{align-self:flex-start}.gpt-capabilities{grid-template-columns:1fr 1fr}.gpt-cap{min-height:95px;padding:12px}.messages{max-height:none;min-height:330px;padding:19px 14px}.bubble{max-width:94%;padding:14px 15px}.starters{grid-template-columns:1fr;padding-inline:14px}.composer-wrap{width:calc(100% - 20px);padding:7px}.composer{gap:5px}.composer textarea{min-width:0}.gpt-voice-btn{width:44px;height:44px}.gpt-voice-mode{height:44px;padding:0 8px;font-size:.72rem}.composer button{height:44px;padding:0 12px}.gpt-message-tools button{width:28px}}
-@media(prefers-color-scheme:dark){.gpt-hero{border-color:#fff}.gpt-cap,.gpt-action-grid button,.gpt-history-toggle,.gpt-history-open,.gpt-history-delete,.starter{background:#fff!important;color:#111!important}.chat-panel{background:#111;color:#fff;border-color:#fff}.chat-panel-top{border-color:#fff}.bubble.assistant{background:#fff!important;color:#111!important}.bubble.user{background:#111!important;color:#fff!important}.starter-label,.side-label,.gpt-hero .gpt-lead,.gpt-cap p,.gpt-action-note,.memory-note,.gpt-history-empty,.composer-hint,.status-note{color:#ccc}.gpt-history{border-color:#fff}.gpt-voice-mode{background:#111;color:#fff}}
-
-.nav,.samakaka,footer{display:none!important}
-.gpt-topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;border:0;border-bottom:2px solid #f7c515;background:#111;color:#fff;padding:9px 18px;margin:0;position:fixed;top:0;left:0;right:0;transform:none;width:100%;min-height:58px;z-index:10030;box-shadow:0 5px 18px rgba(0,0,0,.28)}
-.gpt-topbar-left,.gpt-topbar-right{display:flex;align-items:center;gap:8px}
-.gpt-topbar button{border:1px solid #444;background:#191919;color:#fff;height:38px;min-width:38px;padding:0 10px;border-radius:8px;font:inherit;font-weight:700;cursor:pointer}
-.gpt-topbar button:hover{background:var(--yellow)}
-.gpt-topbar-title{font-size:1.45rem;font-weight:800;letter-spacing:-.025em;line-height:1}
-.gpt-drawer{position:fixed;z-index:10010;left:0;top:0;bottom:0;width:min(86vw,350px);background:var(--paper);color:var(--ink);border-right:3px solid var(--black);box-shadow:10px 0 0 var(--red);transform:translateX(-105%);transition:transform .22s ease;overflow-y:auto;padding:18px}
-.gpt-drawer.open{transform:translateX(0)}
-.gpt-drawer-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
-.gpt-drawer-head strong{font-size:1rem}
-.gpt-drawer-close{border:2px solid var(--black);background:var(--paper);color:var(--ink);width:38px;height:38px;border-radius:8px;font-size:1.2rem;cursor:pointer}
-.gpt-drawer-new{width:100%;border:2px solid var(--black);background:var(--black);color:#fff;padding:12px;border-radius:9px;font:inherit;font-weight:700;cursor:pointer;margin-bottom:9px}
-.gpt-drawer-anon{width:100%;border:2px solid var(--black);background:var(--paper);color:var(--ink);padding:11px;border-radius:9px;font:inherit;font-weight:700;cursor:pointer;text-align:left}
-.gpt-drawer-anon.active{background:var(--red);color:#fff}
-.gpt-search{width:100%;margin:14px 0 8px;border:2px solid var(--black);background:var(--paper);color:var(--ink);padding:11px;border-radius:9px;font:inherit;outline:none}
-.gpt-drawer-label{font-size:.62rem;letter-spacing:.13em;font-weight:700;color:var(--muted);margin:17px 0 8px}
-.gpt-drawer-history{display:grid;gap:6px}
-.gpt-drawer .gpt-history-item{display:grid;grid-template-columns:1fr auto;gap:5px}
-.gpt-drawer .gpt-history-open{display:flex;flex-direction:column;gap:3px;min-width:0;border:1px solid var(--black);background:var(--paper);color:var(--ink);border-radius:8px}
-.gpt-drawer .gpt-history-open small{font-size:.56rem;opacity:.65}
-.gpt-drawer .gpt-history-delete{border:1px solid var(--black);background:var(--paper);color:var(--ink);border-radius:8px}
-.gpt-drawer-clear{width:100%;margin-top:10px;border:1px solid var(--black);background:transparent;color:var(--ink);padding:9px;border-radius:8px;font:inherit;font-size:.65rem;font-weight:700;cursor:pointer}
-.gpt-drawer-backdrop{position:fixed;inset:0;z-index:10009;background:rgba(0,0,0,.5);opacity:0;pointer-events:none;transition:opacity .22s ease}
-.gpt-drawer-backdrop.open{opacity:1;pointer-events:auto}
-.gpt-start-section{margin:4px 16px 14px;border-top:1px solid #ddd;border-bottom:1px solid var(--black)}
-.gpt-start-title{font-family:inherit;font-size:.78rem;margin:0;font-weight:800;letter-spacing:.04em}
-.gpt-start-sub{font-size:.62rem;color:var(--muted);margin:2px 0 0}
-.gpt-mode-grid-main{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
-.gpt-mode-grid-main button{border:2px solid var(--black);background:var(--paper);color:var(--ink);padding:13px 10px;text-align:left;border-radius:9px;font:inherit;font-weight:700;cursor:pointer}
-.gpt-mode-grid-main button:hover,.gpt-mode-grid-main button.active{background:var(--yellow)}
-@media(max-width:900px){.gpt-capabilities{grid-template-columns:repeat(2,1fr)}.gpt-mode-grid-main{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:600px){.gpt-page{padding-inline:16px}.gpt-topbar{top:5px}.gpt-hero{padding-top:38px}.gpt-mode-grid-main{grid-template-columns:1fr 1fr}.gpt-drawer{width:min(88vw,340px)}}
-@media(prefers-color-scheme:dark){.gpt-topbar,.gpt-topbar button,.gpt-drawer,.gpt-drawer-close,.gpt-drawer-anon,.gpt-search,.gpt-drawer .gpt-history-open,.gpt-drawer .gpt-history-delete,.gpt-drawer-clear,.gpt-mode-grid-main button{background:#111;color:#fff;border-color:#fff}.gpt-drawer-new{background:#fff;color:#111}.gpt-drawer-anon.active{background:#e30613;color:#fff;border-color:#fff}}
-</style>
-
-<style>
-.gpt-start-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:7px 0}
-.gpt-start-toggle{width:30px;height:30px;border:1px solid var(--black);background:transparent;color:var(--ink);border-radius:7px;font-size:1.1rem;line-height:1;cursor:pointer}
-.gpt-start-toggle:hover{background:var(--yellow)}
-.gpt-start-options{padding:8px 0 14px}
-.gpt-inline-suggestions{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-top:10px}
-.gpt-inline-suggestions span{font-size:.55rem;font-weight:800;letter-spacing:.1em;color:var(--muted);margin-right:3px}
-.gpt-inline-suggestions button{border:1px solid var(--black);background:var(--paper);color:var(--ink);padding:7px 9px;border-radius:999px;font:inherit;font-size:.6rem;cursor:pointer}
-.gpt-inline-suggestions button:hover{background:var(--yellow)}
-.gpt-start-options[hidden]{display:none}
-@media(max-width:600px){.gpt-start-bar{padding:6px 0}.gpt-start-sub{font-size:.6rem}.gpt-start-options{padding-bottom:11px}.gpt-inline-suggestions{gap:5px}.gpt-inline-suggestions button{font-size:.58rem;padding:7px 8px}}
-</style>
-
-<style>
-.gpt-first-prompts{display:flex;flex-wrap:wrap;gap:8px;max-width:900px;margin:8px auto 14px;padding:0}
-.gpt-first-prompts button{border:1px solid #454549;background:#181819;color:#eee;padding:9px 12px;border-radius:8px;cursor:pointer;font:600 .74rem 'DM Sans'}
-.gpt-first-prompts button:hover{background:#f7c515;color:#111;border-color:#111}
-</style><style>
-.gpt-brand-mark{width:46px;height:34px;object-fit:contain;display:block;filter:drop-shadow(0 0 1px #fff) drop-shadow(0 0 2px #fff)}.gpt-floating-menu{position:fixed;left:12px;top:50%;transform:translateY(-50%);z-index:10020;width:42px;height:42px;border:2px solid var(--black);border-radius:50%;background:var(--paper);color:var(--ink);font:inherit;font-weight:800;cursor:pointer;box-shadow:4px 4px 0 var(--yellow)}.gpt-floating-menu:hover{background:var(--yellow)}.gpt-page{padding-top:78px;padding-bottom:125px;max-width:1180px}.gpt-topbar{margin-top:8px;min-height:58px;padding:10px 14px}.gpt-start-title{font-size:.74rem}.gpt-start-bar{min-height:34px}.gpt-inline-suggestions button{font-size:.62rem;padding:6px 9px}.composer button,.gpt-voice-btn,.gpt-voice-mode{height:40px}.gpt-message-tools button{font-size:.88rem}@media(max-width:600px){.gpt-floating-menu{left:8px;width:38px;height:38px}.gpt-brand-mark{width:40px;height:30px}.gpt-topbar{padding-inline:12px}.gpt-topbar-title{font-size:1.12rem}.gpt-message-tools button{width:31px;height:25px}.composer button,.gpt-voice-btn,.gpt-voice-mode{height:38px}}
-</style>
-
-<style>
-/* GPT uses one stable dark theme regardless of device preference. */
-body:has(.gpt-page){background:#0f0f10!important;color:#f5f5f5!important}
-body:has(.gpt-page) .gpt-page{background:#0f0f10}
-body:has(.gpt-page) .chat-panel{background:#111!important;border:0!important;box-shadow:none!important}
-body:has(.gpt-page) .messages{max-width:900px;margin:0 auto;min-height:calc(100vh - 205px);max-height:calc(100vh - 205px);padding:20px 20px 18px}
-body:has(.gpt-page) .gpt-start-section{max-width:900px;margin:0 auto 14px;border-top:1px solid #333;border-bottom:1px solid #333;color:#f5f5f5}
-body:has(.gpt-page) .gpt-start-title{font-size:.78rem}
-body:has(.gpt-page) .gpt-start-toggle{border-color:#555;color:#fff}
-body:has(.gpt-page) .gpt-start-sub,
-body:has(.gpt-page) .gpt-inline-suggestions span{color:#aaa}
-body:has(.gpt-page) .gpt-inline-suggestions button,
-body:has(.gpt-page) .gpt-mode-grid-main button{background:#181819;color:#eee;border-color:#444}
-body:has(.gpt-page) .composer-wrap{background:#0f0f10;border-color:#333;box-shadow:none}
-body:has(.gpt-page) .composer{background:#19191b;border:1px solid #454549;box-shadow:none}
-body:has(.gpt-page) .composer textarea{color:#fff}
-body:has(.gpt-page) .composer-hint,
-body:has(.gpt-page) .status-note{color:#888}
-body:has(.gpt-page) .gpt-floating-menu{background:#1b1b1d;color:#fff;border-color:#555;box-shadow:0 2px 8px rgba(0,0,0,.4)}
-body:has(.gpt-page) .gpt-message-tools{border-top-color:#333}
-body:has(.gpt-page) .gpt-message-tools button{color:#bbb;border-color:#444;background:transparent}
-body:has(.gpt-page) .gpt-message-tools button:hover,body:has(.gpt-page) .gpt-message-tools button.active{background:#272727;color:#fff;border-color:#666}
-@media(max-width:600px){
-  .gpt-page{padding-top:70px;padding-bottom:120px}
-  body:has(.gpt-page) .messages{min-height:calc(100vh - 190px);max-height:calc(100vh - 190px);padding:16px 12px}
-  body:has(.gpt-page) .composer-wrap{width:calc(100% - 16px);bottom:6px;padding:6px}
-}
-</style>
-<style>
-.gpt-topbar{border:0!important;border-radius:0!important;position:fixed!important}
-.gpt-topbar:before,.gpt-topbar:after{content:'';position:absolute;left:0;right:0;height:3px;pointer-events:none}
-.gpt-topbar:before{top:0;background:#c91510}
-.gpt-topbar:after{bottom:0;background:#f7c515}
-.gpt-topbar-left,.gpt-topbar-right{position:relative;z-index:1}
-</style>
-<style>
-.gpt-topbar{border:0!important;border-bottom:2px solid #f3c51b!important;overflow:visible!important;position:fixed!important}
-.gpt-topbar:before{content:'';position:absolute;left:0;right:0;top:0;height:2px;background:#c91510;z-index:0}
-.gpt-topbar>*{position:relative;z-index:1}
-.gpt-topbar-left{position:relative;z-index:2}
-.gpt-topbar .gpt-brand-mark{filter:drop-shadow(0 0 0 #fff) drop-shadow(0 0 2px #fff)}
-.gpt-topbar .gpt-topbar-title{color:#fff}
-</style>
-
-<style>
-/* Manter os controlos do NzingaGPT rectangulares, em linha com a identidade do site. */
-.gpt-floating-menu,
-.gpt-drawer-close,
-.gpt-drawer-new,
-.gpt-drawer-anon,
-.gpt-search,
-.gpt-drawer-clear,
-.gpt-history-open,
-.gpt-history-delete,
-.gpt-history-rename,
-.gpt-topbar button,
-.gpt-start-toggle,
-.gpt-inline-suggestions button,
-.gpt-first-prompts button,
-.composer button,
-.gpt-voice-btn,
-.gpt-voice-mode,
-.gpt-message-tools button { border-radius: 0 !important; }
-.gpt-floating-menu { box-shadow: 3px 3px 0 var(--yellow); }
+:root{--black:#090909;--paper:#f4f0e8;--white:#fff;--red:#d71920;--yellow:#f2c51b;--muted:#929292;--line:#303030}*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:'DM Sans',sans-serif;background:var(--black);color:#fff}body{overflow-x:hidden}button,input,textarea{font:inherit}button{cursor:pointer}a{color:inherit}.gpt-app{min-height:100vh;background:var(--black);padding-bottom:150px}.gpt-topbar{height:68px;position:fixed;top:0;left:0;right:0;z-index:10030;display:flex;align-items:center;justify-content:space-between;padding:0 22px;background:#090909;border-top:3px solid var(--red);border-bottom:3px solid var(--yellow)}.gpt-brand{display:flex;align-items:center;gap:12px;text-decoration:none}.gpt-brand img{width:48px;height:36px;object-fit:contain}.gpt-brand-name{font-weight:700;letter-spacing:-.02em}.gpt-brand-name small{display:block;font-size:.55rem;letter-spacing:.16em;color:#999;text-transform:uppercase}.gpt-top-actions{display:flex;gap:7px}.icon-btn{width:42px;height:40px;border:1px solid #444;background:#161616;color:#fff;display:grid;place-items:center;font-weight:700;font-size:1rem}.icon-btn:hover{background:var(--yellow);color:#111;border-color:#111}
+.gpt-drawer{position:fixed;z-index:10050;left:0;top:0;bottom:0;width:min(390px,90vw);background:var(--paper);color:var(--black);border-right:5px solid var(--red);transform:translateX(-105%);transition:transform .2s ease;overflow:auto;padding:86px 22px 30px}.gpt-drawer.open{transform:translateX(0)}.gpt-drawer-backdrop{position:fixed;inset:0;z-index:10040;background:rgba(0,0,0,.7);opacity:0;pointer-events:none;transition:.2s}.gpt-drawer-backdrop.open{opacity:1;pointer-events:auto}.drawer-head{display:flex;justify-content:space-between;align-items:center;border-bottom:3px solid var(--black);padding-bottom:14px}.drawer-head h2{font-family:'Archivo Black';font-size:1.3rem;margin:0}.drawer-close{width:38px;height:38px;border:2px solid var(--black);background:transparent}.drawer-close:hover{background:var(--yellow)}.drawer-new{width:100%;margin:18px 0 8px;padding:13px 14px;border:2px solid var(--black);background:var(--black);color:#fff;text-align:left;font-weight:700}.drawer-new:hover{background:var(--red)}.drawer-anon{width:100%;padding:12px 14px;border:2px solid var(--black);background:transparent;text-align:left;font-weight:700}.drawer-anon.active{background:var(--red);color:#fff}.drawer-label{margin:25px 0 8px;font-size:.62rem;font-weight:700;letter-spacing:.16em}.drawer-search{width:100%;padding:12px;border:2px solid var(--black);background:#fff;outline:0}.drawer-search:focus{border-color:var(--red)}.history-list{display:grid;gap:6px;margin-top:9px}.gpt-history-item{display:grid;grid-template-columns:1fr auto auto;gap:4px}.gpt-history-open,.gpt-history-rename,.gpt-history-delete{min-width:0;border:1px solid var(--black);background:transparent;color:var(--black);padding:9px;text-align:left}.gpt-history-title{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:600;font-size:.72rem}.gpt-history-open small{display:block;font-size:.55rem;margin-top:3px;opacity:.6}.gpt-history-rename,.gpt-history-delete{width:34px;text-align:center}.gpt-history-open:hover,.gpt-history-rename:hover{background:var(--yellow)}.gpt-history-delete:hover{background:var(--red);color:#fff}.gpt-history-empty{font-size:.7rem;color:#666;padding:10px 0}.drawer-clear{width:100%;margin-top:10px;padding:10px;border:1px solid var(--black);background:transparent;font-size:.65rem;font-weight:700}.drawer-clear:hover{background:var(--red);color:#fff}
+.gpt-main{max-width:1080px;margin:auto;padding:105px 24px 0}.gpt-intro{min-height:235px;display:grid;grid-template-columns:1.5fr .5fr;gap:20px;align-items:end;border-bottom:1px solid var(--line);padding:30px 0 28px}.eyebrow{font-size:.62rem;letter-spacing:.18em;font-weight:700;color:var(--yellow);margin:0 0 15px}.gpt-intro h1{font-family:'Archivo Black';font-size:clamp(3.2rem,8vw,7.5rem);line-height:.83;letter-spacing:-.055em;margin:0;text-transform:uppercase}.gpt-intro h1 span{color:var(--red)}.intro-copy{align-self:end;color:#b7b7b7;font-size:.86rem;line-height:1.6;border-left:3px solid var(--yellow);padding-left:15px}.intro-copy strong{color:#fff}.gpt-status{display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--line);font-size:.62rem;color:#8d8d8d}.status-online{color:#fff}.status-online b{color:var(--yellow)}.mode-strip{display:flex;gap:6px;overflow:auto;padding:14px 0 10px}.mode-btn{flex:0 0 auto;border:1px solid #454545;background:#141414;color:#ddd;padding:9px 12px;font-size:.65rem;font-weight:700}.mode-btn:hover,.mode-btn.active{background:var(--yellow);border-color:var(--yellow);color:#111}.start-panel{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:13px 0}.start-bar{display:flex;align-items:center;justify-content:space-between}.start-title{font-weight:700;font-size:.78rem}.start-sub{font-size:.62rem;color:#888;margin-top:2px}.start-toggle{width:30px;height:30px;border:1px solid #555;background:transparent;color:#fff}.start-toggle:hover{background:var(--yellow);color:#111}.start-options{padding-top:12px}.start-options[hidden]{display:none}.starter-row{display:flex;gap:6px;flex-wrap:wrap}.starter-inline{border:1px solid #444;background:#151515;color:#ddd;padding:8px 10px;font-size:.63rem}.starter-inline:hover{background:var(--yellow);color:#111;border-color:var(--yellow)}
+.chat-shell{margin-top:14px;border:1px solid #303030;background:#0d0d0d}.chat-head{height:46px;display:flex;align-items:center;justify-content:space-between;padding:0 14px;border-bottom:1px solid #303030}.chat-head strong{font-size:.68rem}.chat-head span{font-size:.58rem;color:#777}.messages{min-height:420px;max-height:calc(100vh - 300px);overflow:auto;padding:28px 24px 24px;display:flex;flex-direction:column;gap:22px}.bubble{max-width:min(760px,90%);padding:15px 17px;border:1px solid #343434;line-height:1.68;font-size:.91rem;overflow-wrap:anywhere}.bubble.assistant{align-self:flex-start;background:#151515;color:#eee;border-left:4px solid var(--yellow)}.bubble.user{align-self:flex-end;background:#eee;color:#111;border-right:4px solid var(--red);white-space:pre-wrap}.bubble p{margin:0 0 10px}.bubble p:last-child{margin-bottom:0}.bubble h1,.bubble h2,.bubble h3{font-family:'Archivo Black';line-height:1.05;margin:18px 0 10px}.bubble h1{font-size:1.5rem}.bubble h2{font-size:1.25rem}.bubble h3{font-size:1.05rem}.bubble code{background:#292929;padding:2px 5px}.bubble pre{background:#050505;color:#fff;border:1px solid #333;padding:13px;overflow:auto}.bubble blockquote{border-left:3px solid var(--red);padding-left:12px;color:#aaa}.bubble a{color:var(--yellow)}.bubble ul,.bubble ol{padding-left:23px}.gpt-first-prompts{display:flex;flex-wrap:wrap;gap:6px;max-width:760px}.gpt-first-prompts button{border:1px solid #444;background:#141414;color:#ddd;padding:9px 11px;font-size:.65rem}.gpt-first-prompts button:hover{background:var(--yellow);color:#111}
+.composer-wrap{position:fixed;z-index:10020;left:50%;bottom:12px;transform:translateX(-50%);width:min(1030px,calc(100% - 30px));background:#0d0d0d;border:1px solid #3b3b3b;padding:8px;box-shadow:6px 6px 0 var(--red)}.composer{display:flex;gap:6px;background:#171717;border:1px solid #414141;padding:6px}.composer textarea{flex:1;min-width:0;min-height:48px;max-height:180px;resize:none;border:0;outline:0;background:transparent;color:#fff;padding:11px 10px;line-height:1.4}.composer textarea::placeholder{color:#777}.composer button{height:48px;border:0;background:var(--yellow);color:#111;padding:0 17px;font-weight:700}.composer button:hover{background:#fff}.composer button:disabled{opacity:.5}.composer-hint{font-size:.55rem;color:#666;text-align:right;margin:6px 2px 0}.status-note{font-size:.56rem;color:#666;margin:5px 2px 0}.status-note #status{font-weight:700;color:#aaa}.gpt-voice-btn,.gpt-voice-mode,#gptStopBtn{height:48px!important;border:1px solid #555!important;background:#171717!important;color:#fff!important;padding:0 12px!important}.gpt-voice-btn:hover,.gpt-voice-mode:hover,.gpt-voice-mode.active,#gptStopBtn:hover{background:var(--yellow)!important;color:#111!important}.gpt-message-tools{display:flex;gap:4px;margin-top:10px;padding-top:8px;border-top:1px solid #333}.gpt-message-tools button{width:30px;height:27px;border:1px solid #444;background:transparent;color:#999}.gpt-message-tools button:hover,.gpt-message-tools button.active{background:var(--yellow);color:#111;border-color:var(--yellow)}
+@media(max-width:700px){.gpt-topbar{padding:0 13px}.gpt-brand img{width:42px}.gpt-brand-name{font-size:.9rem}.gpt-main{padding:94px 14px 0}.gpt-intro{grid-template-columns:1fr;min-height:auto;gap:22px;padding:24px 0}.gpt-intro h1{font-size:clamp(3rem,17vw,5rem)}.intro-copy{max-width:500px}.messages{min-height:390px;max-height:calc(100vh - 300px);padding:20px 12px}.bubble{max-width:94%;font-size:.86rem;padding:13px 14px}.composer-wrap{width:calc(100% - 14px);bottom:6px}.composer{flex-wrap:wrap}.composer textarea{flex-basis:100%;min-height:44px}.composer button,.gpt-voice-btn,.gpt-voice-mode,#gptStopBtn{height:44px!important}.composer button{flex:1}.gpt-drawer{width:92vw}}@media(max-width:430px){.gpt-topbar{height:62px}.gpt-brand-name small{display:none}.gpt-intro{padding-top:20px}.gpt-status{align-items:flex-start;gap:8px;flex-direction:column}.mode-strip{padding-top:10px}.chat-head span{display:none}.messages{min-height:360px}.gpt-message-tools button{width:28px}}
 </style>
 </head>
 <body>
-<header class="nav">
-<a class="logo" href="index.html"><img src="/nzinga-logo.svg" alt="Nzinga Creatives"><span>NZINGA <b>CREATIVES</b></span></a>
-<button class="menu" id="menuBtn" type="button" aria-label="Abrir menu" aria-expanded="false">☰</button>
-<nav id="navLinks"><a href="index.html">Início</a><a href="servicos.html">Serviços</a><a class="active" href="nzingagpt.html">NzingaGPT</a><a href="surpresas.html">Surpresas</a><a href="market.html">Market</a><a href="raizes.html">Raízes</a></nav>
-</header>
-<div class="samakaka"></div>
-<aside id="gptDrawer" class="gpt-drawer" aria-label="Menu do NzingaGPT" aria-hidden="true">
-<div class="gpt-drawer-head"><strong>NzingaGPT</strong><button id="gptClose" class="gpt-drawer-close" type="button" aria-label="Fechar menu">×</button></div>
-<button id="newGptConversation" class="gpt-drawer-new" type="button">＋ Nova conversa</button>
-<button id="anonymousGptConversation" class="gpt-drawer-anon" type="button">◉ Conversa anónima</button>
-<p class="gpt-drawer-label">CONVERSAS</p>
-<input id="gptHistorySearch" class="gpt-search" type="search" placeholder="Pesquisar conversas..." aria-label="Pesquisar conversas">
-<div class="gpt-drawer-history"><div class="gpt-history-list" id="gptHistoryList"></div></div>
-<button id="gptClearHistory" class="gpt-drawer-clear" type="button">Apagar histórico</button>
-<p class="gpt-drawer-label">PRIVACIDADE</p><p class="gpt-action-note">Conversas normais ficam guardadas localmente neste dispositivo. A conversa anónima não entra no histórico normal.</p>
-</aside><button id="gptDrawerBackdrop" class="gpt-drawer-backdrop" type="button" aria-label="Fechar menu"></button>
-<main class="gpt-page">
-<button id="gptMenu" class="gpt-floating-menu" type="button" aria-label="Abrir menu" aria-expanded="false">☰</button>
-<div class="gpt-topbar"><div class="gpt-topbar-left"><img class="gpt-brand-mark" src="nzinga-logo.svg" alt="" aria-hidden="true"><span class="gpt-topbar-title">NzingaGPT</span></div><div class="gpt-topbar-right"><button id="gptNewTop" type="button" aria-label="Nova conversa">＋</button></div></div>
-
-<div class="gpt-layout">
-<aside class="chat-sidebar" aria-hidden="true"><div class="gpt-actions"></div></aside>
-<section class="chat-panel" aria-label="Conversa com NzingaGPT">
-<div class="messages" id="messages" aria-live="polite"></div>
-<div class="composer-wrap"><form class="composer" id="chatForm"><textarea id="gptPrompt" placeholder="Escreve o que quiseres..."></textarea><button id="sendBtn" type="submit">Enviar ↑</button></form><p class="composer-hint">Enter envia · Shift + Enter cria nova linha</p><p class="status-note"><span id="status">● ONLINE</span></p></div>
-</section></div></main>
-<footer><a class="logo" href="index.html"><img src="/nzinga-logo.svg" alt="Nzinga Creatives"><span>NZINGA <b>CREATIVES</b></span></a><p>Ideias que ganham forma.</p><small>© 2026 Nzinga Creatives · Feito em Angola.</small></footer>
-<script src="script.js"></script>
-<script src="gpt-actions.js?v=12"></script>
-<script src="nzingagpt-core.js?v=11"></script>
-<script src="navigation.js?v=3"></script>
+<div class="gpt-app">
+<header class="gpt-topbar"><a class="gpt-brand" href="index.html"><img src="/nzinga-mark-2026.svg" alt="Nzinga Creatives"><span class="gpt-brand-name">NzingaGPT<small>Nzinga Creatives</small></span></a><div class="gpt-top-actions"><button id="gptNewTop" class="icon-btn" type="button" aria-label="Nova conversa">＋</button><button id="gptMenu" class="icon-btn" type="button" aria-label="Abrir menu" aria-expanded="false">☰</button></div></header>
+<aside id="gptDrawer" class="gpt-drawer" aria-hidden="true" aria-label="Menu NzingaGPT"><div class="drawer-head"><h2>NZINGA<span style="color:var(--red)">GPT</span></h2><button id="gptClose" class="drawer-close" type="button">×</button></div><button id="newGptConversation" class="drawer-new" type="button">＋ Nova conversa</button><button id="anonymousGptConversation" class="drawer-anon" type="button">Conversa anónima</button><p class="drawer-label">HISTÓRICO</p><input id="gptHistorySearch" class="drawer-search" type="search" placeholder="Pesquisar conversas..." aria-label="Pesquisar conversas"><div id="gptHistoryList" class="history-list"></div><button id="gptClearHistory" class="drawer-clear" type="button">Apagar histórico</button><p class="drawer-label">PRIVACIDADE</p><p style="font-size:.68rem;line-height:1.55;color:#555">Conversas normais ficam guardadas localmente neste dispositivo. A conversa anónima não entra no histórico normal.</p></aside><button id="gptDrawerBackdrop" class="gpt-drawer-backdrop" type="button" aria-label="Fechar menu"></button>
+<main class="gpt-main"><section class="gpt-intro"><div><p class="eyebrow">INTELIGÊNCIA CONVERSACIONAL · 01</p><h1>PENSA.<br><span>PERGUNTA.</span><br>AVANÇA.</h1></div><div class="intro-copy"><strong>Não é um ChatGPT com outra pele.</strong><br>É o NzingaGPT: uma inteligência dentro do universo Nzinga, criada para tirar dúvidas, aprender contigo, organizar ideias e transformar conversa em ação.</div></section><div class="gpt-status"><span class="status-online"><b>●</b> NZINGAGPT ONLINE</span><span>GEMINI · CONVERSA EM TEMPO REAL</span></div><div class="mode-strip" aria-label="Modos rápidos"><button class="mode-btn active" data-gpt-mode="ideia" type="button">IDEIA</button><button class="mode-btn" data-gpt-mode="aprender" type="button">APRENDER</button><button class="mode-btn" data-gpt-mode="organizar" type="button">ORGANIZAR</button><button class="mode-btn" data-gpt-mode="escrever" type="button">ESCREVER</button><button class="mode-btn" data-gpt-mode="plano" type="button">PLANO</button></div><section class="start-panel" id="gptStartSection"><div class="start-bar"><div><div class="start-title">Por onde começamos?</div><div class="start-sub">Não precisas escolher um modo. Podes simplesmente escrever.</div></div><button id="gptStartToggle" class="start-toggle" type="button" aria-expanded="true">−</button></div><div id="gptStartOptions" class="start-options"><div class="starter-row" id="starters"><button class="starter-inline" type="button">Tenho uma ideia meio confusa.</button><button class="starter-inline" type="button">Quero aprender alguma coisa.</button><button class="starter-inline" type="button">Preciso de ajuda com um problema.</button><button class="starter-inline" type="button">Quero organizar o que tenho de fazer.</button></div></div></section><section class="chat-shell" aria-label="Conversa com NzingaGPT"><div class="chat-head"><strong>CONVERSA</strong><span>as tuas ideias ficam aqui</span></div><div id="messages" class="messages" aria-live="polite"></div></section></main>
+<div class="composer-wrap"><form id="chatForm" class="composer"><textarea id="gptPrompt" placeholder="Escreve uma dúvida, ideia ou problema..." aria-label="Mensagem para NzingaGPT"></textarea><button id="sendBtn" type="submit">Enviar ↑</button></form><p class="composer-hint">Enter envia · Shift + Enter cria nova linha</p><p class="status-note"><span id="status">● ONLINE</span></p></div>
+</div>
+<script src="gpt-actions.js?v=13"></script><script src="nzingagpt-core.js?v=12"></script>
 </body>
 </html>
