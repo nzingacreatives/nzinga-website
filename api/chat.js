@@ -68,7 +68,6 @@ async function callGemini(model, contents) {
   }
 }
 
-module.exports.config = { maxDuration: 60 };
 module.exports = async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Método não permitido.' });
   if (!process.env.GEMINI_API_KEY) return res.status(503).json({ error: 'A configuração da inteligência artificial está incompleta no servidor.' });
@@ -150,3 +149,4 @@ module.exports = async function handler(req, res) {
     res.end();
   }
 };
+module.exports.config = { maxDuration: 60 };
