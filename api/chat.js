@@ -1,5 +1,3 @@
-export const config = { maxDuration: 60 };
-
 const SYSTEM_PROMPT = `Tu és o NzingaGPT, a inteligência conversacional da Nzinga Creatives.
 
 IDENTIDADE
@@ -20,9 +18,9 @@ PERSONALIDADE E MÉTODO
 - Não inventes informação para parecer confiante.
 
 FORMATAÇÃO
-- Usa Markdown corretamente: **negrito**, *itálico*, títulos, subtítulos e listas quando forem úteis.
+- Usa Markdown corretamente: negrito, itálico, títulos, subtítulos e listas quando forem úteis.
 - Organiza respostas complexas em secções curtas e legíveis, especialmente no telemóvel.
-- Quando 2 a 4 partes independentes beneficiarem claramente de cartões, usa `:::card Título`, conteúdo em Markdown e `:::`. Máximo de 4 cartões e nunca em respostas simples.
+- Quando 2 a 4 partes independentes beneficiarem claramente de cartões, usa :::card Título, conteúdo em Markdown e :::. Máximo de 4 cartões e nunca em respostas simples.
 - Usa cartões para opções, etapas, resumos, estados, vantagens/riscos e próximos passos.
 - Quando escolhas ajudarem o utilizador a avançar, apresenta 2 a 4 opções claras e adapta a resposta à escolha feita.
 
@@ -51,10 +49,9 @@ Ser uma inteligência própria dentro do ecossistema Nzinga: útil, coerente, cr
 
 async function callGemini(model, contents) {
   const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), 15000);
+  const timer = setTimeout(() => controller.abort(), 25000);
   try {
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:streamGenerateContent?alt=sse`;
-    return await fetch(url, {
+    return await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:streamGenerateContent?alt=sse`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -71,9 +68,10 @@ async function callGemini(model, contents) {
   }
 }
 
-export default async function handler(req, res) {
+module.exports.config = { maxDuration: 60 };
+module.exports = async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Método não permitido.' });
-  if (!process.env.GEMINI_API_KEY) return res.status(503).json({ error: 'NzingaGPT está sem a chave GEMINI_API_KEY no servidor.' });
+  if (!process.env.GEMINI_API_KEY) return res.status(503).json({ error: 'A configuração da inteligência artificial está incompleta no servidor.' });
 
   try {
     const { messages } = req.body || {};
@@ -84,28 +82,34 @@ export default async function handler(req, res) {
       .slice(-24)
       .map(m => ({ role: m.role === 'assistant' ? 'model' : 'user', content: m.content.trim().slice(0, 8000) }))
       .filter(m => m.content);
-
-    if (!safeMessages.length || safeMessages[safeMessages.length - 1].role !== 'user') return res.status(400).json({ error: 'A última mensagem deve ser do utilizador.' });
+    if (!safeMessages.length || safeMessages[safeMessages.length - 1].role !== 'user') {
+      return res.status(400).json({ error: 'A última mensagem deve ser do utilizador.' });
+    }
 
     const contents = safeMessages.map(m => ({ role: m.role, parts: [{ text: m.content }] }));
     let upstream = null;
     let lastError = '';
 
-    for (const model of ['gemini-3.8-flash', 'gemini-3.6-flash']) {
+    for (const model of ['gemini-2.5-flash', 'gemini-2.0-flash']) {
       try {
         const candidate = await callGemini(model, contents);
-        if (candidate.ok && candidate.body) { upstream = candidate; break; }
+        if (candidate.ok && candidate.body) {
+          upstream = candidate;
+          break;
+        }
         const data = await candidate.json().catch(() => ({}));
         lastError = data?.error?.message || `HTTP ${candidate.status}`;
-        console.warn('NzingaGPT Gemini model unavailable:', model, candidate.status, lastError);
+        console.warn('NzingaGPT upstream error:', model, candidate.status, lastError);
         if (![429, 500, 502, 503, 504].includes(candidate.status) && candidate.status !== 404) break;
       } catch (error) {
-        lastError = error?.name === 'AbortError' ? 'Tempo limite da API excedido.' : (error?.message || 'Falha de ligação à API.');
-        console.warn('NzingaGPT Gemini request failed:', model, lastError);
+        lastError = error?.name === 'AbortError' ? 'A ligação à inteligência artificial excedeu o tempo limite.' : (error?.message || 'Falha de ligação à API.');
+        console.warn('NzingaGPT request failed:', model, lastError);
       }
     }
 
-    if (!upstream?.body) return res.status(502).json({ error: `Não foi possível obter uma resposta do Gemini agora. ${lastError}`.trim() });
+    if (!upstream?.body) {
+      return res.status(502).json({ error: 'Não foi possível obter uma resposta agora. ' + lastError });
+    }
 
     res.status(200);
     res.setHeader('Content-Type', 'text/event-stream; charset=utf-8');
@@ -121,10 +125,11 @@ export default async function handler(req, res) {
       if (!raw || raw === '[DONE]') return;
       try {
         const chunk = JSON.parse(raw);
-        const parts = chunk.candidates?.[0]?.content?.parts || [];
-        const delta = parts.map(part => part?.text || '').join('');
-        if (delta) res.write(`data: ${JSON.stringify({ delta })}\n\n`);
-      } catch {}
+        const delta = (chunk.candidates?.[0]?.content?.parts || []).map(part => part?.text || '').join('');
+        if (delta) res.write('data: ' + JSON.stringify({ delta }) + '\n\n');
+      } catch (error) {
+        console.warn('NzingaGPT ignored malformed stream chunk.');
+      }
     };
 
     while (true) {
@@ -140,8 +145,8 @@ export default async function handler(req, res) {
     res.write('event: done\ndata: {}\n\n');
     res.end();
   } catch (error) {
-    console.error('NzingaGPT error:', error);
+    console.error('NzingaGPT handler error:', error);
     if (!res.headersSent) return res.status(500).json({ error: 'Ocorreu um erro ao processar a conversa.' });
     res.end();
   }
-}
+};
