@@ -47,19 +47,21 @@ SEGURANÇA
 OBJETIVO
 Ser uma inteligência própria dentro do ecossistema Nzinga: útil, coerente, criativa, consciente das suas raízes angolanas e capaz de transformar conversa em ação.`;
 
-async function callGemini(model, contents) {
+async function callGemini(input) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), 25000);
   try {
-    return await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:streamGenerateContent?alt=sse`, {
+    return await fetch('https://generativelanguage.googleapis.com/v1beta/interactions?alt=sse', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'x-goog-api-key': process.env.GEMINI_API_KEY
       },
       body: JSON.stringify({
-        systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
-        contents
+        model: 'gemini-3.8-flash',
+        system_instruction: SYSTEM_PROMPT,
+        input,
+        stream: true
       }),
       signal: controller.signal
     });
@@ -85,25 +87,26 @@ module.exports = async function handler(req, res) {
       return res.status(400).json({ error: 'A última mensagem deve ser do utilizador.' });
     }
 
-    const contents = safeMessages.map(m => ({ role: m.role, parts: [{ text: m.content }] }));
-    let upstream = null;
-    let lastError = '';
+    const transcript = safeMessages
+      .map(m => (m.role === 'user' ? 'Utilizador' : 'NzingaGPT') + ': ' + m.content)
+      .join('\n\n');
 
-    for (const model of ['gemini-2.5-flash', 'gemini-2.0-flash']) {
-      try {
-        const candidate = await callGemini(model, contents);
-        if (candidate.ok && candidate.body) {
-          upstream = candidate;
-          break;
-        }
+    let upstream;
+    let lastError = '';
+    try {
+      const candidate = await callGemini(transcript);
+      if (candidate.ok && candidate.body) {
+        upstream = candidate;
+      } else {
         const data = await candidate.json().catch(() => ({}));
         lastError = data?.error?.message || `HTTP ${candidate.status}`;
-        console.warn('NzingaGPT upstream error:', model, candidate.status, lastError);
-        if (![429, 500, 502, 503, 504].includes(candidate.status) && candidate.status !== 404) break;
-      } catch (error) {
-        lastError = error?.name === 'AbortError' ? 'A ligação à inteligência artificial excedeu o tempo limite.' : (error?.message || 'Falha de ligação à API.');
-        console.warn('NzingaGPT request failed:', model, lastError);
+        console.warn('NzingaGPT Interactions API error:', candidate.status, lastError);
       }
+    } catch (error) {
+      lastError = error?.name === 'AbortError'
+        ? 'A ligação à inteligência artificial excedeu o tempo limite.'
+        : (error?.message || 'Falha de ligação à API.');
+      console.warn('NzingaGPT Interactions API request failed:', lastError);
     }
 
     if (!upstream?.body) {
@@ -123,11 +126,14 @@ module.exports = async function handler(req, res) {
       const raw = line.slice(5).trim();
       if (!raw || raw === '[DONE]') return;
       try {
-        const chunk = JSON.parse(raw);
-        const delta = (chunk.candidates?.[0]?.content?.parts || []).map(part => part?.text || '').join('');
-        if (delta) res.write('data: ' + JSON.stringify({ delta }) + '\n\n');
+        const event = JSON.parse(raw);
+        if (event.event_type === 'step.delta' && event.delta?.type === 'text' && typeof event.delta.text === 'string') {
+          res.write('data: ' + JSON.stringify({ delta: event.delta.text }) + '\n\n');
+        } else if (event.event_type === 'error') {
+          console.warn('NzingaGPT stream error event:', event);
+        }
       } catch (error) {
-        console.warn('NzingaGPT ignored malformed stream chunk.');
+        console.warn('NzingaGPT ignored malformed Interactions API stream chunk.');
       }
     };
 
