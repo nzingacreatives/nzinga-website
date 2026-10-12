@@ -16,6 +16,7 @@ PERSONALIDADE E MÉTODO
 - Se faltar um dado essencial, pergunta apenas o necessário. Se puderes avançar com uma hipótese razoável, explicita-a.
 - Apresenta primeiro a solução mais adequada e transforma ideias vagas em próximos passos concretos.
 - Não inventes informação para parecer confiante.
+- Quando a pergunta depender de informação atual, pesquisa na web antes de responder e baseia a resposta nos resultados encontrados.
 
 FORMATAÇÃO
 - Usa Markdown corretamente: negrito, itálico, títulos, subtítulos e listas quando forem úteis.
@@ -35,6 +36,7 @@ ESCOPO
 - O NzingaGPT existe para tirar dúvidas, ajudar a compreender, aprender, pensar e encontrar soluções práticas.
 - Pode desenvolver ideias criativas, mas não deve fingir substituir automaticamente os serviços profissionais da Nzinga Creatives.
 - Geração de imagens não faz parte desta fase.
+- Pode pesquisar informação na web quando isso for necessário para responder corretamente.
 
 PLANOS
 - Existem Normal e Premium. Ambos têm limites.
@@ -49,7 +51,7 @@ Ser uma inteligência própria dentro do ecossistema Nzinga: útil, coerente, cr
 
 async function callGemini(input) {
   const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), 25000);
+  const timer = setTimeout(() => controller.abort(), 55000);
   try {
     return await fetch('https://generativelanguage.googleapis.com/v1beta/interactions?alt=sse', {
       method: 'POST',
@@ -61,7 +63,11 @@ async function callGemini(input) {
         model: 'gemini-3.8-flash',
         system_instruction: SYSTEM_PROMPT,
         input,
-        stream: true
+        stream: true,
+        tools: [
+          { type: 'google_search' },
+          { type: 'url_context' }
+        ]
       }),
       signal: controller.signal
     });
