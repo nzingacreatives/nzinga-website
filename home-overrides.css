@@ -114,3 +114,61 @@
 .nz-work-cta{display:inline-flex;margin-top:48px;padding:16px 22px;border:1px solid #f3c62f;color:#f3c62f;font-size:.55rem;letter-spacing:.14em;font-weight:800}
 @media(max-width:850px){.nz-work-heading{grid-template-columns:1fr;gap:16px}.nz-work-heading>div{align-items:flex-start;flex-direction:column}.nz-work-grid{grid-template-columns:1fr 1fr}.nz-work-card:first-child{grid-column:1/-1}.nz-work-card:first-child .nz-work-visual{height:390px}}
 @media(max-width:560px){.nz-work-section{padding:78px 18px}.nz-work-heading{margin-bottom:36px}.nz-work-grid{grid-template-columns:1fr;gap:32px}.nz-work-card:first-child{grid-column:auto}.nz-work-card:first-child .nz-work-visual,.nz-work-visual{height:300px}.demo-browser{height:70%}.nz-work-meta h3{font-size:1.7rem}}
+
+
+/* Ajuste de marca, proporções e acabamento — revisão solicitada */
+.nz-wordmark{gap:0;flex:0 0 auto}
+.nz-wordmark img{width:58px;height:44px;object-fit:contain;display:block}
+.nz-topbar{gap:clamp(16px,2vw,30px)}
+.nz-hero{min-height:min(780px,calc(100svh - 76px));grid-template-columns:minmax(0,1.02fr) minmax(360px,.98fr);max-width:1600px;margin:0 auto}
+.hero-left{padding:clamp(58px,6.2vw,92px) clamp(28px,5vw,76px);align-self:center}
+.hero-left h1{font-size:clamp(4.2rem,7.2vw,7.8rem);line-height:.88;letter-spacing:-.07em;overflow-wrap:normal;word-break:normal}
+.hero-left h1 span:not(.dot){white-space:nowrap}
+.hero-right{background:var(--black);border-left:0;min-width:0;overflow:hidden}
+.hero-art{width:min(78%,590px)!important;max-width:590px;aspect-ratio:1/1!important}
+.hero-art:before,.hero-art:after{border-radius:50% 46% 54% 42%!important;border-color:rgba(243,198,47,.48)!important}
+.hero-art:after{border-color:rgba(229,43,47,.58)!important}
+.hero-art img{width:88%!important;height:88%!important;object-fit:contain!important;mix-blend-mode:normal!important;transform:none!important;filter:none!important}
+.hero-art .art-index{color:var(--yellow)}
+.hero-art .art-caption{color:var(--white)}
+/* Superfícies arredondadas e consistentes em toda a página */
+.nz-menu,.nz-drawer,.drawer-cta,.square-link,.nz-services-cta,.nz-work-cta,
+.nz-work-visual,.demo-browser,.demo-slides,.nz-service-item,.nz-experimental,
+.nz-experimental summary,.u-card,.about-teaser,.nz-work-card,.nz-topbar,
+.conversion a,.about-teaser-copy a{border-radius:16px}
+.nz-menu{border-radius:12px}
+.nz-drawer{border-radius:0 0 0 18px;overflow:hidden}
+.drawer-cta,.square-link,.nz-services-cta,.nz-work-cta,.conversion a,.about-teaser-copy a{border-radius:12px}
+.nz-work-visual{border-radius:18px}
+.nz-service-item{border-radius:12px;padding-left:16px;padding-right:16px}
+.nz-service-item:hover{padding-left:22px;padding-right:22px}
+.nz-experimental{padding:0 16px}
+.nz-topbar{border-radius:0 0 14px 14px}
+@media(min-width:851px){
+ .nz-hero{min-height:clamp(610px,calc(100svh - 76px),790px)}
+ .hero-left{padding-left:clamp(44px,6vw,96px);padding-right:clamp(22px,3.2vw,52px)}
+ .hero-left h1{font-size:clamp(4.4rem,6.6vw,7.3rem)}
+ .hero-slogan{font-size:clamp(1.45rem,2vw,2rem)}
+ .hero-right{min-height:0}
+ .hero-art{width:min(76%,540px)!important}
+}
+@media(max-width:1050px) and (min-width:851px){
+ .nz-hero{grid-template-columns:minmax(0,1fr) minmax(300px,.9fr)}
+ .hero-left h1{font-size:clamp(4rem,6vw,5.8rem)}
+ .nz-wordmark img{width:50px;height:40px}
+}
+@media(max-width:850px){
+ .nz-hero{min-height:0;grid-template-columns:1fr}
+ .hero-right{min-height:clamp(340px,78vw,540px);background:var(--black);border-top:1px solid var(--line)}
+ .hero-art{width:min(82%,480px)!important}
+ .nz-wordmark img{width:50px;height:40px}
+}
+@media(max-width:600px){
+ .nz-hero{min-height:0}
+ .hero-left{padding:62px 20px 48px}
+ .hero-left h1{font-size:clamp(3.5rem,16vw,5.8rem);line-height:.88}
+ .hero-right{min-height:340px}
+ .hero-art{width:min(88%,380px)!important}
+ .nz-wordmark img{width:44px;height:36px}
+ .nz-service-item{padding:20px 12px}
+}
