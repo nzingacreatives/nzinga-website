@@ -434,3 +434,40 @@
 .nz-home .nz-wordmark span{font-size:.68rem;letter-spacing:.11em}
 @media(max-width:850px){.nz-home .hero-static{min-height:360px}}
 @media(max-width:600px){.nz-home .hero-static{min-height:300px;padding:22px 18px}.nz-home .hero-static-word{font-size:clamp(3rem,15vw,5rem)}.nz-home .hero-static-bottom{font-size:.48rem}}
+
+
+/* Galeria demonstrativa dos serviços na página inicial */
+.nz-service-showcase{margin-top:58px}
+.nz-showcase-heading{display:flex;align-items:baseline;justify-content:space-between;gap:20px;margin-bottom:20px}
+.nz-showcase-heading>span{font-size:.58rem;font-weight:800;letter-spacing:.16em;color:#f3c62f}
+.nz-showcase-heading p{margin:0;color:#d0d4df;font-size:.82rem}
+.nz-showcase-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.nz-showcase-card{min-width:0;background:#101b36;border-radius:16px;overflow:hidden}
+.showcase-art{height:230px;position:relative;overflow:hidden;padding:18px;display:flex;flex-direction:column;justify-content:space-between}
+.showcase-art>span{font-size:.47rem;font-weight:800;letter-spacing:.13em}
+.showcase-art>strong{font:900 clamp(1.7rem,3.5vw,3rem)/.88 'Manrope',sans-serif;letter-spacing:-.07em}
+.showcase-art>i{font-style:normal;font-size:.46rem;font-weight:800;letter-spacing:.12em}
+.art-website{background:#eee9df;color:#101b36}
+.art-website:after{content:"";position:absolute;width:38%;height:62%;right:12%;bottom:0;background:#d71920;transform:skew(-12deg);opacity:.9}
+.art-website>*{position:relative;z-index:1}
+.art-landing{background:#d71920;color:#fff}
+.art-landing:after{content:"";position:absolute;width:130px;height:130px;border:20px solid #f3c62f;right:-18px;bottom:-34px;transform:rotate(35deg)}
+.art-landing>*{position:relative;z-index:1}
+.art-portfolio{background:#d9d5ee;color:#17152b}
+.art-portfolio:after{content:"";position:absolute;width:42%;height:55%;right:10%;top:25%;background:#f3c62f;transform:rotate(8deg)}
+.art-portfolio>*{position:relative;z-index:1}
+.art-logo{background:#f3c62f;color:#101b36;align-items:flex-start}
+.art-logo>b{font:900 clamp(6rem,12vw,9rem)/.8 'Manrope',sans-serif;letter-spacing:-.13em;color:#d71920;align-self:center}
+.art-document{background:#eee9df;color:#101b36}
+.art-document:after{content:"";position:absolute;right:16%;top:24%;width:33%;height:67%;background:repeating-linear-gradient(to bottom,#101b36 0 2px,transparent 2px 13px);opacity:.22}
+.art-document>*{position:relative;z-index:1}
+.art-document>strong{font-size:clamp(1.3rem,2.7vw,2.1rem)}
+.art-graphic{background:#17264a;color:#fff}
+.art-graphic:after{content:"";position:absolute;width:125px;height:125px;right:-12px;top:45px;background:#f3c62f;transform:rotate(24deg)}
+.art-graphic>*{position:relative;z-index:1}
+.art-graphic>strong{color:#f3c62f}
+.nz-showcase-card h3{font:800 1.15rem/1.1 'Manrope',sans-serif;margin:18px 18px 7px}
+.nz-showcase-card p{font-size:.72rem;line-height:1.55;color:#c6cad4;margin:0 18px 20px}
+.nz-showcase-note{font-size:.65rem;color:#b9bdc8;margin:18px 0 0}
+@media(max-width:760px){.nz-showcase-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.nz-showcase-heading{display:block}.nz-showcase-heading p{margin-top:9px}}
+@media(max-width:520px){.nz-showcase-grid{grid-template-columns:1fr}.showcase-art{height:230px}.nz-showcase-card h3{font-size:1.2rem}}
