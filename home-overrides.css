@@ -55,3 +55,26 @@
 @media(min-width:851px){.hero-left{padding:clamp(65px,8vw,115px) clamp(26px,4vw,62px)}.hero-left h1{font-size:clamp(4.5rem,6.6vw,7.8rem)}.hero-right{min-width:0}.hero-art{width:min(76%,540px)!important}}
 @media(max-width:850px){.hero-left h1{font-size:clamp(4.2rem,13vw,7rem)}.hero-abstract{width:min(74%,480px)!important}}
 @media(max-width:600px){.hero-left h1{font-size:clamp(3.25rem,14.7vw,5.2rem);letter-spacing:-.07em;line-height:.88}.hero-left h1 span:not(.dot){white-space:nowrap}.hero-abstract{width:min(76%,390px)!important}.about-teaser{padding:76px 20px}.about-teaser h2{font-size:clamp(3rem,12vw,4.8rem)}}
+
+/* Serviços: separar claramente o que está disponível do que está em exploração */
+.nz-services{background:#090909}
+.nz-services-intro{display:flex;align-items:baseline;justify-content:space-between;gap:24px;margin:70px 0 18px;padding-bottom:18px;border-bottom:1px solid rgba(255,255,255,.25)}
+.nz-services-kicker{font-size:.58rem;letter-spacing:.18em;font-weight:800;color:#f3c62f}
+.nz-services-intro p{font-size:clamp(1rem,1.6vw,1.35rem);font-weight:650;max-width:480px;margin:0}
+.nz-service-list{border-top:1px solid rgba(255,255,255,.25)}
+.nz-service-item{display:grid;grid-template-columns:65px minmax(0,1fr) 100px;align-items:center;gap:20px;padding:26px 8px;border-bottom:1px solid rgba(255,255,255,.25);color:#fff;transition:background .2s,padding .2s}
+.nz-service-item:hover{background:#111d38;padding-left:18px;padding-right:18px}
+.nz-service-item>b{font-size:.72rem;color:#f3c62f;font-weight:700}
+.nz-service-item>span{display:grid;gap:7px}
+.nz-service-item strong{font:800 clamp(1.5rem,3vw,2.5rem)/1.05 'Manrope','DM Sans',sans-serif;letter-spacing:-.045em}
+.nz-service-item small{font-size:.8rem;line-height:1.55;color:#b8b8b8;max-width:560px}
+.nz-service-item i{font-size:.53rem;font-style:normal;letter-spacing:.12em;text-align:right;color:#f3c62f}
+.nz-experimental{margin-top:55px;border-top:1px solid rgba(255,255,255,.25);border-bottom:1px solid rgba(255,255,255,.25)}
+.nz-experimental summary{list-style:none;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 4px;cursor:pointer}
+.nz-experimental summary::-webkit-details-marker{display:none}
+.nz-experimental summary span{font:800 clamp(1.3rem,2.6vw,2.1rem)/1.1 'Manrope','DM Sans',sans-serif}
+.nz-experimental summary b{font-size:.52rem;letter-spacing:.12em;color:#f3c62f}
+.nz-experimental>div{padding:0 4px 28px;color:#c5c5c5;max-width:760px;font-size:.86rem;line-height:1.6}
+.nz-experimental ul{display:flex;flex-wrap:wrap;gap:10px 28px;padding-left:18px}
+.nz-services-cta{display:inline-flex;margin-top:36px;padding:17px 24px;border:1px solid #f3c62f;color:#f3c62f;font-size:.58rem;font-weight:800;letter-spacing:.12em}
+@media(max-width:600px){.nz-services-intro{display:block;margin-top:48px}.nz-services-intro p{margin-top:12px}.nz-service-item{grid-template-columns:34px minmax(0,1fr);gap:12px;padding:22px 2px}.nz-service-item i{grid-column:2;text-align:left;margin-top:3px}.nz-service-item small{font-size:.75rem}.nz-experimental summary{align-items:flex-start;flex-direction:column;gap:9px}.nz-experimental ul{display:block}.nz-experimental li{margin:7px 0}}
