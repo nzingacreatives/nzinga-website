@@ -352,3 +352,31 @@
 .nz-review-note p{color:#c9ced8;line-height:1.7}
 .nz-review-note a{display:inline-flex;margin-top:14px;padding:15px 20px;background:#d71920;color:#fff;border-radius:12px;font-size:.62rem;font-weight:800;letter-spacing:.08em}
 @media(max-width:760px){.nz-why-intro{grid-template-columns:1fr;gap:20px}.why-reasons,.nz-reviews{grid-template-columns:1fr;gap:35px}.why-reasons{padding:76px 20px}.nz-services .nz-service-item{margin:8px 0}}
+
+
+/* CORREÇÃO DE ESTRUTURA E APRESENTAÇÃO — HOME */
+.nz-home .ticker{white-space:normal;overflow:visible}
+.nz-home .ticker>div{display:block;width:100%;padding:14px clamp(18px,5vw,72px);text-align:center;white-space:normal;line-height:1.7;animation:none!important;transform:none!important}
+.nz-home .nz-process-section{background:#17264a;color:#fff}
+.nz-home .nz-process-heading h2{color:#fff}
+.nz-home .nz-process-heading h2 em{color:#f3c62f}
+.nz-home .nz-process-heading>span,.nz-home .nz-process-number{color:#f3c62f}
+.nz-home .nz-process-list{border-color:rgba(255,255,255,.28)}
+.nz-home .nz-process-step{border-color:rgba(255,255,255,.28);background:#101b36}
+.nz-home .nz-process-step h3{color:#fff}
+.nz-home .nz-process-step p{color:#d0d4df}
+.nz-home .nz-process-symbol{display:flex!important;align-items:center;justify-content:center;color:#f3c62f;opacity:1}
+.nz-home .nz-process-symbol svg{display:block;width:40px;height:40px;stroke:currentColor;fill:none}
+.nz-home .nz-process-step:hover{background:#101b36;padding-left:8px;padding-right:8px}
+.nz-home .nz-service-item,.nz-home .nz-work-visual,.nz-home .u-card,.nz-home .nz-review-note{box-shadow:none}
+.nz-home *, .nz-home *::before, .nz-home *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+.nz-home html{scroll-behavior:auto!important}
+.nz-home .nz-service-item:hover,.nz-home .u-card:hover,.nz-home .square-link:hover{transform:none!important}
+@media(max-width:560px){
+ .nz-home .nz-process-step{grid-template-columns:34px minmax(0,1fr) 38px!important;gap:10px;padding:20px 4px}
+ .nz-home .nz-process-symbol{display:flex!important;grid-column:3;grid-row:1;align-self:center}
+ .nz-home .nz-process-symbol svg{width:30px;height:30px}
+ .nz-home .nz-process-step p{font-size:.74rem;line-height:1.55}
+ .nz-home .nz-process-step h3{font-size:1.05rem}
+ .nz-home .ticker>div{padding:12px 16px;font-size:.58rem;letter-spacing:.08em}
+}
