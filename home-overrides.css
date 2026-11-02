@@ -36,3 +36,5 @@
 @media(max-width:1050px){.nz-desktop-nav{gap:12px;margin-right:16px}.nz-desktop-nav a{font-size:.52rem}.nz-topmeta{display:none}}
 @media(max-width:850px){.nz-desktop-nav{display:none}.nz-menu{display:grid!important}.hero-abstract{width:min(92%,620px)!important}.abstract-word{font-size:clamp(10rem,30vw,20rem)}}
 @media(max-width:600px){.hero-slogan{font-size:1.65rem;margin-top:25px}.hero-intro{margin:14px 0 27px}.square-link{min-width:150px;height:56px}.text-cta{font-size:.54rem;margin-left:12px}.hero-abstract{width:94%!important}.abstract-word{font-size:clamp(9rem,35vw,15rem)}.orbit-two{border-width:9px}}
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
