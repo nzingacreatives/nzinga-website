@@ -203,3 +203,47 @@
 .nz-process-symbol{display:flex;align-items:center;justify-content:flex-end;color:#f3c62f}
 .nz-process-symbol svg{width:42px;height:42px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 @media(max-width:560px){.nz-process-symbol{display:none}}
+
+
+/* ACABAMENTO DA HOME — hierarquia, cor e adaptação móvel */
+.nz-desktop-nav a,.nz-drawer>a{display:inline-flex;align-items:center;gap:7px}
+.nz-desktop-nav a small,.nz-drawer>a small{font-size:.58rem;opacity:.62;letter-spacing:.08em}
+.nz-desktop-nav a:hover small,.nz-drawer>a:hover small{color:var(--yellow);opacity:1}
+.hero-intro{max-width:520px;line-height:1.65}
+.hero-left .square-link{display:inline-flex;align-items:center;justify-content:center;min-width:190px;min-height:58px;padding:15px 22px;border-radius:12px;background:var(--red);color:#fff;font-size:.62rem;font-weight:800;letter-spacing:.08em}
+.hero-left .text-cta{display:inline-flex;align-items:center;margin:14px 0 0 16px;padding:12px 0;color:#f3c62f;font-size:.62rem;font-weight:800;letter-spacing:.06em}
+.ticker{background:#101b36;color:#f5f2eb;border-top:1px solid rgba(255,255,255,.12);border-bottom:1px solid rgba(255,255,255,.12)}
+.ticker b{color:#e52b2f}
+.why-guarantee{margin-top:30px;padding:22px 24px;background:#d71920;color:#fff;border-radius:16px;max-width:560px}
+.why-guarantee strong{display:block;font:800 clamp(1.25rem,2vw,1.7rem)/1.1 'Manrope','DM Sans',sans-serif}
+.why-guarantee p{margin-top:9px;color:#ffe9e8;font-size:.8rem;line-height:1.6}
+.nz-services{background:#090909}
+.nz-services .stage-heading h2 em{color:#e52b2f}
+.nz-work-section{background:#101b36}
+.nz-process-section{background:#090909}
+.about-teaser{background:#101b36}
+.universe{background:#eee9df;color:#101010}
+.universe-grid{grid-template-columns:repeat(6,minmax(0,1fr));gap:14px;min-height:0}
+.u-card{grid-column:span 2;min-height:330px!important;margin:0!important;border-radius:18px}
+.u-card:nth-child(4),.u-card:nth-child(5){grid-column:span 3}
+.u-market{background:#d71920;color:#fff}
+.u-raizes{background:#e9b44c;color:#101010}
+.u-espaco{background:#d9d5ee;color:#17152b}
+.u-gpt{background:#101b36;color:#fff}
+.u-surpresa{background:#eee9df;color:#101010;border:1px solid #c7c0b4}
+.u-card strong{max-width:12ch;font-size:clamp(2rem,3.4vw,3.8rem)}
+.conversion{background:#d71920;color:#fff}
+.conversion h2 em{color:#f3c62f}
+.conversion-inner>span{color:#ffe2a5}
+.conversion p{color:#ffe9e8}
+.conversion a{border-color:#fff;color:#fff;border-radius:12px;margin:18px 12px 0 0}
+.conversion a:first-of-type{background:#fff;color:#101010}
+.conversion a.conversion-whatsapp{background:transparent;color:#fff}
+.conversion-inner footer{color:rgba(255,255,255,.75);border-color:rgba(255,255,255,.25)}
+.conversion-inner footer a{display:inline;border:0;padding:0;margin:0;color:#fff;font-size:inherit;letter-spacing:inherit}
+.nz-footer p{margin-top:12px;font-size:.68rem;letter-spacing:0}
+.nz-footer p a{color:#f3c62f}
+.whatsapp-float{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:50;display:inline-flex;align-items:center;justify-content:center;padding:14px 20px;background:#25d366;color:#08210f;border-radius:999px;font-size:.72rem;font-weight:800;box-shadow:0 8px 24px rgba(0,0,0,.32)}
+@media(max-width:850px){.universe-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.u-card,.u-card:nth-child(4),.u-card:nth-child(5){grid-column:auto;min-height:270px!important}.u-card:last-child{grid-column:1/-1}.why-guarantee{margin-top:24px}}
+@media(max-width:600px){.hero-left .square-link{width:100%;min-height:56px}.hero-left .text-cta{margin:12px 0 0 4px}.nz-work-section,.nz-process-section{overflow:hidden}.universe-grid{grid-template-columns:1fr;gap:12px}.u-card,.u-card:nth-child(4),.u-card:nth-child(5),.u-card:last-child{grid-column:1;min-height:235px!important}.u-card strong{font-size:clamp(2.2rem,9vw,3.2rem)}.why-guarantee{padding:18px}.conversion-inner footer{align-items:flex-start}.conversion a{width:100%;justify-content:space-between;margin:12px 0 0}.whatsapp-float{right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));padding:12px 16px}}
+@media(prefers-reduced-motion:reduce){.nz-service-item,.u-card,.whatsapp-float{transition:none!important}}
