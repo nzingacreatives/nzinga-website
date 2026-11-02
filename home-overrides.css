@@ -8,3 +8,31 @@
 .hero-art{width:min(88%,680px)!important;aspect-ratio:1/1!important}.hero-art img{width:88%!important;height:92%!important;object-fit:contain!important;object-position:center center!important;mix-blend-mode:screen!important;transform:scale(1.08)!important}
 @media(max-width:850px){.stage-heading{grid-template-columns:50px minmax(0,1fr)}.service-poster{grid-template-columns:55px minmax(0,1fr);padding:40px 28px}.service-poster h3{grid-column:1/-1;font-size:clamp(4rem,12vw,7rem);max-width:100%}.hero-art{width:min(92%,620px)!important}.hero-art img{width:90%!important;height:94%!important}}
 @media(max-width:600px){.nz-topbar{height:68px}.nz-drawer{top:68px}.nz-wordmark img{width:35px;height:30px}.nz-menu{width:36px!important;height:32px!important}.hero-left{padding:70px 20px 60px}.hero-left h1{font-size:clamp(4rem,18vw,6.8rem);line-height:.8;letter-spacing:-.055em}.hero-intro{font-size:.88rem;margin:32px 0}.hero-right{min-height:430px}.hero-art{width:min(94%,460px)!important}.hero-art img{width:92%!important;height:94%!important;transform:scale(1.05)!important}.art-cross{font-size:2rem}.art-caption{font-size:.45rem}.statement h2{font-size:clamp(3.5rem,15vw,6.5rem)}.service-stage{padding:80px 14px}.stage-heading{grid-template-columns:1fr;gap:14px;margin-bottom:35px}.stage-heading>span{font-size:.6rem}.stage-heading h2{font-size:clamp(3.7rem,15vw,6rem)}.stage-heading p{grid-column:auto;max-width:300px}.service-poster{min-height:470px;padding:30px 22px;grid-template-columns:42px minmax(0,1fr);gap:18px}.poster-number{font-size:.9rem}.poster-label{font-size:.48rem;letter-spacing:.15em;line-height:1.35}.service-poster h3{font-size:clamp(3.25rem,15vw,5.5rem);line-height:.8;letter-spacing:-.055em;max-width:100%;overflow-wrap:anywhere}.service-poster p{font-size:.75rem;max-width:88%;line-height:1.55}.service-poster .poster-link{font-size:.52rem;padding:11px 13px}.poster-shape{font-size:12rem}.manifesto-big{font-size:clamp(4.2rem,17vw,7rem)}.universe-head h2{font-size:clamp(3.7rem,15vw,6rem)}.u-card strong{font-size:clamp(2.4rem,10vw,4rem)}.why-copy h2{font-size:clamp(3.8rem,15vw,6rem)}.about-teaser h2{font-size:clamp(3.7rem,15vw,6rem)}.conversion h2{font-size:clamp(4.3rem,17vw,7rem)}}
+
+/* HOME REFRESH — hero abstracto e navegação responsiva */
+.nz-desktop-nav{display:flex;align-items:center;gap:clamp(12px,1.7vw,28px);margin-left:auto;margin-right:clamp(18px,3vw,48px)}
+.nz-desktop-nav a{font-size:.58rem;font-weight:700;letter-spacing:.06em;color:#e8e5de;white-space:nowrap;transition:color .2s}
+.nz-desktop-nav a:hover{color:var(--yellow)}
+.nz-menu{display:none!important}
+.hero-left h1{font-family:'Manrope','DM Sans',Arial,sans-serif;font-weight:900;letter-spacing:-.075em;line-height:.82}
+.hero-left h1 span:not(.dot){color:#f3c62f}
+.hero-slogan{font:800 clamp(1.5rem,2.4vw,2.5rem)/1.05 'Manrope','DM Sans',sans-serif;letter-spacing:-.045em;margin:30px 0 0;color:#fff}
+.hero-intro{margin:16px 0 32px}
+.square-link{width:auto;min-width:174px;height:62px;padding:0 20px;justify-content:center;font-size:.58rem;line-height:1.3}
+.square-link b{display:none}
+.text-cta{margin-left:18px}
+.hero-abstract{width:min(86%,650px)!important;aspect-ratio:1.12/1!important;isolation:isolate}
+.hero-abstract:before,.hero-abstract:after{content:none!important}
+.abstract-word{position:absolute;z-index:1;font:900 clamp(12rem,28vw,26rem)/.7 'Manrope','DM Sans',sans-serif;letter-spacing:-.13em;color:#f1eadb;transform:rotate(-9deg);left:5%;top:27%}
+.abstract-orbit{position:absolute;display:block;border:2px solid #f3c62f;transform:rotate(-24deg);z-index:0}
+.orbit-one{width:84%;height:58%;left:7%;top:20%;border-radius:48% 52% 43% 57%}
+.orbit-two{width:64%;height:94%;left:20%;top:2%;border-color:#e52b2f;border-width:14px;border-radius:55% 45% 60% 40%;transform:rotate(32deg)}
+.abstract-block{position:absolute;display:block;z-index:2}
+.block-red{width:22%;height:22%;right:8%;top:7%;background:#e52b2f;transform:rotate(17deg);border-radius:44% 56% 18% 82%}
+.block-yellow{width:18%;height:18%;left:4%;bottom:8%;background:#f3c62f;transform:rotate(-13deg);border-radius:60% 40% 55% 45%}
+.abstract-cut{position:absolute;z-index:3;width:30%;height:12%;right:2%;bottom:19%;background:#101b36;transform:rotate(-38deg);border:1px solid rgba(255,255,255,.25)}
+.hero-abstract .art-index{z-index:4;top:2%;left:2%;color:#f3c62f}
+.hero-abstract .art-caption{z-index:4;bottom:0;right:0;color:#fff}
+@media(max-width:1050px){.nz-desktop-nav{gap:12px;margin-right:16px}.nz-desktop-nav a{font-size:.52rem}.nz-topmeta{display:none}}
+@media(max-width:850px){.nz-desktop-nav{display:none}.nz-menu{display:grid!important}.hero-abstract{width:min(92%,620px)!important}.abstract-word{font-size:clamp(10rem,30vw,20rem)}}
+@media(max-width:600px){.hero-slogan{font-size:1.65rem;margin-top:25px}.hero-intro{margin:14px 0 27px}.square-link{min-width:150px;height:56px}.text-cta{font-size:.54rem;margin-left:12px}.hero-abstract{width:94%!important}.abstract-word{font-size:clamp(9rem,35vw,15rem)}.orbit-two{border-width:9px}}
