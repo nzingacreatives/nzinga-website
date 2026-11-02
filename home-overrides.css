@@ -198,3 +198,8 @@
 .nz-work-logo .nz-work-visual>small{position:absolute;bottom:18px;color:#090909}
 @media(max-width:850px){.nz-process-heading{grid-template-columns:1fr;gap:16px}.nz-process-heading>div{align-items:flex-start;flex-direction:column}.nz-process-step{grid-template-columns:54px minmax(0,1fr) 54px;gap:12px}}
 @media(max-width:560px){.nz-process-section{padding:76px 18px}.nz-process-heading{margin-bottom:35px}.nz-process-step{grid-template-columns:36px minmax(0,1fr);padding:22px 4px}.nz-process-symbol{display:none}.nz-process-step h3{font-size:1.35rem}.nz-process-step p{font-size:.73rem}.demo-mark{width:84%;height:68%}}
+
+/* Ícones lineares para orientar visualmente as etapas */
+.nz-process-symbol{display:flex;align-items:center;justify-content:flex-end;color:#f3c62f}
+.nz-process-symbol svg{width:42px;height:42px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+@media(max-width:560px){.nz-process-symbol{display:none}}
