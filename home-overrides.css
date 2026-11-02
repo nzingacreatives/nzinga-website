@@ -483,3 +483,8 @@
  .nz-home.menu-open:before{top:68px}
  .nz-home .nz-drawer{top:68px;max-height:calc(100dvh - 68px)}
 }
+
+/* Menu móvel: impedir que o conteúdo fique por trás do drawer e permitir rolagem. */
+body.menu-open{overflow:hidden!important}
+@media(max-width:850px){.nz-home .nz-drawer{overflow-x:hidden!important;overflow-y:auto!important;max-height:calc(100dvh - 76px);overscroll-behavior:contain;-webkit-overflow-scrolling:touch}.nz-home.menu-open:before{content:"";position:fixed;inset:76px 0 0;background:rgba(0,0,0,.62);z-index:135;pointer-events:auto}}
+@media(max-width:520px){.nz-home.menu-open:before{top:68px}.nz-home .nz-drawer{max-height:calc(100dvh - 68px)}}
