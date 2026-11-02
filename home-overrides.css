@@ -38,3 +38,20 @@
 @media(max-width:600px){.hero-slogan{font-size:1.65rem;margin-top:25px}.hero-intro{margin:14px 0 27px}.square-link{min-width:150px;height:56px}.text-cta{font-size:.54rem;margin-left:12px}.hero-abstract{width:94%!important}.abstract-word{font-size:clamp(9rem,35vw,15rem)}.orbit-two{border-width:9px}}
 
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+
+/* Ajustes de identidade e composição — novembro 2026 */
+.nz-wordmark span,.nz-wordmark i{font-family:'Manrope','DM Sans',sans-serif}
+.nz-wordmark span{font-weight:900;letter-spacing:.075em}
+.nz-wordmark i{font-weight:800;letter-spacing:.16em}
+.nz-hero{grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr)}
+.hero-left h1{font-family:'Manrope','DM Sans',sans-serif;font-size:clamp(4.4rem,7.2vw,8.2rem);line-height:.86;letter-spacing:-.075em;overflow-wrap:normal;word-break:normal}
+.hero-left h1 span:not(.dot){white-space:nowrap;color:#f3c62f}
+.hero-abstract{width:min(78%,570px)!important;aspect-ratio:1/1!important;background:transparent}
+.hero-abstract img{display:block!important;width:100%!important;height:100%!important;object-fit:contain!important;mix-blend-mode:normal!important;transform:none!important;filter:drop-shadow(0 18px 24px rgba(0,0,0,.22))}
+.hero-abstract .art-index{top:0;left:0}.hero-abstract .art-caption{bottom:0;right:0}
+.about-teaser{background:#101b36;position:relative;overflow:hidden}
+.about-teaser:after{content:"";position:absolute;width:36vw;height:36vw;max-width:440px;max-height:440px;border:1px solid rgba(243,198,47,.3);border-radius:48% 52% 42% 58%;right:-9%;top:-28%;transform:rotate(25deg);pointer-events:none}
+.about-teaser-copy{position:relative;z-index:1}.about-teaser-copy p{max-width:540px}
+@media(min-width:851px){.hero-left{padding:clamp(65px,8vw,115px) clamp(26px,4vw,62px)}.hero-left h1{font-size:clamp(4.5rem,6.6vw,7.8rem)}.hero-right{min-width:0}.hero-art{width:min(76%,540px)!important}}
+@media(max-width:850px){.hero-left h1{font-size:clamp(4.2rem,13vw,7rem)}.hero-abstract{width:min(74%,480px)!important}}
+@media(max-width:600px){.hero-left h1{font-size:clamp(3.25rem,14.7vw,5.2rem);letter-spacing:-.07em;line-height:.88}.hero-left h1 span:not(.dot){white-space:nowrap}.hero-abstract{width:min(76%,390px)!important}.about-teaser{padding:76px 20px}.about-teaser h2{font-size:clamp(3rem,12vw,4.8rem)}}
