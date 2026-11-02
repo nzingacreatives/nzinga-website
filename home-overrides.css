@@ -471,3 +471,15 @@
 .nz-showcase-note{font-size:.65rem;color:#b9bdc8;margin:18px 0 0}
 @media(max-width:760px){.nz-showcase-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.nz-showcase-heading{display:block}.nz-showcase-heading p{margin-top:9px}}
 @media(max-width:520px){.nz-showcase-grid{grid-template-columns:1fr}.showcase-art{height:230px}.nz-showcase-card h3{font-size:1.2rem}}
+
+/* Menu móvel: camada, rolagem e fecho previsíveis. */
+@media(max-width:850px){
+ .nz-home.menu-open{overflow:hidden!important}
+ .nz-home.menu-open:before{content:"";position:fixed;inset:76px 0 0;background:rgba(0,0,0,.62);z-index:125}
+ .nz-home .nz-topbar{z-index:150}
+ .nz-home .nz-drawer{z-index:145;max-height:calc(100dvh - 76px);overflow-x:hidden!important;overflow-y:auto!important;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+}
+@media(max-width:520px){
+ .nz-home.menu-open:before{top:68px}
+ .nz-home .nz-drawer{top:68px;max-height:calc(100dvh - 68px)}
+}
