@@ -247,3 +247,48 @@
 @media(max-width:850px){.universe-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.u-card,.u-card:nth-child(4),.u-card:nth-child(5){grid-column:auto;min-height:270px!important}.u-card:last-child{grid-column:1/-1}.why-guarantee{margin-top:24px}}
 @media(max-width:600px){.hero-left .square-link{width:100%;min-height:56px}.hero-left .text-cta{margin:12px 0 0 4px}.nz-work-section,.nz-process-section{overflow:hidden}.universe-grid{grid-template-columns:1fr;gap:12px}.u-card,.u-card:nth-child(4),.u-card:nth-child(5),.u-card:last-child{grid-column:1;min-height:235px!important}.u-card strong{font-size:clamp(2.2rem,9vw,3.2rem)}.why-guarantee{padding:18px}.conversion-inner footer{align-items:flex-start}.conversion a{width:100%;justify-content:space-between;margin:12px 0 0}.whatsapp-float{right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));padding:12px 16px}}
 @media(prefers-reduced-motion:reduce){.nz-service-item,.u-card,.whatsapp-float{transition:none!important}}
+
+/* BLOCOS DE COR — hierarquia visual sem repetir mensagens */
+:root{
+  --nc-red:#d71920;
+  --nc-yellow:#f3c62f;
+  --nc-blue:#17264a;
+  --nc-lilac:#d9d5ee;
+  --nc-paper:#eee9df;
+}
+.nz-services .stage-heading h2{color:#f5f2eb}
+.nz-services .stage-heading h2 em{color:var(--nc-yellow)}
+.nz-services-intro{border-color:rgba(255,255,255,.2)}
+.nz-services-kicker,.nz-service-item>b,.nz-service-item i{color:var(--nc-yellow)}
+.nz-service-item:hover{background:var(--nc-blue)}
+.why{background:var(--nc-yellow);color:#111}
+.why .eyebrow.dark,.why-copy h2,.why-sign p{color:#111}
+.why-copy h2 em{color:var(--nc-red)}
+.reasons article{border-color:rgba(17,17,17,.22)}
+.reasons article>b{color:var(--nc-red)}
+.reasons article h3,.reasons article p{color:#111}
+.why-guarantee{background:var(--nc-red);color:#fff}
+.nz-work-section{background:var(--nc-blue)}
+.nz-work-web .nz-work-visual{background:var(--nc-red)}
+.nz-work-logo .nz-work-visual{background:var(--nc-yellow)}
+.nz-work-deck .nz-work-visual{background:var(--nc-lilac)}
+.nz-work-deck .demo-slides{background:var(--nc-paper)}
+.nz-process-section{background:#0b0b0b}
+.nz-process-heading h2 em{color:var(--nc-yellow)}
+.nz-process-number,.nz-process-heading>span{color:var(--nc-yellow)}
+.about-teaser{background:var(--nc-blue);color:#fff}
+.about-teaser h2 em{color:var(--nc-yellow)}
+.universe{background:var(--nc-paper);color:#111}
+.u-market{background:var(--nc-red);color:#fff}
+.u-raizes{background:var(--nc-yellow);color:#111}
+.u-espaco{background:var(--nc-lilac);color:#17152b}
+.u-gpt{background:var(--nc-blue);color:#fff}
+.u-surpresa{background:#fff;color:#111;border:1px solid #c7c0b4}
+.conversion{background:var(--nc-red);color:#fff}
+.conversion h2 em{color:var(--nc-yellow)}
+.nz-footer{background:#090909}
+@media(max-width:600px){
+  .why{padding:72px 20px}
+  .why-guarantee{border-radius:14px}
+  .nz-work-visual{border-radius:16px}
+}
