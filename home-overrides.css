@@ -292,3 +292,30 @@
   .why-guarantee{border-radius:14px}
   .nz-work-visual{border-radius:16px}
 }
+
+
+/* TIPOGRAFIA OFICIAL DA NZINGA CREATIVES: MANROPE + INTER */
+.nz-home, .nz-home body, .nz-home p, .nz-home a, .nz-home small,
+.nz-home button, .nz-home input, .nz-home summary, .nz-home li,
+.nz-home .eyebrow, .nz-home .ticker, .nz-home .nz-topmeta,
+.nz-home .nz-drawer, .nz-home .nz-footer {
+  font-family:'Inter',Arial,sans-serif!important;
+}
+.nz-home h1,.nz-home h2,.nz-home h3,.nz-home h4,
+.nz-home .hero-left h1,.nz-home .hero-slogan,
+.nz-home .stage-heading h2,.nz-home .why-copy h2,
+.nz-home .nz-work-heading h2,.nz-home .nz-work-meta h3,
+.nz-home .nz-process-heading h2,.nz-home .nz-process-step h3,
+.nz-home .about-teaser h2,.nz-home .universe-head h2,
+.nz-home .u-card strong,.nz-home .conversion h2,
+.nz-home .nz-experimental summary span,
+.nz-home .nz-service-item strong,.nz-home .why-guarantee strong {
+  font-family:'Manrope',Arial,sans-serif!important;
+  font-weight:800;
+}
+.nz-home .hero-left h1,.nz-home .stage-heading h2,
+.nz-home .why-copy h2,.nz-home .nz-work-heading h2,
+.nz-home .nz-process-heading h2,.nz-home .about-teaser h2,
+.nz-home .universe-head h2,.nz-home .conversion h2 {
+  font-weight:800!important;
+}
