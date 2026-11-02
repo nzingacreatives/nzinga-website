@@ -319,3 +319,36 @@
 .nz-home .universe-head h2,.nz-home .conversion h2 {
   font-weight:800!important;
 }
+
+
+/* Nova arquitectura editorial da página inicial */
+.nz-why-intro{background:#d9d5ee;color:#17152b;padding:clamp(76px,9vw,120px) clamp(20px,6vw,100px);display:grid;grid-template-columns:150px 1fr;gap:32px;align-items:start}
+.nz-why-intro>span,.why-reasons-heading>span,.nz-reviews-head>span{font-size:.62rem;font-weight:800;letter-spacing:.16em;color:#d71920}
+.nz-why-intro h2,.why-reasons-heading h2,.nz-reviews-head h2{font:800 clamp(3.2rem,7vw,6.8rem)/.9 'Manrope',sans-serif;letter-spacing:-.065em;margin:0 0 22px}
+.nz-why-intro h2 em,.nz-reviews-head h2 em{font-style:normal;color:#d71920}
+.nz-why-intro p{max-width:600px;font-size:1rem;line-height:1.8;color:#38344a;margin:0}
+.why-reasons{background:#e52b2f;color:#fff;padding:clamp(76px,9vw,120px) clamp(20px,6vw,100px);display:grid;grid-template-columns:.9fr 1.1fr;gap:60px}
+.why-reasons-heading>span{color:#ffe5a0}
+.why-reasons-heading h2{margin-top:28px}
+.why-reasons-heading p{max-width:390px;color:#ffe9e8;line-height:1.7}
+.why-reasons .reasons article{border-color:rgba(255,255,255,.35)}
+.why-reasons .reasons article>b{color:#f3c62f}
+.why-reasons .reasons article h3,.why-reasons .reasons article p{color:#fff}
+.why-reasons .why-guarantee{background:#101b36}
+.nz-services{background:#17264a}
+.nz-services .stage-heading h2{color:#fff}
+.nz-services .stage-heading h2 em{color:#f3c62f}
+.nz-services .nz-service-item{background:#d9d5ee;color:#17152b;border:0;margin:10px 0}
+.nz-services .nz-service-item small{color:#4c4960}
+.nz-services .nz-service-item>b,.nz-services .nz-service-item i{color:#d71920}
+.nz-services .nz-service-item:hover{background:#f3c62f}
+.nz-services .nz-experimental{border-color:rgba(255,255,255,.3);background:#101b36;color:#fff}
+.nz-services .nz-experimental summary b{color:#f3c62f}
+.nz-reviews{background:#f3c62f;color:#111;padding:clamp(76px,9vw,120px) clamp(20px,6vw,100px);display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:end}
+.nz-reviews-head h2{margin-top:28px}
+.nz-reviews-head>p{max-width:520px;line-height:1.75;color:#3e3929}
+.nz-review-note{background:#101b36;color:#fff;border-radius:18px;padding:clamp(26px,4vw,48px)}
+.nz-review-note strong{font:800 clamp(1.5rem,2.8vw,2.3rem)/1.1 'Manrope',sans-serif}
+.nz-review-note p{color:#c9ced8;line-height:1.7}
+.nz-review-note a{display:inline-flex;margin-top:14px;padding:15px 20px;background:#d71920;color:#fff;border-radius:12px;font-size:.62rem;font-weight:800;letter-spacing:.08em}
+@media(max-width:760px){.nz-why-intro{grid-template-columns:1fr;gap:20px}.why-reasons,.nz-reviews{grid-template-columns:1fr;gap:35px}.why-reasons{padding:76px 20px}.nz-services .nz-service-item{margin:8px 0}}
