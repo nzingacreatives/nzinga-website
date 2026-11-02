@@ -380,3 +380,43 @@
  .nz-home .nz-process-step h3{font-size:1.05rem}
  .nz-home .ticker>div{padding:12px 16px;font-size:.58rem;letter-spacing:.08em}
 }
+
+/* AJUSTES CONTROLADOS — identidade no topo e hero em motion */
+.nz-home .nz-wordmark{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nz-home .nz-wordmark img{width:48px;height:38px;flex:0 0 auto}
+.nz-home .nz-wordmark span{font:800 .62rem/1.12 'Manrope',Arial,sans-serif;letter-spacing:.13em;color:#f5f2eb;white-space:nowrap}
+.nz-home .nz-menu .menu-bars{width:19px;gap:5px}
+.nz-home .nz-menu .menu-bars i{height:2px;width:100%;display:block;background:#fff}
+.nz-home .nz-menu .menu-bars i:last-child{width:65%;align-self:flex-end}
+.nz-home .hero-motion{position:relative;display:flex;flex-direction:column;justify-content:space-between;gap:16px;padding:clamp(22px,3vw,42px);min-height:100%;overflow:hidden;background:#101b36;color:#f5f2eb}
+.nz-home .motion-topline,.nz-home .motion-bottomline{display:flex;justify-content:space-between;gap:12px;font:800 .5rem/1.4 'Inter',sans-serif;letter-spacing:.13em;color:#f3c62f}
+.nz-home .motion-stage{position:relative;display:grid;place-items:center;flex:1;min-height:390px;isolation:isolate}
+.nz-home .motion-piece{position:absolute;width:min(66%,390px);height:78%;min-height:270px;border-radius:14px;overflow:hidden;box-shadow:0 22px 55px rgba(0,0,0,.32);will-change:transform}
+.nz-home .motion-label{position:absolute;z-index:3;left:15px;top:14px;font:800 .48rem/1 'Inter',sans-serif;letter-spacing:.13em;color:#f5f2eb}
+.nz-home .motion-web{z-index:1;left:3%;top:11%;background:#d71920;transform:rotate(-8deg);animation:nzWebDrift 10s ease-in-out infinite!important}
+.nz-home .motion-browser{position:absolute;inset:18% 9% 10%;background:#eee9df;color:#101010;border-radius:8px;overflow:hidden}
+.nz-home .motion-browser-bar{height:24px;background:#101b36;display:flex;align-items:center;gap:4px;padding:0 9px}
+.nz-home .motion-browser-bar i{width:5px;height:5px;border-radius:50%;background:#f3c62f}
+.nz-home .motion-browser-bar b{margin-left:auto;color:#fff;font:800 .42rem 'Inter',sans-serif;letter-spacing:.12em}
+.nz-home .motion-web-copy{padding:15% 9%}
+.nz-home .motion-web-copy small{font-size:.48rem;font-weight:800;letter-spacing:.14em}
+.nz-home .motion-web-copy strong{display:block;margin-top:10px;font:900 clamp(1.8rem,4vw,3.5rem)/.82 'Manrope',sans-serif;letter-spacing:-.08em}
+.nz-home .motion-web-copy span{display:block;width:45%;height:8px;margin-top:20px;background:#d71920}
+.nz-home .motion-identity{z-index:2;left:34%;top:7%;background:#f3c62f;color:#101010;transform:rotate(5deg);animation:nzIdentityDrift 9s ease-in-out infinite!important}
+.nz-home .motion-identity-mark{position:absolute;inset:20% 0 10%;display:grid;place-items:center;font:900 clamp(8rem,17vw,14rem)/.8 'Manrope',sans-serif;letter-spacing:-.13em}
+.nz-home .motion-identity-mark span{color:#d71920}
+.nz-home .motion-identity-foot{position:absolute;bottom:14px;left:15px;font:800 .45rem 'Inter',sans-serif;letter-spacing:.12em}
+.nz-home .motion-editorial{z-index:3;right:1%;top:17%;width:43%;height:65%;min-height:230px;background:#d9d5ee;color:#17152b;transform:rotate(8deg);animation:nzEditorialDrift 11s ease-in-out infinite!important}
+.nz-home .motion-editorial-sheet{position:absolute;inset:17% 10% 10%;padding:12px;background:#eee9df}
+.nz-home .motion-editorial-sheet small{font-size:.4rem;font-weight:800;letter-spacing:.1em}
+.nz-home .motion-editorial-sheet strong{display:block;margin-top:12px;font:900 clamp(1.3rem,3vw,2.6rem)/.83 'Manrope',sans-serif;letter-spacing:-.07em}
+.nz-home .motion-editorial-sheet em{font-style:normal;color:#d71920}
+.nz-home .motion-editorial-sheet i{position:absolute;width:38px;height:38px;right:10px;bottom:10px;background:#f3c62f;transform:rotate(20deg)}
+.nz-home .motion-stamp{position:absolute;z-index:4;right:3%;bottom:3%;width:62px;height:62px;display:grid;place-content:center;text-align:center;border:1px solid #f5f2eb;border-radius:50%;font:800 .5rem/1.1 'Manrope',sans-serif;letter-spacing:.12em;background:#101b36}
+.nz-home .motion-stamp b{color:#f3c62f;font-size:1.2rem}
+@keyframes nzWebDrift{0%,100%{transform:translate3d(0,0,0) rotate(-8deg)}50%{transform:translate3d(-5px,-12px,0) rotate(-5deg)}}
+@keyframes nzIdentityDrift{0%,100%{transform:translate3d(0,0,0) rotate(5deg)}50%{transform:translate3d(0,12px,0) rotate(2deg)}}
+@keyframes nzEditorialDrift{0%,100%{transform:translate3d(0,0,0) rotate(8deg)}50%{transform:translate3d(5px,-9px,0) rotate(5deg)}}
+@media(max-width:850px){.nz-home .hero-motion{min-height:460px}.nz-home .motion-stage{min-height:350px}.nz-home .motion-piece{width:65%;height:76%}}
+@media(max-width:600px){.nz-home .nz-wordmark img{width:40px;height:33px}.nz-home .nz-wordmark span{font-size:.55rem;letter-spacing:.1em}.nz-home .hero-motion{min-height:410px;padding:18px 15px}.nz-home .motion-stage{min-height:310px}.nz-home .motion-piece{min-height:220px;width:67%}.nz-home .motion-editorial{width:44%;min-height:205px}.nz-home .motion-stamp{width:48px;height:48px;font-size:.42rem}.nz-home .motion-bottomline{font-size:.43rem}}
+@media(prefers-reduced-motion:reduce){.nz-home .motion-piece{animation:none!important}}
