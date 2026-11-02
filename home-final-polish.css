@@ -1,0 +1,20 @@
+/* Nzinga Creatives — final visual polish / no decorative motion */
+.nz-home *,.nz-home *::before,.nz-home *::after{animation:none!important;transition:none!important}
+.nz-home .nz-process-section{background:#101b36!important;color:#fff!important}
+.nz-home .nz-process-heading>span{color:#f3c62f!important}
+.nz-home .nz-process-heading h2{color:#fff!important}
+.nz-home .nz-process-heading h2 em{color:#f3c62f!important;font-style:normal}
+.nz-home .nz-process-heading p{color:#c6cad3!important}
+.nz-home .nz-process-list{border-top:1px solid rgba(255,255,255,.22)!important}
+.nz-home .nz-process-step{border-bottom:1px solid rgba(255,255,255,.22)!important;background:transparent!important;padding:28px 0!important}
+.nz-home .nz-process-number{color:#f3c62f!important;font-weight:800!important}
+.nz-home .nz-process-step h3{color:#fff!important}
+.nz-home .nz-process-step p{color:#c6cad3!important}
+.nz-home .nz-process-symbol{display:flex!important;align-items:center;justify-content:flex-end;color:#e52b2f!important;opacity:1!important}
+.nz-home .nz-process-symbol svg{width:42px!important;height:42px!important;display:block!important;stroke:currentColor!important;fill:none!important;stroke-width:2!important;stroke-linecap:square!important;stroke-linejoin:miter!important}
+.nz-home .about-teaser:after,.nz-home .conversion-pattern,.nz-home .hero-abstract,.nz-home .hero-art:before,.nz-home .hero-art:after{display:none!important}
+.nz-home .hero-right{background:#101b36!important}
+.nz-home .demo-mark,.nz-home .demo-browser,.nz-home .demo-slides{border-radius:0!important}
+.nz-home .demo-mark-orbit,.nz-home .demo-mark-dot{display:none!important}
+.nz-home .nz-service-item:hover{background:#101b36!important;padding-left:8px!important;padding-right:8px!important}
+@media(max-width:560px){.nz-home .nz-process-step{grid-template-columns:36px minmax(0,1fr)!important}.nz-home .nz-process-symbol{display:none!important}}
