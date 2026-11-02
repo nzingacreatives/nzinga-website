@@ -78,3 +78,39 @@
 .nz-experimental ul{display:flex;flex-wrap:wrap;gap:10px 28px;padding-left:18px}
 .nz-services-cta{display:inline-flex;margin-top:36px;padding:17px 24px;border:1px solid #f3c62f;color:#f3c62f;font-size:.58rem;font-weight:800;letter-spacing:.12em}
 @media(max-width:600px){.nz-services-intro{display:block;margin-top:48px}.nz-services-intro p{margin-top:12px}.nz-service-item{grid-template-columns:34px minmax(0,1fr);gap:12px;padding:22px 2px}.nz-service-item i{grid-column:2;text-align:left;margin-top:3px}.nz-service-item small{font-size:.75rem}.nz-experimental summary{align-items:flex-start;flex-direction:column;gap:9px}.nz-experimental ul{display:block}.nz-experimental li{margin:7px 0}}
+
+/* Portfólio: exemplos identificados, sem simular clientes reais */
+.nz-work-section{background:#101b36;padding:clamp(82px,10vw,140px) clamp(18px,5vw,72px);color:#fff}
+.nz-work-heading{display:grid;grid-template-columns:100px 1fr;gap:28px;margin-bottom:58px}
+.nz-work-heading>span{font-size:.62rem;letter-spacing:.16em;font-weight:800;color:#f3c62f}
+.nz-work-heading>div{display:flex;justify-content:space-between;align-items:end;gap:30px}
+.nz-work-heading h2{font:900 clamp(3.6rem,8vw,7.5rem)/.85 'Manrope','DM Sans',sans-serif;letter-spacing:-.075em;margin:0}
+.nz-work-heading h2 em{font-style:normal;color:#f3c62f}
+.nz-work-heading p{max-width:360px;color:#c1c4cb;font-size:.8rem;line-height:1.65;margin:0}
+.nz-work-grid{display:grid;grid-template-columns:1.2fr .8fr .8fr;gap:18px;align-items:start}
+.nz-work-card{min-width:0}
+.nz-work-visual{height:clamp(260px,32vw,430px);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:22px}
+.demo-tag{position:absolute;top:18px;left:18px;z-index:2;font-size:.48rem;letter-spacing:.13em;font-weight:800;color:#fff;background:#090909;padding:9px 11px}
+.demo-browser{width:86%;height:74%;background:#f1eee7;color:#101010;padding:18px;display:flex;flex-direction:column;align-items:flex-start;box-shadow:14px 16px 0 rgba(0,0,0,.2)}
+.demo-browser i{display:inline-block;width:6px;height:6px;border-radius:50%;background:#d71920;margin-right:5px}
+.demo-browser b{font-size:.48rem;letter-spacing:.16em;margin-top:28px}
+.demo-browser strong{font:900 clamp(1.8rem,4vw,3.7rem)/.9 'Manrope',sans-serif;letter-spacing:-.07em;margin-top:22px}
+.demo-browser small,.nz-work-visual>small{font-size:.46rem;letter-spacing:.15em;margin-top:auto}
+.nz-work-web .nz-work-visual{background:#d71920}
+.nz-work-logo .nz-work-visual{background:#f3c62f;color:#090909;flex-direction:column}
+.demo-monogram{font:900 clamp(8rem,18vw,15rem)/.8 'Manrope',sans-serif;letter-spacing:-.13em}
+.demo-monogram span{color:#d71920}
+.nz-work-logo .demo-tag{background:#090909;color:#fff}
+.demo-slides{position:relative;width:82%;height:72%;display:flex;align-items:center;justify-content:center;background:#e9e5dc;color:#101b36;box-shadow:12px 14px 0 rgba(0,0,0,.2)}
+.demo-slides i{position:absolute;width:42%;height:56%;background:#d71920;right:-8%;top:10%;transform:rotate(12deg)}
+.demo-slides i:nth-child(2){background:#101b36;right:8%;top:24%;transform:rotate(-9deg)}
+.demo-slides i:nth-child(3){background:#f3c62f;right:23%;top:36%;transform:rotate(5deg)}
+.demo-slides b{position:relative;z-index:1;font:900 clamp(1.3rem,3vw,2.6rem)/.9 'Manrope',sans-serif;letter-spacing:-.06em;margin-right:auto;margin-left:10%}
+.nz-work-deck .nz-work-visual{background:#d71920}
+.nz-work-meta{padding:20px 2px 0}
+.nz-work-meta>span{font-size:.52rem;letter-spacing:.15em;color:#f3c62f;font-weight:800}
+.nz-work-meta h3{font:800 clamp(1.5rem,2.5vw,2.1rem)/1.1 'Manrope',sans-serif;margin:10px 0 6px}
+.nz-work-meta p{font-size:.75rem;line-height:1.55;color:#c1c4cb;margin:0;max-width:330px}
+.nz-work-cta{display:inline-flex;margin-top:48px;padding:16px 22px;border:1px solid #f3c62f;color:#f3c62f;font-size:.55rem;letter-spacing:.14em;font-weight:800}
+@media(max-width:850px){.nz-work-heading{grid-template-columns:1fr;gap:16px}.nz-work-heading>div{align-items:flex-start;flex-direction:column}.nz-work-grid{grid-template-columns:1fr 1fr}.nz-work-card:first-child{grid-column:1/-1}.nz-work-card:first-child .nz-work-visual{height:390px}}
+@media(max-width:560px){.nz-work-section{padding:78px 18px}.nz-work-heading{margin-bottom:36px}.nz-work-grid{grid-template-columns:1fr;gap:32px}.nz-work-card:first-child{grid-column:auto}.nz-work-card:first-child .nz-work-visual,.nz-work-visual{height:300px}.demo-browser{height:70%}.nz-work-meta h3{font-size:1.7rem}}
