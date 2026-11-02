@@ -172,3 +172,29 @@
  .nz-wordmark img{width:44px;height:36px}
  .nz-service-item{padding:20px 12px}
 }
+
+
+/* Processo de trabalho e símbolo demonstrativo para a área de logótipos */
+.nz-process-section{padding:clamp(82px,10vw,138px) clamp(18px,5vw,72px);background:#090909;color:#f5f2eb}
+.nz-process-heading{display:grid;grid-template-columns:130px 1fr;gap:28px;margin-bottom:58px}
+.nz-process-heading>span{font-size:.6rem;letter-spacing:.16em;font-weight:800;color:#f3c62f}
+.nz-process-heading>div{display:flex;align-items:end;justify-content:space-between;gap:30px}
+.nz-process-heading h2{font:900 clamp(3.5rem,7.6vw,7rem)/.88 'Manrope','DM Sans',sans-serif;letter-spacing:-.075em;margin:0}
+.nz-process-heading h2 em{font-style:normal;color:#e52b2f}
+.nz-process-heading p{max-width:290px;color:#b9b7b1;font-size:.8rem;line-height:1.65;margin:0}
+.nz-process-list{border-top:1px solid rgba(245,242,235,.22)}
+.nz-process-step{display:grid;grid-template-columns:76px minmax(0,1fr) 90px;gap:22px;align-items:center;padding:27px 8px;border-bottom:1px solid rgba(245,242,235,.22);position:relative;overflow:hidden;transition:background .25s,padding .25s;border-radius:14px}
+.nz-process-step:hover{background:#111b34;padding-left:20px;padding-right:20px}
+.nz-process-number{font-size:.65rem;font-weight:800;letter-spacing:.13em;color:#f3c62f}
+.nz-process-step h3{font:800 clamp(1.35rem,2.5vw,2rem)/1.1 'Manrope','DM Sans',sans-serif;margin:0 0 8px}
+.nz-process-step p{font-size:.78rem;line-height:1.6;color:#b9b7b1;max-width:620px;margin:0}
+.nz-process-symbol{font:900 3.2rem/.9 'Manrope',sans-serif;letter-spacing:-.08em;color:rgba(229,43,47,.8);text-align:right}
+.demo-mark{position:relative;width:76%;height:70%;display:flex;align-items:center;justify-content:center;overflow:hidden;border-radius:28px;background:#101b36}
+.demo-mark-z{font:900 clamp(8rem,18vw,14rem)/.8 'Manrope',sans-serif;letter-spacing:-.15em;color:#f5f2eb;position:relative;z-index:2;text-shadow:8px 8px 0 #d71920;transform:rotate(-8deg)}
+.demo-mark-orbit{position:absolute;width:78%;height:55%;border:8px solid #e52b2f;border-radius:50%;transform:rotate(-28deg)}
+.demo-mark-dot{position:absolute;width:28px;height:28px;background:#f3c62f;border-radius:50%;left:18%;bottom:18%;z-index:3}
+.nz-work-logo .nz-work-visual{background:#f3c62f}
+.nz-work-logo .demo-tag{background:#090909;color:#fff}
+.nz-work-logo .nz-work-visual>small{position:absolute;bottom:18px;color:#090909}
+@media(max-width:850px){.nz-process-heading{grid-template-columns:1fr;gap:16px}.nz-process-heading>div{align-items:flex-start;flex-direction:column}.nz-process-step{grid-template-columns:54px minmax(0,1fr) 54px;gap:12px}}
+@media(max-width:560px){.nz-process-section{padding:76px 18px}.nz-process-heading{margin-bottom:35px}.nz-process-step{grid-template-columns:36px minmax(0,1fr);padding:22px 4px}.nz-process-symbol{display:none}.nz-process-step h3{font-size:1.35rem}.nz-process-step p{font-size:.73rem}.demo-mark{width:84%;height:68%}}
