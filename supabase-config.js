@@ -3,7 +3,10 @@ window.NZINGA_SUPABASE = {
   publishableKey: 'sb_publishable_c1LN2ZBksf2HCfdBucEleQ_H9hMTJcd'
 };
 (function(){
-  function load(src){var s=document.createElement('script');s.src=src;s.async=false;document.head.appendChild(s)}
+  function load(src){
+    if(/\.css(?:\?|$)/.test(src)){var l=document.createElement('link');l.rel='stylesheet';l.href=src;document.head.appendChild(l);return}
+    var s=document.createElement('script');s.src=src;s.async=false;document.head.appendChild(s)
+  }
   function boot(){
     load('site-visual-fix.js?v=3');
     if(location.pathname.endsWith('/index.html')||location.pathname.endsWith('/')||location.pathname===''){
