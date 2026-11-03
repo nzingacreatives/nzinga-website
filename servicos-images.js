@@ -12,7 +12,8 @@
       const url=images[name]; if(!url)return;
       section.dataset.category=name;
       section.querySelectorAll('.visual').forEach(function(el){
-        el.style.backgroundImage='linear-gradient(180deg,rgba(9,9,9,.10),rgba(9,9,9,.72)),url("'+url+'")';
+        el.style.height='145px';
+        el.style.backgroundImage='linear-gradient(180deg,rgba(9,9,9,.08),rgba(9,9,9,.76)),url("'+url+'")';
         el.style.backgroundSize='cover';
         el.style.backgroundPosition='center';
         el.style.color='#fff';
