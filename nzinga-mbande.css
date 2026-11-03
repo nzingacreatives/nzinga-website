@@ -1,0 +1,8 @@
+/* Nzinga Mbande — background treatment */
+.nz-home .hero-static{position:relative;isolation:isolate;background:linear-gradient(90deg,rgba(16,27,54,.98) 0%,rgba(16,27,54,.88) 24%,rgba(16,27,54,.46) 56%,rgba(16,27,54,.12) 100%),linear-gradient(180deg,rgba(9,9,9,.08) 0%,rgba(9,9,9,.12) 50%,rgba(9,9,9,.62) 100%),url('https://www.historyhit.com/app/uploads/2023/05/Queen-Nzinga-Mbande.jpg') center center/cover no-repeat !important}
+.nz-home .hero-static::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(135deg,rgba(9,9,9,.42),transparent 42%,rgba(16,27,54,.52));pointer-events:none}
+.nz-home .hero-static-kicker,.nz-home .hero-static-word,.nz-home .hero-static-bottom{position:relative;z-index:2;text-shadow:0 2px 18px rgba(0,0,0,.58)}
+.nz-home .hero-static-word em{color:#f3c62f}
+.nz-home .nz-work-card .nz-work-visual::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(9,9,9,.25),rgba(9,9,9,.84)),url('https://www.historyhit.com/app/uploads/2023/05/Queen-Nzinga-Mbande.jpg') center/cover no-repeat;opacity:.2;filter:saturate(.8) contrast(1.05);z-index:0}
+.nz-home .nz-work-card .nz-work-visual>*{position:relative;z-index:1}
+@media(max-width:850px){.nz-home .hero-static{min-height:520px;background-position:66% center !important}}
