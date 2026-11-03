@@ -1,0 +1,23 @@
+/* HERO FINAL — retrato da Rainha Nzinga como fundo real do banner */
+.nz-home .nz-hero{grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);}
+.nz-home .hero-right.hero-static{
+  position:relative!important;
+  min-height:clamp(520px,calc(100vh - 76px),820px)!important;
+  overflow:hidden!important;
+  isolation:isolate!important;
+  border-left:1px solid rgba(255,255,255,.16)!important;
+  background-image:
+    linear-gradient(90deg,rgba(16,27,54,.98) 0%,rgba(16,27,54,.78) 20%,rgba(16,27,54,.20) 52%,rgba(9,9,9,.08) 100%),
+    linear-gradient(180deg,rgba(9,9,9,.10) 0%,rgba(9,9,9,.05) 42%,rgba(9,9,9,.72) 100%),
+    url('https://upload.wikimedia.org/wikipedia/commons/1/14/Ann_Zingha%2C_queen_of_Matamba.jpg')!important;
+  background-size:cover!important;
+  background-position:center 34%!important;
+  background-repeat:no-repeat!important;
+}
+.nz-home .hero-right.hero-static::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(135deg,rgba(9,9,9,.62) 0%,transparent 34%,transparent 62%,rgba(16,27,54,.58) 100%);}
+.nz-home .hero-right.hero-static::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(90deg,rgba(9,9,9,.52),transparent 45%),linear-gradient(0deg,rgba(9,9,9,.55),transparent 38%);}
+.nz-home .hero-right.hero-static .hero-static-word,.nz-home .hero-right.hero-static .hero-static-kicker,.nz-home .hero-right.hero-static .hero-static-bottom{display:none!important}
+.nz-home .hero-right.hero-static{display:block!important}
+.nz-home .ticker{display:none!important}
+@media(max-width:850px){.nz-home .hero-right.hero-static{min-height:480px!important;background-position:center 30%!important;border-top:1px solid rgba(255,255,255,.16)!important;border-left:0!important}}
+@media(max-width:600px){.nz-home .hero-right.hero-static{min-height:430px!important;background-position:center 30%!important}}
