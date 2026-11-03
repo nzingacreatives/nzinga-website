@@ -7,6 +7,7 @@ window.NZINGA_SUPABASE = {
   function boot(){
     load('site-visual-fix.js?v=3');
     if(location.pathname.endsWith('/index.html')||location.pathname.endsWith('/')||location.pathname==='')load('public-reviews.js?v=1');
+    if(location.pathname.endsWith('/servico.html')||location.pathname.endsWith('servico.html'))load('briefing-rules.js?v=1');
     if(!window.supabase||!window.NZINGA_SUPABASE)return;
     var box=document.getElementById('authBox'),head=document.getElementById('profileHead'),grid=document.getElementById('accountGrid');
     if(location.pathname.endsWith('/admin.html')||location.pathname.endsWith('admin.html')){
