@@ -77,6 +77,52 @@ body{font-family:'Inter',sans-serif}
 .filter-panel select{width:100%;padding:12px;background:#090909;border:1px solid #454545;color:#fff;font:inherit;font-size:.82rem;text-transform:none;letter-spacing:normal}
 .clear-filters{padding:10px 12px;background:transparent;border:1px solid #777;color:#ddd;font-size:.65rem;cursor:pointer}
 @media(max-width:600px){.filter-panel{left:0;right:0;width:100%}.filter-toggle{flex:0 0 auto}.service-tools .search{flex-basis:100%}}
+
+/* Identidade visual renovada — página de serviços */
+.services{background:linear-gradient(115deg,#151d31 0%,#171923 58%,#24171b 100%);color:#fff;padding-top:72px;padding-bottom:72px;position:relative;overflow:visible}
+.services:before{content:"";position:absolute;left:0;top:0;width:5px;height:100%;background:linear-gradient(180deg,#ef4148 0 48%,#f2c94c 48% 100%)}
+.services .eyebrow{color:#f2c94c}
+.services h2{color:#fff}
+.services-intro{color:#d4d5dc}
+.service-tools .search{background:#0f1119;border:1px solid #596174;color:#fff;border-radius:0}
+.service-tools .search::placeholder{color:#aeb4c2}
+.filter-toggle{background:#242b3b;border-color:#69748b;color:#fff}
+.filter-toggle:hover,.filter-toggle:focus-visible{background:#35435d;border-color:#f2c94c}
+.filter-icon i{background:#f2c94c}
+.filter-panel{background:#1b2130;border-color:#5c667b}
+.filter-panel label{color:#e5e7ed}
+.filter-panel select{background:#101522;border-color:#65718a;color:#fff}
+.clear-filters{border-color:#8791a5;color:#fff}
+.service-area{background:#0c0d12}
+.category[data-category="Design Gráfico"]{--category-accent:#f05b61}
+.category[data-category="Publicidade & Impressos"]{--category-accent:#f0c64c}
+.category[data-category="Eventos & Convites"]{--category-accent:#e8a17e}
+.category[data-category="Conteúdo"]{--category-accent:#d68ab4}
+.category[data-category="Documentos"]{--category-accent:#9ba9c0}
+.category[data-category="Digital & Web"]{--category-accent:#76a9e8}
+.category[data-category="Multimédia"]{--category-accent:#e5a34d}
+.category{border-left-width:4px}
+.category+.category{border-top-color:#343844}
+.category h3{color:var(--category-accent)}
+.category .eyebrow{color:var(--category-accent)}
+.category .card{background:linear-gradient(145deg,#1b1e27,#15171e);border:1px solid #363b49;border-top:3px solid var(--category-accent);color:#f8f7f3;min-height:245px;box-shadow:0 8px 22px #0003;transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease}
+.category .card h4{color:#fff;font-size:1.08rem}
+.category .card p{color:#c5c9d2}
+.category .card .visual{height:82px;background:linear-gradient(135deg,color-mix(in srgb,var(--category-accent) 25%,#171a22),#242936);color:var(--category-accent);border:1px solid color-mix(in srgb,var(--category-accent) 35%,transparent);font-size:.58rem}
+.category .card .price{color:#d6d8df;font-size:.7rem}
+.category .card .price span{color:var(--category-accent);font-weight:800}
+.category .card>a:last-child{background:var(--category-accent);color:#11131a;border:1px solid var(--category-accent);font-size:.62rem;transition:filter .2s,transform .2s}
+.category .card>a:last-child:hover{filter:brightness(1.12);transform:translateY(-1px)}
+.category .card:hover{transform:translateY(-4px);border-color:var(--category-accent);box-shadow:0 14px 28px #0005}
+.category .card:focus-within{outline:2px solid var(--category-accent);outline-offset:3px}
+.how{background:linear-gradient(120deg,#17223a,#111827);color:#fff}
+.how .eyebrow,.step span{color:#f2c94c}
+.how .step{border-top-color:#48536a}
+.how .step p{color:#c1c7d2}
+@media(max-width:760px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){.grid{grid-template-columns:1fr}.category{padding-left:12px}.category h3{font-size:clamp(2.5rem,12vw,4rem)}.category .card{min-height:220px}}
+@media(hover:none){.category .card:hover{transform:none}}
+
 </style></head>
 <body>
 <header class="top"><a class="brand" href="/index.html"><img src="/nzinga-mark-2026.svg" alt="Nzinga Creatives"><span>nzinga <i>CREATIVES</i></span></a><button class="menu" id="menu" aria-label="Abrir menu"><span class="bars"><i></i><i></i><i></i></span></button></header>
