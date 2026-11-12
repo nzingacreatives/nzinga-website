@@ -25,6 +25,27 @@ body{font-family:'Inter',sans-serif}
 .services-reference{margin:22px 0 0;max-width:520px}.services-reference img{display:block;width:100%;height:230px;object-fit:cover}.services-reference figcaption{font-size:.65rem;color:#aaa;margin-top:7px}
 /* Estrutura comercial: foco em valor, processo e clareza */
 .value-section{background:#f1eadb;color:#090909;padding:76px clamp(20px,7vw,110px)}.value-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:45px;align-items:start}.value-section h2{font:800 clamp(2.7rem,6vw,5.8rem)/.92 Manrope,sans-serif;letter-spacing:-.06em;margin:16px 0}.value-section p{color:#514e48;line-height:1.8;max-width:700px}.package-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:35px}.package-card{background:#fffaf0;border:1px solid #d4ccbd;padding:24px;min-height:230px}.package-card small{color:#e52b2f;font-weight:800;letter-spacing:.12em}.package-card h3{font:800 1.45rem Manrope,sans-serif;margin:18px 0 10px}.package-card p{font-size:.86rem;margin:0}.value-note{border-left:3px solid #e52b2f;padding:4px 0 4px 20px}.support-line{margin-top:26px;padding-top:18px;border-top:1px solid #d4ccbd;font-size:.83rem}.support-line a{color:#c91f25;text-decoration:underline}@media(max-width:750px){.value-grid,.package-grid{grid-template-columns:1fr}.value-section{padding:55px 20px}}
+
+/* Identidade cromática por categoria — cartões e indicadores */
+.category{--category-accent:#e52b2f}
+.category[data-category="Design Gráfico"]{--category-accent:#e52b2f}
+.category[data-category="Publicidade & Impressos"]{--category-accent:#f3c62f}
+.category[data-category="Eventos & Convites"]{--category-accent:#f1eadb}
+.category[data-category="Conteúdo"]{--category-accent:#d86b70}
+.category[data-category="Documentos"]{--category-accent:#b8b8b8}
+.category[data-category="Digital & Web"]{--category-accent:#8f9fbd}
+.category[data-category="Multimédia"]{--category-accent:#d5a83a}
+.category .subgroup-title{color:var(--category-accent)}
+.category .subgroup-title span{border-color:var(--category-accent);color:var(--category-accent)}
+.category .card{border:1px solid color-mix(in srgb,var(--category-accent) 48%,#090909);border-top:4px solid var(--category-accent);background:#111;color:#fffdf8}
+.category .card h4{color:#fffdf8}
+.category .card p{color:#c4c0b8}
+.category .card .visual{height:105px;background:var(--category-accent);color:#090909;border:0}
+.category .card .price{color:#c4c0b8}
+.category .card .price span{color:var(--category-accent)}
+.category .card>a:last-child{background:var(--category-accent);color:#090909}
+.category .card:hover{border-color:var(--category-accent);transform:translateY(-3px)}
+
 </style></head>
 <body>
 <header class="top"><a class="brand" href="/index.html"><img src="/nzinga-mark-2026.svg" alt="Nzinga Creatives"><span>nzinga <i>CREATIVES</i></span></a><button class="menu" id="menu" aria-label="Abrir menu"><span class="bars"><i></i><i></i><i></i></span></button></header>
